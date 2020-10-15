@@ -306,8 +306,16 @@ describe('A valid Connector Configuration', () => {
     describe('when getting a list of alias names from an organisation', () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
-        stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+        const secondStubWalletFacade = sinon.createStubInstance(IWalletFacade);
+        stubWalletFacadeFactory.create.onCall(0).resolves(stubWalletFacade);
+        stubWalletFacadeFactory.create.onCall(1).resolves(secondStubWalletFacade);
+        stubWalletFacadeFactory.create.onCall(2).resolves(secondStubWalletFacade);
+        secondStubWalletFacade.getAllIdentityNames.resolves([]);
         stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
+
+        afterEach(() => {
+            sinon.resetHistory();
+        });
 
         it('should return the correct aliases for the default organisation', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
