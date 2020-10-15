@@ -232,13 +232,14 @@ describe('An Identity Manager', () => {
     describe('when getting a list of alias names from an organisation', () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
-        stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+        const secondStubWalletFacade = sinon.createStubInstance(IWalletFacade);
+        stubWalletFacadeFactory.create.onFirstCall().resolves(stubWalletFacade);
         stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
-        stubWalletFacade.export.resolves({
-            mspid : 'mspidstand',
-            certificate : 'cert/path/to/somewhere.pem',
-            privateKey : 'key/path/to/somewhere.pem',
-        });
+
+        // const stubAllIdentityNames = sinon.stub();
+        // secondStubWalletFacade.getAllIdentityNames = stubAllIdentityNames.resolves([]);
+        secondStubWalletFacade.getAllIdentityNames.resolves([]);
+        stubWalletFacadeFactory.create.onSecondCall().resolves(secondStubWalletFacade);
 
         it('should return the correct aliases for the default organisation', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
