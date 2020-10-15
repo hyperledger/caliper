@@ -233,13 +233,15 @@ describe('An Identity Manager', () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
         const secondStubWalletFacade = sinon.createStubInstance(IWalletFacade);
-        stubWalletFacadeFactory.create.onFirstCall().resolves(stubWalletFacade);
         stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
-
-        // const stubAllIdentityNames = sinon.stub();
-        // secondStubWalletFacade.getAllIdentityNames = stubAllIdentityNames.resolves([]);
         secondStubWalletFacade.getAllIdentityNames.resolves([]);
-        stubWalletFacadeFactory.create.onSecondCall().resolves(secondStubWalletFacade);
+        stubWalletFacadeFactory.create.onCall(0).resolves(stubWalletFacade);
+        stubWalletFacadeFactory.create.onCall(1).resolves(secondStubWalletFacade);
+        stubWalletFacadeFactory.create.onCall(2).resolves(secondStubWalletFacade);
+
+        afterEach(() => {
+            sinon.resetHistory();
+        });
 
         it('should return the correct aliases for the default organisation', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
@@ -268,8 +270,17 @@ describe('An Identity Manager', () => {
 
         beforeEach(() => {
             stubWalletFacade = sinon.createStubInstance(IWalletFacade);
-            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
             stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
+            const secondStubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            secondStubWalletFacade.getAllIdentityNames.resolves([]);
+            stubWalletFacadeFactory.create.onCall(0).resolves(stubWalletFacade);
+            stubWalletFacadeFactory.create.onCall(1).resolves(secondStubWalletFacade);
+            stubWalletFacadeFactory.create.onCall(2).resolves(secondStubWalletFacade);
+            secondStubWalletFacade.getAllIdentityNames.resolves([]);
+        });
+
+        afterEach(() => {
+            sinon.resetHistory();
         });
 
         it('should throw an error if certificates section isn\'t an array', async () => {
@@ -432,6 +443,12 @@ describe('An Identity Manager', () => {
             const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
             stubWalletFacadeFactory.create.resolves(stubWalletFacade);
             stubWalletFacade.getAllIdentityNames.resolves(['User1']);
+            const testIdentity = {
+                mspid : 'org4MSP',
+                certificate : 'cert/path/to/somewhere.pem',
+                privateKey : 'key/path/to/somewhere.pem',
+            };
+            stubWalletFacade.export.resolves(testIdentity);
             const identityManagerFactory = new IdentityManagerFactory();
 
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org4MSP]);
