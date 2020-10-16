@@ -29,6 +29,7 @@ describe('A Connector Configuration Factory', () => {
 
     const walletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
     const walletFacade = sinon.createStubInstance(IWalletFacade);
+    walletFacade.getAllIdentityNames.resolves([]);
     walletFacadeFactory.create.resolves(walletFacade);
 
     it('should accept a valid YAML file', async () => {
