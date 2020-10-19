@@ -1,8 +1,8 @@
 ---
-layout: v0.4.0
+layout: v0.4.1
 title:  "Workload Configuration"
 categories: docs
-permalink: /v0.4.0/workload-module/
+permalink: /v0.4.1/workload-module/
 order: 4
 ---
 

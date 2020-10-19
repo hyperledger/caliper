@@ -1,8 +1,8 @@
 ---
-layout: v0.4.0
+layout: v0.4.1
 title:  "Monitors and Observers"
 categories: reference
-permalink: /v0.4.0/caliper-monitors/
+permalink: /v0.4.1/caliper-monitors/
 order: 5
 ---
 

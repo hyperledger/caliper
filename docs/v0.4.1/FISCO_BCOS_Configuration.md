@@ -1,8 +1,8 @@
 ---
-layout: v0.4.0
+layout: v0.4.1
 title:  "FISCO BCOS"
 categories: config
-permalink: /v0.4.0/fisco-config/
+permalink: /v0.4.1/fisco-config/
 order: 4
 ---
 

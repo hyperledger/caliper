@@ -1,8 +1,8 @@
 ---
-layout: v0.4.0
+layout: v0.4.1
 title:  "Messengers"
 categories: reference
-permalink: /v0.4.0/caliper-messengers/
+permalink: /v0.4.1/caliper-messengers/
 order: 6
 ---
 

@@ -1,8 +1,8 @@
 ---
-layout: v0.4.0
+layout: v0.4.1
 title:  "Installing and Running Caliper"
 categories: docs
-permalink: /v0.4.0/installing-caliper/
+permalink: /v0.4.1/installing-caliper/
 order: 2
 ---
 
