@@ -71,7 +71,6 @@ class IdentityManager {
             if (mspId !== this.defaultMspId) {
                 return identityName.startsWith(this._getPrefixForIdentityNameFromOrganisation(mspId));
             }
-
             return identityName.search(/^_..*_/) === -1;
         });
     }
@@ -186,12 +185,17 @@ class IdentityManager {
     /**
      * Extract identities from a version specific wallet and store in the in memory wallet
      * @param {string} mspId mspId of the organisation
-     * @param {*} wallet the wallet information
+     * @param {*} wallet the wallet information from the configuration file
      * @async
      * @private
      */
     async _extractIdentitiesFromWallet(mspId, wallet) {
-        // TODO: To be implemented
+        const walletFacade = await this.walletFacadeFactory.create(wallet.path);
+        const allIdentityNames = await walletFacade.getAllIdentityNames();
+        for (const identityName of allIdentityNames){
+            const identity = await walletFacade.export(identityName);
+            await this._addToWallet(identity.mspid, identityName, identity.certificate, identity.privateKey);
+        }
     }
 
     /**

@@ -1,7 +1,7 @@
 {
     "name": "@hyperledger/generator-caliper",
     "description": "Yeoman generator for Hyperledger Caliper",
-    "version": "0.5.0-unstable",
+    "version": "0.4.1",
     "author": "Lynn Muswere",
     "homepage": "https://hyperledger.github.io/caliper/",
     "repository": {
@@ -22,8 +22,8 @@
         "nyc": "nyc mocha --recursive -t 10000"
     },
     "engines": {
-        "node": ">=8.10.0",
-        "npm": ">=5.6.0"
+        "node": ">=10.22.0",
+        "npm": ">=6.14.0"
     },
     "files": [
         "generators"

@@ -1,3 +1,11 @@
+## 0.4.1
+  * [Feature] Besu private transactions ([PR1030](https://github.com/hyperledger/caliper/pull/1030))
+
+  * [Fix] Node engines out of date for project ([PR1053](https://github.com/hyperledger/caliper/pull/1053))
+  * [Fix] Caliper docker image workers can hang ([PR1050](https://github.com/hyperledger/caliper/pull/1050))
+  * [Fix] Negative send rates observable in reports ([PR1045](https://github.com/hyperledger/caliper/pull/1045))
+
+
 ## 0.4.0
 
 * Core changes

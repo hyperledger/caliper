@@ -30,6 +30,7 @@ describe('A valid Connector Configuration', () => {
 
     const walletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
     const walletFacade = sinon.createStubInstance(IWalletFacade);
+    walletFacade.getAllIdentityNames.resolves([]);
     walletFacadeFactory.create.resolves(walletFacade);
 
     describe('for mutual TLS', () => {
@@ -308,6 +309,12 @@ describe('A valid Connector Configuration', () => {
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
         stubWalletFacadeFactory.create.resolves(stubWalletFacade);
         stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_Org2MSP_admin', '_Org2MSP_issuer']);
+        const testIdentity = {
+            mspid : 'Org1MSP',
+            certificate : '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----',
+            privateKey : '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----',
+        };
+        stubWalletFacade.export.resolves(testIdentity);
 
         it('should return the correct aliases for the default organisation', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
@@ -409,6 +416,7 @@ describe('A valid Connector Configuration', () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
         stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+        stubWalletFacade.getAllIdentityNames.resolves([]);
         stubWalletFacade.getWallet.returns('IamAwallet');
         const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
         await connectorConfiguration.getWallet().should.equal('IamAwallet');
@@ -418,6 +426,7 @@ describe('A valid Connector Configuration', () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
         stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+        stubWalletFacade.getAllIdentityNames.resolves([]);
         const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
         await connectorConfiguration.getWalletFacade().should.equal(stubWalletFacade);
     });

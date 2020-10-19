@@ -313,36 +313,39 @@ class TransactionStatisticsCollector {
         let roundIndex = uniqueRoundIndices.length === 1 ? uniqueRoundIndices[0] : -1;
 
         const sum = (prev, curr) => prev + curr;
+        const sumStats = (selector) => currentStats.map(stat => selector(stat)).reduce(sum, 0);
+        const minStat = (selector) => Math.min(...currentStats.map(stat => selector(stat)));
+        const maxStat = (selector) => Math.max(...currentStats.map(stat => selector(stat)));
 
         let mergedStats = {
             metadata: {
                 workerIndex: workerIndex,
                 roundIndex: roundIndex,
-                roundStartTime: Math.min(...currentStats.map(s => s.metadata.roundStartTime)), // Remark 1
-                roundFinishTime: Math.max(...currentStats.map(s => s.metadata.roundFinishTime)), // Remark 2
+                roundStartTime: minStat(stat => stat.metadata.roundStartTime), // Remark 1
+                roundFinishTime: maxStat(stat => stat.metadata.roundFinishTime), // Remark 2
             },
             txCounters: {
-                totalSubmitted: currentStats.map(s => s.txCounters.totalSubmitted).reduce(sum, 0),
-                totalFinished: currentStats.map(s => s.txCounters.totalFinished).reduce(sum, 0),
-                totalSuccessful: currentStats.map(s => s.txCounters.totalSuccessful).reduce(sum, 0),
-                totalFailed: currentStats.map(s => s.txCounters.totalFailed).reduce(sum, 0),
+                totalSubmitted: sumStats(stat => stat.txCounters.totalSubmitted),
+                totalFinished: sumStats(stat => stat.txCounters.totalFinished),
+                totalSuccessful: sumStats(stat => stat.txCounters.totalSuccessful),
+                totalFailed: sumStats(stat => stat.txCounters.totalFailed),
             },
             timestamps: {
-                firstCreateTime: Math.min(...currentStats.map(s => s.timestamps.firstFinishTime)),
-                lastCreateTime: Math.max(...currentStats.map(s => s.timestamps.lastCreateTime)),
-                firstFinishTime: Math.min(...currentStats.map(s => s.timestamps.firstFinishTime)),
-                lastFinishTime: Math.max(...currentStats.map(s => s.timestamps.lastFinishTime)),
+                firstCreateTime: minStat(stat => stat.timestamps.firstCreateTime),
+                lastCreateTime: maxStat(stat => stat.timestamps.lastCreateTime),
+                firstFinishTime: minStat(stat => stat.timestamps.firstFinishTime),
+                lastFinishTime: maxStat(stat => stat.timestamps.lastFinishTime)
             },
             latency: {
                 successful: {
-                    min: Math.min(...currentStats.map(s => s.latency.successful.min)),
-                    max: Math.max(...currentStats.map(s => s.latency.successful.max)),
-                    total: currentStats.map(s => s.latency.successful.total).reduce(sum, 0),
+                    min: minStat(stat => stat.latency.successful.min),
+                    max: maxStat(stat => stat.latency.successful.max),
+                    total: sumStats(stat => stat.latency.successful.total),
                 },
                 failed: {
-                    min: Math.min(...currentStats.map(s => s.latency.failed.min)),
-                    max: Math.max(...currentStats.map(s => s.latency.failed.max)),
-                    total: currentStats.map(s => s.latency.failed.total).reduce(sum, 0),
+                    min: minStat(stat => stat.latency.failed.min),
+                    max: maxStat(stat => stat.latency.failed.max),
+                    total: sumStats(stat => stat.latency.failed.total),
                 }
             }
         };
