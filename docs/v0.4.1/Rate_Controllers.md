@@ -1,8 +1,8 @@
 ---
-layout: v0.4.0
+layout: v0.4.1
 title:  "Rate Controllers"
 categories: reference
-permalink: /v0.4.0/rate-controllers/
+permalink: /v0.4.1/rate-controllers/
 order: 4
 ---
 

@@ -1,8 +1,8 @@
 ---
-layout: v0.4.0
+layout: v0.4.1
 title:  "Runtime Configuration"
 categories: reference
-permalink: /v0.4.0/runtime-config/
+permalink: /v0.4.1/runtime-config/
 order: 3
 ---
 

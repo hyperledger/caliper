@@ -1,8 +1,8 @@
 ---
-layout: v0.4.0
+layout: v0.4.1
 title:  "Fabric"
 categories: config
-permalink: /v0.4.0/fabric-config/
+permalink: /v0.4.1/fabric-config/
 order: 3
 ---
 
