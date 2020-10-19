@@ -28,7 +28,7 @@ describe('A Connection Profile Definition', async () => {
     const staticConnectionProfile = fs.readFileSync(path.resolve(__dirname, '../sample-configs/StaticOrg1ConnectionProfile.json'));
     const mspId = 'Org1MSP';
 
-    it('should return whether it is dynamic or not based on the discover property', () => {
+    it('should return whether it is dynamic or not (true or false) based on the discover property', () => {
         const providedConnectionPofile = JSON.parse(connectionProfile.toString());
         let  connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
             loadedConnectionProfile: providedConnectionPofile,
@@ -308,7 +308,4 @@ describe('A Connection Profile Definition', async () => {
             }).should.throw(/No orderers defined for mychannel in the connection profile for organization Org1MSP/);
         });
     });
-
-
-    // TODO: TESTS required
 });

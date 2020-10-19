@@ -91,6 +91,15 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
+echo "Run Legacy connector. NOTE: Marble creation will fail with errors as they have already been created."
+${CALL_METHOD} launch manager --caliper-workspace phase4 --caliper-networkconfig networkconfig-legacy.yaml --caliper-flow-only-test
+rc=$?
+if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 6";
+    dispose;
+    exit ${rc};
+fi
+
 # PHASE 5: testing through the gateway API (v1 SDK)
 ${CALL_METHOD} launch manager --caliper-workspace phase5 --caliper-flow-only-test --caliper-fabric-gateway-enabled
 rc=$?

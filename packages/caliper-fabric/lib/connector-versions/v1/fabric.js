@@ -1622,9 +1622,14 @@ class LegacyV1Fabric extends ConnectorBase {
                 }, this._getRemainingTimeout(startTime, timeout));
 
                 invokeStatus.Set('time_create', Date.now());
-                const result = await channel.queryByChaincode(proposalRequest, admin);
-                clearTimeout(timeoutHandle);
-                resolve(result);
+                try {
+                    const result = await channel.queryByChaincode(proposalRequest, admin);
+                    clearTimeout(timeoutHandle);
+                    resolve(result);
+                } catch(err) {
+                    clearTimeout(timeoutHandle);
+                    reject(err);
+                }
             });
 
             results = await resultPromise;

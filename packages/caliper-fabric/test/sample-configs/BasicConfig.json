@@ -9,7 +9,7 @@
     },
     "channels": [
       {
-        "channelName": "my-channel",
+        "channelName": "mychannel",
         "create": true,
         "definition": {
           "capabilities": [],
@@ -44,7 +44,7 @@
         ]
       },
       {
-        "channelName": "your-channel",
+        "channelName": "yourchannel",
         "create": false,
         "contracts": [
           {
@@ -57,7 +57,7 @@
     ],
     "organizations": [
       {
-        "mspid": "org1MSP",
+        "mspid": "Org1MSP",
         "identities": {
           "credentialStore": {
             "path": "/tmp/hfc-kvs/org1",
@@ -86,7 +86,7 @@
         }
       },
       {
-        "mspid": "org2MSP",
+        "mspid": "Org2MSP",
         "connectionProfile": {
           "path": "some/path/to/org-specific-profile",
           "discover": false

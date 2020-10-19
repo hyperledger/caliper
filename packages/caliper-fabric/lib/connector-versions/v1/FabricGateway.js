@@ -50,7 +50,7 @@ const QueryStrategies = {
  *           passed to the contract.
  * @property {string} [invokerMspId] Optional. The MspId of the invoker. Required if there are more than
  *           1 organisation defined in the network configuration file
- * @property {string} invokerIdentity Required. The name of the client who should invoke the
+ * @property {string} invokerIdentity Required. The identity name of the invoker
  * @property {boolean} [readOnly] Optional. Indicates whether the request is a submit or evaluation.
  *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
  * @property {string[]} [targetPeers] Optional. An array of endorsing
@@ -347,7 +347,7 @@ class V1FabricGateway extends ConnectorBase {
         }
 
         if (invokeSettings.targetPeers && isSubmit) {
-            if (Array.isArray(invokeSettings.targetPeers)) {
+            if (Array.isArray(invokeSettings.targetPeers) && invokeSettings.targetPeers.length > 0) {
                 const targetPeerObjects = [];
                 for (const name of invokeSettings.targetPeers) {
                     const peer = this.peerNameToPeerObjectCache.get(name);
@@ -395,6 +395,7 @@ class V1FabricGateway extends ConnectorBase {
         } catch (err) {
             logger.error(`Failed to perform ${isSubmit ? 'submit' : 'query' } transaction [${invokeSettings.contractFunction}] using arguments [${invokeSettings.contractArguments}],  with error: ${err.stack ? err.stack : err}`);
             invokeStatus.SetStatusFail();
+            invokeStatus.SetVerification(true);
             invokeStatus.SetResult('');
 
             return invokeStatus;

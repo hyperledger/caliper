@@ -180,13 +180,13 @@ describe('An Identity Manager', () => {
 
         it('should return the correct aliases for the default organisation', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
-            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSPWithCertificates]);
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSPWithCertificates, org2MSPWithCertificates]);
             await identityManager.getAliasNamesForOrganization('Org1MSP').should.eventually.deep.equal(['admin', 'user']);
         });
 
         it('should return the correct aliases for a non default organisation', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
-            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSPWithCertificates]);
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSPWithCertificates, org2MSPWithCertificates]);
             await identityManager.getAliasNamesForOrganization('Org2MSP').should.eventually.deep.equal(['_Org2MSP_admin', '_Org2MSP_issuer']);
         });
 

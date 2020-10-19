@@ -109,7 +109,8 @@ class Contract {
 }
 
 class Network {
-    async getContract() {
+    async getContract(args) {
+        Network.getContractArgs = args;
         return new Contract();
     }
 
@@ -117,6 +118,10 @@ class Network {
         return {
             client: {getEndorsers: () => [new StubPeer('peer1'), new StubPeer('peer2'), new StubPeer('peer3')]}
         };
+    }
+
+    static reset() {
+        Network.getContractArgs = undefined;
     }
 }
 
