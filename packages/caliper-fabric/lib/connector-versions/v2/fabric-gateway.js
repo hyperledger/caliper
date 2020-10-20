@@ -352,7 +352,7 @@ class LegacyV2FabricGateway extends ConnectorBase {
                 strategy: EventStrategies[this.eventStrategy]
             },
             queryHandlerOptions: {
-                requestTimeout: this.configDefaultTimeout,
+                timeout: this.configDefaultTimeout,
                 strategy: QueryStrategies[this.queryStrategy]
             }
         };

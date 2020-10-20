@@ -170,11 +170,20 @@ class ConnectorConfiguration {
     /**
      * Get a list of all the alias names for an organization that will be in the wallet
      * @param {string} mspId The msp ID of the organization
-     * @returns {string[]} a list of all the aliases or a blank array if there are none
+     * @returns {string[]} a list of all the aliases (including admin specified) or a blank array if there are none
      * @async
      */
     async getAliasNamesForOrganization(mspId) {
         return await this.identityManager.getAliasNamesForOrganization(mspId);
+    }
+
+    /**
+     * Get a list of admin alias names for an organization
+     * @param {string} mspId the mspid of the organization
+     * @returns {string[]} list of admin alias names or empty if none
+     */
+    getAdminAliasNamesForOrganization(mspId) {
+        return this.identityManager.getAdminAliasNamesForOrganization(mspId);
     }
 
     /**

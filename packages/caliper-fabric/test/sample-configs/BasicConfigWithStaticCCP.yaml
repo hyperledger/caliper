@@ -70,7 +70,7 @@ organizations:
             path: /tmp/hfc-cvs/org1
       #  [Optional] File path to a FileWallet, within which all entries are all for the same org. Only for use by gateway
       wallet:
-         path: 'some/path/to/org-specific-wallet'
+         path: './test/sample-configs'
       # [Optional] certificates for the client
       certificates:
       - name: 'User1'
