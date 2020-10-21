@@ -27,11 +27,14 @@ const IWalletFacade = require('../../lib/identity-management/IWalletFacade');
 const ConnectionProfileDefinition = require('../../lib/connector-configuration/ConnectionProfileDefinition');
 
 describe('A valid Connector Configuration', () => {
-
-    const walletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
-    const walletFacade = sinon.createStubInstance(IWalletFacade);
-    walletFacade.getAllIdentityNames.resolves([]);
-    walletFacadeFactory.create.resolves(walletFacade);
+    let walletFacadeFactory;
+    let walletFacade;
+    beforeEach(() => {
+        walletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+        walletFacade = sinon.createStubInstance(IWalletFacade);
+        walletFacade.getAllIdentityNames.resolves([]);
+        walletFacadeFactory.create.resolves(walletFacade);
+    });
 
     describe('for mutual TLS', () => {
         it('should report true if specified as true in the configuration', async () => {
@@ -305,29 +308,28 @@ describe('A valid Connector Configuration', () => {
     });
 
     describe('when getting a list of alias names from an organisation', () => {
-        const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
-        const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
-        stubWalletFacadeFactory.create.resolves(stubWalletFacade);
-        stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_Org2MSP_admin', '_Org2MSP_issuer']);
-        const testIdentity = {
-            mspid : 'Org1MSP',
-            certificate : '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----',
-            privateKey : '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----',
-        };
-        stubWalletFacade.export.resolves(testIdentity);
+        beforeEach(() => {
+            walletFacade.getAllIdentityNames.resolves(['admin', 'user', '_Org2MSP_admin', '_Org2MSP_issuer']);
+            const testIdentity = {
+                mspid : 'Org1MSP',
+                certificate : '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----',
+                privateKey : '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----',
+            };
+            walletFacade.export.resolves(testIdentity);
+        });
 
         it('should return the correct aliases for the default organisation', async () => {
-            const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
             await connectorConfiguration.getAliasNamesForOrganization('Org1MSP').should.eventually.deep.equal(['admin', 'user']);
         });
 
         it('should return the correct aliases for a non default organisation', async () => {
-            const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
             await connectorConfiguration.getAliasNamesForOrganization('Org2MSP').should.eventually.deep.equal(['_Org2MSP_admin', '_Org2MSP_issuer']);
         });
 
         it('should return an empty array when there are no aliases for the organization', async () => {
-            const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
             await connectorConfiguration.getAliasNamesForOrganization('org3MSP').should.eventually.deep.equal([]);
         });
     });
@@ -382,7 +384,8 @@ describe('A valid Connector Configuration', () => {
         it('should throw an error if a invalid json file is provided', async () => {
             const configFile = new GenerateConfiguration('./test/sample-configs/BasicConfig.yaml').generateConfigurationFileReplacingProperties(
                 'path',
-                './test/sample-configs/invalid.json'
+                './test/sample-configs/invalid.json',
+                'connectionProfile'
             );
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
             await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org1MSP').should.be.rejectedWith(/Failed to parse the .*invalid.json/);
@@ -391,7 +394,8 @@ describe('A valid Connector Configuration', () => {
         it('should throw an error if a invalid yaml is provided', async () => {
             const configFile = new GenerateConfiguration('./test/sample-configs/BasicConfig.yaml').generateConfigurationFileReplacingProperties(
                 'path',
-                './test/sample-configs/invalid.yaml'
+                './test/sample-configs/invalid.yaml',
+                'connectionProfile'
             );
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
             await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org1MSP').should.be.rejectedWith(/Failed to parse the .*invalid.yaml/);
@@ -407,35 +411,23 @@ describe('A valid Connector Configuration', () => {
         });
     });
 
-    it('should return the list of mspid\'s defined when getting the list of organizations', async () => {
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.json', walletFacadeFactory);
-        connectorConfiguration.getOrganizations().should.deep.equal(['Org1MSP', 'Org2MSP']);
-    });
+    describe('when getting the in memory wallet that contains all identities', () => {
+        it('should return the wallet facade when requested', async () => {
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
+            await connectorConfiguration.getWalletFacade().should.equal(walletFacade);
+        });
 
-    it('should return a wallet for the alias when requested', async () => {
-        const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
-        const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
-        stubWalletFacadeFactory.create.resolves(stubWalletFacade);
-        stubWalletFacade.getAllIdentityNames.resolves([]);
-        stubWalletFacade.getWallet.returns('IamAwallet');
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
-        await connectorConfiguration.getWallet().should.equal('IamAwallet');
-    });
-
-    it('should return the wallet facade', async () => {
-        const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
-        const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
-        stubWalletFacadeFactory.create.resolves(stubWalletFacade);
-        stubWalletFacade.getAllIdentityNames.resolves([]);
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
-        await connectorConfiguration.getWalletFacade().should.equal(stubWalletFacade);
+        it('should return a wallet when requested', async () => {
+            walletFacade.getWallet.returns('IamAwallet');
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
+            await connectorConfiguration.getWallet().should.equal('IamAwallet');
+        });
     });
 
     describe('when generating an alias name', () => {
         it('should not prefix for the default organisation', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
             connectorConfiguration.getAliasNameFromOrganizationAndIdentityName('Org1MSP', 'admin').should.equal('admin');
-
         });
 
         it('should prefix for the non default organisation', async () => {
@@ -479,5 +471,23 @@ describe('A valid Connector Configuration', () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
             connectorConfiguration.getContractDetailsForContractId('foundmarbles').should.deep.equal({channel: 'mychannel', id: 'foundmarbles'});
         });
+    });
+
+    it('should return the list of mspid\'s defined when getting the list of organizations', async () => {
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.json', walletFacadeFactory);
+        connectorConfiguration.getOrganizations().should.deep.equal(['Org1MSP', 'Org2MSP']);
+    });
+
+    it('should return the correct aliases for defined admins', async () => {
+        walletFacade.getAllIdentityNames.resolves(['User1', 'admin']);
+
+        const testIdentity = {
+            mspid : 'Org1MSP',
+            certificate : '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----',
+            privateKey : '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----',
+        };
+        walletFacade.export.resolves(testIdentity);
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
+        connectorConfiguration.getAdminAliasNamesForOrganization('Org1MSP').should.deep.equal(['admin']);
     });
 });

@@ -56,16 +56,17 @@ class GenerateTestConfiguration {
 
     /**
      * Generate a configuration from an existing configuration by replacing a specific
-     * properties value. If the property is repeated more than once it replaces all those
+     * property's value. If the property is repeated more than once it replaces all those
      * instances
      *
      * @param {string} propertyName a property name in the configuration
      * @param {*} replacementValue a replacement value for the property in the configuration
+     * @param {string} [owningPropertyName] optional owning property name for any properties to be replaced
      * @returns {string} A Path to the new configuration file
      */
-    generateConfigurationFileReplacingProperties(propertyName, replacementValue) {
+    generateConfigurationFileReplacingProperties(propertyName, replacementValue, owningPropertyName) {
         const clonedConfiguration = JSON.parse(JSON.stringify(this.baseConfiguration));
-        this._searchAndReplaceProperty(clonedConfiguration, propertyName, replacementValue);
+        this._searchAndReplaceProperty('root', clonedConfiguration, propertyName, replacementValue, owningPropertyName);
         const newConfigurationFilePath = path.join(this.temporaryDirectory, 'TestConfig.json');
         fs.writeFileSync(newConfigurationFilePath, JSON.stringify(clonedConfiguration));
 
@@ -75,17 +76,21 @@ class GenerateTestConfiguration {
     /**
      * Search for a property name and replace it's value if found
      *
-     * @param {*} object the object to search and update
-     * @param {string} propertyName a property name in the configuration
+     * @param {*} currentPropertyName the object to search and update
+     * @param {*} currentPropertyValue the object to search and update
+     * @param {string} propertyNameToFind a property name in the configuration
      * @param {*} replacementValue a replacement value for the property in the configuration
+     * @param {string} [requiredCurrentPropertyName] owning property name must match
      */
-    _searchAndReplaceProperty(object, propertyName, replacementValue) {
-        for (const objectKey in object) {
-            if (objectKey === propertyName) {
-                object[objectKey] = replacementValue;
+    _searchAndReplaceProperty(currentPropertyName, currentPropertyValue, propertyNameToFind, replacementValue, requiredCurrentPropertyName) {
+        for (const propertyNameInCurrentPropertyValue in currentPropertyValue) {
+            if (propertyNameInCurrentPropertyValue === propertyNameToFind) {
+                if (!requiredCurrentPropertyName || requiredCurrentPropertyName === currentPropertyName) {
+                    currentPropertyValue[propertyNameInCurrentPropertyValue] = replacementValue;
+                }
             } else {
-                if (typeof object[objectKey] === 'object') {
-                    this._searchAndReplaceProperty(object[objectKey], propertyName, replacementValue);
+                if (typeof currentPropertyValue[propertyNameInCurrentPropertyValue] === 'object') {
+                    this._searchAndReplaceProperty(propertyNameInCurrentPropertyValue, currentPropertyValue[propertyNameInCurrentPropertyValue], propertyNameToFind, replacementValue, requiredCurrentPropertyName);
                 }
             }
         }

@@ -30,6 +30,7 @@ class IdentityManager {
         this.organizations = organizations;
         this.defaultMspId = null;
         this.inMemoryWalletFacade = null;
+        this.adminAliasNames = [];
     }
 
     /**
@@ -61,18 +62,21 @@ class IdentityManager {
     /**
      * Get a list of all the alias names for an organization that will be in the wallet
      * @param {string} mspId the msp ID of the organization
-     * @returns {string[]} a list of all the aliases or a blank array if there are none
+     * @returns {string[]} a list of all the aliases (including admin specified) or a blank array if there are none
      * @async
      */
     async getAliasNamesForOrganization(mspId) {
-        const walletIdentityNames = await this.inMemoryWalletFacade.getAllIdentityNames();
+        const aliasNames = await this.inMemoryWalletFacade.getAllIdentityNames();
+        return this._getAliasNamesInOrganization(aliasNames, mspId);
+    }
 
-        return walletIdentityNames.filter((identityName) => {
-            if (mspId !== this.defaultMspId) {
-                return identityName.startsWith(this._getPrefixForIdentityNameFromOrganisation(mspId));
-            }
-            return identityName.search(/^_..*_/) === -1;
-        });
+    /**
+     * Get a list of admin alias names for an organization
+     * @param {string} mspId the mspid of the organization
+     * @returns {string[]} list of admin alias names or empty if none
+     */
+    getAdminAliasNamesForOrganization(mspId) {
+        return this._getAliasNamesInOrganization(this.adminAliasNames, mspId);
     }
 
     /**
@@ -92,6 +96,21 @@ class IdentityManager {
     }
 
     /**
+     * extract alias names for a specific organization
+     * @param {string[]} aliasNames the complete list of alias names to search
+     * @param {string} mspId the organization mspid
+     * @returns {string[]} the list of alias names for that organization or an empty array if none
+     */
+    _getAliasNamesInOrganization(aliasNames, mspId) {
+        return aliasNames.filter((aliasName) => {
+            if (mspId !== this.defaultMspId) {
+                return aliasName.startsWith(this._getPrefixForIdentityNameFromOrganisation(mspId));
+            }
+            return aliasName.search(/^_..*_/) === -1;
+        });
+    }
+
+    /**
      * Define and return the non default organization prefix
      * @param {string} mspId The msp ID
      * @returns {string} The alias prefix
@@ -105,19 +124,23 @@ class IdentityManager {
      * Add an identity to the in memory wallet
      * @param {*} mspId The msp ID of the organization
      * @param {*} identityName The identity name that represents the identity for the organization
+     * @param {*} isAdmin true if the identity is an organization admin identity
      * @param {*} certificate The pem encoded certificate
      * @param {*} privateKey The pem encoded private key
      * @async
      * @private
      */
-    async _addToWallet(mspId, identityName, certificate, privateKey) {
+    async _addToWallet(mspId, identityName, isAdmin, certificate, privateKey) {
         const alias = this.getAliasNameFromOrganizationAndIdentityName(mspId, identityName);
         try {
             await this.inMemoryWalletFacade.import(mspId, alias, certificate, privateKey);
+            if (isAdmin) {
+                this.adminAliasNames.push(alias);
+            }
         } catch(err) {
             if (err.message.includes('already exists')) {
                 const extraInsert = mspId ? `within organization ${mspId}` : '';
-                throw new Error(`${identityName} has been declared in more than 1 place ${extraInsert}`);
+                throw new Error(`Identity ${identityName} has been declared in more than 1 place ${extraInsert}`);
             }
 
             throw err;
@@ -190,11 +213,32 @@ class IdentityManager {
      * @private
      */
     async _extractIdentitiesFromWallet(mspId, wallet) {
-        const walletFacade = await this.walletFacadeFactory.create(wallet.path);
+        if (!wallet.path) {
+            throw new Error(`No path to the wallet for ${mspId} was supplied`);
+        }
+
+        const walletPath = CaliperUtils.resolvePath(wallet.path);
+
+        try {
+            const statOfpath = await fs.stat(walletPath);
+            if (!statOfpath.isDirectory()) {
+                throw new Error(`The path property ${walletPath} does not point to a directory for ${mspId}`);
+            }
+        } catch(err) {
+            if (err.errno === -2 || err.errno === -4058) {
+                throw new Error(`The path property ${walletPath} does not point to an existing directory for ${mspId}`);
+            }
+            throw err;
+        }
+
+        const walletFacade = await this.walletFacadeFactory.create(walletPath);
+        const adminIdentityNames = wallet.adminNames || [];
         const allIdentityNames = await walletFacade.getAllIdentityNames();
-        for (const identityName of allIdentityNames){
+
+        for (const identityName of allIdentityNames) {
             const identity = await walletFacade.export(identityName);
-            await this._addToWallet(identity.mspid, identityName, identity.certificate, identity.privateKey);
+            const isAdmin = adminIdentityNames.includes(identityName);
+            await this._addToWallet(identity.mspid, identityName, isAdmin, identity.certificate, identity.privateKey);
         }
     }
 
@@ -219,7 +263,8 @@ class IdentityManager {
 
             const certificate = await this._extractPEMFromPathOrPEMDefinition(identity.clientSignedCert, 'clientSignedCert', identity.name);
             const privateKey = await this._extractPEMFromPathOrPEMDefinition(identity.clientPrivateKey, 'clientPrivateKey', identity.name);
-            await this._addToWallet(mspId, identity.name, certificate, privateKey);
+            const isAdmin = (identity.admin !== undefined && (identity.admin === true || identity.admin === 'true'));
+            await this._addToWallet(mspId, identity.name, isAdmin, certificate, privateKey);
         }
     }
 
@@ -263,7 +308,7 @@ class IdentityManager {
         try {
             await fs.stat(configPath);
         } catch(err) {
-            if (err.errno === -2) {
+            if (err.errno === -2 || err.errno === -4058) {
                 throw new Error(`path property does not point to a file that exists for ${propertyNameBeingProcessed} for name ${name}`);
             }
             throw err;
