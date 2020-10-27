@@ -26,7 +26,7 @@ class ConnectorConfigurationFactory {
      * Create a ConnectorConfiguration instance
      * @param {string} connectorConfigurationPath path to connector configuration file
      * @param {IWalletFacadeFactory} walletFacadeFactory a version specific wallet facade factory
-     * @returns {ConnectorConfiguration} instance of a ConnectorConfiguration
+     * @returns {Promise<ConnectorConfiguration>} instance of a ConnectorConfiguration
      * @async
      */
     async create(connectorConfigurationPath, walletFacadeFactory) {

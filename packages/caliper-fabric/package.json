@@ -89,6 +89,8 @@
             "lib/identity-management/IWallet*",
             "lib/connector-versions/v1/fabric-gateway.js",
             "lib/connector-versions/v1/fabric.js",
+            "lib/connector-versions/v1/FabricChaincodeOperations.js",
+            "lib/connector-versions/v1/FabricChannelOperations.js",
             "lib/connector-versions/v2/fabric-gateway.js",
             "lib/connector-versions/v2/registrarHelper.js"
         ],

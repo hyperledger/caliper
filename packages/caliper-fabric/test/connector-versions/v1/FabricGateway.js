@@ -27,6 +27,7 @@ const DefaultQueryHandlerStrategies = {};
 const v2ConfigWithNoIdentities = '../../sample-configs/NoIdentitiesNetworkConfig.yaml';
 const v2ConfigWithSingleUser = '../../sample-configs/BasicConfig.yaml';
 
+const { Client, Constants } = require('./ClientStubs');
 const { Gateway, Transaction, InMemoryWallet, FileSystemWallet, X509WalletMixin, Network } = require('./V1GatewayStubs');
 const GenerateConfiguration = require('../../utils/GenerateConfiguration');
 const ConnectorConfigurationFactory = require('../../../lib/connector-configuration/ConnectorConfigurationFactory');
@@ -53,7 +54,17 @@ describe('A Node-SDK V1 Fabric Gateway', () => {
             Gateway
         });
 
+        mockery.registerMock('fabric-client', Client);
+        mockery.registerMock('fabric-client/lib/Constants', Constants);
         mockery.registerMock('fabric-network/package', {version: '1.4.11'});
+        mockery.registerMock('./FabricChannelOperations', class {
+            /** */
+            async createChannelsAndJoinPeers() {}
+        });
+        mockery.registerMock('./FabricChaincodeOperations', class {
+            /** */
+            async installAndInstantiateChaincodes() {}
+        });
 
         FabricGateway = require('../../../lib/connector-versions/v1/FabricGateway');
         WalletFacadeFactory = require('../../../lib/connector-versions/v1/WalletFacadeFactory');

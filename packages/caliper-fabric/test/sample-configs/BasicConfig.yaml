@@ -14,69 +14,80 @@
 #
 
 # The name of the benchmark
-name: Geoff
+name: BasicConfig
 # The caliper semantic version
 version: "2.0.0"
 
 # Global properties that define the SUT, and options that are specific to the target SUT
 caliper:
-    blockchain: fabric,
-    sutOptions :
-       mutualTls: true
+  blockchain: fabric
+  sutOptions :
+    mutualTls: true
 
 # Array of fabric channels for creation or use
 channels:
-    - channelName: mychannel
-      # [Optional] create the channel
-      create: true
-      definition:
+  - channelName: mychannel
+    # [Optional] create the channel
+    create:
+      buildTransaction:
         capabilities: []
         consortium: 'SampleConsortium2'
         msps: ['Org1MSP', 'Org2MSP']
         version: 0
-        orderers:
-        - orderer0.example.com
-        - orderer1.example.com
-        peers:
-            peer0.org1.example.com:
-                eventSource: true
-            peer0.org2.example.com:
-                eventSource: true
       # Array of contracts to be installed/instantiated on the named channel and available for use by the workload module
-      contracts:
-      - id: marbles
-        contractID: myMarbles
+    contracts:
+    - id: marbles
+      contractID: myMarbles
+      # define the install requirements to install chaincode if chaincode is to be installed
+      install:
         version: v0
         language: golang
         path: marbles/go
         metadataPath: src/marbles/go/metadata
+      # define the instantiate requirements to instantiate chaincode all of this section is optional depending on chaincode requirements
+      instantiate:
+        initFunction: init
+        initArguments: []
+        initTransientMap:
+          key1: value1
+          key2: value2
+        endorsementPolicy: ''
+        collectionsConfig: ''
 
-    - channelName: yourchannel
-      create: false
-      contracts:
-      - id: marbles
-        contractID: lostMyMarbles
-        version: v0
+  - channelName: somechannel
+    create:
+      prebuiltTransaction: 'channel.tx'
+    contracts:
+    - id: marbles
+      contractID: foundMyMarbles
+      version: v0
+
+  - channelName: yourchannel
+    contracts:
+    - id: marbles
+      contractID: lostMyMarbles
+      version: v0
 
 # [Minimum 1] Array of organizations that are to be used within the benchmarking, containing one of more identities to be used by the connector
 organizations:
   - mspid: Org1MSP
     # One or more identity specification types that may provide a unique identity for the use by the connector.
     identities:
-      # [Optional] only used for fabric connector not gateway (can also be defined in connection profile)
+      # [NOT CURRENTLY SUPPORTED] [Optional] only for use by non gateway fabric connector (could also be defined in connection profile)
       credentialStore:
         path: /tmp/hfc-kvs/org1
         cryptoStore:
             path: /tmp/hfc-cvs/org1
       #  [Optional] File path to a FileWallet, within which all entries are all for the same org. Only for use by gateway
       wallet:
-         path: './test/sample-configs'
-         adminNames:
-         - admin
+        path: './test/sample-configs'
+        adminNames:
+        - admin
       # [Optional] certificates for the client
       certificates:
       - name: 'User1'
         clientPrivateKey:
+          # pem or path can be specified here can be specified here
           pem: |-
             -----BEGIN PRIVATE KEY-----
             -----END PRIVATE KEY-----
@@ -91,5 +102,5 @@ organizations:
       discover: true
   - mspid: Org2MSP
     connectionProfile:
-      path: 'some/path/to/org-specific-profile'
+      path: './test/sample-configs/StaticOrg2ConnectionProfile.json'
       discover: false

@@ -23,7 +23,7 @@ class IWalletFacadeFactory {
      * Create a WalletFacade instance for either an in memory wallet or file system wallet if the walletPath
      * is provided
      * @param {*} [walletPath] optional path for a file system wallet
-     * @returns {IWalletFacade} an instance of a wallet facade
+     * @returns {Promise<IWalletFacade>} an instance of a wallet facade
      * @async
      */
     async create(walletPath) {

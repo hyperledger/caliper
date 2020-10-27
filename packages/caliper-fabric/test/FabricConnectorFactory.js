@@ -22,6 +22,7 @@ const mockery = require('mockery');
 
 const path = require('path');
 
+const { Constants } = require('./connector-versions/v1/ClientStubs');
 const { Wallets } = require('./connector-versions/v2/V2GatewayStubs');
 const { ConnectorFactory } = require('../lib/FabricConnectorFactory');
 const { ConfigUtil } = require('@hyperledger/caliper-core');
@@ -126,6 +127,8 @@ describe('A Fabric Connector Factory', () => {
             X509WalletMixin
         });
         mockery.registerMock('fabric-network/package', {version: '1.4.11'});
+        mockery.registerMock('fabric-client', {
+        });
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, v2Config));
         ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, true);
         const connector = await ConnectorFactory(1);
@@ -158,6 +161,7 @@ describe('A Fabric Connector Factory', () => {
         mockery.registerMock('fabric-client', {
             loadFromConfig
         });
+        mockery.registerMock('fabric-client/lib/Constants', Constants);
         mockery.registerMock('fabric-client/package', {version: '1.4.11'});
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, legacyConfig));
         ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, false);
@@ -177,6 +181,7 @@ describe('A Fabric Connector Factory', () => {
         mockery.registerMock('fabric-client', {
             loadFromConfig
         });
+        mockery.registerMock('fabric-client/lib/Constants', Constants);
         mockery.registerMock('fabric-client/package', {version: '1.4.11'});
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, v2Config));
         ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, false);

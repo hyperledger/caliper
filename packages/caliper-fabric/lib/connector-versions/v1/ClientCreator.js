@@ -32,10 +32,27 @@ class ClientCreator {
     }
 
     /**
-     * @param {*} mspId the mspid of the organization to create fabric clients
-     * @returns {Map} map of aliasNames to equivalent Fabric Client instance
+     * create a Fabric Client for all the identities in the network configuration
+     * @async
      */
-    async createClientsForAllIdentitiesInOrganization(mspId) {
+    async createFabricClientsForAllIdentities() {
+        const clientMaps = [];
+        for (const organization of this.connectorConfiguration.getOrganizations()) {
+            clientMaps.push(await this._createFabricClientsForAllIdentitiesInOrganization(organization));
+        }
+        // merge the array of maps into a single map
+        const aliasNameToFabricClientMap = clientMaps.reduce((combined, single) => new Map([...combined, ...single]), new Map());
+
+        return aliasNameToFabricClientMap;
+    }
+
+    /**
+     * @param {*} mspId the mspid of the organization to create fabric clients
+     * @returns {Promise<Map>} map of aliasNames to equivalent Fabric Client instance
+     * @async
+     * @private
+     */
+    async _createFabricClientsForAllIdentitiesInOrganization(mspId) {
         const aliasNameToFabricClientMap = new Map();
         const aliasNamesForOrganization = await this.connectorConfiguration.getAliasNamesForOrganization(mspId);
         const connectionProfile = (await this.connectorConfiguration.getConnectionProfileDefinitionForOrganization(mspId)).getConnectionProfile();
@@ -51,7 +68,9 @@ class ClientCreator {
     /**
      * @param {*} connectionProfile the connection profile
      * @param {string} aliasName the aliasName in the wallet to use for the identity of the client
-     * @returns {Client} The fabric client instance
+     * @returns {Promise<Client>} The fabric client instance
+     * @async
+     * @private
      */
     async _createClientForAliasNameInOrganization(connectionProfile, aliasName) {
         logger.info(`creating fabric client for ${aliasName}`);
@@ -77,7 +96,6 @@ class ClientCreator {
 
         return fabricClient;
     }
-
 }
 
 module.exports = ClientCreator;
