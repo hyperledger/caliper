@@ -54,7 +54,7 @@ monitors:
         interval: 5
         url: "http://localhost:9090"
         metrics:
-            include: [peer*, dev*]
+            include: [^peer.*, ^dev.*]
             queries:
             - name: Endorse Time (s)
               query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[1m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[1m])
