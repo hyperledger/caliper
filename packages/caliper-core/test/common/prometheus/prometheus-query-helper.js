@@ -45,6 +45,16 @@ describe('PrometheusQueryHelper implementation', () => {
             output.should.contain(encodeURIComponent('{name=~".+"}'));
         });
 
+        it('should correctly handle multiple queries', () => {
+            const demoString = 'rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[1m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[1m])';
+
+            const output = PrometheusQueryHelper.buildStringRangeQuery(demoString, startTime, endTime, step);
+
+            output.should.not.contain('{');
+            output.should.not.contain('}');
+            output.startsWith(`rate(endorser_propsal_duration_sum${encodeURIComponent('{chaincode="marbles:v0"}')}[1m])/rate(endorser_propsal_duration_count${encodeURIComponent('{chaincode="marbles:v0"}')}[1m])`);
+        });
+
     });
 
     describe('#extractFirstValueFromQueryResponse', () => {
