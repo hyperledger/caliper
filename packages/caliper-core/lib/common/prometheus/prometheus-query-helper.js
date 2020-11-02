@@ -32,7 +32,7 @@ class PrometheusQueryHelper {
     static buildStringRangeQuery(query, startTime, endTime, step) {
         // Anything that is within `{ }` must be URI encoded (including braces)
 
-        const myRegexp = /({.*})/;
+        const myRegexp = /({.*?})/;
         let match = myRegexp.exec(query);
         while (match !== null) {
             query = query.replace(myRegexp, encodeURIComponent(match[0]));
