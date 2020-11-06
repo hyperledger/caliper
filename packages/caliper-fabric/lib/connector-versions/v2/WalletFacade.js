@@ -73,7 +73,8 @@ class WalletFacade extends IWalletFacade {
      * Export an identity
      *
      * @param {string} identityName The identity to export
-     * @returns {ExportedIdentity} The exported identity or null if it doesn't exist
+     * @returns {Promise<ExportedIdentity>} The exported identity or null if it doesn't exist
+     * @async
      */
     async export(identityName) {
         const exported = await this.wallet.get(identityName);
@@ -86,7 +87,8 @@ class WalletFacade extends IWalletFacade {
     /**
      * Get all the identity names in the wallet
      *
-     * @returns {[string]} all the identity names in the wallet
+     * @returns {Promise<[string]>} all the identity names in the wallet
+     * @async
      */
     async getAllIdentityNames() {
         return await this.wallet.list();

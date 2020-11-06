@@ -78,15 +78,7 @@ class ConnectionProfileDefinition {
      * @returns {[string]} The array of peers that are in the channel for this organisation's CCP
      */
     getOwnedEndorsingPeersInChannel(channelName) {
-        if (!this.connectionProfile.channels || !this.connectionProfile.channels[channelName]) {
-            throw new Error(`No channel ${channelName} defined in the connection profile for organization ${this.mspId}`);
-        }
-
-        const channelPeers = this.connectionProfile.channels[channelName].peers;
-
-        if (!channelPeers) {
-            throw new Error(`No peers defined for ${channelName} in the connection profile for organization ${this.mspId}`);
-        }
+        const channelPeers = this._getChannelPeers(channelName);
 
         const ownedPeersInChannelName = [];
         const organizationPeersList = this._searchForPropertyValues(this.connectionProfile.organizations[this.connectionProfile.client.organization], 'peers');
@@ -103,11 +95,48 @@ class ConnectionProfileDefinition {
     }
 
     /**
+     * Return the list of endorsing peers for a specific channel as defined by this connection profile
+     * @param {*} channelName the name of the channel
+     * @returns {[string]} the endorsing peers for this channel
+     */
+    getEndorsingPeersInChannel(channelName) {
+        const channelPeers = this._getChannelPeers(channelName);
+        const endorsingPeersInChannel = [];
+        for (const channelPeer of Object.keys(channelPeers)) {
+            if (channelPeers.hasOwnProperty(channelPeer) && this._isAbleToEndorse(channelPeers[channelPeer])) {
+                endorsingPeersInChannel.push(channelPeer);
+            }
+        }
+        return endorsingPeersInChannel;
+    }
+
+    /**
      * Returns whether the connection profile is using TLS somewhere or not
      * @returns {boolean} true if at least 1 entry has grpcs or https
      */
     isTLSEnabled() {
         return this.TLSEnabled;
+    }
+
+
+    /**
+     * Get all the peers defined in the specified channel
+     * @param {*} channelName The name of the channel
+     * @returns {*} The object containing all the peers in the channel
+     * @private
+     */
+    _getChannelPeers(channelName) {
+        if (!this.connectionProfile.channels || !this.connectionProfile.channels[channelName]) {
+            throw new Error(`No channel ${channelName} defined in the connection profile for organization ${this.mspId}`);
+        }
+
+        const channelPeers = this.connectionProfile.channels[channelName].peers;
+
+        if (!channelPeers) {
+            throw new Error(`No peers defined for ${channelName} in the connection profile for organization ${this.mspId}`);
+        }
+
+        return channelPeers;
     }
 
     /**

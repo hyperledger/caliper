@@ -18,6 +18,8 @@ const FabricConstants = require('fabric-client/lib/Constants');
 const {ConnectorBase, CaliperUtils, TxStatus, Version, ConfigUtil} = require('@hyperledger/caliper-core');
 const FabricConnectorContext = require('../../FabricConnectorContext');
 const ClientCreator = require('./ClientCreator');
+const FabricChannelOperations = require('./FabricChannelOperations');
+const FabricChaincodeOperations = require('./FabricChaincodeOperations');
 const logger = CaliperUtils.getLogger('connectors/v1/FabricNonGateway');
 
 /**
@@ -67,8 +69,8 @@ class V1Fabric extends ConnectorBase {
         this.aliasNameToFabricClientMap = new Map();
         this.channelNameToChannelEventHubsMap = new Map();
 
-        this.orderersInChannelMap = new Map();
-        this.peersInChannelByOrganizationMap = new Map();
+        this.orderersInChannelMap = null;
+        this.peersInChannelByOrganizationMap = null;
         this.MapsFromConnectionProfileCreated = false;
 
         this.context = undefined;
@@ -101,12 +103,14 @@ class V1Fabric extends ConnectorBase {
     async getContext(roundIndex, args) {
         if (!this.MapsFromConnectionProfileCreated) {
             this.MapsFromConnectionProfileCreated = true;
-            await this._createPeerAndOrdererMapsFromConnectionProfile();
+            this.orderersInChannelMap = await this.connectorConfiguration.getOrderersInChannelMap();
+            this.peersInChannelByOrganizationMap = await this.connectorConfiguration.getEndorsingPeersInChannelByOrganizationMap();
         }
 
         if (!this.context) {
             this.context = new FabricConnectorContext(this.workerIndex);
-            await this._createFabricClientsForAllIdentites();
+            const clientCreator = new ClientCreator(this.connectorConfiguration);
+            this.aliasNameToFabricClientMap = await clientCreator.createFabricClientsForAllIdentities();
             await this._initializeApproriateChannelsForFabricClients();
             await this._createEventHubsForEachChannel();
             this.transactionCounter = -1;
@@ -124,7 +128,9 @@ class V1Fabric extends ConnectorBase {
         const tlsInfo = this.connectorConfiguration.isMutualTLS() ? 'mutual'
             : (this.connectorConfiguration.getConnectionProfileDefinitionForOrganization(defaultOrganization).isTLSEnabled() ? 'server' : 'none');
         logger.info(`Fabric SDK version: ${this.fabricNetworkVersion.toString()}; TLS based on ${defaultOrganization}: ${tlsInfo}`);
-        // TODO: will re-instate when operational code is added
+
+        const fabricChannelOperations = new FabricChannelOperations(this.connectorConfiguration);
+        await fabricChannelOperations.createChannelsAndJoinPeers();
     }
 
     /**
@@ -132,8 +138,8 @@ class V1Fabric extends ConnectorBase {
      * @async
      */
     async installSmartContract() {
-        logger.warn(`Install smart contract not available with Fabric SDK version: ${this.fabricNetworkVersion.toString()}`);
-        // TODO: Will re-instate when operational code is added
+        const fabricChaincodeOperations = new FabricChaincodeOperations(this.connectorConfiguration);
+        await fabricChaincodeOperations.installAndInstantiateChaincodes();
     }
 
     /**
@@ -200,22 +206,6 @@ class V1Fabric extends ConnectorBase {
     ////////////////////////////////
     // INTERNAL UTILITY FUNCTIONS //
     ////////////////////////////////
-
-
-    /**
-     * Create node-sdk Client instances for all the identities in all organizations
-     * @private
-     * @async
-     */
-    async _createFabricClientsForAllIdentites() {
-        const clientCreator = new ClientCreator(this.connectorConfiguration);
-        const clientMaps = [];
-        for (const organization of this.connectorConfiguration.getOrganizations()) {
-            clientMaps.push(await clientCreator.createClientsForAllIdentitiesInOrganization(organization));
-        }
-        // merge the array of maps into a single map
-        this.aliasNameToFabricClientMap = clientMaps.reduce((combined, single) => new Map([...combined, ...single]), new Map());
-    }
 
     /**
      * Initialize channels for each Client instance where that channel is defined for that client
@@ -710,6 +700,7 @@ class V1Fabric extends ConnectorBase {
             return channelPeer.isInRole(FabricConstants.NetworkConfig.ENDORSING_PEER_ROLE) &&
                 endorsingOrgs.some((org) => channelPeer.isInOrg(org));
         });
+
         return filteredPeers;
     }
 
@@ -836,41 +827,6 @@ class V1Fabric extends ConnectorBase {
         }
 
         return newTimeout;
-    }
-
-    /**
-     * Creates a fast lookup of Peers and Orderers from the connection profile
-     * @private
-     * @async
-     */
-    async _createPeerAndOrdererMapsFromConnectionProfile() {
-        // In the old connector, this used to be a map of
-        // channel --> contract --> org --> peers
-        // because you could specify targetPeers at the contract level, if not then every contract had all the peers in the channel which
-        // effectively collapsed it to
-        // channel --> org --> peers which is the structure replicated here
-        // as the targetPeers capability was not documented so it has been dropped
-        for (const channelName of this.connectorConfiguration.getAllChannelNames()) {
-            this.peersInChannelByOrganizationMap.set(channelName, new Map());
-            for (const organization of this.connectorConfiguration.getOrganizations()) {
-                const connectionProfileDefinition = await this.connectorConfiguration.getConnectionProfileDefinitionForOrganization(organization);
-                const organizationPeersInChannel = connectionProfileDefinition.getOwnedEndorsingPeersInChannel(channelName);
-                if (organizationPeersInChannel && organizationPeersInChannel.length > 0) {
-                    this.peersInChannelByOrganizationMap.get(channelName).set(organization, organizationPeersInChannel);
-                }
-            }
-        }
-
-        for (const channelName of this.connectorConfiguration.getAllChannelNames()) {
-            for (const organization of this.connectorConfiguration.getOrganizations()) {
-                const connectionProfileDefinition = await this.connectorConfiguration.getConnectionProfileDefinitionForOrganization(organization);
-                const orderers = connectionProfileDefinition.getOrderersForChannel(channelName);
-                if (orderers && orderers.length > 0) {
-                    this.orderersInChannelMap.set(channelName, orderers);
-                    break;
-                }
-            }
-        }
     }
 }
 

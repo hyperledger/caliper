@@ -22,12 +22,10 @@ caliper:
 
 channels:
   - channelName: mychannel
-    create: false
     contracts:
     - id: marbles
       contractID: mymarbles
   - channelName: yourchannel
-    create: false
     contracts:
     - id: marbles
       contractID: yourmarbles

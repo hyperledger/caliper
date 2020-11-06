@@ -211,3 +211,9 @@ class StubClient {
 module.exports.Client = StubClient;
 module.exports.Channel = StubChannel;
 module.exports.ChannelEventHub = StubChannelEventHub;
+module.exports.Constants = {
+    NetworkConfig: {
+        ENDORSING_PEER_ROLE: 'epr',
+        EVENT_SOURCE_ROLE: 'esr'
+    }
+};

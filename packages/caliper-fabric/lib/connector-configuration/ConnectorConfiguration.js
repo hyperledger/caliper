@@ -36,6 +36,8 @@ class ConnectorConfiguration {
         this.walletFacadeFactory = walletFacadeFactory;
         this.identityManager = null;
         this.contractDetailsById = new Map();
+        this.peersInChannelByOrganizationMap = null;
+        this.orderersInChannelMap = null;
     }
 
     /**
@@ -90,15 +92,15 @@ class ConnectorConfiguration {
     /**
      *
      * @param {string} channelName the name of the channel
-     * @returns {*} returns the channel definition or null if no channel definition for that name
+     * @returns {*} returns the channel definition or null if no channel creation definition for that name
      */
-    getDefinitionForChannelName(channelName) {
+    getCreationDefinitionForChannelName(channelName) {
         const channelList = this.connectorConfiguration.channels;
 
         if (channelList &&
             Array.isArray(channelList)) {
             const filteredChannelDefinitionList = channelList.filter(channelDefinition => channelDefinition.channelName === channelName);
-            return filteredChannelDefinitionList.length > 0 ? filteredChannelDefinitionList[0].definition : null;
+            return filteredChannelDefinitionList.length > 0 ? filteredChannelDefinitionList[0].create : null;
         }
 
         return null;
@@ -112,8 +114,8 @@ class ConnectorConfiguration {
         const channelList = this.connectorConfiguration.channels;
 
         if (channelList && Array.isArray(channelList)){
-            const channelWanted = channelList.filter(channelContracts => channelContracts.channelName === channelName);
-            const contractDefinitions = channelWanted[0].contracts;
+            const channelDefinition = channelList.filter(channelContracts => channelContracts.channelName === channelName);
+            const contractDefinitions = channelDefinition[0].contracts;
             if (contractDefinitions && Array.isArray(contractDefinitions)) {
                 return contractDefinitions;
             }
@@ -145,7 +147,7 @@ class ConnectorConfiguration {
      * Get the connection profile definition for a specific organization loading the
      * connection profile into memory if it hasn't already been done
      * @param {string} mspId The msp ID of the organization
-     * @returns {ConnectionProfileDefinition} A connection profile definition
+     * @returns {Promise<ConnectionProfileDefinition>} A connection profile definition
      * @async
      */
     async getConnectionProfileDefinitionForOrganization(mspId) {
@@ -170,7 +172,7 @@ class ConnectorConfiguration {
     /**
      * Get a list of all the alias names for an organization that will be in the wallet
      * @param {string} mspId The msp ID of the organization
-     * @returns {string[]} a list of all the aliases (including admin specified) or a blank array if there are none
+     * @returns {Promise<string[]>} a list of all the aliases (including admin specified) or a blank array if there are none
      * @async
      */
     async getAliasNamesForOrganization(mspId) {
@@ -212,10 +214,84 @@ class ConnectorConfiguration {
         return this.identityManager.getAliasNameFromOrganizationAndIdentityName(mspId, identityName);
     }
 
+
+    /**
+     * This returns a map of all the channels and the orgs (with their associated endorsing peers) in that channel. The format is
+     * channel1
+     *    |-- Org1
+     *    |     |-- org1EndorsingPeer1
+     *    |     \-- org1EndorsingPeer2
+     *    |
+     *    |-- Org2
+     *    |     |-- org2EndorsingPeer
+     *    |
+     * channel2
+     *    |
+     *   ...
+     *
+     * This map provides you with all the channels, the orgs participanting in those channels
+     * and the endorsing peers for each organization
+     *
+     * @returns {Promise<Map>} The above map structure
+     * @async
+     */
+    async getEndorsingPeersInChannelByOrganizationMap() {
+        if (!this.peersInChannelByOrganizationMap) {
+            this.peersInChannelByOrganizationMap = new Map();
+
+            for (const channelName of this.getAllChannelNames()) {
+                this.peersInChannelByOrganizationMap.set(channelName, new Map());
+                for (const organization of this.getOrganizations()) {
+                    const connectionProfileDefinition = await this.getConnectionProfileDefinitionForOrganization(organization);
+                    const organizationPeersInChannel = connectionProfileDefinition.getOwnedEndorsingPeersInChannel(channelName);
+                    if (organizationPeersInChannel && organizationPeersInChannel.length > 0) {
+                        this.peersInChannelByOrganizationMap.get(channelName).set(organization, organizationPeersInChannel);
+                    }
+                }
+            }
+        }
+
+        return this.peersInChannelByOrganizationMap;
+    }
+
+    /**
+     * Create a map of all the channels and the orderers managing each channel
+     * Only used by the operational fabric 1.4 code so only works with static connection profiles
+     * @returns {Promise<Map>} Map of orderers for channel
+     * @async
+     */
+    async getOrderersInChannelMap() {
+        if (!this.orderersInChannelMap) {
+            this.orderersInChannelMap = new Map();
+
+            for (const channelName of this.getAllChannelNames()) {
+                for (const organization of this.getOrganizations()) {
+                    const connectionProfileDefinition = await this.getConnectionProfileDefinitionForOrganization(organization);
+                    let orderers;
+                    try {
+                        orderers = connectionProfileDefinition.getOrderersForChannel(channelName);
+                    } catch(error) {
+                        // ignore if the channel is not defined in this connection profile and can try others
+                    }
+                    if (orderers && orderers.length > 0) {
+                        this.orderersInChannelMap.set(channelName, orderers);
+                        break;
+                    }
+                }
+
+                if (!this.orderersInChannelMap.get(channelName)) {
+                    throw new Error(`No orderers could be found for channel ${channelName} in any of the connection profiles`);
+                }
+            }
+        }
+
+        return this.orderersInChannelMap;
+    }
+
     /**
      * Load a connection profile into memory
      * @param {string} connectionProfilePath The path the the connection profile
-     * @returns {*} In memory representation of a connection profile
+     * @returns {Promise<*>} In memory representation of a connection profile
      * @async
      * @private
      */

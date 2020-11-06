@@ -1,5 +1,5 @@
 {
-    "name": "Geoff",
+    "name": "BasicConfig",
     "version": "2.0.0",
     "caliper": {
       "blockchain": "fabric,",
@@ -10,36 +10,36 @@
     "channels": [
       {
         "channelName": "mychannel",
-        "create": true,
-        "definition": {
-          "capabilities": [],
-          "consortium": "SampleConsortium2",
-          "msps": [
-            "Org1MSP",
-            "Org2MSP"
-          ],
-          "version": 0,
-          "orderers": [
-            "orderer0.example.com",
-            "orderer1.example.com"
-          ],
-          "peers": {
-            "peer0.org1.example.com": {
-              "eventSource": true
-            },
-            "peer0.org2.example.com": {
-              "eventSource": true
-            }
+        "create": {
+          "buildTransaction": {
+            "capabilities": [],
+            "consortium": "SampleConsortium2",
+            "msps": [
+              "Org1MSP",
+              "Org2MSP"
+            ],
+            "version": 0
           }
         },
         "contracts": [
           {
             "id": "marbles",
             "contractID": "myMarbles",
-            "version": "v0",
-            "language": "golang",
-            "path": "marbles/go",
-            "metadataPath": "src/marbles/go/metadata"
+            "install": {
+              "version": "v0",
+              "language": "golang",
+              "path": "marbles/go",
+              "metadataPath": "src/marbles/go/metadata"
+            },
+            "instantiate": {
+              "initFunction": "init",
+              "initArguments": [],
+              "initTransientMap": {
+                "key1": "value1",
+                "key2": "value2"
+              },
+              "endorsementPolicy": ""
+            }
           }
         ]
       },
@@ -66,7 +66,10 @@
             }
           },
           "wallet": {
-            "path": "./test/sample-configs"
+            "path": "./test/sample-configs",
+            "adminNames": [
+              "admin"
+            ]
           },
           "certificates": [
             {
@@ -81,17 +84,16 @@
           ]
         },
         "connectionProfile": {
-          "path": "./test/sample-configs/Org1ConnectionProfile.json",
+          "path": "./test/sample-configs/Org1ConnectionProfile.yaml",
           "discover": true
         }
       },
       {
         "mspid": "Org2MSP",
         "connectionProfile": {
-          "path": "some/path/to/org-specific-profile",
+          "path": "./test/sample-configs/StaticOrg2ConnectionProfile.json",
           "discover": false
         }
       }
-
     ]
   }

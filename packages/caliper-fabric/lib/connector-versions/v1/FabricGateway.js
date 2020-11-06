@@ -17,6 +17,8 @@ const semver = require('semver');
 const { DefaultEventHandlerStrategies, DefaultQueryHandlerStrategies, Gateway } = require('fabric-network');
 const { ConnectorBase, CaliperUtils, TxStatus, ConfigUtil } = require('@hyperledger/caliper-core');
 const FabricConnectorContext = require('../../FabricConnectorContext');
+const FabricChannelOperations = require('./FabricChannelOperations');
+const FabricChaincodeOperations = require('./FabricChaincodeOperations');
 
 const logger = CaliperUtils.getLogger('connectors/v1/FabricGateway');
 
@@ -93,7 +95,6 @@ class V1FabricGateway extends ConnectorBase {
 
         // Gateway connector
         this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.LocalHost, true);
-        this.configDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Discovery, false);
         this.configEventStrategy = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.EventStrategy, 'msp_all');
         this.configQueryStrategy = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.QueryStrategy, 'msp_single');
     }
@@ -135,8 +136,8 @@ class V1FabricGateway extends ConnectorBase {
             : (this.connectorConfiguration.getConnectionProfileDefinitionForOrganization(defaultOrganization).isTLSEnabled() ? 'server' : 'none');
         logger.info(`Fabric SDK version: ${this.fabricNetworkVersion.toString()}; TLS based on ${defaultOrganization}: ${tlsInfo}`);
 
-        // TODO: Will need to perform some operational initialisation
-        // eg creation of channels and joining of channels (based on legacy version)
+        const fabricChannelOperations = new FabricChannelOperations(this.connectorConfiguration);
+        await fabricChannelOperations.createChannelsAndJoinPeers();
     }
 
     /**
@@ -144,9 +145,8 @@ class V1FabricGateway extends ConnectorBase {
      * @async
      */
     async installSmartContract() {
-        logger.warn(`Install smart contract not available with Fabric SDK version: ${this.fabricNetworkVersion.toString()}`);
-
-        // TODO: Operational support to be added later
+        const fabricChaincodeOperations = new FabricChaincodeOperations(this.connectorConfiguration);
+        await fabricChaincodeOperations.installAndInstantiateChaincodes();
     }
 
     /**
@@ -229,7 +229,7 @@ class V1FabricGateway extends ConnectorBase {
      * Create a map with key of channel+chaincode id to fabric-network contract instances
      * @param {Gateway} gateway the gateway to use
      * @param {string} aliasName, the aliasName of the identity being used by the gateway
-     * @returns {Map<Contract>} A map of all Contract instances for that identity across all the channels and chaincodes
+     * @returns {Promise<Map<Contract>>} A map of all Contract instances for that identity across all the channels and chaincodes
      * @async
      */
     async _createChannelAndChaincodeIdToContractMap(gateway, aliasName) {
@@ -257,7 +257,7 @@ class V1FabricGateway extends ConnectorBase {
      * @param {string} mspId The msp id of the organisation which owns the identity
      * @param {string} aliasName The alias name that represents the identity to use
      * @param {*} wallet, the wallet that holds the identity to be used
-     * @returns {Gateway} a gateway object for the passed user identity
+     * @returns {Promise<Gateway>} a gateway object for the passed user identity
      * @async
      */
     async _createGatewayWithIdentity(mspId, aliasName, wallet) {
@@ -408,7 +408,7 @@ class V1FabricGateway extends ConnectorBase {
      * @param {string} identityName the identity requested to be used by the workload
      * @param {string} channelName the channel name the contract exists on
      * @param {string} contractId the name of the contract to return
-     * @returns {FabricNetworkAPI.Contract} A contract that may be used to submit or evaluate transactions
+     * @returns {Promise<FabricNetworkAPI.Contract>} A contract that may be used to submit or evaluate transactions
      * @async
      */
     async _getContractForIdentityOnChannelWithChaincodeID(mspId, identityName, channelName, contractId) {

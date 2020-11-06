@@ -22,12 +22,13 @@ const sinon = require('sinon');
 const mockery = require('mockery');
 const path = require('path');
 
+const GenerateConfiguration = require('../../utils/GenerateConfiguration');
+
 const IWalletFacadeFactory = require('../../../lib/identity-management/IWalletFacadeFactory');
 const IWalletFacade = require('../../../lib/identity-management/IWalletFacade');
 const ConnectorConfigurationFactory = require('../../../lib/connector-configuration/ConnectorConfigurationFactory');
 const { Client } = require('./ClientStubs');
 
-const v2ConfigWithNoIdentities = '../../sample-configs/NoIdentitiesNetworkConfig.yaml';
 const basicConfig = '../../sample-configs/BasicConfig.yaml';
 
 describe('When creating Fabric Client instances', () => {
@@ -55,20 +56,41 @@ describe('When creating Fabric Client instances', () => {
     it('should create a client for each identity in the wallet', async () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
-        stubWalletFacade.getAllIdentityNames.resolves(['user1', 'user2', 'user3']);
-        stubWalletFacade.export.resolves({
+        stubWalletFacade.getAllIdentityNames.resolves(['user1', 'user2', '_Org2MSP_user3']);
+        stubWalletFacade.export.withArgs('user1').resolves({
             mspid: 'Org1MSP',
+            certificate: 'cert',
+            privateKey: 'key'
+        });
+        stubWalletFacade.export.withArgs('user2').resolves({
+            mspid: 'Org1MSP',
+            certificate: 'cert',
+            privateKey: 'key'
+        });
+        stubWalletFacade.export.withArgs('_Org2MSP_user3').resolves({
+            mspid: 'Org2MSP',
             certificate: 'cert',
             privateKey: 'key'
         });
         stubWalletFacadeFactory.create.resolves(stubWalletFacade);
 
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithNoIdentities), stubWalletFacadeFactory);
+        const configFile = new GenerateConfiguration(path.resolve(__dirname, basicConfig)).generateConfigurationFileWithSpecifics(
+            {
+                caliper: {
+                    blockchain: 'fabric',
+                    sutOptions: {
+                        mutualTls: false
+                    }
+                }
+            }
+        );
+
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, stubWalletFacadeFactory);
         const clientCreator = new ClientCreator(connectorConfiguration);
-        const identityToClientMap = await clientCreator.createClientsForAllIdentitiesInOrganization('Org1MSP');
+        const identityToClientMap = await clientCreator.createFabricClientsForAllIdentities();
         identityToClientMap.get('user1').should.be.instanceOf(Client);
         identityToClientMap.get('user2').should.be.instanceOf(Client);
-        identityToClientMap.get('user3').should.be.instanceOf(Client);
+        identityToClientMap.get('_Org2MSP_user3').should.be.instanceOf(Client);
         identityToClientMap.size.should.equal(3);
         Client.setTlsClientCertAndKeyCalls.should.equal(0);
     });
@@ -86,7 +108,7 @@ describe('When creating Fabric Client instances', () => {
 
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, basicConfig), stubWalletFacadeFactory);
         const clientCreator = new ClientCreator(connectorConfiguration);
-        const identityToClientMap = await clientCreator.createClientsForAllIdentitiesInOrganization('Org1MSP');
+        const identityToClientMap = await clientCreator.createFabricClientsForAllIdentities();
         identityToClientMap.get('tlsUser').should.be.instanceOf(Client);
         identityToClientMap.size.should.equal(1);
         Client.setTlsClientCertAndKeyCalls.should.equal(1);

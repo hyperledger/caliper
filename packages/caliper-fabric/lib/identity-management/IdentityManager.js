@@ -62,7 +62,7 @@ class IdentityManager {
     /**
      * Get a list of all the alias names for an organization that will be in the wallet
      * @param {string} mspId the msp ID of the organization
-     * @returns {string[]} a list of all the aliases (including admin specified) or a blank array if there are none
+     * @returns {Promise<string[]>} a list of all the aliases (including admin specified) or a blank array if there are none
      * @async
      */
     async getAliasNamesForOrganization(mspId) {
@@ -271,10 +271,10 @@ class IdentityManager {
     /**
      * Extract the PEM from a file or the embedded definition
      *
-     * @param {*} CertificateOrPrivateKeyDefinition The clientSignedCert or clientPrivateKey property in the configuation
+     * @param {*} CertificateOrPrivateKeyDefinition The clientSignedCert or clientPrivateKey property in the configuration
      * @param {string} propertyNameBeingProcessed A string of the provided property
      * @param {string} name The name associated with this identity
-     * @returns {string} the PEM
+     * @returns {Promise<string>} the PEM
      * @async
      * @private
      */
@@ -298,7 +298,7 @@ class IdentityManager {
      * @param {string} pathToPEMFile The path to the file containing the PEM information
      * @param {string} propertyNameBeingProcessed A string of the provided property
      * @param {string} name The name associated with this identity
-     * @returns {string} the PEM
+     * @returns {Promise<string>} the PEM
      * @async
      * @private
      */
@@ -329,7 +329,7 @@ class IdentityManager {
      * @param {string} pem the embedded pem property value
      * @param {string} propertyNameBeingProcessed A string of the provided property
      * @param {string} name The name associated with this identity
-     * @returns {string} the PEM
+     * @returns {Promise<string>} the PEM
      * @async
      * @private
      */

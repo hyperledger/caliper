@@ -29,7 +29,7 @@ class IWalletFacade {
      * }
      * </code>
      * @param {string} identityName the identity name that uniquely identifies the identity in the wrapped wallet
-     * @returns {ExportedIdentity} an object that represents the identity
+     * @returns {Promise<ExportedIdentity>} an object that represents the identity
      * @async
      */
     async export(identityName) {
@@ -50,7 +50,7 @@ class IWalletFacade {
 
     /**
      * Return a list of all the unique identity names in the wallet
-     * @returns {string[]} a list of the unique identity names
+     * @returns {Promise<string[]>} a list of the unique identity names
      * @async
      */
     async getAllIdentityNames() {
