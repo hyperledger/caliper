@@ -1,9 +1,9 @@
 ---
 layout: vNext
-title:  "Fabric"
+title:  "Legacy Fabric (Deprecated)"
 categories: config
-permalink: /vNext/fabric-config/
-order: 3
+permalink: /vNext/fabric-config/legacy/
+order: 4
 ---
 
 ## Table of contents
@@ -11,6 +11,40 @@ order: 3
 
 - TOC
 {:toc}
+
+## IMPORTANT
+
+**WARNING: This page documents the deprecated legacy connector. You are encouraged to move to the new connector and it's associated configuration format documented [here](../new)**
+
+The new fabric connector provides
+
+> * A more logical network configuration utilising provided connection profiles from a network provider
+> * More robust implementation
+> * Fixes and improvements will only be done on the new connector implementation
+> * The new connector implementation has dropped some of the capability of the old connector
+>> * Cannot specify targetPeers during install/instantiate of a contract
+>> * storing or reading identities from node-sdk credential/cypto stores is not implemented
+>> * Support for automatically registering and enroling identities through a Certificate Authority is not implemented
+>> * Cannot specify to use an admin identity in a workload request using the `#ORG2` type notation
+
+How you select which implementation you use is via the provided network configuration file and specifically the version you declare in that file
+
+> * a version of 1.0 selects the legacy connector
+> * a version of 2.0.0 selects the new connector
+
+For example
+
+```yaml
+name: Fabric
+version: "1.0"
+```
+would select the legacy connector and the file must conform to the legacy (Deprecated) network configuration file format
+
+```yaml
+name: Fabric
+version: "2.0.0"
+```
+would select the new connector and the file must conform to the new network configuration file format
 
 ## Overview
 
@@ -22,13 +56,11 @@ The adapter exposes many SDK features directly to the user callback modules, mak
 
 > Some highlights of the provided features:
 > * supporting multiple orderers
-> * automatic load balancing between peers and orderers
 > * supporting multiple channels and contracts
 > * metadata and private collection support for contracts
 > * support for TLS and mutual TLS communication
 > * dynamic registration of users with custom affiliations and attributes
 > * option to select the identity for submitting a TX/query
-> * transparent support for every version of Fabric since v1.0 (currently up to v2.0.0)
 > * detailed execution data for every TX
 
 ## Installing dependencies
@@ -104,13 +136,13 @@ The settings object has the following structure:
 * `timeout`: _number. Optional._ The timeout in seconds to use for this request.
 * `transientMap`: _Map<string, byte[]>. Optional._ The transient map to pass to the contract.
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
-* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will include endorsing peers selected according to the specified load balancing method.
+* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will be chosen for you. If discovery is used then the node sdk uses discovery to determine the correct peers.
 * `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and 
 are specified then targetPeers will take precedence
-* `orderer`: _string. Optional._ The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be used, according to the specified load balancing method.
+* `orderer`: _string. Optional._ The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be selected for use. 
 * `channel`: _string. Optional._ The name of the channel on which the contract to call resides.
 
-So invoking a contract looks like the following (with automatic load balancing between endorsing peers and orderers):
+So invoking a contract looks like the following:
 
 ```js
 let requestSettings = {
