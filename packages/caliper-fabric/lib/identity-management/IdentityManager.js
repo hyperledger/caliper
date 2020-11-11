@@ -237,8 +237,10 @@ class IdentityManager {
 
         for (const identityName of allIdentityNames) {
             const identity = await walletFacade.export(identityName);
-            const isAdmin = adminIdentityNames.includes(identityName);
-            await this._addToWallet(identity.mspid, identityName, isAdmin, identity.certificate, identity.privateKey);
+            if (identity.mspid === mspId) {
+                const isAdmin = adminIdentityNames.includes(identityName);
+                await this._addToWallet(mspId, identityName, isAdmin, identity.certificate, identity.privateKey);
+            }
         }
     }
 
