@@ -167,10 +167,6 @@ class V1FabricGateway extends ConnectorBase {
             request.contractId = contractDetails.id;
         }
 
-        if (!request.invokerIdentity) {
-            throw new Error('No invokerIdentity provided in the request');
-        }
-
         if (!request.contractFunction) {
             throw new Error('No contractFunction provided in the request');
         }
@@ -414,10 +410,7 @@ class V1FabricGateway extends ConnectorBase {
     async _getContractForIdentityOnChannelWithChaincodeID(mspId, identityName, channelName, contractId) {
         logger.debug('Entering _getContractForIdentityOnChannelWithChaincodeID');
 
-        let aliasName = identityName;
-        if (mspId && mspId.length > 0) {
-            aliasName = this.connectorConfiguration.getAliasNameFromOrganizationAndIdentityName(mspId, identityName);
-        }
+        const aliasName = this.connectorConfiguration.getAliasNameForOrganizationAndIdentityName(mspId, identityName);
         const contractSet = this.contractInstancesByIdentity.get(aliasName);
 
         // If no contract set found, there is a user configuration/test specification error, so it should terminate

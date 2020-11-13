@@ -22,13 +22,21 @@ const mockery = require('mockery');
 
 const { Wallets, StubWallet } = require('./V2GatewayStubs');
 
-mockery.enable();
-mockery.registerMock('fabric-network', {Wallets});
-
-const WalletFacadeFactory = require('../../../lib/connector-versions/v2/WalletFacadeFactory');
-const WalletFacade = require('../../../lib/connector-versions/v2/WalletFacade');
+let WalletFacadeFactory;
+let WalletFacade;
 
 describe('When testing a V2 Wallet Facade Implementation', () => {
+    before(() => {
+        mockery.enable({
+            warnOnReplace: false,
+            warnOnUnregistered: false,
+            useCleanCache: true
+        });
+        mockery.registerMock('fabric-network', {Wallets});
+        WalletFacadeFactory = require('../../../lib/connector-versions/v2/WalletFacadeFactory');
+        WalletFacade = require('../../../lib/connector-versions/v2/WalletFacade');
+    });
+
     after(() => {
         mockery.deregisterAll();
         mockery.disable();

@@ -78,7 +78,7 @@ organizations:
         path: /tmp/hfc-kvs/org1
         cryptoStore:
             path: /tmp/hfc-cvs/org1
-      #  [Optional] File path to a FileWallet, within which all entries are all for the same org. Only for use by gateway
+      # [Optional] File path to a FileWallet, within which all entries are all for the same org. Only for use by gateway
       wallet:
         path: './test/sample-configs'
         adminNames:
@@ -101,6 +101,18 @@ organizations:
       path: './test/sample-configs/Org1ConnectionProfile.yaml'
       discover: true
   - mspid: Org2MSP
+    identities:
+      certificates:
+      - name: 'User1'
+        clientPrivateKey:
+          # pem or path can be specified here can be specified here
+          pem: |-
+            -----BEGIN PRIVATE KEY-----
+            -----END PRIVATE KEY-----
+        clientSignedCert:
+          pem: |-
+            -----BEGIN CERTIFICATE-----
+            -----END CERTIFICATE-----
     connectionProfile:
       path: './test/sample-configs/StaticOrg2ConnectionProfile.json'
       discover: false

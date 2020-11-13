@@ -151,7 +151,7 @@ class Gateway {
         Gateway.disconnected = 0;
         Gateway.channel = undefined;
         Gateway.err = undefined;
-        Gateway.connectArgs = undefined;
+        Gateway.connectArgs = [];
     }
 
     async getNetwork(channel) {
@@ -164,7 +164,7 @@ class Gateway {
             throw Gateway.err;
         }
         Gateway.connected++;
-        Gateway.connectArgs = args;
+        Gateway.connectArgs.push(args);
     }
 
     disconnect() {

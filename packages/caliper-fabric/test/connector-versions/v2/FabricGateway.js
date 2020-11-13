@@ -23,8 +23,8 @@ const path = require('path');
 
 const DefaultEventHandlerStrategies = {};
 const DefaultQueryHandlerStrategies = {};
-const v2ConfigWithNoIdentities = '../../sample-configs/NoIdentitiesNetworkConfig.yaml';
-const v2ConfigWithSingleUser = '../../sample-configs/BasicConfig.yaml';
+
+const configWith2Orgs1AdminInWallet = '../../sample-configs/BasicConfig.yaml';
 
 const { Gateway, Transaction, Network, Wallets } = require('./V2GatewayStubs');
 const GenerateConfiguration = require('../../utils/GenerateConfiguration');
@@ -33,7 +33,7 @@ const ConnectorConfigurationFactory = require('../../../lib/connector-configurat
 describe('A Node-SDK V2 Fabric Gateway', () => {
 
     let FabricGateway;
-    let WalletFacadeFactory;
+    let GenerateWallet;
     let FabricConnectorContext;
     let TxStatus;
 
@@ -54,7 +54,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
         mockery.registerMock('fabric-network/package', {version: '2.2.0'});
 
         FabricGateway = require('../../../lib/connector-versions/v2/FabricGateway');
-        WalletFacadeFactory = require('../../../lib/connector-versions/v2/WalletFacadeFactory');
+        GenerateWallet = require('../../utils/GenerateWallet');
         FabricConnectorContext = require('../../../lib/FabricConnectorContext');
         TxStatus = require('@hyperledger/caliper-core').TxStatus;
     });
@@ -64,56 +64,77 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
         mockery.disable();
     });
 
+    let walletFacadeFactory;
+
     beforeEach(() => {
         Gateway.reset();
+        const walletSetup = new GenerateWallet().createStandardTestWalletSetup();
+        walletFacadeFactory = walletSetup.walletFacadeFactory;
     });
 
     it('should be able to initialise in preperation for use by a caliper master', async () => {
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithSingleUser), new WalletFacadeFactory());
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
         const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
         await fabricGateway.init().should.not.be.rejected;
     });
 
     it('should do nothing when attempting to install a smart contract', async () => {
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithNoIdentities), new WalletFacadeFactory());
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
         const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
         await fabricGateway.installSmartContract().should.not.be.rejected;
     });
 
     it('should return a context when preparing for use by a caliper worker', async () => {
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithNoIdentities), new WalletFacadeFactory());
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
         const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
         const context = await fabricGateway.getContext();
         context.should.be.instanceOf(FabricConnectorContext);
     });
 
     it('should return the same context when requested multiple times', async () => {
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithNoIdentities), new WalletFacadeFactory());
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
         const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
         const context = await fabricGateway.getContext();
         const context2 = await fabricGateway.getContext();
         context2.should.equal(context);
     });
 
-    it('should create Gateways when a context is first requested', async () => {
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithSingleUser), new WalletFacadeFactory());
+    it('should create Gateways and setTLSIdentity when a context is first requested', async () => {
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
         const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
         const context = await fabricGateway.getContext();
         context.should.be.instanceOf(FabricConnectorContext);
-        Gateway.constructed.should.equal(1);
+        Gateway.constructed.should.equal(4);
+        Gateway.connectArgs[0][1].clientTlsIdentity.should.equal('admin');
+        Gateway.connectArgs[1][1].clientTlsIdentity.should.equal('user');
+        Gateway.connectArgs[2][1].clientTlsIdentity.should.equal('_Org2MSP_issuer');
+        Gateway.connectArgs[3][1].clientTlsIdentity.should.equal('_Org2MSP_admin');
+    });
+
+    it('should create Gateways and not setTLSIdentity when a context is first requested and mutualTls is set to false', async () => {
+        const configFile = new GenerateConfiguration(path.resolve(__dirname, configWith2Orgs1AdminInWallet)).generateConfigurationFileReplacingProperties('mutualTls', false);
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
+        connectorConfiguration.isMutualTLS().should.be.false;
+        const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
+        const context = await fabricGateway.getContext();
+        context.should.be.instanceOf(FabricConnectorContext);
+        Gateway.constructed.should.equal(4);
+        for (let gatewayCounter = 0; gatewayCounter < Gateway.constructed; gatewayCounter++) {
+            should.equal(Gateway.connectArgs[gatewayCounter][1].clientTlsIdentity, undefined);
+        }
     });
 
     it('should disconnect Gateways when a context is released', async () => {
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithSingleUser), new WalletFacadeFactory());
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
         const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
         await fabricGateway.getContext();
         await fabricGateway.releaseContext();
-        Gateway.disconnected.should.equal(1);
+        Gateway.disconnected.should.equal(4);
     });
 
     it('should throw an error if gateway connection fails ', async () => {
         Gateway.throwOnCall(new Error('connect-failure'));
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithSingleUser), new WalletFacadeFactory());
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
         const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
         await fabricGateway.getContext().should.be.rejectedWith(/connect-failure/);
     });
@@ -124,7 +145,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
         beforeEach(async () => {
             Transaction.reset();
             Network.reset();
-            const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithSingleUser), new WalletFacadeFactory());
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
             fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
             await fabricGateway.getContext();
         });
@@ -134,21 +155,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
         });
 
         describe('should throw an error', () => {
-            it('when no invokerIdentity provided', async () => {
-                const request = {
-                    channel: 'mychannel',
-                    contractId: 'marbles',
-                    contractFunction: '',
-                    invokerIdentity: ''
-                };
-                await fabricGateway._sendSingleRequest(request).should.be.rejectedWith(/No invokerIdentity provided/);
-                request.invokerIdentity = null;
-                await fabricGateway._sendSingleRequest(request).should.be.rejectedWith(/No invokerIdentity provided/);
-                delete request.invokerIdentity;
-                await fabricGateway._sendSingleRequest(request).should.be.rejectedWith(/No invokerIdentity provided/);
-            });
-
-            it('when invokerIdentity not known', async () => {
+            it('when invokerIdentity is not known', async () => {
                 const request = {
                     channel: 'mychannel',
                     contractId: 'marbles',
@@ -164,9 +171,9 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     invokerMspId: 'Org7',
-                    invokerIdentity: 'User1'
+                    invokerIdentity: 'user'
                 };
-                await fabricGateway._sendSingleRequest(request).should.be.rejectedWith(/No contracts for invokerIdentity User1 in Org7 found/);
+                await fabricGateway._sendSingleRequest(request).should.be.rejectedWith(/No contracts for invokerIdentity user in Org7 found/);
             });
 
             it('when contractFunction not provided', async () => {
@@ -174,7 +181,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: '',
-                    invokerIdentity: 'User1'
+                    invokerIdentity: 'user'
                 };
                 await fabricGateway._sendSingleRequest(request).should.be.rejectedWith(/No contractFunction provided/);
                 request.contractFunction = null;
@@ -188,7 +195,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     channel: 'mychannel',
                     contractId: '',
                     contractFunction: '',
-                    invokerIdentity: 'User1'
+                    invokerIdentity: 'user'
                 };
                 await fabricGateway._sendSingleRequest(request).should.be.rejectedWith(/No contractId provided/);
                 request.contractId = null;
@@ -202,7 +209,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     channel: 'yourchannel',
                     contractId: 'findingMyMarbles',
                     contractFunction: 'myFunction',
-                    invokerIdentity: 'User1'
+                    invokerIdentity: 'user'
                 };
                 await fabricGateway._sendSingleRequest(request).should.be.rejectedWith(/Unable to find specified contract findingMyMarbles on channel yourchannel/);
             });
@@ -212,21 +219,21 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     channel: '',
                     contractId: 'not-a-valid-contract-id',
                     contractFunction: '',
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                 };
                 await fabricGateway._sendSingleRequest(request).should.be.rejectedWith(/Could not find details for contract ID not-a-valid-contract-id/);
             });
         });
 
         describe('when making a submit request', () => {
-            it('should succeed, set clientIdentity and return with an appropriate TxStatus', async () => {
+            it('should succeed and return with an appropriate TxStatus', async () => {
                 const args = ['arg1', 'arg2'];
                 const request = {
                     channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     contractArguments: args,
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                 };
                 const txStatus = await fabricGateway._sendSingleRequest(request);
                 txStatus.should.be.instanceOf(TxStatus);
@@ -234,8 +241,6 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                 txStatus.GetStatus().should.equal('success');
                 txStatus.GetResult().should.equal('submitResponse');
                 txStatus.IsVerified().should.be.true;
-
-                Gateway.connectArgs[1].clientTlsIdentity.should.equal('User1');
 
                 Transaction.submit.should.be.true;
                 Transaction.submitArgs.should.deep.equal(args);
@@ -255,7 +260,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     transientMap: {'param1': 'value1', 'param2': 'value2'},
-                    invokerIdentity: 'User1'
+                    invokerIdentity: 'user'
                 };
                 await fabricGateway._sendSingleRequest(request);
                 Transaction.submit.should.be.true;
@@ -272,7 +277,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'lostMyMarbles',
                     contractFunction: 'myFunction',
                     contractArguments: ['arg1'],
-                    invokerIdentity: 'User1'
+                    invokerIdentity: 'user'
                 };
                 await fabricGateway._sendSingleRequest(request);
                 Gateway.channel.should.equal('yourchannel');
@@ -287,7 +292,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'lostMyMarbles',
                     contractFunction: 'myFunction',
                     contractArguments: ['arg1'],
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                     targetPeers: ['peer1', 'peer3', 'peer4']
                 };
                 await fabricGateway._sendSingleRequest(request);
@@ -306,7 +311,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'lostMyMarbles',
                     contractFunction: 'myFunction',
                     contractArguments: ['arg1'],
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                     targetOrganizations
                 };
                 await fabricGateway._sendSingleRequest(request);
@@ -322,7 +327,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'lostMyMarbles',
                     contractFunction: 'myFunction',
                     contractArguments: ['arg1'],
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                     targetOrganizations: 'Org1MSP'
                 };
                 await fabricGateway._sendSingleRequest(request);
@@ -338,7 +343,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'lostMyMarbles',
                     contractFunction: 'myFunction',
                     contractArguments: ['arg1'],
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                     targetPeers: 'peer1'
                 };
                 await fabricGateway._sendSingleRequest(request);
@@ -354,7 +359,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'lostMyMarbles',
                     contractFunction: 'myFunction',
                     contractArguments: ['arg1'],
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                     targetPeers: ['NotPeer1', 'NotPeer2']
                 };
                 await fabricGateway._sendSingleRequest(request);
@@ -370,7 +375,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'lostMyMarbles',
                     contractFunction: 'myFunction',
                     contractArguments: ['arg1'],
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                     targetPeers: ['peer1'],
                     targetOrganizations: ['Org1MSP']
                 };
@@ -391,7 +396,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     contractArguments: args,
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                 };
                 Transaction.throwOnCall(new Error('submit-failure'));
                 const txStatus = await fabricGateway._sendSingleRequest(request);
@@ -402,44 +407,39 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                 txStatus.IsVerified().should.be.true;
             });
 
-            it('should not set the client identity on a gateway when mutual TLS is not specified', async () => {
-                const configFile = new GenerateConfiguration(path.resolve(__dirname, v2ConfigWithSingleUser)).generateConfigurationFileWithSpecifics(
-                    {
-                        caliper: {
-                            blockchain: 'fabric',
-                            sutOptions: {
-                                mutualTls: false
-                            }
-                        }
-                    }
-                );
-
-                const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, new WalletFacadeFactory());
-                connectorConfiguration.isMutualTLS().should.be.false;
-                fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
-                await fabricGateway.getContext();
-                const args = ['arg1', 'arg2'];
+            it('should succeed when no invokerIdentity provided', async () => {
                 const request = {
                     channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
-                    contractArguments: args,
-                    invokerIdentity: 'User1',
+                    invokerIdentity: ''
                 };
-                await fabricGateway._sendSingleRequest(request);
-                should.equal(Gateway.connectArgs[1].clientTlsIdentity, undefined);
+                let txStatus = await fabricGateway._sendSingleRequest(request);
+                txStatus.should.be.instanceOf(TxStatus);
+                txStatus.GetID().should.equal('1');
+                txStatus.GetStatus().should.equal('success');
+                txStatus.GetResult().should.equal('submitResponse');
+                txStatus.IsVerified().should.be.true;
+
+                request.invokerIdentity = null;
+                txStatus = await fabricGateway._sendSingleRequest(request);
+                txStatus.should.be.instanceOf(TxStatus);
+
+                delete request.invokerIdentity;
+                txStatus = await fabricGateway._sendSingleRequest(request);
+                txStatus.should.be.instanceOf(TxStatus);
             });
         });
 
         describe('when making an evaluate request', () => {
-            it('should succeed, set clientIdentity and return with an appropriate TxStatus', async () => {
+            it('should succeed and return with an appropriate TxStatus', async () => {
                 const args = ['arg1', 'arg2'];
                 const request = {
                     channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     contractArguments: args,
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                     readOnly: true
                 };
                 const txStatus = await fabricGateway._sendSingleRequest(request);
@@ -447,8 +447,6 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                 txStatus.GetStatus().should.equal('success');
                 txStatus.GetResult().should.equal('evaluateResponse');
                 txStatus.IsVerified().should.be.true;
-
-                Gateway.connectArgs[1].clientTlsIdentity.should.equal('User1');
 
                 Transaction.evaluate.should.be.true;
                 Transaction.evaluateArgs.should.deep.equal(args);
@@ -460,7 +458,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'lostMyMarbles',
                     contractFunction: 'myFunction',
                     contractArguments: ['arg1'],
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                     targetPeers: ['peer1', 'peer3', 'peer4'],
                     readOnly: true
                 };
@@ -475,7 +473,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'lostMyMarbles',
                     contractFunction: 'myFunction',
                     contractArguments: ['arg1'],
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                     targetOrganizations,
                     readOnly: true
                 };
@@ -491,7 +489,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     contractArguments: args,
-                    invokerIdentity: 'User1',
+                    invokerIdentity: 'user',
                     readOnly: true
                 };
                 Transaction.throwOnCall(new Error('submit-failure'));

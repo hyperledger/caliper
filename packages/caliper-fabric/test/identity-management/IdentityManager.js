@@ -208,21 +208,21 @@ describe('An Identity Manager', () => {
         it('should not prefix for the default organisation', async () => {
             stubInMemoryAndFileSystemWalletFacade.getAllIdentityNames.resolves([]);
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSPWithCertificates]);
-            identityManager.getAliasNameFromOrganizationAndIdentityName('Org1MSP', 'admin').should.equal('admin');
+            identityManager.generateAliasNameFromOrganizationAndIdentityName('Org1MSP', 'admin').should.equal('admin');
         });
 
         it('should not prefix for when organisation is not provided', async () => {
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSPWithCertificates]);
-            identityManager.getAliasNameFromOrganizationAndIdentityName(undefined, 'admin').should.equal('admin');
-            identityManager.getAliasNameFromOrganizationAndIdentityName(null, 'admin').should.equal('admin');
-            identityManager.getAliasNameFromOrganizationAndIdentityName('', 'admin').should.equal('admin');
+            identityManager.generateAliasNameFromOrganizationAndIdentityName(undefined, 'admin').should.equal('admin');
+            identityManager.generateAliasNameFromOrganizationAndIdentityName(null, 'admin').should.equal('admin');
+            identityManager.generateAliasNameFromOrganizationAndIdentityName('', 'admin').should.equal('admin');
         });
 
         it('should prefix for the non default organisation', async () => {
             const anotherorg1MSPWithCertificates = JSON.parse(JSON.stringify(org1MSPWithCertificates));
             anotherorg1MSPWithCertificates.mspid = 'Org2MSP';
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSPWithCertificates, anotherorg1MSPWithCertificates]);
-            identityManager.getAliasNameFromOrganizationAndIdentityName('Org2MSP', 'admin').should.equal('_Org2MSP_admin');
+            identityManager.generateAliasNameFromOrganizationAndIdentityName('Org2MSP', 'admin').should.equal('_Org2MSP_admin');
         });
     });
 
@@ -231,9 +231,17 @@ describe('An Identity Manager', () => {
             stubInMemoryAndFileSystemWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_Org2MSP_admin', '_Org2MSP_issuer']);
         });
 
-        it('should return the correct aliases for the default organisation', async () => {
+        it('should return the correct aliases for the default organisation when explicitly specified', async () => {
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSPWithCertificates]);
             await identityManager.getAliasNamesForOrganization('Org1MSP').should.eventually.deep.equal(['admin', 'user']);
+        });
+
+        it('should return the correct aliases for the default organisation when not explicitly specified', async () => {
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSPWithCertificates]);
+            await identityManager.getAliasNamesForOrganization('').should.eventually.deep.equal(['admin', 'user']);
+            await identityManager.getAliasNamesForOrganization().should.eventually.deep.equal(['admin', 'user']);
+            await identityManager.getAliasNamesForOrganization(null).should.eventually.deep.equal(['admin', 'user']);
+            await identityManager.getAliasNamesForOrganization(undefined).should.eventually.deep.equal(['admin', 'user']);
         });
 
         it('should return the correct aliases for a non default organisation', async () => {
@@ -578,6 +586,7 @@ describe('An Identity Manager', () => {
             stubInMemoryAndFileSystemWalletFacade.export.resolves(testIdentity);
 
             let identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSPWithWallet]);
+            identityManager.getAdminAliasNamesForOrganization().should.deep.equal([]);
             identityManager.getAdminAliasNamesForOrganization('Org1MSP').should.deep.equal([]);
 
             identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org2MSPWithCertificates]);
@@ -601,6 +610,8 @@ describe('An Identity Manager', () => {
 
             let identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSPWithAdminandUserCertificates]);
             identityManager.getAdminAliasNamesForOrganization('Org1MSP').should.deep.equal(['Org1Admin']);
+            identityManager.getAdminAliasNamesForOrganization('').should.deep.equal(['Org1Admin']);
+            identityManager.getAdminAliasNamesForOrganization().should.deep.equal(['Org1Admin']);
 
             identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org2MSPWithWalletAndAdminNames]);
             identityManager.getAdminAliasNamesForOrganization('Org2MSP').should.deep.equal(['admin']);

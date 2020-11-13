@@ -160,10 +160,6 @@ class V1Fabric extends ConnectorBase {
             request.contractId = contractDetails.id;
         }
 
-        if (!request.invokerIdentity) {
-            throw new Error('No invokerIdentity provided in the request');
-        }
-
         if (!request.contractFunction) {
             throw new Error('No contractFunction provided in the request');
         }
@@ -673,15 +669,12 @@ class V1Fabric extends ConnectorBase {
      * @private
      */
     _getFabricClientForInvoker(invokeSettings) {
-        let aliasName = invokeSettings.invokerIdentity;
-        const mspId = invokeSettings.invokerMspId;
-        if (mspId && mspId.length > 0) {
-            aliasName = this.connectorConfiguration.getAliasNameFromOrganizationAndIdentityName(mspId, invokeSettings.invokerIdentity);
-        }
-
+        const invokerName = invokeSettings.invokerIdentity;
+        const invokerMspId = invokeSettings.invokerMspId;
+        const aliasName = this.connectorConfiguration.getAliasNameForOrganizationAndIdentityName(invokerMspId, invokerName);
         const fabricClientForInvoker = this.aliasNameToFabricClientMap.get(aliasName);
         if (!fabricClientForInvoker) {
-            throw Error(`No contracts for invokerIdentity ${invokeSettings.invokerIdentity}${mspId ? ` in ${mspId}` : ''} found. Identity and/or MspId does not exist`);
+            throw Error(`No contracts for invokerIdentity ${invokerName}${invokerMspId ? ` in ${invokerMspId}` : ''} found. Identity and/or MspId does not exist`);
         }
 
         return fabricClientForInvoker;
