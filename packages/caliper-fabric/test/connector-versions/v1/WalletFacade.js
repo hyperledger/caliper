@@ -22,13 +22,22 @@ const mockery = require('mockery');
 
 const { StubWallet , FileSystemWallet, InMemoryWallet, X509WalletMixin } = require('./V1GatewayStubs');
 
-mockery.enable();
-mockery.registerMock('fabric-network',  {FileSystemWallet, InMemoryWallet, X509WalletMixin});
-
-const WalletFacadeFactory = require('../../../lib/connector-versions/v1/WalletFacadeFactory');
-const WalletFacade = require('../../../lib/connector-versions/v1/WalletFacade');
+let WalletFacadeFactory;
+let WalletFacade;
 
 describe('When testing a V1 Wallet Facade Implementation', () => {
+    before(() => {
+        mockery.enable({
+            warnOnReplace: false,
+            warnOnUnregistered: false,
+            useCleanCache: true
+        });
+        mockery.registerMock('fabric-network',  {FileSystemWallet, InMemoryWallet, X509WalletMixin});
+        WalletFacadeFactory = require('../../../lib/connector-versions/v1/WalletFacadeFactory');
+        WalletFacade = require('../../../lib/connector-versions/v1/WalletFacade');
+    });
+
+
     after(() => {
         mockery.deregisterAll();
         mockery.disable();

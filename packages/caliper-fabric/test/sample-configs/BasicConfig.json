@@ -90,6 +90,19 @@
       },
       {
         "mspid": "Org2MSP",
+        "identities": {
+          "certificates": [
+            {
+              "name": "User1",
+              "clientPrivateKey": {
+                "pem": "-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----"
+              },
+              "clientSignedCert": {
+                "pem": "-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----"
+              }
+            }
+          ]
+        },
         "connectionProfile": {
           "path": "./test/sample-configs/StaticOrg2ConnectionProfile.json",
           "discover": false

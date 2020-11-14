@@ -36,6 +36,8 @@ class ConnectorConfiguration {
         this.walletFacadeFactory = walletFacadeFactory;
         this.identityManager = null;
         this.contractDetailsById = new Map();
+        this.defaultInvokerMap = new Map();
+        this.defaultInvokerForDefaultOrganization = null;
         this.peersInChannelByOrganizationMap = null;
         this.orderersInChannelMap = null;
     }
@@ -47,7 +49,8 @@ class ConnectorConfiguration {
         const configPath = CaliperUtils.resolvePath(this.connectorConfigurationPath);
         this.connectorConfiguration = CaliperUtils.parseYaml(configPath);
         this.identityManager = await this.identityManagerFactory.create(this.walletFacadeFactory, this.connectorConfiguration.organizations);
-        this._createContractMappingById();
+        this._createContractDetailsById();
+        await this._createDefaultInvokerCache();
     }
 
     /**
@@ -205,15 +208,23 @@ class ConnectorConfiguration {
     }
 
     /**
-     * Get an alias name which can be used with a wallet for the unique identity name
-     * @param {string} mspId The msp ID of the organization that owns the identity
-     * @param {string} identityName the identity name the organization it associates with the identity
-     * @returns {string} the unique alias name that will be in the wallet
+     * Get an alias name which can be used, either from providing all the info explicitly or resorting to using
+     * default options
+     * @param {string} mspId The msp ID of the organization that owns the identity, if not provided will use the default organization
+     * @param {string} identityName the identity name in the organization to use, if not specified a default identity will be chosen
+     * @returns {string} the unique alias name that will be in the wallet which can be used
      */
-    getAliasNameFromOrganizationAndIdentityName(mspId, identityName) {
-        return this.identityManager.getAliasNameFromOrganizationAndIdentityName(mspId, identityName);
-    }
+    getAliasNameForOrganizationAndIdentityName(mspId, identityName) {
+        if (!identityName || identityName.length === 0) {
+            if (!mspId || mspId.length === 0) {
+                return this.defaultInvokerForDefaultOrganization;
+            }
 
+            return this.defaultInvokerMap.get(mspId);
+        }
+
+        return this.identityManager.generateAliasNameFromOrganizationAndIdentityName(mspId, identityName);
+    }
 
     /**
      * This returns a map of all the channels and the orgs (with their associated endorsing peers) in that channel. The format is
@@ -309,7 +320,7 @@ class ConnectorConfiguration {
      * id.
      * Contract details are just the channel and chaincode id (version number is not required)
      */
-    _createContractMappingById() {
+    _createContractDetailsById() {
         const channelDefinitions = this.connectorConfiguration.channels;
 
         if (channelDefinitions && Array.isArray(channelDefinitions)){
@@ -339,6 +350,24 @@ class ConnectorConfiguration {
             }
         }
     }
+
+    /**
+     * create a cache of default invoker alias names
+     */
+    async _createDefaultInvokerCache() {
+        for (const organization of this.getOrganizations()) {
+            const aliasNames = await this.identityManager.getAliasNamesForOrganization(organization);
+            if (aliasNames.length > 0) {
+                this.defaultInvokerMap.set(organization, aliasNames[0]);
+                if (!this.defaultInvokerForDefaultOrganization) {
+                    this.defaultInvokerForDefaultOrganization = aliasNames[0];
+                }
+            } else {
+                throw new Error(`Organization ${organization} has been defined without at least 1 identity associated with it`);
+            }
+        }
+    }
+
 }
 
 module.exports = ConnectorConfiguration;

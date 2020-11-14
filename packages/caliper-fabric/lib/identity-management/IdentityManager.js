@@ -44,11 +44,11 @@ class IdentityManager {
 
     /**
      * Get an alias name which can be used with a wallet for the unique identity name
-     * @param {string} mspId The msp ID of the organization that owns the identity
+     * @param {string} mspId The msp ID of the organization that owns the identity, will use the default mspId if no value provided
      * @param {string} identityName the identity name the organization it associates with the identity
      * @returns {string} the unique alias name that will be in the wallet
      */
-    getAliasNameFromOrganizationAndIdentityName(mspId, identityName) {
+    generateAliasNameFromOrganizationAndIdentityName(mspId, identityName) {
         if (!mspId ||
             mspId.length === 0 ||
             mspId === this.defaultMspId) {
@@ -61,7 +61,7 @@ class IdentityManager {
 
     /**
      * Get a list of all the alias names for an organization that will be in the wallet
-     * @param {string} mspId the msp ID of the organization
+     * @param {string} mspId the msp ID of the organization, if not provided will use the default organization.
      * @returns {Promise<string[]>} a list of all the aliases (including admin specified) or a blank array if there are none
      * @async
      */
@@ -72,7 +72,7 @@ class IdentityManager {
 
     /**
      * Get a list of admin alias names for an organization
-     * @param {string} mspId the mspid of the organization
+     * @param {string} mspId the msp ID of the organization, if not provided will use the default organization.
      * @returns {string[]} list of admin alias names or empty if none
      */
     getAdminAliasNamesForOrganization(mspId) {
@@ -98,10 +98,14 @@ class IdentityManager {
     /**
      * extract alias names for a specific organization
      * @param {string[]} aliasNames the complete list of alias names to search
-     * @param {string} mspId the organization mspid
+     * @param {string} mspId the organization msp ID, if not provided then use the default
      * @returns {string[]} the list of alias names for that organization or an empty array if none
      */
     _getAliasNamesInOrganization(aliasNames, mspId) {
+        if (!mspId || mspId.length === 0) {
+            mspId = this.defaultMspId;
+        }
+
         return aliasNames.filter((aliasName) => {
             if (mspId !== this.defaultMspId) {
                 return aliasName.startsWith(this._getPrefixForIdentityNameFromOrganisation(mspId));
@@ -131,7 +135,7 @@ class IdentityManager {
      * @private
      */
     async _addToWallet(mspId, identityName, isAdmin, certificate, privateKey) {
-        const alias = this.getAliasNameFromOrganizationAndIdentityName(mspId, identityName);
+        const alias = this.generateAliasNameFromOrganizationAndIdentityName(mspId, identityName);
         try {
             await this.inMemoryWalletFacade.import(mspId, alias, certificate, privateKey);
             if (isAdmin) {

@@ -33,15 +33,22 @@ const v2Config = './sample-configs/NoIdentitiesNetworkConfig.yaml';
 const DefaultEventHandlerStrategies = {};
 const DefaultQueryHandlerStrategies = {};
 
-/** */
+/* eslint-disable require-jsdoc */
+
 class InMemoryWallet {
-    /** */
     import() {}
+    getAllLabels() {return ['user'];}
+    list() {return ['user'];}
 }
+
+const AlternativeWallets = {
+    newInMemoryWallet: async () => {
+        return new InMemoryWallet();
+    }
+};
 
 /** */
 class X509WalletMixin {
-    /** */
     static createIdentity() {}
 }
 
@@ -140,7 +147,7 @@ describe('A Fabric Connector Factory', () => {
         mockery.registerMock('fabric-network', {
             DefaultEventHandlerStrategies,
             DefaultQueryHandlerStrategies,
-            Wallets
+            Wallets: AlternativeWallets
         });
         mockery.registerMock('fabric-network/package', {version: '2.2.1'});
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, v2Config));

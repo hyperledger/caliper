@@ -95,12 +95,17 @@ describe('When creating Fabric Client instances', () => {
         Client.setTlsClientCertAndKeyCalls.should.equal(0);
     });
 
-    it('should create a client and set mutual TLS when specied in the connection profile', async () => {
+    it('should create a client and set mutual TLS when specified in the connection profile', async () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
-        stubWalletFacade.getAllIdentityNames.resolves(['tlsUser']);
+        stubWalletFacade.getAllIdentityNames.resolves(['tlsUser', '_Org2MSP_tlsUser']);
         stubWalletFacade.export.resolves({
             mspid: 'Org1MSP',
+            certificate: 'cert',
+            privateKey: 'key'
+        });
+        stubWalletFacade.export.withArgs('_Org2MSP_tlsUser').resolves({
+            mspid: 'Org2MSP',
             certificate: 'cert',
             privateKey: 'key'
         });
@@ -110,8 +115,8 @@ describe('When creating Fabric Client instances', () => {
         const clientCreator = new ClientCreator(connectorConfiguration);
         const identityToClientMap = await clientCreator.createFabricClientsForAllIdentities();
         identityToClientMap.get('tlsUser').should.be.instanceOf(Client);
-        identityToClientMap.size.should.equal(1);
-        Client.setTlsClientCertAndKeyCalls.should.equal(1);
+        identityToClientMap.size.should.equal(2);
+        Client.setTlsClientCertAndKeyCalls.should.equal(2);
     });
 
 });

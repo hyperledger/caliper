@@ -24,16 +24,15 @@ const path = require('path');
 const DefaultEventHandlerStrategies = {};
 const DefaultQueryHandlerStrategies = {};
 
-const v2ConfigWithSingleUser = '../../sample-configs/BasicConfig.yaml';
+const configWith2Orgs1AdminInWallet = '../../sample-configs/BasicConfig.yaml';
 
 const { Client, Constants } = require('./ClientStubs');
 const { Gateway, Transaction, InMemoryWallet, FileSystemWallet, X509WalletMixin } = require('./V1GatewayStubs');
 const ConnectorConfigurationFactory = require('../../../lib/connector-configuration/ConnectorConfigurationFactory');
 
-
-describe('A Node-SDK V1 Fabric Gateway', () => {
+describe('A Node-SDK V1 (1.4.4) Fabric Gateway', () => {
     let FabricGateway;
-    let WalletFacadeFactory;
+    let GenerateWallet;
 
     before(() => {
         mockery.enable({
@@ -56,7 +55,7 @@ describe('A Node-SDK V1 Fabric Gateway', () => {
         mockery.registerMock('fabric-client/lib/Constants', Constants);
 
         FabricGateway = require('../../../lib/connector-versions/v1/FabricGateway');
-        WalletFacadeFactory = require('../../../lib/connector-versions/v1/WalletFacadeFactory');
+        GenerateWallet = require('../../utils/GenerateWallet');
     });
 
     after(() => {
@@ -70,7 +69,8 @@ describe('A Node-SDK V1 Fabric Gateway', () => {
         beforeEach(async () => {
             Gateway.reset();
             Transaction.reset();
-            const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithSingleUser), new WalletFacadeFactory());
+            const {walletFacadeFactory} = new GenerateWallet().createStandardTestWalletSetup();
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
             fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
             await fabricGateway.getContext();
         });
@@ -84,7 +84,7 @@ describe('A Node-SDK V1 Fabric Gateway', () => {
                 contractId: 'lostMyMarbles',
                 contractFunction: 'myFunction',
                 contractArguments: ['arg1'],
-                invokerIdentity: 'User1',
+                invokerIdentity: 'user',
                 targetPeers: ['peer1', 'peer2']
             };
             await fabricGateway._sendSingleRequest(request);
