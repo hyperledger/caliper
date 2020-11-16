@@ -88,8 +88,6 @@ class V1FabricGateway extends ConnectorBase {
         this.peerNameToPeerObjectCache = new Map();
         this.context = undefined;
 
-        // this value is hardcoded, if it's used, that means that the provided timeouts are not sufficient
-        this.configSmallestTimeout = 1000;
         this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60000);
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
 
@@ -379,8 +377,22 @@ class V1FabricGateway extends ConnectorBase {
                 }
 
                 invokeStatus.Set('request_type', 'query');
-                invokeStatus.Set('time_create', Date.now());
-                result = await transaction.evaluate(...invokeSettings.contractArguments);
+                const resultPromise = new Promise(async (resolve, reject) => {
+                    const timeoutHandle = setTimeout(() => {
+                        reject(new Error('TIMEOUT'));
+                    }, this.configDefaultTimeout);
+
+                    try {
+                        invokeStatus.Set('time_create', Date.now());
+                        const result = await transaction.evaluate(...invokeSettings.contractArguments);
+                        clearTimeout(timeoutHandle);
+                        resolve(result);
+                    } catch(err) {
+                        clearTimeout(timeoutHandle);
+                        reject(err);
+                    }
+                });
+                result = await resultPromise;
             }
 
             invokeStatus.SetResult(result);
