@@ -3,7 +3,7 @@ layout: vNext
 title:  "FISCO BCOS"
 categories: config
 permalink: /vNext/fisco-config/
-order: 4
+order: 5
 ---
 
 >*The required minimal version of FISCO BCOS is v2.0.0*

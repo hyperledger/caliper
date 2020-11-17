@@ -15,6 +15,9 @@ coverage/
 # Ignore IDE files
 .vscode/
 
+# Ignore jekyll
+.jekyll-cache
+
 # We prefer to not use lock files
 package-lock.json
 *.lock
