@@ -216,8 +216,7 @@ class V1Fabric extends ConnectorBase {
                     try {
                         await channel.initialize();
                     } catch (err) {
-                        logger.error(`Couldn't initialize ${channelName} for ${aliasName}: ${err.message}`);
-                        throw err;
+                        logger.warn(`Couldn't initialize ${channelName} for ${aliasName}. ${aliasName} not available for use on this channel. Error: ${err.message}`);
                     }
                 }
             }

@@ -128,13 +128,6 @@ describe('A Node-SDK V1 Fabric Non Gateway', () => {
         ChannelEventHub.disconnectCalls.should.equal(2);
     });
 
-    it('should throw an error if channel fails to initialize', async () => {
-        Channel.throwOnInitialize(new Error('init-failure'));
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), stubWalletFacadeFactory);
-        const fabricNonGateway = new FabricNonGateway(connectorConfiguration, 1, 'fabric');
-        await fabricNonGateway.getContext().should.be.rejectedWith(/init-failure/);
-    });
-
     describe('when interacting with a fabric network', () => {
         let fabricNonGateway;
 

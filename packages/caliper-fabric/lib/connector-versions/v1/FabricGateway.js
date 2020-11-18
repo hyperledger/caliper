@@ -235,13 +235,22 @@ class V1FabricGateway extends ConnectorBase {
         const contractMap = new Map();
         const channels = this.connectorConfiguration.getAllChannelNames();
         for (const channel of channels) {
-            const network = await gateway.getNetwork(channel);
+
+            let network;
+            try {
+                network = await gateway.getNetwork(channel);
+            } catch(err) {
+                logger.warn(`Couldn't initialize ${channel} for ${aliasName}. ${aliasName} not available for use on this channel. Error: ${err.message}`);
+                continue;
+            }
+
             const contracts = this.connectorConfiguration.getContractDefinitionsForChannelName(channel);
 
             for (const contract of contracts) {
                 const networkContract = await network.getContract(contract.id);
                 contractMap.set(`${channel}_${contract.id}`, networkContract);
             }
+
         }
         logger.debug('Exiting _createChannelAndChaincodeIdToContractMap');
 

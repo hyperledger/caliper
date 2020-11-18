@@ -227,7 +227,15 @@ class V2FabricGateway extends ConnectorBase {
         const contractMap = new Map();
         const channels = this.connectorConfiguration.getAllChannelNames();
         for (const channel of channels) {
-            const network = await gateway.getNetwork(channel);
+
+            let network;
+            try {
+                network = await gateway.getNetwork(channel);
+            } catch(err) {
+                logger.warn(`Couldn't initialize ${channel} for ${aliasName}. ${aliasName} not available for use on this channel. Error: ${err.message}`);
+                continue;
+            }
+
             const contracts = this.connectorConfiguration.getContractDefinitionsForChannelName(channel);
 
             for (const contract of contracts) {
