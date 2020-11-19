@@ -39,11 +39,11 @@ Create a folder named **caliper-workspace** at the same level as the **fabric-sa
 
 Caliper installation and use will be based on a local npm installation. Within the **caliper-workspace** directory, install caliper CLI using the following terminal command:
 
-`npm install --only=prod @hyperledger/caliper-cli@0.4.0`
+`npm install --only=prod @hyperledger/caliper-cli@0.4.2`
 
 Bind the SDK using the following terminal command:
 
-`npx caliper bind --caliper-bind-sut fabric:2.1`
+`npx caliper bind --caliper-bind-sut fabric:2.2`
 
 Further information relating to the installation and binding of Caliper may be found within the relevant [documentation pages](./Installing_Caliper.md).
 
@@ -54,262 +54,120 @@ Caliper requires two configuration files:
 We will now populate these folders with the assets required by Caliper. 
 
 ## Step 2 - Build a Network Configuration File
-The network configuration file is the file required by Caliper workers to create a connection to the existing Fabric network so that they may submit transactions. It resembles the Fabric common connection profile, augmented with additional required fields. The file can be in YAML or JSON format, this tutorial shows the JSON format. 
+The network configuration file is the file required by Caliper workers to be able to submit and evaluate transactions on a Hyperledger Fabric network. The file can be in YAML or JSON format, this tutorial shows the YAML format. 
 
 ### Create a Template Network Configuration File
-Under the **networks** folder create a template file called **networkConfig.json** with the following content:
-``` json
-{
-    "version" : "1.0",
-    "name": "Caliper test",
-    "caliper" : {
-        "blockchain": "fabric"
-    },
-    "clients" : {
-    },
-    "channels" : {
-    },
-    "organizations" : {
-    },
-    "peers" : {
-    }
-}
-```
-__version__: The version of the configuration file being used. Only "1.0" is accepted.
+Under the **networks** folder create a template file called **networkConfig.yaml** with the following content:
+```yaml
+name: Caliper test
+version: "2.0.0"
 
+caliper:
+  blockchain: fabric
+
+channels:
+
+organizations:
+```
 __name__: The name for the configuration, in this instance "Caliper test".
 
-__caliper__: Indicates to Caliper the SUT that is being targeted, and may contain additional start/end commands that are not required within this tutorial. For the purposes of this tutorial, we are targeting a `fabric` network.
+__version__: The version of the configuration file being used. "2.0.0" ensures the new fabric connectors are used
 
-__clients__: Lists the identities to be used within the performance test
+__caliper__: Indicates to Caliper the SUT that is being targeted, and may contain additional start/end commands or sut specific options that are not required within this tutorial. For the purposes of this tutorial, we are targeting a `fabric` network.
 
-__channels__: Describes the Hyperledger Fabric channels available, their state, and the smart contracts deployed on these channels
+__channels__: Describes the Hyperledger Fabric channels and the smart contracts deployed on these channels to be benchmarked.
 
-__organizations__: The Hyperledger Fabric organizations that are to be used within the benchmarking
+__organizations__: A list of the Hyperledger Fabric organizations with identities and connection profiles associated with each organization
 
-__peers__: The Hyperledger Fabric peers that are to be used within the benchmarking
+### A brief introduction to Common Connection Profiles (CCP)
+Common Connection Profiles are a file format by which all the Hyperledger Fabric SDKs can use to connect to a Hyperledger Fabric Network. As Caliper utilizes the fabric node sdk to connect to the network, caliper makes use of these connection profiles. Whoever is responsible for building a Hyperledger Fabric network should create these files. 
+
+A Common Connection Profile will be organization specific. So each organization will have their own unique file. Again the network provider should provide a file for each organization. 
+
+These profiles can come in 2 forms termed `static` or `dynamic` in the Hyperledger Fabric documentation. In summary `static` connection profiles contain all the information up front about the fabric network. It contains, amonst other things, all the peers, orderers and channels that exist. A `dynamic` connection profile is minimal usually containing (plus a client section to say which organization the client is in) just 1 or 2 peers of your organization for which the SDK will need to use discovery with in order to determine all the required information to be able to interact with the fabric network.
+
+You will see that the `test-network` in fabric samples provides common connection profiles for each organization, and that they are dynamic connection profiles.
 
 ### Populating The Template File
-Following the test-network tutorial, a Common Connection Profile (CCP) is generated; we will use this file to help populate the Hyperledger Fabric specific elements of the Caliper network configuration file. The template will have some unique certificates for the Hyperledger Fabric network that was created, therefore you will notice differences to contents shown in subsequent stages; it is essential that you use the certificates created for interaction with the test-network you wish to target.
+Following the test-network tutorial, a Common Connection Profile is generated as well as a set of identities for each organization. 
 
-We will be using Org1 to connect in this example. To find the generated JSON or YAML CCP files, look in **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com**. We assume use of the json CCP **connection-org1.json**. 
+We will be using Org1 whose MSP id is `Org1MSP` to connect in this example, so there is no need to provide details about Org2 which is part of the test-network. Only having to provide a single organization is a very common pattern.
 
-#### Organizations and Peers
-These are populated using the contents of the CCP:
-1. Copy the `organizations` and `peers` elements of the CCP into the Caliper network configuration file. 
-2. Within the `organizations.Org1` object, delete the `certificateAuthorities` listing. This is done for two reasons:
-    
-    i) We will not be using the certificate authority to register or enrol
+#### Organizations
+Here we need to add information about the organization whose MSP id is `Org1MSP`. We need to provide a name, it's associated connection profile and at least 1 identity. 
 
-    ii) There has been a breaking change delivered to the CCP that is incompatible with the validator Caliper applies to the configuration files.
+The connection profile can be found in **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com**. There are both json and yaml versions of this file, we will make use of  **connection-org1.yaml**. These connection profiles are what Hyperledger Fabric refer to as dynamic so they are expected to be used in conjunction with discovery, therefore we need to declare that this connection profile requires the use of discovery.
 
-Your Caliper network configuration file should now look similar to this:
-``` json
-{
-    "version" : "1.0",
-    "name": "Caliper test",
-    "caliper" : {
-        "blockchain": "fabric"
-    },
-    "clients" : {
-    },
-    "channels" : {
-    },
-    "organizations": {
-        "Org1": {
-            "mspid": "Org1MSP",
-            "peers": [
-                "peer0.org1.example.com"
-            ]
-        }
-    },
-    "peers": {
-        "peer0.org1.example.com": {
-            "url": "grpcs://localhost:7051",
-            "tlsCACerts": {
-                "pem": "-----BEGIN CERTIFICATE-----<UNIQUE CONTENT>-----END CERTIFICATE-----\n"
-            },
-            "grpcOptions": {
-                "ssl-target-name-override": "peer0.org1.example.com",
-                "hostnameOverride": "peer0.org1.example.com"
-            }
-        }
-    }
-}
+The identity we will use will be `User1@org1.example.com`. 
+
+The private key can be found in **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **users** -> **User1** -> **msp** -> **keystore** -> **priv_sk**
+
+The public certificate can be found in **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **users** -> **User1** -> **msp** -> **signedcerts** -> **User1@org1.example.com-cert.pem**
+
+The identity will need to be given a unique name within the organization. It doesn't have to match the name that the `test-network` has used, ie `User1@org1.example.com` so to keep it simple let's just give it a name of `User1`.
+For the purposes of this tutorial we will just point to the certificate and private key files, but it's also possible to embed the information directly into the network configuration file.
+
+Below is the required organizations section that provides the above detail
+
+```yaml
+organizations:
+  - mspid: Org1MSP
+    identities:
+      certificates:
+      - name: 'User1'
+        clientPrivateKey:
+          path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/priv_sk'
+        clientSignedCert:
+          path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem'
+    connectionProfile:
+      path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/connection-org1.yaml'
+      discover: true
 ```
 
-#### Clients
-Specify the identities to be used by Caliper when performing the benchmark. Identities *must* be valid, meaning they must be known to the Fabric network and have the corresponding crypto material for use. Identities are listed within a `clients` stanza. Here we use the single identity `Admin@org1.example.com`, within which we nest the `client` object from the CCP to indicate the organization to which the identity belongs and provide basic connection timeout information. 
+Note the `-` sign in front of `mspid` and `name` in the above example. These are important as organizations could contain more than 1 organization. certificates can also contain a list defining more than 1 identity.
 
-```json
-"clients": {
-    "Admin@org1.example.com": {
-        "client": {
-            "organization": "Org1",
-            "connection": {
-                "timeout": {
-                    "peer": {
-                        "endorser": "300"
-                    }
-                }
-            }
-        }
-    }
-}
+One other important point to note; The first organization defined in the file is known as the default organization. In workload modules if you don't specify an invoking organization, then the default organization is used. As there is only 1 organization defined anyway you will not see any reference to the invoking organization in the workload implementation.
+
+#### Channels
+The Fabric connector for Caliper requires assistance when creating connections to a Fabric network. A list of `channels` must be provided that lists the smart contracts that may be interacted with.
+
+As part of the `test-network` tutorial, a channel of `mychannel` will have been created and a contract (chaincode) with the id of `basic` will have been instantiated on that channel. We declare this as follows
+
+```yaml
+channels:
+  - channelName: mychannel
+    contracts:
+    - id: basic
 ```
-
-Under the `client` object add a property called `credentialStore` under this property add a property called `path` that has a string variable leading to a temp file in the workspace with the name `/tmp/org1`. Also under the `credentialStore` property add a property called `cryptoStore` and under this add another `path` property that points to the same temp file above, `/tmp/org1`. 
-
-This is what should be added to the `client` : 
-
-```json
-"credentialStore": {
-    "path": "/tmp/org1",
-    "cryptoStore": {
-        "path": "/tmp/org1"
-    }
-}
-```
-
-Under the `client` object add a property called `clientPrivateKey` under this property add a property called `path` that has a string variable leading to the private key of the identity. Note that the provided path is workspace relative. In this example the private key is located at **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **users** -> **Admin@org1.example.com** -> **msp** -> **keystore** -> **priv_sk** .
-
-This is what should be added to the `client` object:
-
-```json
-"clientPrivateKey": {
-    "path": "../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk"
-}
-```
-
-Also under the `client` object add another property called `clientSignedCert` and under this add a property called `path` that has a string variable leading to the signed certificate of the identity. Again note that the provided path is workspace relative. In this example it is located at **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **users** -> **Admin@org1.example.com** -> **msp** -> **signedcerts** -> **admin@org1.example.com-cert.pem**
-
-This is what should be added to the `client` object:
-
-```json
-"clientSignedCert": {
-    "path": "../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
-}
-```
-
-The `clients` object should now look like this: 
-
-```json
-    "clients": {
-        "Admin@org1.example.com": {
-            "client": {
-                "organization": "Org1",
-                "connection": {
-                    "timeout": {
-                        "peer": {
-                            "endorser": "300"
-                        }
-                    }
-                },
-                "credentialStore": {
-                    "path": "tmp/hfc-kvs/org1",
-                    "cryptoStore": {
-                        "path": "tmp/hfc-kvs/org1"
-                    }
-                },
-                "clientPrivateKey": {
-                    "path": "../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk"
-                },
-                "clientSignedCert": {
-                    "path": "../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
-                }
-            }
-        }
-    }
-```
-
-#### Channels Object
-The Fabric connector for Caliper requires assistance when creating connections to a Fabric network. A `channels` object must be provided that lists the smart contracts that may be interacted with.
-
-Add the known channel, `mychannel`, that was created by the `test-network` into the `channels` section of the Caliper network configuration file and give it the property `created` with a boolean value of true. We must list the smart contracts available on this channel as objects within an array named `contracts`. Each smart contract object has two properties, `id` and `version`. `id` specifies contract ID; in this case it is `basic`. The version is the specific contract version; in this case it is `1.0.0`. Add this as an object within the array such that the resulting `channels` object within the Caliper network configuration file becomes:
-
-```json
-    "channels": {
-        "mychannel": {
-            "created" : true,
-            "contracts": [
-                {
-                    "id":"basic",
-                    "version":"1.0.0"
-                }
-            ]
-        }
-    }
-```
+note the `-` sign in front of `channelName` and `id` in the above example. This is required because there can be more than 1 channel so channels specify a list of channels and contracts can have more than 1 contract (chaincode) ids that are of interest.
 
 ### The Complete Network Configuration File
-The Caliper network configuration file should now be fully populated. It can be useful to take time to look over and ensure that the paths to the certificates and keys are correct. 
+The Caliper network configuration file should now be fully populated. It can be useful to take time to look over and ensure that the paths to the certificates, private keys and connection profile are correct. 
 
-```json
-{
-    "version" : "1.0",
-    "name": "Caliper test",
-    "caliper" : {
-        "blockchain": "fabric"
-    },
-    "clients": {
-        "Admin@org1.example.com": {
-            "client": {
-                "credentialStore": {
-                    "path": "/tmp/org1",
-                    "cryptoStore": {
-                        "path": "/tmp/org1"
-                    }
-                },
-                "organization": "Org1",
-                "clientPrivateKey": {
-                    "path": "../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk"
-                },
-                "clientSignedCert": {
-                    "path": "../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
-                },
-                "connection": {
-                    "timeout": {
-                        "peer": {
-                            "endorser": "300"
-                        }
-                    }
-                }
+```yaml
+name: Calier test
+version: "2.0.0"
 
-            }
-        }
-    },
-    "channels": {
-        "mychannel": {
-            "created" : true,
-            "contracts": [
-                {
-                    "id":"basic",
-                    "version":"1.0.0"
-                }
-            ]
-        }
-    },
-    "organizations":{
-        "Org1": {
-            "mspid": "Org1MSP",
-            "peers": [
-                "peer0.org1.example.com"
-            ]
-        }
-    },
-    "peers": {
-        "peer0.org1.example.com": {
-            "url": "grpcs://localhost:7051",
-            "tlsCACerts": {
-                "pem": "-----BEGIN CERTIFICATE-----\n<UNIQUE CONTENT>\n-----END CERTIFICATE-----\n"
-            },
-            "grpcOptions": {
-                "ssl-target-name-override": "peer0.org1.example.com",
-                "hostnameOverride": "peer0.org1.example.com"
-            }
-        }
-    }
-}
+caliper:
+  blockchain: fabric
+
+channels:
+  - channelName: mychannel
+    contracts:
+    - id: basic
+
+organizations:
+  - mspid: Org1MSP
+    identities:
+      certificates:
+      - name: 'User1'
+        clientPrivateKey:
+          path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/priv_sk'
+        clientSignedCert:
+          path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem'
+    connectionProfile:
+      path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/connection-org1.yaml'
+      discover: true
 ```
 
 ## Step 3 - Build a Test Workload Module
@@ -368,7 +226,7 @@ The number of assets to be created will be given as `roundArguments.assets`. We 
 - contractId, the name of smart contract that is to be used and is present within the Caliper network configuration file
 - contractFunction, the specific function within the smart contract to invoke
 - contractArguments, the arguments to pass to the smart contract function
-- invokerIdentity, the identity to use that is present within the Caliper network configuration file
+- invokerIdentity, the identity to use that is present within the Caliper network configuration file. This can be optional and caliper will select an identity for you (from the appropriate invoking organization or default organization) and in this tutorial there would only ever be 1 identity to pick but for completeness the examples explicitly define the identity.
 - readOnly, if performing a query operation or not
 
 The method should look like this:
@@ -382,7 +240,7 @@ The method should look like this:
             const request = {
                 contractId: this.roundArguments.contractId,
                 contractFunction: 'CreateAsset',
-                invokerIdentity: 'Admin@org1.example.com',
+                invokerIdentity: 'User1',
                 contractArguments: [assetID,'blue','20','penguin','500'],
                 readOnly: false
             };
@@ -399,7 +257,7 @@ This method runs repeatedly in the benchmark test phase. We will be evaluating t
 
 First, create a string identity for the asset to query, formed by the concatenation of the worker index and a random integer between 0 and the number of created assets. 
 
-Then await the call on `sendRequests`, passing an object containing: `contractId` set as that passed in from the round arguments; `contractFunction` set as `ReadAsset`; `invokerIdentity` set as `admin@org1.example.com`; and `chaincodeArguments` set as an array that contains the asset to query in this run. 
+Then await the call on `sendRequests`, passing an object containing: `contractId` set as that passed in from the round arguments; `contractFunction` set as `ReadAsset`; `invokerIdentity` set as `User1`; and `chaincodeArguments` set as an array that contains the asset to query in this run. 
 
 The method should look like this:
 ```js
@@ -408,7 +266,7 @@ The method should look like this:
         const myArgs = {
             contractId: this.roundArguments.contractId,
             contractFunction: 'ReadAsset',
-            invokerIdentity: 'Admin@org1.example.com',
+            invokerIdentity: 'User1',
             contractArguments: [`${this.workerIndex}_${randomId}`],
             readOnly: true
         };
@@ -428,7 +286,7 @@ This function is used to clean up after a test as it deletes the assets created 
             const request = {
                 contractId: this.roundArguments.contractId,
                 contractFunction: 'DeleteAsset',
-                invokerIdentity: 'Admin@org1.example.com',
+                invokerIdentity: 'User1',
                 contractArguments: [assetID],
                 readOnly: false
             };
@@ -460,7 +318,7 @@ class MyWorkload extends WorkloadModuleBase {
             const request = {
                 contractId: this.roundArguments.contractId,
                 contractFunction: 'CreateAsset',
-                invokerIdentity: 'Admin@org1.example.com',
+                invokerIdentity: 'User1',
                 contractArguments: [assetID,'blue','20','penguin','500'],
                 readOnly: false
             };
@@ -474,7 +332,7 @@ class MyWorkload extends WorkloadModuleBase {
         const myArgs = {
             contractId: this.roundArguments.contractId,
             contractFunction: 'ReadAsset',
-            invokerIdentity: 'Admin@org1.example.com',
+            invokerIdentity: 'User1',
             contractArguments: [`${this.workerIndex}_${randomId}`],
             readOnly: true
         };
@@ -489,7 +347,7 @@ class MyWorkload extends WorkloadModuleBase {
             const request = {
                 contractId: this.roundArguments.contractId,
                 contractFunction: 'DeleteAsset',
-                invokerIdentity: 'Admin@org1.example.com',
+                invokerIdentity: 'User1',
                 contractArguments: [assetID],
                 readOnly: false
             };
@@ -607,14 +465,14 @@ We are now ready to run the performance benchmark using the above configuration 
 
 Since the smart contract has already been installed and instantiated, Caliper only needs to perform the test phase. This is specified by using the flag `--caliper-flow-only-test`.
 
-Since the target network has discovery enabled, we may use this feature through use of a Hyperledger Fabric gateway by using the flags `--caliper-fabric-gateway-enabled` and `--caliper-fabric-gateway-discovery`.
+As we are using a 2.2 SUT, we must specify to use the gateway capability because there is no non gateway version for the 2.x connectors, so specify the flag `--caliper-fabric-gateway-enabled`
 
 ### Run the command
 Ensure that you are in the **caliper-workspace** directory. 
 
 In the terminal run the following Caliper CLI command:
 
-`npx caliper launch manager --caliper-workspace ./ --caliper-networkconfig networks/networkConfig.json --caliper-benchconfig benchmarks/myAssetBenchmark.yaml --caliper-flow-only-test --caliper-fabric-gateway-enabled --caliper-fabric-gateway-discovery`
+`npx caliper launch manager --caliper-workspace ./ --caliper-networkconfig networks/networkConfig.yaml --caliper-benchconfig benchmarks/myAssetBenchmark.yaml --caliper-flow-only-test --caliper-fabric-gateway-enabled`
 
 ### Benchmark Results
 The resulting report will detail the following items for each benchmark round:
