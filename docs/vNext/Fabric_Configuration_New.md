@@ -53,6 +53,7 @@ would select the new connector and the file must conform to the new network conf
 This page introduces the Fabric adapter that utilizes the Common Connection Profile (CCP) feature of the Fabric SDK to provide compatibility and a unified programming model across different Fabric versions.
 
 > The latest supported version of Hyperledger Fabric is v2.x
+> The ability to discover can only be used if you use the `gateway` option 
 
 The adapter exposes many SDK features directly to the user callback modules, making it possible to implement complex scenarios.
 
@@ -417,7 +418,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
    *  <details><summary markdown="span">__discover__
       </summary>
       _Optional. Boolean._ <br>
-      A value of `true` indicates that the connection profile is a dynamic connection profile and discovery should be used. If not specified then it defaults to false
+      A value of `true` indicates that the connection profile is a dynamic connection profile and discovery should be used. If not specified then it defaults to false. You can only set this value to true if you plan to use the `gateway` option
 
       ```yaml
       organizations:
