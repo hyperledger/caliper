@@ -80,6 +80,7 @@
     "nyc": {
         "include": [
             "lib/configValidator.js",
+            "lib/FabricConnectorFactory.js",
             "lib/connector-configuration",
             "lib/identity-management",
             "lib/connector-versions/v2",

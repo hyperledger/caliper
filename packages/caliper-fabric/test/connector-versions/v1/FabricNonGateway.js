@@ -22,6 +22,7 @@ const mockery = require('mockery');
 const path = require('path');
 
 const configWith2Orgs1AdminInWallet = '../../sample-configs/BasicConfigWithStaticCCP.yaml';
+const configWith2Orgs1AdminInWalletWithDiscover = '../../sample-configs/BasicConfig.yaml';
 
 const { Client, Channel, ChannelEventHub, Constants } = require('./ClientStubs');
 const GenerateConfiguration = require('../../utils/GenerateConfiguration');
@@ -77,7 +78,13 @@ describe('A Node-SDK V1 Fabric Non Gateway', () => {
         await fabricNonGateway.init().should.not.be.rejected;
     });
 
-    it('should do nothing when attempting to install a smart contract', async () => {
+    it('should throw an error if the connection profile is defined with discover when initalizing for use by caliper master', async () => {
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWalletWithDiscover), stubWalletFacadeFactory);
+        const fabricNonGateway = new FabricNonGateway(connectorConfiguration, 1, 'fabric');
+        await fabricNonGateway.init().should.be.rejectedWith(/Connection profiles for the organization\(s\).*Org1MSP.*have been specified as discover which is not allowed/);
+    });
+
+    it('should do nothing when requested install a smart contract when the configuration doesn\'t require it', async () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), stubWalletFacadeFactory);
         const fabricNonGateway = new FabricNonGateway(connectorConfiguration, 1, 'fabric');
         await fabricNonGateway.installSmartContract().should.not.be.rejected;
@@ -97,6 +104,13 @@ describe('A Node-SDK V1 Fabric Non Gateway', () => {
         const context2 = await fabricNonGateway.getContext();
         context2.should.equal(context);
     });
+
+    it('should throw an error if the connection profile is defined with discover when getting a context', async () => {
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWalletWithDiscover), stubWalletFacadeFactory);
+        const fabricNonGateway = new FabricNonGateway(connectorConfiguration, 1, 'fabric');
+        await fabricNonGateway.getContext().should.be.rejectedWith(/Connection profiles for the organization\(s\).*Org1MSP.*have been specified as discover which is not allowed/);
+    });
+
 
     it('should create Clients and set tls identity when a context is first requested', async () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), stubWalletFacadeFactory);

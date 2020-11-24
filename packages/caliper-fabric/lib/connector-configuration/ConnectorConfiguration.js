@@ -18,6 +18,8 @@ const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
 const ConnectionProfileDefinition = require('./ConnectionProfileDefinition');
 const fs = require('fs');
 
+const Logger = CaliperUtils.getLogger('ConnectorConfiguration');
+
 /**
  * Parse and process the fabric connector configuration
  */
@@ -162,6 +164,10 @@ class ConnectorConfiguration {
                 throw new Error(`No connection profile entry for organization ${mspId} has been defined`);
             }
 
+            if (!connectionProfileEntry.path) {
+                throw new Error(`No path for the connection profile for organization ${mspId} has been defined`);
+            }
+
             if (!connectionProfileEntry.loadedConnectionProfile) {
                 connectionProfileEntry.loadedConnectionProfile = await this._loadConnectionProfile(connectionProfileEntry.path);
             }
@@ -217,10 +223,14 @@ class ConnectorConfiguration {
     getAliasNameForOrganizationAndIdentityName(mspId, identityName) {
         if (!identityName || identityName.length === 0) {
             if (!mspId || mspId.length === 0) {
+                Logger.debug(`Selecting invoker ${this.defaultInvokerForDefaultOrganization} for default organization`);
+
                 return this.defaultInvokerForDefaultOrganization;
             }
+            const invokerForOrganization = this.defaultInvokerMap.get(mspId);
+            Logger.debug(`Selecting invoker ${invokerForOrganization} for organization ${mspId}`);
 
-            return this.defaultInvokerMap.get(mspId);
+            return invokerForOrganization;
         }
 
         return this.identityManager.generateAliasNameFromOrganizationAndIdentityName(mspId, identityName);
