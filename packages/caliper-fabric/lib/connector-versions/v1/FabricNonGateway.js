@@ -102,6 +102,7 @@ class V1Fabric extends ConnectorBase {
      */
     async getContext(roundIndex, args) {
         if (!this.MapsFromConnectionProfileCreated) {
+            await this._validateConnectionProfilesAreStatic();
             this.MapsFromConnectionProfileCreated = true;
             this.orderersInChannelMap = await this.connectorConfiguration.getOrderersInChannelMap();
             this.peersInChannelByOrganizationMap = await this.connectorConfiguration.getEndorsingPeersInChannelByOrganizationMap();
@@ -124,6 +125,7 @@ class V1Fabric extends ConnectorBase {
      * @async
      */
     async init() {
+        await this._validateConnectionProfilesAreStatic();
         const defaultOrganization = this.connectorConfiguration.getOrganizations()[0];
         const tlsInfo = this.connectorConfiguration.isMutualTLS() ? 'mutual'
             : (this.connectorConfiguration.getConnectionProfileDefinitionForOrganization(defaultOrganization).isTLSEnabled() ? 'server' : 'none');
@@ -202,6 +204,25 @@ class V1Fabric extends ConnectorBase {
     ////////////////////////////////
     // INTERNAL UTILITY FUNCTIONS //
     ////////////////////////////////
+
+    /**
+     * Validate that the connection profiles are static
+     */
+    async _validateConnectionProfilesAreStatic() {
+        const organizations = this.connectorConfiguration.getOrganizations();
+        const incorrectConnectionProfileDefinitions = [];
+        for (const organization of organizations) {
+            const connectionProfileDefinitionForOrganization = await this.connectorConfiguration.getConnectionProfileDefinitionForOrganization(organization);
+
+            if (connectionProfileDefinitionForOrganization.isDynamicConnectionProfile()) {
+                incorrectConnectionProfileDefinitions.push(organization);
+            }
+        }
+
+        if (incorrectConnectionProfileDefinitions.length > 0) {
+            throw new Error(`Connection profiles for the organization(s) '${incorrectConnectionProfileDefinitions.join(', ')}' have been specified as discover which is not allowed`);
+        }
+    }
 
     /**
      * Initialize channels for each Client instance where that channel is defined for that client

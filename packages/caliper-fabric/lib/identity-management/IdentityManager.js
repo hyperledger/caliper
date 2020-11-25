@@ -16,6 +16,8 @@
 const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
 const fs = require('fs').promises;
 
+const Logger = CaliperUtils.getLogger('IdentityManager');
+
 /**
  * A class to handle identities defined via the connector configuration
  */
@@ -136,6 +138,8 @@ class IdentityManager {
      */
     async _addToWallet(mspId, identityName, isAdmin, certificate, privateKey) {
         const alias = this.generateAliasNameFromOrganizationAndIdentityName(mspId, identityName);
+        Logger.info(`Adding ${identityName} (admin=${isAdmin}) as ${alias} for organization ${mspId}`);
+
         try {
             await this.inMemoryWalletFacade.import(mspId, alias, certificate, privateKey);
             if (isAdmin) {
@@ -226,11 +230,11 @@ class IdentityManager {
         try {
             const statOfpath = await fs.stat(walletPath);
             if (!statOfpath.isDirectory()) {
-                throw new Error(`The path property ${walletPath} does not point to a directory for ${mspId}`);
+                throw new Error(`The wallet path property ${walletPath} does not point to a directory for ${mspId}`);
             }
         } catch(err) {
             if (err.errno === -2 || err.errno === -4058) {
-                throw new Error(`The path property ${walletPath} does not point to an existing directory for ${mspId}`);
+                throw new Error(`The wallet path property ${walletPath} does not point to an existing directory for ${mspId}`);
             }
             throw err;
         }
@@ -257,18 +261,18 @@ class IdentityManager {
      * @private
      */
     async _extractIdentitiesFromCertificateAndPrivateKeyArray(mspId, certificates) {
-        if (!Array.isArray(certificates)) {
-            throw new Error('certificates property must be an array');
+        if (!Array.isArray(certificates) || certificates.length === 0) {
+            throw new Error(`No valid entries in certificates property for organization ${mspId}`);
         }
 
         for (const identity of certificates) {
 
             if (!identity.name || !identity.clientSignedCert || !identity.clientPrivateKey) {
-                throw new Error('A valid entry in certificates must have an name, clientSignedCert and clientPrivateKey entry');
+                throw new Error(`A valid entry in certificates for organization ${mspId} must have a name, clientSignedCert and clientPrivateKey entry`);
             }
 
-            const certificate = await this._extractPEMFromPathOrPEMDefinition(identity.clientSignedCert, 'clientSignedCert', identity.name);
-            const privateKey = await this._extractPEMFromPathOrPEMDefinition(identity.clientPrivateKey, 'clientPrivateKey', identity.name);
+            const certificate = await this._extractPEMFromPathOrPEMDefinition(identity.clientSignedCert, 'clientSignedCert', identity.name, mspId);
+            const privateKey = await this._extractPEMFromPathOrPEMDefinition(identity.clientPrivateKey, 'clientPrivateKey', identity.name, mspId);
             const isAdmin = (identity.admin !== undefined && (identity.admin === true || identity.admin === 'true'));
             await this._addToWallet(mspId, identity.name, isAdmin, certificate, privateKey);
         }
@@ -279,20 +283,21 @@ class IdentityManager {
      *
      * @param {*} CertificateOrPrivateKeyDefinition The clientSignedCert or clientPrivateKey property in the configuration
      * @param {string} propertyNameBeingProcessed A string of the provided property
-     * @param {string} name The name associated with this identity
+     * @param {string} identityName The name associated with this identity
+     * @param {string} mspId mspId of the organisation
      * @returns {Promise<string>} the PEM
      * @async
      * @private
      */
-    async _extractPEMFromPathOrPEMDefinition(CertificateOrPrivateKeyDefinition, propertyNameBeingProcessed, name) {
+    async _extractPEMFromPathOrPEMDefinition(CertificateOrPrivateKeyDefinition, propertyNameBeingProcessed, identityName, mspId) {
         let pem;
 
         if (CertificateOrPrivateKeyDefinition.path) {
-            pem = await this._extractPEMFromPath(CertificateOrPrivateKeyDefinition.path, propertyNameBeingProcessed, name);
+            pem = await this._extractPEMFromPath(CertificateOrPrivateKeyDefinition.path, propertyNameBeingProcessed, identityName, mspId);
         } else if (CertificateOrPrivateKeyDefinition.pem) {
-            pem = this._extractPEMFromPEM(CertificateOrPrivateKeyDefinition.pem, propertyNameBeingProcessed, name);
+            pem = this._extractPEMFromPEM(CertificateOrPrivateKeyDefinition.pem, propertyNameBeingProcessed, identityName, mspId);
         } else {
-            throw new Error(`No path or pem property specified for ${propertyNameBeingProcessed} for name ${name}`);
+            throw new Error(`No path or pem property specified for ${propertyNameBeingProcessed} for name ${identityName} in organization ${mspId}`);
         }
 
         return pem;
@@ -303,19 +308,20 @@ class IdentityManager {
      *
      * @param {string} pathToPEMFile The path to the file containing the PEM information
      * @param {string} propertyNameBeingProcessed A string of the provided property
-     * @param {string} name The name associated with this identity
+     * @param {string} identityName The name associated with this identity
+     * @param {string} mspId mspId of the organisation
      * @returns {Promise<string>} the PEM
      * @async
      * @private
      */
-    async _extractPEMFromPath(pathToPEMFile, propertyNameBeingProcessed, name) {
+    async _extractPEMFromPath(pathToPEMFile, propertyNameBeingProcessed, identityName, mspId) {
         const configPath = CaliperUtils.resolvePath(pathToPEMFile);
 
         try {
             await fs.stat(configPath);
         } catch(err) {
             if (err.errno === -2 || err.errno === -4058) {
-                throw new Error(`path property does not point to a file that exists for ${propertyNameBeingProcessed} for name ${name}`);
+                throw new Error(`path property does not point to a file that exists for ${propertyNameBeingProcessed} for name ${identityName} in organization ${mspId}`);
             }
             throw err;
         }
@@ -323,7 +329,7 @@ class IdentityManager {
         const pem = (await fs.readFile(configPath)).toString();
 
         if (!pem.startsWith('-----BEGIN ')) {
-            throw new Error(`path property does not point to a valid pem file for ${propertyNameBeingProcessed} for name ${name}`);
+            throw new Error(`path property does not point to a valid pem file for ${propertyNameBeingProcessed} for name ${identityName} in organization ${mspId}`);
         }
 
         return pem;
@@ -334,12 +340,13 @@ class IdentityManager {
      *
      * @param {string} pem the embedded pem property value
      * @param {string} propertyNameBeingProcessed A string of the provided property
-     * @param {string} name The name associated with this identity
+     * @param {string} identityName The name associated with this identity
+     * @param {string} mspId mspId of the organisation
      * @returns {Promise<string>} the PEM
      * @async
      * @private
      */
-    _extractPEMFromPEM(pem, propertyNameBeingProcessed, name) {
+    _extractPEMFromPEM(pem, propertyNameBeingProcessed, identityName, mspId) {
         if (pem.startsWith('-----BEGIN ')) {
             return pem;
         }
@@ -347,7 +354,7 @@ class IdentityManager {
         const decodedPEM = Buffer.from(pem, 'base64').toString();
 
         if (!decodedPEM.startsWith('-----BEGIN ')) {
-            throw new Error(`pem property not valid for ${propertyNameBeingProcessed} for name ${name}`);
+            throw new Error(`pem property not valid for ${propertyNameBeingProcessed} for name ${identityName} in organization ${mspId}`);
         }
 
         return decodedPEM;

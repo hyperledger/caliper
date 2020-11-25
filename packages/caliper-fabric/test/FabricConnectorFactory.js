@@ -29,6 +29,7 @@ const { ConfigUtil } = require('@hyperledger/caliper-core');
 
 const legacyConfig = './sample-configs/LegacyNetworkConfig.yaml';
 const v2Config = './sample-configs/NoIdentitiesNetworkConfig.yaml';
+const unknownVersionConfig = './sample-configs/UnknownVersionConfig.yaml';
 
 const DefaultEventHandlerStrategies = {};
 const DefaultQueryHandlerStrategies = {};
@@ -213,4 +214,16 @@ describe('A Fabric Connector Factory', () => {
         await ConnectorFactory(1).should.be.rejectedWith(/Installed SDK version 3.0.0 did not match any compatible Fabric connectors/);
         mockery.deregisterAll();
     });
+
+    it('should throw an error version if not for legacy or the new connector', async () => {
+        mockery.registerMock('fabric-network', {});
+        mockery.registerMock('fabric-network/package', {version: '1.4.11'});
+        mockery.registerMock('fabric-client', {});
+        mockery.registerMock('fabric-client/package', {version: '1.4.11'});
+        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, unknownVersionConfig));
+        ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, true);
+        await ConnectorFactory(1).should.be.rejectedWith(/Unknown network configuration version 3.0.0 specified/);
+        mockery.deregisterAll();
+    });
+
 });

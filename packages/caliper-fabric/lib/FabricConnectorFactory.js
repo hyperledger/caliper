@@ -110,6 +110,10 @@ const connectorFactory = async (workerIndex) => {
     const loadedConnectorConfiguration = CaliperUtils.parseYaml(connectorConfigurationFile);
     const legacyVersion = loadedConnectorConfiguration.version === '1.0';
 
+    if (!legacyVersion && !semver.satisfies(loadedConnectorConfiguration.version, '=2.0')) {
+        throw new Error(`Unknown network configuration version ${loadedConnectorConfiguration.version} specified`);
+    }
+
     const installedNodeSDKVersion = _determineInstalledNodeSDKVersion();
     const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Enabled, false);
     const useDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Discovery, false);

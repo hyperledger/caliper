@@ -345,6 +345,38 @@ describe('A valid Connector Configuration', () => {
                 .should.be.rejectedWith(/No connection profile file found/);
         });
 
+        it('should throw an error if the connection profile path property doesn\'t exist', async () => {
+            const configFile = new GenerateConfiguration(configWith2Orgs1AdminInWallet).generateConfigurationFileWithSpecifics(
+                {
+                    organizations: [
+                        {
+                            mspid: 'Org1MSP',
+                            identities: {
+                                certificates: [
+                                    {
+                                        name: 'User1',
+                                        clientPrivateKey: {
+                                            pem: '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----'
+                                        },
+                                        clientSignedCert: {
+                                            pem: '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----'
+                                        }
+                                    }
+                                ]
+                            },
+                            connectionProfile: {
+                                discover: true
+                            }
+                        }
+                    ]
+                }
+            );
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
+            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org1MSP')
+                .should.be.rejectedWith(/No path for the connection profile for organization Org1MSP has been defined/);
+        });
+
+
         it('should throw an error if the requested organization doesn\'t exist', async () => {
             const configFile = new GenerateConfiguration().generateConfigurationFileWithSpecifics(
                 {

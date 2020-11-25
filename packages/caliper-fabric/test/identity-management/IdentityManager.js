@@ -256,34 +256,34 @@ describe('An Identity Manager', () => {
     });
 
     describe('when processing the explicit certificates in a configuration', () => {
-        it('should throw an error if certificates section isn\'t an array', async () => {
+        it('should throw an error if certificates section isn\'t structured correctly', async () => {
             const badOrg1MSP = JSON.parse(JSON.stringify(org1MSPWithCertificates));
             badOrg1MSP.identities.certificates = {};
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/certificates property must be an array/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/No valid entries in certificates property for organization Org1MSP/);
         });
 
         it('should throw an error if name, clientSignCert or clientPrivateKey not specified', async () => {
             let badOrg1MSP = JSON.parse(JSON.stringify(org1MSPWithCertificates));
             delete badOrg1MSP.identities.certificates[0].name;
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/A valid entry in certificates must have an name, clientSignedCert and clientPrivateKey entry/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/A valid entry in certificates for organization Org1MSP must have a name, clientSignedCert and clientPrivateKey entry/);
 
             badOrg1MSP = JSON.parse(JSON.stringify(org1MSPWithCertificates));
             delete badOrg1MSP.identities.certificates[0].clientSignedCert;
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/A valid entry in certificates must have an name, clientSignedCert and clientPrivateKey entry/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/A valid entry in certificates for organization Org1MSP must have a name, clientSignedCert and clientPrivateKey entry/);
 
             badOrg1MSP = JSON.parse(JSON.stringify(org1MSPWithCertificates));
             delete badOrg1MSP.identities.certificates[0].clientPrivateKey;
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/A valid entry in certificates must have an name, clientSignedCert and clientPrivateKey entry/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/A valid entry in certificates for organization Org1MSP must have a name, clientSignedCert and clientPrivateKey entry/);
         });
 
         it('should throw an error if path or pem not specified', async () => {
             let badOrg1MSP = JSON.parse(JSON.stringify(org1MSPWithCertificates));
             delete badOrg1MSP.identities.certificates[0].clientSignedCert.path;
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/No path or pem property specified for clientSignedCert for name User1/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/No path or pem property specified for clientSignedCert for name User1 in organization Org1MSP/);
 
             badOrg1MSP = JSON.parse(JSON.stringify(org1MSPWithCertificates));
             delete badOrg1MSP.identities.certificates[0].clientPrivateKey.path;
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/No path or pem property specified for clientPrivateKey for name User1/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/No path or pem property specified for clientPrivateKey for name User1 in organization Org1MSP/);
         });
 
         it('should throw an error if path specified for clientSignCert or clientPrivateKey does not exist', async () => {
@@ -291,13 +291,13 @@ describe('An Identity Manager', () => {
             badOrg1MSP.identities.certificates[0].clientSignedCert.path = '/to/some/known/path/file';
             delete badOrg1MSP.identities.certificates[0].clientPrivateKey.path;
             badOrg1MSP.identities.certificates[0].clientPrivateKey.pem = '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----';
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a file that exists for clientSignedCert for name User1/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a file that exists for clientSignedCert for name User1 in organization Org1MSP/);
 
             badOrg1MSP = JSON.parse(JSON.stringify(org1MSPWithCertificates));
             badOrg1MSP.identities.certificates[0].clientPrivateKey.path = '/to/some/known/path/file';
             delete badOrg1MSP.identities.certificates[0].clientSignedCert.path;
             badOrg1MSP.identities.certificates[0].clientSignedCert.pem = '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----';
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a file that exists for clientPrivateKey for name User1/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a file that exists for clientPrivateKey for name User1 in organization Org1MSP/);
         });
 
         it('should throw an error if path specified for clientSignCert or clientPrivateKey does not appear to have valid PEM contents', async () => {
@@ -305,13 +305,13 @@ describe('An Identity Manager', () => {
             delete badOrg1MSP.identities.certificates[0].clientPrivateKey.path;
             badOrg1MSP.identities.certificates[0].clientPrivateKey.pem = '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----';
             badOrg1MSP.identities.certificates[0].clientSignedCert.path = path.resolve(__dirname, '../sample-configs/invalid.yaml');
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a valid pem file for clientSignedCert for name User1/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a valid pem file for clientSignedCert for name User1 in organization Org1MSP/);
 
             badOrg1MSP = JSON.parse(JSON.stringify(org1MSPWithCertificates));
             delete badOrg1MSP.identities.certificates[0].clientSignedCert.path;
             badOrg1MSP.identities.certificates[0].clientSignedCert.pem = '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----';
             badOrg1MSP.identities.certificates[0].clientPrivateKey.path = path.resolve(__dirname, '../sample-configs/invalid.yaml');
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a valid pem file for clientPrivateKey for name User1/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a valid pem file for clientPrivateKey for name User1 in organization Org1MSP/);
         });
 
         it('should throw an error if pem specified for clientSignCert or clientPrivateKey does not appear to have valid PEM contents', async () => {
@@ -320,10 +320,10 @@ describe('An Identity Manager', () => {
             delete badOrg1MSP.identities.certificates[0].clientSignedCert.path;
             badOrg1MSP.identities.certificates[0].clientPrivateKey.pem = '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----';
             badOrg1MSP.identities.certificates[0].clientSignedCert.pem = 'I am not valid';
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/pem property not valid for clientSignedCert for name User1/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/pem property not valid for clientSignedCert for name User1 in organization Org1MSP/);
             badOrg1MSP.identities.certificates[0].clientSignedCert.pem = '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----';
             badOrg1MSP.identities.certificates[0].clientPrivateKey.pem = 'I am not valid';
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/pem property not valid for clientPrivateKey for name User1/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/pem property not valid for clientPrivateKey for name User1 in organization Org1MSP/);
         });
 
         it('should import an identity from a pem which is not base64 encoded', async () => {
