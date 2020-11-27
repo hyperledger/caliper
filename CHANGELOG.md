@@ -1,3 +1,7 @@
+## 0.4.2
+  * [Feature] New Fabric connector (completed with [PR1095](https://github.com/hyperledger/caliper/pull/1095))
+  * [Feature] New Fabric connector tutorial ([PR1091](https://github.com/hyperledger/caliper/pull/1091))
+
 ## 0.4.1
   * [Feature] Besu private transactions ([PR1030](https://github.com/hyperledger/caliper/pull/1030))
 
