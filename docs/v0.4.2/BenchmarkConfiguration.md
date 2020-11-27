@@ -1,8 +1,8 @@
 ---
-layout: v0.4.1
+layout: v0.4.2
 title:  "Benchmark Configuration"
 categories: docs
-permalink: /v0.4.1/bench-config/
+permalink: /v0.4.2/bench-config/
 order: 3
 ---
 

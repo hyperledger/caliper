@@ -1,8 +1,8 @@
 ---
-layout: v0.4.1
+layout: v0.4.2
 title:  "License"
 categories: general
-permalink: /v0.4.1/license/
+permalink: /v0.4.2/license/
 ---
 
                                  Apache License

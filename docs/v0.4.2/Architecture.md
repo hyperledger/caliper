@@ -1,8 +1,8 @@
 ---
-layout: v0.4.1
+layout: v0.4.2
 title:  "Architecture"
 categories: docs
-permalink: /v0.4.1/architecture/
+permalink: /v0.4.2/architecture/
 order: 5
 ---
 

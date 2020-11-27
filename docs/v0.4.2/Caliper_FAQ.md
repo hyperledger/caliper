@@ -1,8 +1,8 @@
 ---
-layout: v0.4.1
+layout: v0.4.2
 title:  "Caliper FAQ"
 categories: general
-permalink: /v0.4.1/caliper-faq/
+permalink: /v0.4.2/caliper-faq/
 ---
 
 

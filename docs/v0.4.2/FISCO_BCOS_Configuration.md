@@ -1,9 +1,9 @@
 ---
-layout: v0.4.1
+layout: v0.4.2
 title:  "FISCO BCOS"
 categories: config
-permalink: /v0.4.1/fisco-config/
-order: 4
+permalink: /v0.4.2/fisco-config/
+order: 5
 ---
 
 >*The required minimal version of FISCO BCOS is v2.0.0*

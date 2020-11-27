@@ -1,8 +1,8 @@
 ---
-layout: v0.4.1
+layout: v0.4.2
 title:  "Writing Connectors"
 categories: reference
-permalink: /v0.4.1/writing-connectors/
+permalink: /v0.4.2/writing-connectors/
 order: 2
 ---
 
