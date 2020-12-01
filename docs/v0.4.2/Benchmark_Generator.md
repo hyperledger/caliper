@@ -1,8 +1,8 @@
 ---
-layout: v0.4.1
+layout: v0.4.2
 title:  "Benchmark Generator"
 categories: reference
-permalink: /v0.4.1/benchmark-generator/
+permalink: /v0.4.2/benchmark-generator/
 order: 7
 ---
 

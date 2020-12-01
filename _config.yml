@@ -9,10 +9,10 @@ repository: hyperledger/caliper
 repo: caliper
 caliper:
   v0_2: v0.2/
-  current_release: v0.4.1/
+  current_release: v0.4.2/
   next_release: vNext/
   v0_3_2: v0.3.2/
-  v0_4_1: v0.4.1/
+  v0_4_2: v0.4.2/
 markdown: kramdown
 kramdown:
   parse_block_html: true

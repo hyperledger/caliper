@@ -4,7 +4,7 @@
     style="width:5rem; height: 1.5rem;">
     <option value="/caliper/v0.2/getting-started/"> v0.2</option>
     <option value="/caliper/v0.3.2/getting-started/">v0.3.2</option>
-        <option value="/caliper/v0.4.1/getting-started/" selected>v0.4.1</option>
+            <option value="/caliper/v0.4.2/getting-started/" selected>v0.4.2</option>
     <option value="/caliper/vNext/getting-started/">vNext</option>
   </select>
 </div>
@@ -13,7 +13,7 @@
 {% assign sorted_pages = site.pages | sort:"order" %}
 {% for page in sorted_pages %}
 {% if page.categories contains 'docs'%}
-{% if page.permalink contains site.caliper.v0_4_1 %}
+{% if page.permalink contains site.caliper.v0_4_2 %}
 <div class="item">
   <!-- <p>{{page.description}}</p> -->
   <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
@@ -25,7 +25,7 @@
 <h2>Connector Configuration</h2>
 {% for page in sorted_pages %}
 {% if page.categories contains 'config' %}
-{% if page.permalink contains site.caliper.v0_4_1 %}
+{% if page.permalink contains site.caliper.v0_4_2 %}
 <div class="item">
   <!-- <p>{{page.description}}</p> -->
   <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
@@ -37,7 +37,7 @@
 <h2>Tutorials</h2>
 {% for page in sorted_pages %}
 {% if page.categories contains 'tutorial' %}
-{% if page.permalink contains site.caliper.v0_4_1 %}
+{% if page.permalink contains site.caliper.v0_4_2 %}
 <div class="item">
   <!-- <p>{{page.description}}</p> -->
   <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
@@ -49,7 +49,7 @@
 <h2>Reference</h2>
 {% for page in sorted_pages %}
 {% if page.categories contains 'reference' %}
-{% if page.permalink contains site.caliper.v0_4_1 %}
+{% if page.permalink contains site.caliper.v0_4_2 %}
 <div class="item">
   <!-- <p>{{page.description}}</p> -->
   <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
@@ -61,7 +61,7 @@
 <h2>General</h2>
 {% for page in sorted_pages %}
 {% if page.categories contains 'general' %}
-{% if page.permalink contains site.caliper.v0_4_1 %}
+{% if page.permalink contains site.caliper.v0_4_2 %}
 <div class="item">
   <!-- <p>{{page.description}}</p> -->
   <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>

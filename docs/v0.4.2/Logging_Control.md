@@ -1,8 +1,8 @@
 ---
-layout: v0.4.1
+layout: v0.4.2
 title:  "Logging Control"
 categories: reference
-permalink: /v0.4.1/logging/
+permalink: /v0.4.2/logging/
 order: 8
 ---
 

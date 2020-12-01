@@ -1,8 +1,8 @@
 ---
-layout: v0.4.1
+layout: v0.4.2
 title:  "Ethereum"
 categories: config
-permalink: /v0.4.1/ethereum-config/
+permalink: /v0.4.2/ethereum-config/
 order: 2
 ---
 

@@ -1,8 +1,8 @@
 ---
-layout: v0.4.1
+layout: v0.4.2
 title:  "Getting Started"
 categories: docs
-permalink: /v0.4.1/getting-started/
+permalink: /v0.4.2/getting-started/
 order: 1
 ---
 

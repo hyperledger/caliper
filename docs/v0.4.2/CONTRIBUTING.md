@@ -1,8 +1,8 @@
 ---
-layout: v0.4.1
+layout: v0.4.2
 title:  "Contributing"
 categories: general
-permalink: /v0.4.1/contributing/
+permalink: /v0.4.2/contributing/
 ---
 
 ## Contributing to Hyperledger Caliper
