@@ -9,25 +9,36 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+jobs:
+- job: unitTests
+  displayName: 'Base build and unit tests'
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
 
-- script: |
-    ./scripts/check-package-names.sh
-  displayName: 'check package names'
+  - script: |
+      ./scripts/check-package-names.sh
+    displayName: 'check package names'
 
-- script: |
-    npm install
-    npm run bootstrap
-  displayName: 'npm install, bootstrap'
+  - script: |
+      npm install
+      npm run bootstrap
+    displayName: 'npm install, bootstrap'
 
-- script: |
-    ./packages/caliper-publish/publish.js version check
-  displayName: 'version check'
+  - script: |
+      ./packages/caliper-publish/publish.js version check
+    displayName: 'version check'
 
-- script: |
-    npm test
-  displayName: 'unit test'
+  - script: |
+      npm test
+    displayName: 'unit test'
+
+- job: integrationTests
+  displayName: 'Fabric Integration Test'
+  dependsOn: unitTests
+  variables: { BENCHMARK: fabric }
+  steps:
+  - script: |
+      .travis/benchmark-integration-test-direct.sh
