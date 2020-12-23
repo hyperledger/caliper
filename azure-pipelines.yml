@@ -45,7 +45,7 @@ jobs:
       versionSpec: '10.x'
     displayName: 'Install Node.js'
   - script: |
-      .travis/benchmark-integration-test-direct.sh
+      .build/benchmark-integration-test-direct.sh
 
 - job: ethereumIntegration
   displayName: 'Ethereum Integration Test'
@@ -57,7 +57,7 @@ jobs:
       versionSpec: '10.x'
     displayName: 'Install Node.js'
   - script: |
-      .travis/benchmark-integration-test-direct.sh
+      .build/benchmark-integration-test-direct.sh
 
 - job: besuIntegration
   displayName: 'Besu Integration Test'
@@ -69,7 +69,7 @@ jobs:
       versionSpec: '10.x'
     displayName: 'Install Node.js'
   - script: |
-      .travis/benchmark-integration-test-direct.sh
+      .build/benchmark-integration-test-direct.sh
 
 - job: fiscoIntegration
   displayName: 'FISCO BCOS Integration Test'
@@ -81,7 +81,7 @@ jobs:
       versionSpec: '10.x'
     displayName: 'Install Node.js'
   - script: |
-      .travis/benchmark-integration-test-direct.sh
+      .build/benchmark-integration-test-direct.sh
 
 - job: generatorIntegration
   displayName: 'Generator Integration Test'
@@ -93,4 +93,4 @@ jobs:
       versionSpec: '10.x'
     displayName: 'Install Node.js'
   - script: |
-      .travis/benchmark-integration-test-direct.sh
+      .build/benchmark-integration-test-direct.sh
