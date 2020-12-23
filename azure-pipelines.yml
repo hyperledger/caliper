@@ -40,5 +40,9 @@ jobs:
   dependsOn: unitTests
   variables: { BENCHMARK: fabric }
   steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
   - script: |
       .travis/benchmark-integration-test-direct.sh
