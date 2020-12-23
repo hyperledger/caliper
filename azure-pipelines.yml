@@ -35,10 +35,58 @@ jobs:
       npm test
     displayName: 'unit test'
 
-- job: integrationTests
+- job: fabricIntegration
   displayName: 'Fabric Integration Test'
   dependsOn: unitTests
   variables: { BENCHMARK: fabric }
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      .travis/benchmark-integration-test-direct.sh
+
+- job: ethereumIntegration
+  displayName: 'Ethereum Integration Test'
+  dependsOn: unitTests
+  variables: { BENCHMARK: ethereum }
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      .travis/benchmark-integration-test-direct.sh
+
+- job: besuIntegration
+  displayName: 'Besu Integration Test'
+  dependsOn: unitTests
+  variables: { BENCHMARK: besu }
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      .travis/benchmark-integration-test-direct.sh
+
+- job: fiscoIntegration
+  displayName: 'FISCO BCOS Integration Test'
+  dependsOn: unitTests
+  variables: { BENCHMARK: fisco-bcos }
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      .travis/benchmark-integration-test-direct.sh
+
+- job: generatorIntegration
+  displayName: 'Generator Integration Test'
+  dependsOn: unitTests
+  variables: { BENCHMARK: generator }
   steps:
   - task: NodeTool@0
     inputs:
