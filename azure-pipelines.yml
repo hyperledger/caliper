@@ -1,0 +1,91 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: unitTests
+  displayName: 'Base build and unit tests'
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      ./scripts/check-package-names.sh
+    displayName: 'check package names'
+
+  - script: |
+      npm install
+      npm run bootstrap
+    displayName: 'npm install, bootstrap'
+
+  - script: |
+      ./packages/caliper-publish/publish.js version check
+    displayName: 'version check'
+
+  - script: |
+      npm test
+    displayName: 'unit test'
+
+- job: fabricIntegration
+  displayName: 'Fabric Integration Test'
+  dependsOn: unitTests
+  variables: { BENCHMARK: fabric }
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      .build/benchmark-integration-test-direct.sh
+
+- job: ethereumIntegration
+  displayName: 'Ethereum Integration Test'
+  dependsOn: unitTests
+  variables: { BENCHMARK: ethereum }
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      .build/benchmark-integration-test-direct.sh
+
+- job: besuIntegration
+  displayName: 'Besu Integration Test'
+  dependsOn: unitTests
+  variables: { BENCHMARK: besu }
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      .build/benchmark-integration-test-direct.sh
+
+- job: fiscoIntegration
+  displayName: 'FISCO BCOS Integration Test'
+  dependsOn: unitTests
+  variables: { BENCHMARK: fisco-bcos }
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      .build/benchmark-integration-test-direct.sh
+
+- job: generatorIntegration
+  displayName: 'Generator Integration Test'
+  dependsOn: unitTests
+  variables: { BENCHMARK: generator }
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: |
+      .build/benchmark-integration-test-direct.sh
