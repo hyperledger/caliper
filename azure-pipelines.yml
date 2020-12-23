@@ -16,7 +16,18 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    ./scripts/check-package-names.sh
+  displayName: 'check package names'
+
+- script: |
     npm install
     npm run bootstrap
+  displayName: 'npm install, bootstrap'
+
+- script: |
+    ./packages/caliper-publish/publish.js version check
+  displayName: 'version check'
+
+- script: |
     npm test
-  displayName: 'npm install, bootstrap and unit test'
+  displayName: 'unit test'
