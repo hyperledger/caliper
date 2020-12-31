@@ -25,31 +25,31 @@ jobs:
     - stage: checks and unit tests
       name: Package name check, license check, lint check, unit tests
       if: type = pull_request OR repo != hyperledger/caliper
-      script: ./.travis/checks-and-unit-tests.sh
+      script: ./.build/checks-and-unit-tests.sh
 
     # parallel integrations tests
     - stage: benchmark integration tests
       name: HL Fabric integration test
       if: type = pull_request OR repo != hyperledger/caliper
-      script: BENCHMARK=fabric ./.travis/benchmark-integration-test-direct.sh
+      script: BENCHMARK=fabric ./.build/benchmark-integration-test-direct.sh
     - name: Ethereum integration test
       if: type = pull_request OR repo != hyperledger/caliper
-      script: BENCHMARK=ethereum ./.travis/benchmark-integration-test-direct.sh
+      script: BENCHMARK=ethereum ./.build/benchmark-integration-test-direct.sh
     - name: HL Besu integration test
       if: type = pull_request OR repo != hyperledger/caliper
-      script: BENCHMARK=besu ./.travis/benchmark-integration-test-direct.sh
+      script: BENCHMARK=besu ./.build/benchmark-integration-test-direct.sh
     - name: FISCO-BCOS integration test
       if: type = pull_request OR repo != hyperledger/caliper
-      script: BENCHMARK=fisco-bcos ./.travis/benchmark-integration-test-direct.sh
+      script: BENCHMARK=fisco-bcos ./.build/benchmark-integration-test-direct.sh
     - name: Generator integration test
       if: type = pull_request OR repo != hyperledger/caliper
-      script: BENCHMARK=generator ./.travis/benchmark-integration-test-direct.sh
+      script: BENCHMARK=generator ./.build/benchmark-integration-test-direct.sh
 
     # publish packages
     - stage: publish
       name: Publishing to NPM and Docker Hub
       if: type = push AND repo = hyperledger/caliper
-      script: ./.travis/publish.sh
+      script: ./.build/publish.sh
 
 cache:
   directories:
