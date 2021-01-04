@@ -21,10 +21,10 @@ There is also a [RocketChat Channel](https://chat.hyperledger.org/channel/calipe
 Caliper is modularised under `packages` into the following components:
 
 ### caliper-cli
-This is the Caliper CLI that enables the running of a benchmark and interaction with zookeeper clients/services. 
+This is the Caliper CLI that enables the running of a benchmark. 
 
 ### caliper-core
-Contains all the Caliper core code. Interested developers can follow the code flow from the above `run-benchmark.js` file, that enters `caliper-flow.js` in the core package.
+Contains all the Caliper core code, used by adaptor implementations.
 
 ### caliper-adaptor
 Each `caliper-<adapter>` is a separate package that contains a distinct adaptor implementation to interact with different blockchain technologies. Current adaptors include:
