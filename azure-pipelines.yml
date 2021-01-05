@@ -1,11 +1,18 @@
 trigger:
-- main
+  branches:
+    include:
+    - master
 
 pr:
-- master
+  branches:
+    include:
+    - master
 
 pool:
   vmImage: 'ubuntu-latest'
+
+variables:
+- group: credentials
 
 stages:
 - stage: UnitTests
@@ -38,6 +45,7 @@ stages:
 
 - stage: IntegrationTests
   displayName: Run integration tests
+  condition: and(succeeded(), (variables['Build.Reason'], 'PullRequest'))
   dependsOn: UnitTests
   jobs:
   - job: fabricIntegration
@@ -97,7 +105,7 @@ stages:
 
 - stage: Publish
   displayName: Publish Caliper
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'IndividualCI'))
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   jobs:
   - job: PublishNPM
     displayName: 'Publish Caliper NPM packages'
