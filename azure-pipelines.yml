@@ -1,120 +1,116 @@
 trigger:
   branches:
     include:
-    - master
+      - master
 
 pr:
   branches:
     include:
-    - master
+      - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 
 variables:
-- group: credentials
+  - group: credentials
 
 stages:
-- stage: UnitTests
-  displayName: Run unit tests
-  jobs:
-  - job: unitTests
-    displayName: 'Base build and unit tests'
-    steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
+  - stage: UnitTests
+    displayName: Run unit tests
+    jobs:
+      - job: unitTests
+        displayName: "Base build and unit tests"
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "10.x"
+            displayName: "Install Node.js"
+          - script: |
+              ./scripts/check-package-names.sh
+            displayName: "check package names"
+          - script: |
+              npm install
+              npm run bootstrap
+            displayName: "npm install, bootstrap"
+          - script: |
+              ./packages/caliper-publish/publish.js version check
+            displayName: "version check"
+          - script: |
+              npm test
+            displayName: "unit test"
 
-    - script: |
-        ./scripts/check-package-names.sh
-      displayName: 'check package names'
+  - stage: IntegrationTests
+    displayName: Run integration tests
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+    dependsOn: UnitTests
+    jobs:
+      - job: fabricIntegration
+        displayName: "Fabric Integration Test"
+        variables: { BENCHMARK: fabric }
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "10.x"
+            displayName: "Install Node.js"
+          - script: |
+              .build/benchmark-integration-test-direct.sh
 
-    - script: |
-        npm install
-        npm run bootstrap
-      displayName: 'npm install, bootstrap'
+      - job: ethereumIntegration
+        displayName: "Ethereum Integration Test"
+        variables: { BENCHMARK: ethereum }
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "10.x"
+            displayName: "Install Node.js"
+          - script: |
+              .build/benchmark-integration-test-direct.sh
 
-    - script: |
-        ./packages/caliper-publish/publish.js version check
-      displayName: 'version check'
+      - job: besuIntegration
+        displayName: "Besu Integration Test"
+        variables: { BENCHMARK: besu }
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "10.x"
+            displayName: "Install Node.js"
+          - script: |
+              .build/benchmark-integration-test-direct.sh
 
-    - script: |
-        npm test
-      displayName: 'unit test'
+      - job: fiscoIntegration
+        displayName: "FISCO BCOS Integration Test"
+        variables: { BENCHMARK: fisco-bcos }
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "10.x"
+            displayName: "Install Node.js"
+          - script: |
+              .build/benchmark-integration-test-direct.sh
 
-- stage: IntegrationTests
-  displayName: Run integration tests
-  condition: and(succeeded(), (variables['Build.Reason'], 'PullRequest'))
-  dependsOn: UnitTests
-  jobs:
-  - job: fabricIntegration
-    displayName: 'Fabric Integration Test'
-    variables: { BENCHMARK: fabric }
-    steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
-    - script: |
-        .build/benchmark-integration-test-direct.sh
+      - job: generatorIntegration
+        displayName: "Generator Integration Test"
+        variables: { BENCHMARK: generator }
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "10.x"
+            displayName: "Install Node.js"
+          - script: |
+              .build/benchmark-integration-test-direct.sh
 
-  - job: ethereumIntegration
-    displayName: 'Ethereum Integration Test'
-    variables: { BENCHMARK: ethereum }
-    steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
-    - script: |
-        .build/benchmark-integration-test-direct.sh
-
-  - job: besuIntegration
-    displayName: 'Besu Integration Test'
-    variables: { BENCHMARK: besu }
-    steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
-    - script: |
-        .build/benchmark-integration-test-direct.sh
-
-  - job: fiscoIntegration
-    displayName: 'FISCO BCOS Integration Test'
-    variables: { BENCHMARK: fisco-bcos }
-    steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
-    - script: |
-        .build/benchmark-integration-test-direct.sh
-
-  - job: generatorIntegration
-    displayName: 'Generator Integration Test'
-    variables: { BENCHMARK: generator }
-    steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
-    - script: |
-        .build/benchmark-integration-test-direct.sh
-
-- stage: Publish
-  displayName: Publish Caliper
-  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-  jobs:
-  - job: PublishNPM
-    displayName: 'Publish Caliper NPM packages'
-    steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
-    - script: .build/publish-npm.sh
-      displayName: Publish packages
-      env:
-        NPM_TOKEN: "$(npm)"
+  - stage: Publish
+    displayName: Publish Caliper
+    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+    jobs:
+      - job: PublishNPM
+        displayName: "Publish Caliper NPM packages"
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "10.x"
+            displayName: "Install Node.js"
+          - script: .build/publish-npm.sh
+            displayName: Publish packages
+            env:
+              NPM_TOKEN: "$(npm)"
