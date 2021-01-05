@@ -38,7 +38,7 @@ stages:
 
 - stage: IntegrationTests
   displayName: Run integration tests
-  dependsOn: UnitTests
+  condition: and(succeeded(), (variables['Build.Reason'], 'PullRequest'))
   jobs:
   - job: fabricIntegration
     displayName: 'Fabric Integration Test'
@@ -97,7 +97,7 @@ stages:
 
 - stage: Publish
   displayName: Publish Caliper
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'IndividualCI'))
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   jobs:
   - job: PublishNPM
     displayName: 'Publish Caliper NPM packages'
