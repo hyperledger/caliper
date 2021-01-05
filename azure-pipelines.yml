@@ -94,3 +94,19 @@ stages:
       displayName: 'Install Node.js'
     - script: |
         .build/benchmark-integration-test-direct.sh
+
+- stage: Publish
+  displayName: Publish Caliper
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.Reason'], 'IndividualCI'))
+  jobs:
+  - job: PublishNPM
+    displayName: 'Publish Caliper NPM packages'
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '10.x'
+      displayName: 'Install Node.js'
+    - script: .build/publish-npm.sh
+      displayName: Publish packages
+      env:
+        NPM_TOKEN: "$(npm)"
