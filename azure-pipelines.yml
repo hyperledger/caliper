@@ -101,7 +101,8 @@ stages:
 
   - stage: Publish
     displayName: Publish Caliper
-    condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'))
+    # having a blind succeeded here will not work if a preceding stage was skipped
+    condition: and(not(failed('UnitTests')), eq(variables['Build.Reason'], 'IndividualCI'))
     jobs:
       - job: PublishNPM
         displayName: "Publish Caliper NPM packages"
