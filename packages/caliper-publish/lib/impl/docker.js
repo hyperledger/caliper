@@ -42,13 +42,12 @@ class Docker {
      * Handler for the docker command invocation.
      * @param {string} image The name for the built image.
      * @param {string} registry The NPM registry address to use for building the Docker image. Defaults to the public NPM registry.
-     * @param {boolean} publish Indicates whether to publish the built image. Requires that DOCKER_TOKEN and "user" argument is set.
-     * @param {string} user The user to use for publishing the built Docker image. Required when "publish" is true.
+     * @param {boolean} publish Indicates whether to publish the built image. Requires that DOCKER_TOKEN and DOCKER_USER exports are set.
      * @param {number} retries The number of times to retry the build in case of failures.
      * @param {string} tag Override for the version-based tag for testing purposes.
      * @async
      */
-    static async handler(image, registry, publish, user, retries, tag) {
+    static async handler(image, registry, publish, retries, tag) {
         const cliPackageJsonPath = path.join(packagesRoot, 'caliper-cli', 'package.json');
         const cliPackageVersion = require(cliPackageJsonPath).version;
         const cliPackageName = `@hyperledger/caliper-cli@${cliPackageVersion}`;
@@ -127,7 +126,6 @@ class Docker {
         }
 
         let publishEnvs = {
-            DOCKER_USER: user,
             IMAGE: image,
             TAG: imageTag
         };

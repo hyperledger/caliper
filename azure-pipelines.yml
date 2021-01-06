@@ -115,3 +115,15 @@ stages:
             displayName: Publish packages
             env:
               NPM_TOKEN: "$(npm)"
+      - job: PublishDocker
+        displayName: "Publish Caliper Docker images"
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "10.x"
+            displayName: "Install Node.js"
+          - script: .build/publish-docker.sh
+            displayName: Publish packages
+            env:
+              DOCKER_USER: "$(DockerHub-Username)"
+              DOCKER_TOKEN: "$(DockerHub-Password)"

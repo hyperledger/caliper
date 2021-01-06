@@ -45,13 +45,7 @@ module.exports.builder = yargs => {
             demand: false,
             default: false,
             type: 'boolean',
-            describe: 'Indicates whether to publish the built image. Requires that DOCKER_TOKEN and "user" argument is set.'
-        },
-        user : {
-            alias: 'u',
-            demand: false,
-            type: 'string',
-            describe: 'The user to use for publishing the built Docker image. Required when the "--publish" flag is set.'
+            describe: 'Indicates whether to publish the built image. Requires that DOCKER_TOKEN and DOCKER_USER export variables are set.'
         },
         retries: {
             alias: 'n',
@@ -67,5 +61,5 @@ module.exports.builder = yargs => {
 };
 
 module.exports.handler = argv => {
-    argv.thePromise = Docker.handler(argv.image, argv.registry, argv.publish, argv.user, argv.retries, argv.tag);
+    argv.thePromise = Docker.handler(argv.image, argv.registry, argv.publish, argv.retries, argv.tag);
 };
