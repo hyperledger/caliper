@@ -104,26 +104,16 @@ stages:
     # having a blind succeeded here will not work if a preceding stage was skipped
     condition: and(not(failed('UnitTests')), eq(variables['Build.Reason'], 'IndividualCI'))
     jobs:
-      - job: PublishNPM
-        displayName: "Publish Caliper NPM packages"
+      - job: PublishCaliper
+        displayName: "Publish Caliper to NPM and DockerHub"
         steps:
           - task: NodeTool@0
             inputs:
               versionSpec: "10.x"
             displayName: "Install Node.js"
-          - script: .build/publish-npm.sh
-            displayName: Publish packages
+          - script: .build/publish-caliper.sh
+            displayName: Publish Caliper
             env:
               NPM_TOKEN: "$(npm)"
-      - job: PublishDocker
-        displayName: "Publish Caliper Docker images"
-        steps:
-          - task: NodeTool@0
-            inputs:
-              versionSpec: "10.x"
-            displayName: "Install Node.js"
-          - script: .build/publish-docker.sh
-            displayName: Publish packages
-            env:
               DOCKER_USER: "$(DockerHub-Username)"
               DOCKER_TOKEN: "$(DockerHub-Password)"
