@@ -101,7 +101,7 @@ stages:
 
   - stage: Publish
     displayName: Publish Caliper
-    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'IndividualCI'))
     jobs:
       - job: PublishNPM
         displayName: "Publish Caliper NPM packages"
