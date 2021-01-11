@@ -90,7 +90,7 @@ The above settings are processed when starting Caliper. Modifying them during te
 > caliper:
 >   fabric:
 >     gateway:
->       localHost: false
+>       localhost: false
 >       enabled: true
 > ```
 > After naming the [project settings](./Runtime_Configuration.md#project-level) file `caliper.yaml` and placing it in the root of your workspace directory, it will override the following two setting keys with the following values:
