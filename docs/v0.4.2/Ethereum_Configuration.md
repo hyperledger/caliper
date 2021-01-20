@@ -245,19 +245,16 @@ The settings object has the following structure:
 * `contract`: _string. Required._ The ID of the contract (that is the key specified [here](#contract-configuration)).
 * `readOnly`: _boolean. Optional._ Indicates whether the request is a TX or a query. Defaults to `false`.
 * `verb`: _string. Required._ The name of the function to call on the contract.
-* `value`: _number. Optional._ The value parameter in Wei to be passed to the payable function of the contract.
 * `args`: _mixed[]. Optional._ The list of arguments to pass to the method in the correct order as they appear in method signature. It must be an array.
 
 ```js
 let requestsSettings = [{
     contract: 'simple',
     verb: 'open',
-    value: 1000000000000000000000,
     args: ['sfogliatella', 1000]
 },{
     contract: 'simple',
     verb: 'open',
-    value: 900000000000000000000,
     args: ['baba', 900]
 }];
 
