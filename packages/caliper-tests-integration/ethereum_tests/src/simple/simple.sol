@@ -3,7 +3,8 @@ pragma solidity >=0.4.22 <0.6.0;
 contract simple {
     mapping(string => int) private accounts;
 
-    function open(string memory acc_id, int amount) public {
+    function open(string memory acc_id, int amount) public payable {
+        require(int(msg.value) == amount, 'No commitment made by the caller.');
         accounts[acc_id] = amount;
     }
 
