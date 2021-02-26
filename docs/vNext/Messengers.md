@@ -21,6 +21,8 @@ Permitted messengers are:
 - **Process:** The `process` messenger is the default messenger and is based on native NodeJS `process` based communications. This messenger type is only valid for instances when local workers are being used to perform a benchmark.
 - **MQTT:** The `mqtt` messenger uses [MQTT](https://mqtt.org/) to facilitate communication between the orchestrator and workers. This messenger type is valid for both local and distributed workers, and assumes the existence of an MQTT broker service that may be used, such as [mosquitto](https://mosquitto.org/).
 
+  > **Note:** Mosquitto v2 requires explicit authorization and authentication configurations, which is a breaking change compared to v1. To migrate to v2, follow the [official migration guide of Mosquitto](https://mosquitto.org/documentation/migrating-to-2-0/).
+
 The following yaml extract specifies the use of an MQTT communication method, using an existing MQTT broker that may be connected to via the specified address:
 ```
     worker:
