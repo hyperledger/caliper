@@ -167,7 +167,7 @@ class BindCommon {
 
             logger.info(`Using working directory: ${cwd}`);
             logger.info(`Calling npm with: ${argArray.join(' ')}`);
-            await CaliperUtils.invokeCommand('npm', argArray,  { ...settings.env, ...process.env }, cwd);
+            await CaliperUtils.invokeCommand(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', argArray,  { ...settings.env, ...process.env }, cwd);
         } catch (e) {
             logger.error(e.message);
             throw e;
