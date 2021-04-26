@@ -274,7 +274,7 @@ class MonitorDocker extends MonitorInterface {
      */
     async start() {
         // Conditionally build monitored containers, these are persisted between rounds and restart action
-        if (!this.containers || this.containers.length == 0) {
+        if (!this.containers || this.containers.length === 0) {
             await this.findContainers();
         }
         // Read stats immediately, then kick off monitor refresh at interval
