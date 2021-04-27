@@ -220,7 +220,7 @@ class EthereumConnector extends ConnectorBase {
 
         const context = this.context;
         let status = new TxStatus();
-        let params = {from: context.fromAddress};
+        let params = {};
         if (request.hasOwnProperty('value') && request.value > 0) {
             params.value = request.value;
         }
@@ -231,10 +231,6 @@ class EthereumConnector extends ConnectorBase {
         if (request.readOnly) {
             methodType = 'call';
         } else if (context.nonces && (typeof context.nonces[context.fromAddress] !== 'undefined')) {
-            let nonce = context.nonces[context.fromAddress];
-            context.nonces[context.fromAddress] = nonce + 1;
-            params.nonce = nonce;
-
             // leaving these values unset causes web3 to fetch gasPrice and
             // chainId on the fly. This can cause transactions to be
             // reordered, which in turn causes nonce failures
@@ -255,32 +251,41 @@ class EthereumConnector extends ConnectorBase {
             status.SetStatusSuccess();
         };
 
-        if (request.args) {
-            if (contractInfo.gas && contractInfo.gas[request.verb]) {
-                params.gas = contractInfo.gas[request.verb];
-            } else if (contractInfo.estimateGas) {
-                params.gas = 1000 + await contractInfo.contract.methods[request.verb](...request.args).estimateGas();
-            }
+        try {
+            if (request.args) {
+                if (contractInfo.gas && contractInfo.gas[request.verb]) {
+                    params.gas = contractInfo.gas[request.verb];
+                } else if (contractInfo.estimateGas) {
+                    params.gas = 1000 + await contractInfo.contract.methods[request.verb](...request.args).estimateGas();
+                }
 
-            try {
-                receipt = await contractInfo.contract.methods[request.verb](...request.args)[methodType](params);
-                onSuccess(receipt);
-            } catch (err) {
-                onFailure(err);
-            }
-        } else {
-            if (contractInfo.gas && contractInfo.gas[request.verb]) {
-                params.gas = contractInfo.gas[request.verb];
-            } else if (contractInfo.estimateGas) {
-                params.gas = 1000 + await contractInfo.contract.methods[request.verb].estimateGas(params);
-            }
+                if (request.sender) {
+                    params.payload = await contractInfo.contract.methods[request.verb](...request.args).encodeABI();
+                    params.nonce = request.sender.nonce;
+                    let signTx = await this.web3.eth.accounts.signTransaction(params, request.sender.privateKey);
+                    let rawTx = signTx.rawTransaction;
+                    receipt = await this.web3.eth.sendSignedTransaction(rawTx);
+                } else {
+                    if (!request.readOnly) {
+                        let nonce = context.nonces[context.fromAddress];
+                        context.nonces[context.fromAddress] = nonce + 1;
+                        params.nonce = nonce;
+                    }
+                    params.from = context.fromAddress;
+                    receipt = await contractInfo.contract.methods[request.verb](...request.args)[methodType](params);
+                }
+            } else {
+                if (contractInfo.gas && contractInfo.gas[request.verb]) {
+                    params.gas = contractInfo.gas[request.verb];
+                } else if (contractInfo.estimateGas) {
+                    params.gas = 1000 + await contractInfo.contract.methods[request.verb].estimateGas(params);
+                }
 
-            try {
                 receipt = await contractInfo.contract.methods[request.verb]()[methodType](params);
-                onSuccess(receipt);
-            } catch (err) {
-                onFailure(err);
             }
+            onSuccess(receipt);
+        } catch (err) {
+            onFailure(err);
         }
 
         return status;
@@ -296,7 +301,7 @@ class EthereumConnector extends ConnectorBase {
         const web3eea = context.web3eea;
         const contractInfo = context.contracts[request.contract];
         const privacy = request.privacy;
-        const sender = privacy.sender;
+        const sender = request.sender;
 
         const status = new TxStatus();
 

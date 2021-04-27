@@ -51,8 +51,8 @@ class StoreWorkload extends WorkloadModuleBase {
 
             if (this.isPrivate) {
                 args.privacy = this.privacyOpts;
-                args.privacy.sender = web3.eth.accounts.create();
-                args.privacy.sender.nonce = 0;
+                args.sender = web3.eth.accounts.create();
+                args.sender.nonce = 0;
             }
 
             workload.push(args);
