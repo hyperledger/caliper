@@ -40,5 +40,4 @@
             module: ./../store.js
             arguments:
               contract: private_storage
-              private: group1
-    
+              private: group3

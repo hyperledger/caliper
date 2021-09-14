@@ -13,37 +13,37 @@
         "fromAddressSeed": "0x3f841bf589fdf83a521e55d51afddc34fa65351161eead24f064855fc29c9580",
         "transactionConfirmationBlocks": 1,
         "chainId": 48122,
-    "privacy":  {
-        "group1": {
-            "groupType": "legacy",
-            "privateFrom": "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=",
-            "privateFor": ["GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY="]
-        },
-        "group2": {
-            "groupType": "pantheon",
-            "privateFrom": "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=",
-            "privacyGroupId": "cskJg3WXZxU9kII4Tu42cZ6OmaB0ykldWsymFDhiTSQ="
-        },
-        "group3": {
-            "groupType": "onchain",
-            "privateFrom": "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=",
-            "privacyGroupId": "cskJg3WXZxU9kII4Tu42cZ6OmaB0ykldWsymFDhiTSQ="
-        }
-    },
-    "contracts": {
-        "public_storage": {
-            "path": "../src/storage/storage.json",
-            "gas": {
-                "update": 30000
+        "privacy":  {
+            "group1": {
+                "groupType": "legacy",
+                "privateFrom": "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=",
+                "privateFor": ["GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY="]
+            },
+            "group2": {
+                "groupType": "pantheon",
+                "privateFrom": "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=",
+                "privateKey": "uTJGpd4ZEEtDPFSZM0+GT11xn5NFIr2KGP2Q4SdVPRM="
+            },
+            "group3": {
+                "groupType": "onchain",
+                "privateFrom": "GGilEkXLaQ9yhhtbpBT03Me9iYa7U/mWXxrJhnbl1XY=",
+                "privateKey": "uTJGpd4ZEEtDPFSZM0+GT11xn5NFIr2KGP2Q4SdVPRM="
             }
         },
-        "private_storage": {
-            "path": "../src/storage/storage.json",
-            "gas": {
-                "update": 30000
+        "contracts": {
+            "public_storage": {
+                "path": "../src/storage/storage.json",
+                "gas": {
+                    "update": 30000
+                }
             },
-            "private": "group1" 
+            "private_storage": {
+                "path": "../src/storage/storage.json",
+                "gas": {
+                    "update": 30000
+                },
+                "private": "group3"
+            }
         }
-    }
     }
 }

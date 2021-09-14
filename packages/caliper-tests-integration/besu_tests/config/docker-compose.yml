@@ -26,7 +26,7 @@ services:
       - ./orion:/orion
     ports:
       - 8545-8547:8545-8547
-    command: --min-gas-price 0 --revert-reason-enabled --rpc-ws-enabled --rpc-ws-host 0.0.0.0 --host-whitelist=* --rpc-ws-apis admin,eth,miner,web3,net,priv,eea --graphql-http-enabled --discovery-enabled=false --privacy-enabled=true --privacy-url=http://orion:8888 --privacy-public-key-file=/orion/key/orion.pub
+    command: --min-gas-price 0 --revert-reason-enabled --rpc-ws-enabled --rpc-ws-host 0.0.0.0 --host-whitelist=* --rpc-ws-apis admin,eth,miner,web3,net,priv,eea --graphql-http-enabled --discovery-enabled=false --privacy-enabled=true --privacy-url=http://orion:8888 --privacy-public-key-file=/orion/key/orion.pub --privacy-flexible-groups-enabled
   orion:
     image: "pegasyseng/orion:1.6.0"
     container_name: orion

@@ -102,6 +102,9 @@ class EthereumConnector extends ConnectorBase {
     async installSmartContract() {
         let promises = [];
         let self = this;
+        if (this.ethereumConfig.privacy) {
+            await this.createPrivacyGroups();
+        }
         logger.info('Creating contracts...');
         for (const key of Object.keys(this.ethereumConfig.contracts)) {
             const contract = this.ethereumConfig.contracts[key];
@@ -137,6 +140,35 @@ class EthereumConnector extends ConnectorBase {
     }
 
     /**
+     * Create onchain privacy groups that have no predetermined group id
+     * @async
+     */
+    async createPrivacyGroups() {
+        for (let [groupName, group] of Object.entries(this.ethereumConfig.privacy)) {
+            if (group.groupType === 'legacy' || group.privacyGroupId !== undefined) {
+                continue;
+            }
+            if (!group.privateKey) {
+                throw new Error(`Onchain privacy groups need privacyGroupId or privateKey but ${groupName} has neither`);
+            }
+
+            const privateKey = Buffer.from(group.privateKey, 'base64').toString('hex');
+            const onChainPrivacyGroupCreationResult = await this.web3eea.privx.createPrivacyGroup({
+                participants: [group.privateFrom],
+                enclaveKey: group.privateFrom,
+                privateFrom: group.privateFrom,
+                privateKey: privateKey
+            });
+            if (onChainPrivacyGroupCreationResult.status !== '0x1') {
+                throw new Error('Failed to create privacy group');
+            }
+
+            group.privacyGroupId = onChainPrivacyGroupCreationResult.privacyGroupId;
+            logger.info(`Created onchain privacy group ${groupName} with group id ${group.privacyGroupId}`);
+        }
+    }
+
+    /**
      * Return the Ethereum context associated with the given callback module name.
      * @param {Number} roundIndex The zero-based round index of the test.
      * @param {object} args worker arguments.
@@ -152,6 +184,8 @@ class EthereumConnector extends ConnectorBase {
             nonces: {},
             web3: this.web3
         };
+
+        this.ethereumConfig.privacy = args.privacy;
 
         context.gasPrice = this.ethereumConfig.gasPrice !== undefined
             ? this.ethereumConfig.gasPrice
@@ -386,11 +420,12 @@ class EthereumConnector extends ConnectorBase {
         const web3eea = this.web3eea;
         // Using randomly generated account to deploy private contract to avoid public/private nonce issues
         const deployerAccount =  web3.eth.accounts.create();
-
+        // web3js-eea doesn't not accept private keys prefixed by '0x'
+        const privateKey = deployerAccount.privateKey.substring(2);
         const transaction = {
             data: contractData.bytecode,
             nonce: deployerAccount.nonce,
-            privateKey: deployerAccount.privateKey.substring(2),    // web3js-eea doesn't not accept private keys prefixed by '0x'
+            privateKey: privateKey
         };
 
         this.setPrivateTransactionParticipants(transaction, privacy);
@@ -418,9 +453,13 @@ class EthereumConnector extends ConnectorBase {
      * @async
      */
     async prepareWorkerArguments(number) {
+        const args = {
+            contracts: this.ethereumConfig.contracts,
+            privacy: this.ethereumConfig.privacy
+        };
         let result = [];
         for (let i = 0 ; i<= number ; i++) {
-            result[i] = {contracts: this.ethereumConfig.contracts};
+            result[i] = args;
         }
         return result;
     }
