@@ -115,27 +115,44 @@ class CaliperWorker {
      * @async
      */
     async runDuration(workloadModule, duration, rateController) {
-        const stats = this.internalTxObserver.getCurrentStatistics();
-        let startTime = stats.getRoundStartTime();
-        let error = undefined;
-        while ((Date.now() - startTime) < (duration * 1000) && !error) {
-            await rateController.applyRateControl();
+        // To bound the total round runtime to twice the target
+        // duration we have a timeout promise running concurrently to
+        // the round.
+        const runDurationInTime = async () => {
+            console.log(`DA FUVK`);
+            const stats = this.internalTxObserver.getCurrentStatistics();
+            let startTime = stats.getRoundStartTime();
+            let error = undefined;
+            while ((Date.now() - startTime) < (duration * 1000) && !error) {
+                await rateController.applyRateControl();
 
-            // If this function calls this.workloadModule.submitTransaction() too quickly, micro task queue will be filled with unexecuted promises,
-            // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
-            // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
-            await this.setImmediatePromise(() => {
-                workloadModule.submitTransaction()
-                    .catch(err => { error = err; });
+                // If this function calls this.workloadModule.submitTransaction() too quickly, micro task queue will be filled with unexecuted promises,
+                // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
+                // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
+                await this.setImmediatePromise(() => {
+                    workloadModule.submitTransaction()
+                        .catch(err => { error = err; });
+                });
+            }
+
+            if (error) {
+                Logger.error(`Unhandled error while executing TX: ${error.stack || error}`);
+                throw error;
+            }
+
+            await CaliperWorker._waitForTxsToFinish(stats);
+            return true;
+        };
+        const timeOutAfterTwiceDuration = async () => {
+            await CaliperUtils.sleep(2 * 1000 * duration);
+            return false;
+        };
+        return Promise.race([runDurationInTime(), timeOutAfterTwiceDuration()])
+            .then(finishedWithoutTimeout => {
+                if (!finishedWithoutTimeout) {
+                    throw new Error('Round exceeded twice the target duration');
+                }
             });
-        }
-
-        if (error) {
-            Logger.error(`Unhandled error while executing TX: ${error.stack || error}`);
-            throw error;
-        }
-
-        await CaliperWorker._waitForTxsToFinish(stats);
     }
 
     /**
