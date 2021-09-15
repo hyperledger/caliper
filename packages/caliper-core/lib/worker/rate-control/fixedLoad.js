@@ -78,6 +78,19 @@ class FixedLoad extends RateInterface {
 
         Logger.debug('Difference between current and desired transaction backlog: ' + targetLoadDifference);
         await Sleep(sleepTime);
+
+        // If we have far more transactions in-flight than desired (2x
+        // in this case) this indicates that the delay mechanism used
+        // above does not throttle as intended. This happens for
+        // example if the SUT crashes in the middle of the test: the
+        // TPS measurement does not get updated (as no new
+        // transactions complete); we throttle to little here; and
+        // this causes more transaction being created in the worker.
+        // To avoid this, we recurse here until the severe overload
+        // has been eliminated.
+        if (targetLoadDifference > this.targetLoad) {
+            await this.applyRateControl();
+        }
     }
 
     /**

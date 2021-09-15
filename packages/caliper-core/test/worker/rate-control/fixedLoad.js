@@ -144,7 +144,7 @@ describe('fixedLoad controller implementation', () => {
         });
 
         it ('should sleep for a count of the load error and the current average delay', async () => {
-            txnStats.stats.txCounters.totalSubmitted = 80;
+            txnStats.stats.txCounters.totalSubmitted = 60;
             txnStats.stats.txCounters.totalFinished = 40;
 
             txnStats.stats.txCounters.totalSuccessful = 40;
@@ -152,7 +152,20 @@ describe('fixedLoad controller implementation', () => {
 
             await controller.applyRateControl();
             sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, 7500);
+            sinon.assert.calledWith(sleepStub, 2500);
+        });
+
+        it ('should sleep until the load is less or equal to twice the target load', async () => {
+            sleepStub = sinon.fake(() => { txnStats.stats.txCounters.totalFinished += 10 });
+            FixedLoad.__set__('Sleep', sleepStub);
+
+            txnStats.stats.txCounters.totalSubmitted = 50;
+            txnStats.stats.txCounters.totalFinished = 10;
+            txnStats.stats.txCounters.totalSuccessful = 10;
+            txnStats.stats.latency.successful.total = 10000;
+
+            await controller.applyRateControl();
+            sinon.assert.callCount(sleepStub, 3);
         });
 
         it('should log the backlog error as a debug message', async () => {
@@ -165,14 +178,14 @@ describe('fixedLoad controller implementation', () => {
             let debugStub = sinon.stub(FakeLogger, 'debug');
             FixedLoad.__set__('Logger', FakeLogger);
 
-            txnStats.stats.txCounters.totalSubmitted = 80;
+            txnStats.stats.txCounters.totalSubmitted = 60;
             txnStats.stats.txCounters.totalFinished = 40;
 
             txnStats.stats.txCounters.totalSuccessful = 40;
             txnStats.stats.latency.successful.total = 10000;
 
             await controller.applyRateControl();
-            const message = 'Difference between current and desired transaction backlog: 30';
+            const message = 'Difference between current and desired transaction backlog: 10';
             sinon.assert.calledOnce(debugStub);
             sinon.assert.calledWith(debugStub, message);
 
