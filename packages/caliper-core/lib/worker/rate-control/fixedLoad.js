@@ -60,11 +60,6 @@ class FixedLoad extends RateInterface {
         // Get transaction details
         let unfinished = this.stats.getTotalSubmittedTx() - this.stats.getTotalFinishedTx();
 
-        // Shortcut if we are below the target threshold
-        if (unfinished < this.targetLoad) {
-            return;
-        }
-
         const targetLoadDifference = unfinished - this.targetLoad;
 
         // Shortcut if we are below the target threshold and need to increase the loading
