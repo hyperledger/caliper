@@ -52,7 +52,8 @@ class FixedLoad extends RateInterface {
     async applyRateControl() {
 
         // Waiting until transactions have completed.
-        if (this.stats.getTotalFinishedTx() === 0) {
+        const completedTransactions = this.stats.getTotalFinishedTx();
+        if (completedTransactions === 0) {
             await Sleep(this.sleepTime);
             return;
         }
@@ -69,17 +70,11 @@ class FixedLoad extends RateInterface {
         }
 
         // Determine the current TPS
-        const completedTransactions = this.stats.getTotalSuccessfulTx() + this.stats.getTotalFailedTx();
         const latency = (this.stats.getTotalLatencyForSuccessful() + this.stats.getTotalLatencyForFailed()) / 1000;
         const tps = (completedTransactions / latency);
 
         // Determine the required sleep to reduce the backlog ( deltaTXN * 1/TPS = sleep in seconds to build the desired txn load)
-        let sleepTime = 0;
-        if (tps !== 0) {
-            sleepTime = targetLoadDifference * 1000 / tps;
-        } else {
-            sleepTime = targetLoadDifference * this.sleepTime;
-        }
+        let sleepTime = targetLoadDifference * 1000 / tps;
 
         Logger.debug('Difference between current and desired transaction backlog: ' + targetLoadDifference);
         await Sleep(sleepTime);
