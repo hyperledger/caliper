@@ -17,11 +17,11 @@
 const ValueProviderInterface = require('./value-provider-interface');
 
 /**
- * Class with implementation of VariableReferenceValueProvider
+ * Class with implementation of ListElementValueProvider
  */
-class VariableReferenceValueProvider extends ValueProviderInterface {
+class ListElementValueProvider extends ValueProviderInterface {
     /**
-     * Initialize an instance of VariableReferenceValueProvider
+     * Initialize an instance of ListElementValueProvider
      * @param {object} options The user provided options for value provider
      * @param {object} variables Store of variables managed by workload module
      * @param {object} parameters Store of workload parameters provided by the user through the round configuration
@@ -34,30 +34,33 @@ class VariableReferenceValueProvider extends ValueProviderInterface {
             throw new Error(`Incorrect options value: ${this.options}`);
         }
 
-        if(this.variables === undefined) {
-            throw new Error(`Incorrect variables value: ${this.variables}`);
+        if(this.valueProviderFactory === undefined){
+            throw new Error('Missing factory for list element value provider');
         }
 
-        if (
-            this.options.name === undefined ||
-            typeof this.options.name !== 'string'
-        ) {
-            throw new Error(
-                `Incorrect variable name: ${options.name}`
-            );
+        if(this.options.list === undefined || !Array.isArray(this.options.list)) {
+            throw new Error(`Incorrect value for list: ${this.options.list}`);
         }
 
-        if (this.variables[this.options.name] === undefined) {
-            throw new Error(`Variable ${this.options.name} cannot be found among available variables`);
+        if(this.options.list.length === 0){
+            throw new Error('Empty list not allowed in List element value provider');
         }
+
+        if(this.options.selector === undefined || typeof this.options.selector !== 'object') {
+            throw new Error(`Incorrect value for selector: ${this.options.selector}`);
+        }
+
+        this.list = this.options.list;
+
+        this.selector = this.valueProviderFactory.createValueProvider(this.options.selector.type, this.options.selector.options);
     }
     /**
-     * Generates value for corresponding variable
-     * @returns {any} value for variable according to options.name
+     * Returns value for corresponding variable/parameter value from the list
+     * @returns {any} value for parameter according to options.name
      */
     generateValue() {
-        return this.variables[this.options.name];
+        return this.list[this.selector.generateValue() % this.list.length];
     }
 }
 
-module.exports = VariableReferenceValueProvider;
+module.exports = ListElementValueProvider;

@@ -19,9 +19,9 @@
 class ValueProviderInterface {
     /**
      * Initialize an instance of ValueProviderInterface
-     * @param {object} options Options for configured parameter generation
-     * @param {object} variables Caliper provided variables
-     * @param {object} parameters User provided variables
+     * @param {object} options The user provided options for value provider
+     * @param {object} variables Store of variables managed by workload module
+     * @param {object} parameters Store of workload parameters provided by the user through the round configuration
      * @param {object} valueProviderFactory ValueProviderFactory object reference
      */
     constructor(
