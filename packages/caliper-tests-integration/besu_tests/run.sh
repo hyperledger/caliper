@@ -32,7 +32,11 @@ fi
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 
 dispose () {
+    # dump some container information in case of an error before tearing down the network
+    echo "########### Container states and logs"
     docker ps -a
+    docker logs --tail 50 besu_clique
+    echo ""
     ${CALL_METHOD} launch manager --caliper-workspace phase1 --caliper-flow-only-end
 }
 
