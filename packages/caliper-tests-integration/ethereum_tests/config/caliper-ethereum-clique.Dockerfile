@@ -12,7 +12,7 @@
 # limitations under the License.
 #
 
-FROM ethereum/client-go:stable
+FROM ethereum/client-go:v1.10.12
 COPY ./data/ /root/
 VOLUME [ "/root/.ethereum/keystore/" ]
 RUN geth --nousb init /root/genesis.json && geth --nousb import /root/bc.dat
