@@ -28,7 +28,7 @@ dispose () {
 }
 
 # Install yo
-npm install --global yo
+npm install --global yo@3.1.1
 
 # generate the crypto materials
 cd ./config
