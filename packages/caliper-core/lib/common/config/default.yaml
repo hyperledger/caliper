@@ -58,7 +58,7 @@ caliper:
     projectconfig:
     # The file path for the user-level configuration file. Can be relative to the workspace.
     userconfig:
-    # The file path for the user-level configuration file. Can be relative to the workspace.
+    # The file path for the machine-level configuration file. Can be relative to the workspace.
     machineconfig:
     # Path to the benchmark workload file that describes the test workers(s), test rounds and monitor
     benchconfig:
