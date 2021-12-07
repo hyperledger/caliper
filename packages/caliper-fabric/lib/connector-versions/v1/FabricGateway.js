@@ -133,7 +133,7 @@ class V1FabricGateway extends ConnectorBase {
     async init() {
         const defaultOrganization = this.connectorConfiguration.getOrganizations()[0];
         const tlsInfo = this.connectorConfiguration.isMutualTLS() ? 'mutual'
-            : (this.connectorConfiguration.getConnectionProfileDefinitionForOrganization(defaultOrganization).isTLSEnabled() ? 'server' : 'none');
+            : ((await this.connectorConfiguration.getConnectionProfileDefinitionForOrganization(defaultOrganization)).isTLSEnabled() ? 'server' : 'none');
         logger.info(`Fabric SDK version: ${this.fabricNetworkVersion.toString()}; TLS based on ${defaultOrganization}: ${tlsInfo}`);
 
         const fabricChannelOperations = new FabricChannelOperations(this.connectorConfiguration);
