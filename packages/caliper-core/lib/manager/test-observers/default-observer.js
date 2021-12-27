@@ -34,7 +34,7 @@ class DefaultObserver extends TestObserverInterface {
 
         // set the observer interval
         this.observeInterval = ConfigUtil.get(ConfigUtil.keys.Progress.Reporting.Interval);
-        Logger.info(`Observer interval set to ${this.observeInterval} seconds`);
+        Logger.info(`Observer interval set to ${this.observeInterval} milliseconds`);
         this.observeIntervalObject = null;
         this.updateTail = 0;
         this.updateID   = 0;
