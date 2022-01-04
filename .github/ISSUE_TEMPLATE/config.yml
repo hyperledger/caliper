@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Hyperledger Caliper Rocket.Chat channel
+    url: https://chat.hyperledger.org/channel/caliper
+    about: Please ask general questions about the project here (LFID required).
+  - name: Hyperledger Caliper mailing list
+    url: https://lists.hyperledger.org/g/caliper
+    about: Please ask general questions about the project here (LFID recommended).

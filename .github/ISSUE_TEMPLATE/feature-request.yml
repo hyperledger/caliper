@@ -1,0 +1,31 @@
+name: Feature Request
+description: Request a new Caliper feature
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+        value: Thank you for sharing your ideas about how to improve Caliper!
+  - type: textarea
+    id: limitation
+    attributes:
+      label: Please share the technical limitation of Caliper that you encountered.
+    validations:
+      required: true
+  - type: textarea
+    id: feature
+    attributes:
+      label: Please detail your feature idea that could alleviate the limitation.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Please share some details about your use case if possible, and how the new feature would make Caliper a better performance benchmarking framework.
+    validations:
+      required: false
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: Please share any suggestions about the new feature's code/configuration API (using formatted YAML segments or pseudo-code).
+    validations:
+      required: false
