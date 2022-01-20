@@ -20,7 +20,7 @@ const Logger = Util.getLogger('monitor-docker');
 const MonitorInterface = require('./monitor-interface');
 const MonitorUtilities = require('./monitor-utilities');
 const ChartBuilder = require('../charts/chart-builder');
-
+const os = require('os');
 const URL = require('url');
 const Docker = require('dockerode');
 const SystemInformation = require('systeminformation');
@@ -338,6 +338,7 @@ class MonitorDocker extends MonitorInterface {
 
         const resourceStats = [];
         let chartStats = [];
+        let cpuCores = 1;
         try {
             // Build a statistic for each monitored container and push into watchItems array
             for (const container of this.containers) {
@@ -359,8 +360,11 @@ class MonitorDocker extends MonitorInterface {
                     watchItemStat.set('Name', container.name);
                     watchItemStat.set('Memory(max)', mem_stat.max);
                     watchItemStat.set('Memory(avg)', mem_stat.avg);
-                    watchItemStat.set('CPU%(max)', cpu_stat.max.toFixed(2));
-                    watchItemStat.set('CPU%(avg)', cpu_stat.avg.toFixed(2));
+                    if(this.options.hasOwnProperty('cpuUsageNormalization')){
+                        cpuCores = os.cpus().length;
+                    }
+                    watchItemStat.set('CPU%(max)', cpu_stat.max.toFixed(2))/cpuCores;
+                    watchItemStat.set('CPU%(avg)', cpu_stat.avg.toFixed(2))/cpuCores;
                     watchItemStat.set('Traffic In', (net.in[net.in.length - 1] - net.in[0]));
                     watchItemStat.set('Traffic Out', (net.out[net.out.length - 1] - net.out[0]));
                     watchItemStat.set('Disc Write', (disc.write[disc.write.length - 1] - disc.write[0]));
