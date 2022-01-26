@@ -3,7 +3,7 @@ layout: vNext
 title:  "Messengers"
 categories: reference
 permalink: /vNext/caliper-messengers/
-order: 6
+order: 7
 ---
 
 ## Table of Contents

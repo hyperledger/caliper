@@ -1,8 +1,9 @@
 ---
 layout: vNext
-title:  "Declarative Workload Configuration"
-categories: docs
+title:  "Declarative Workloads"
+categories: reference
 permalink: /vNext/declarative-workload-module/
+order: 4
 ---
 ## Table of contents
 
@@ -19,36 +20,34 @@ permalink: /vNext/declarative-workload-module/
     - [Formatted String](#formatted-string)
 
 ## Overview
-`DeclarativeWorkloadModuleBase` is a Caliper `WorkloadModule` implementation that is used through assiging `declarative` to `workload.module` in the Benchmark Configuration file. The Contracts, Functions and Parameters for test runs are specified under `arguments.behavior`.
+`DeclarativeWorkloadModuleBase` is a base class that can be implemented for declaratively assigning workload parameters. The Contracts, Functions and Parameters for test runs are specified under `arguments.behavior`.
 
 ## Example
 
 ```yaml
 workload:
-    module: declarative
-        arguments:
-            parameterOne: param1
-            parameterTwo: 42
-            behavior:
-                contractSelection: 'uniform_random_list_element'
-                contracts:
-                - name: contract1
-                  functionSelection: 'uniform_random_list_element'
-                  functions:
-                  - name: function1
-                    parameters:
-                    - name: randomNumber
-                      type: uniform_random
-                      options:
-                        min: 10
-                        max: 100
+  module: declarative
+    arguments:
+      parameterOne: param1
+      parameterTwo: 42
+      behavior:
+        contracts:
+        - name: contract1
+          functions:
+          - name: function1
+            parameters:
+            - name: randomNumber
+              type: uniform_random
+              options:
+                min: 10
+                max: 100
 ```
 The example above means the follows:
 - The WorkloadModule used here is `declarative`.
 - The `roundArguments` taken in by Caliper are `parameterOne`, assigned the value of `'param1'` and `parameterTwo` assigned the value of `42`.
 - The `arguments.behavior` section specifies the declared properties of the workload module.
-- `contractSelection` specifies how a contract will be chosen from a `contracts` list.
-- `contracts` contains `name` and `functionSelection`, followed by `functions` which has `function1` present in it as the only list item.
+- A `contracts` list is defined.
+- `contracts` contains `name`, followed by `functions` which has `function1` present in it as the only list item.
 - `functions` contains `name` and `parameters`.
 - `parameters` contains a value provider with the `name` randomNumber of `type` uniform_random. This generates a random number between 10 and 100 for the parameter. 
 
@@ -63,7 +62,7 @@ Used to specify the list of contracts to be tested. Each `contracts` list elemen
 |:-------|:----------|:----------|
 |name    |string     |Name of SUT contract to be tested|
 |functionSelection|string|Type of contract picking logic|
-|function|list|List of Contract functions|
+|function|list|List of Function descriptions|
 
 ### Functions
 
@@ -72,11 +71,18 @@ Used to specify the list of functions under a contract to be tested. Each `funct
 |Property|Type|Description|
 |:-------|:---|:----------|
 |name    |string|Name of SUT function to be tested|
-|parameters|list|List of user-defined parameters to be generated|
+|parameters|list|List of Parameter descriptions|
 
 ### Parameters
 
-Used to specify different generated parameters for each function. The `parameters` list can contain one or more of the following items.
+Used to specify different generated parameters for each function.
+|Property   |Type  |Description                                        |
+|:----------|:-----|:--------------------------------------------------|
+|type       |string|Assigned a value according to the type of paramter used|
+|name       |string|Parameter Name                                         |
+|options    |string|Additional information about the parameter definition   |
+
+The `parameters` list can contain one or more of the following items.
 
 #### Uniform Random
 
@@ -95,8 +101,6 @@ Value provider format for generating a random number within a given range.
 
 |Property   |Type  |Description                                        |
 |:----------|:-----|:--------------------------------------------------|
-|type       |string|Assigned the value `uniform_random`                |
-|name       |string|Parameter Name                                     |
 |options.min|number|Mininum inclusive range for generated random number|
 |options.max|number|Maximum inclusive range for generated random number|
 
@@ -115,8 +119,6 @@ Value Provider format for referencing a `module.arguments` item.
 
 |Property|Type|Description|
 |:-------|:---|:----------|
-|type    |string|Assigned the value `parameter_reference`|
-|name    |string|Parameter name|
 |options.name|string|Should be a variable name specified under `module.arguments`|
 
 #### Variable Reference
@@ -134,9 +136,7 @@ Value Provider format for referencing a Caliper workload variable.
 
 |Property|Type|Description|
 |:-------|:---|:----------|
-|type    |string|Assigned the value `variable_reference`.|
-|name    |string|Parameter name|
-|options.name    |string|Parameter Name. Should refer to a Caliper variable. |
+|options.name    |string|Parameter Name. Should refer to a base-class provided variable. |
 
 #### List Element
 
@@ -149,18 +149,16 @@ Value provider format for selecting an item from a given list.
   options:
     list: ['red', blue', 'green'],
     selector:
-      type: parameter_reference
+      type: variable_reference
       options:
-        name: marblePrefix #assuming this is defined under module.arguments
+        name: txIndex #assuming this is defined under module.arguments
 ```
 ##### Attributes
 
 |Property|Type|Description|
 |:-------|:---|:----------|
-|type    |string|Assigned the value `list_element`|
-|name    |string|Parameter Name|
 |options.list|list|List from which element is chosen.|
-|options.selector|object|Contains information about `variable_reference` and `parameter_reference` item used to select list item.|
+|options.selector|object|Contains information about any valid numeric value provider. Used for selecting elements by index.|
 
 
 #### Formatted String
@@ -173,18 +171,19 @@ Value provider format for generating formatted strings.
 - name: generatedString
   type: formatted_string
   options:
-    format: '{1}'
+    format: 'example_{1}_{2}'
     parts:
       - type: parameter_reference
         options:
           name: marbleIndex
+      - type: variable_reference
+        options:
+          name: txIndex
 ```
 
 ##### Attributes
 
 |Property|Type  |Description|
 |:-------------|:-----|:----------|
-|type          |string|Assigned the value `formatted_string`|
-|name          |string|Parameter Name|
-|options.format|string|Specifies format and placeholders for variables. Placeholders are specified using this syntax: `{variable_no}`.|
+|options.format|string|Specifies format and placeholders for variables. Placeholders are specified using this syntax: `{variable_no}`. 1-based indexing of the `parts` list is used for this purpose.|
 |options.parts |list  |Specifies variable and parameter reference value providers for use in string|

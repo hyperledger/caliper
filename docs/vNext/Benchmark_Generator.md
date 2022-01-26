@@ -3,7 +3,7 @@ layout: vNext
 title:  "Benchmark Generator"
 categories: reference
 permalink: /vNext/benchmark-generator/
-order: 7
+order: 8
 ---
 
 ## Table of contents
