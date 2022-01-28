@@ -18,7 +18,8 @@ order: 4
     - [Variable Reference](#variable-reference)
     - [List Element](#list-element)
     - [Formatted String](#formatted-string)
-
+- [Implementing the DeclarativeWorkloadModuleBase class](#implementing-the-declarativeworkloadmodulebase-class)
+  - [submitWithArguments](#submitwitharguments)
 ## Overview
 `DeclarativeWorkloadModuleBase` is a base class that can be implemented for declaratively assigning workload parameters. The Contracts, Functions and Parameters for test runs are specified under `arguments.behavior`.
 
@@ -187,3 +188,9 @@ Value provider format for generating formatted strings.
 |:-------------|:-----|:----------|
 |options.format|string|Specifies format and placeholders for variables. Placeholders are specified using this syntax: `{variable_no}`. 1-based indexing of the `parts` list is used for this purpose.|
 |options.parts |list  |Specifies variable and parameter reference value providers for use in string|
+
+## Implementing the DeclarativeWorkloadModuleBase class
+
+### submitWithArguments
+
+The `DeclarativeWorkloadModuleBase` is exported as a module. In order to use it, `submitWithArguments()` needs to be implemented by the user. It accepts `generatedArguments` during a Caliper run.
