@@ -20,6 +20,7 @@ order: 4
     - [Formatted String](#formatted-string)
 - [Implementing the DeclarativeWorkloadModuleBase class](#implementing-the-declarativeworkloadmodulebase-class)
   - [submitWithArguments](#submitwitharguments)
+
 ## Overview
 `DeclarativeWorkloadModuleBase` is a base class that can be implemented for declaratively assigning workload parameters. The Contracts, Functions and Parameters for test runs are specified under `arguments.behavior`.
 
@@ -28,20 +29,20 @@ order: 4
 ```yaml
 workload:
   module: declarative
-    arguments:
-      parameterOne: param1
-      parameterTwo: 42
-      behavior:
-        contracts:
-        - name: contract1
-          functions:
-          - name: function1
-            parameters:
-            - name: randomNumber
-              type: uniform_random
-              options:
-                min: 10
-                max: 100
+  arguments:
+    parameterOne: param1
+    parameterTwo: 42
+    behavior:
+      contracts:
+      - name: contract1
+        functions:
+        - name: function1
+          parameters:
+          - name: randomNumber
+            type: uniform_random
+            options:
+              min: 10
+              max: 100
 ```
 The example above means the follows:
 - The WorkloadModule used here is `declarative`.
@@ -77,6 +78,7 @@ Used to specify the list of functions under a contract to be tested. Each `funct
 ### Parameters
 
 Used to specify different generated parameters for each function.
+
 |Property   |Type  |Description                                        |
 |:----------|:-----|:--------------------------------------------------|
 |type       |string|Assigned a value according to the type of paramter used|
@@ -148,7 +150,7 @@ Value provider format for selecting an item from a given list.
 - name: selectedColor
   type: list_element
   options:
-    list: ['red', blue', 'green'],
+    list: ['red', 'blue', 'green']
     selector:
       type: variable_reference
       options:
