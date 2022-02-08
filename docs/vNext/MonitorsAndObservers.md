@@ -60,6 +60,7 @@ monitors:
 ### Docker Monitor
 The docker monitoring module options comprise:
  - interval: monitor update interval
+ - cpuUsageNormalization: an optional boolean that may be used to convert the cpu usage in a more covenient value (scaled to 100) by normalising for the number of cores of the host machine, default is set to false
  - containers: an array of container names that may relate to local or remote docker containers to be monitored. If all **local** docker containers are to be monitored, this may be achieved by providing `all` as a name
 
 The following declares the monitoring of two named docker containers; one local and the other remote, with a 5second update frequency:
@@ -74,13 +75,14 @@ monitors:
       - http://192.168.1.100:2375/orderer.example.com
 ```
 
-The following declares the monitoring of all local docker containers, with a 5second update frequency:
+The following declares the monitoring of all local docker containers, with a 5second update frequency and normalization of the cpuUsage metric set to true.
 ```
 monitors:
   resource:
   - module: docker
     options:
       interval: 5 
+      cpuUsageNormalization: true
       containers:
       - all
 ```
