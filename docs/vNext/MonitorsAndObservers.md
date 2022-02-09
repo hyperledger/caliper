@@ -3,7 +3,7 @@ layout: vNext
 title:  "Monitors and Observers"
 categories: reference
 permalink: /vNext/caliper-monitors/
-order: 5
+order: 6
 ---
 
 ## Table of Contents

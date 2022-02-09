@@ -3,7 +3,7 @@ layout: vNext
 title:  "Logging Control"
 categories: reference
 permalink: /vNext/logging/
-order: 8
+order: 9
 ---
 
 ## Table of contents
