@@ -23,8 +23,8 @@
         "map-sass": "node-sass src/assets/scss/paper-dashboard.scss src/assets/css/paper-dashboard.css --source-map true"
     },
     "engines": {
-        "node": ">=10.22.0",
-        "npm": ">=6.14.0"
+        "node": ">=14.19.0",
+        "npm": ">=6.14.16"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.27",
