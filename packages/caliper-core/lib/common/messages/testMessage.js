@@ -67,6 +67,14 @@ class TestMessage extends Message {
     }
 
     /**
+     * Sets the rate control specification for the round.
+     * @param {object} rateControlSpec The rate control specification.
+     */
+    setRateControlSpec(rateControlSpec) {
+        this.content.rateControl = rateControlSpec;
+    }
+
+    /**
      * Gets the trim length for the round.
      * @return {number} The trim length.
      */
@@ -107,11 +115,36 @@ class TestMessage extends Message {
     }
 
     /**
+     * Sets the number of TXs to perform in the round.
+     * @param {number} numberOfTxs The number of TXs.
+     */
+    setNumberOfTxs(numberOfTxs) {
+        this.content.numb = numberOfTxs;
+    }
+
+    /**
      * Gets the target duration for the round in seconds.
      * @return {number} The duration of the round in seconds.
      */
     getRoundDuration() {
         return this.content.txDuration;
+    }
+
+    /**
+     * Sets the target duration for the round in seconds.
+     * @param {number} txDuration The duration of the round in seconds.
+     */
+    setRoundDuration(txDuration) {
+        this.content.txDuration = txDuration;
+    }
+
+    /**
+     * Deep-clones the test message.
+     * @returns {TestMessage} The clone test message.
+     */
+    clone() {
+        const contentClone = JSON.parse(JSON.stringify(this.content));
+        return new TestMessage(this.sender, Array.from(this.recipients), contentClone, this.date, this.error);
     }
 }
 

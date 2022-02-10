@@ -1,0 +1,88 @@
+name: Bug Report
+description: File a bug report
+body:
+  - type: markdown
+    attributes:
+        value: Thank you for helping us make Caliper better by submitting a bug report!
+  - type: markdown
+    attributes:
+        value: "## Environment information"
+  - type: input
+    id: caliper_version
+    attributes:
+      label: Which Caliper version are you using?
+      placeholder: "For example: v0.4.2, or latest"
+    validations:
+      required: true
+  - type: input
+    id: nodejs_version
+    attributes:
+      label: Which Node.JS version are you using?
+      placeholder: "For example: v10"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Which operating system are you using?
+      placeholder: "For example: Ubuntu 20.04 LTS"
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+        value: "## Behavior information"
+  - type: textarea
+    id: context
+    attributes:
+      label: Please provide some context for your error. For example, when did the error occur? What were you trying to achieve, and how?
+      placeholder: "For example: I tried to monitor remote Docker containers..."
+    validations:
+      required: true
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: What was the observed incorrect behavior?
+      placeholder: "For example: Caliper hangs and waits for submitted transactions indefinitely."
+    validations:
+      required: true
+  - type: textarea
+    id: error_log
+    attributes:
+      label: Please provide the error logs and their surroundings.
+      placeholder: "Error logs"
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: bench_config
+    attributes:
+      label: Please provide your benchmark configuration file content, if possible.
+      placeholder: "test: ..."
+      render: yaml
+    validations:
+      required: false
+  - type: textarea
+    id: network_config
+    attributes:
+      label: Please provide your network configuration file content, if possible.
+      placeholder: "name: Fabric ..."
+      render: yaml
+    validations:
+      required: false
+  - type: textarea
+    id: workload
+    attributes:
+      label: Please provide your workload module content, if possible.
+      placeholder: "JS file content"
+      render: nodejs
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+        value: "## Additional information"
+  - type: textarea
+    id: additional
+    attributes:
+      label: Please provide any additional information you deem relevant to the error.
+    validations:
+      required: false

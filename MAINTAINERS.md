@@ -4,17 +4,18 @@ The following are lists of the Caliper maintainers, Chat IDs are valid for [Rock
 
 **Active maintainers**
 
-| Name                      | GitHub           | Chat           | 
+| Name                      | GitHub           | Chat           |
 |---------------------------|------------------|----------------|
 | Attila Klenik             | aklenik          | klenik         |
 | Nick Lincoln              | nklincoln        | nkl199         |
+| Dave Kelsey               | davidkel         | davidkel       |
 
 
 **Retired maintainers**
 
 | Name                      | GitHub           | Chat           |
 |---------------------------|------------------|----------------|
-| FeihuJiang                | feihujiang       | FlyingTiger    | 
+| FeihuJiang                | feihujiang       | FlyingTiger    |
 | HaojunZhou                | haojun           | haojun         |
 
 
@@ -22,13 +23,12 @@ Contributors
 ===========
 **Active contributors**
 
-| Name                      | GitHub           | Chat           | 
+| Name                      | GitHub           | Chat           |
 |---------------------------|------------------|----------------|
-| Benjamin Burns            | benjamincburns   | benjamincburns | 
-| Chenxi Li                 | vita-dounai      |                | 
-| David Kelsey              | davidkel         | davidkel       | 
-| Jason you                 | Jasonyou1995     | Jasonyou       |  
-| Lynn Muswere              | Lynn14m          | Lynn14m        |  
+| Benjamin Burns            | benjamincburns   | benjamincburns |
+| Chenxi Li                 | vita-dounai      |                |
+| Jason you                 | Jasonyou1995     | Jasonyou       |
+| Lynn Muswere              | Lynn14m          | Lynn14m        |
 
 
 Packages
@@ -36,13 +36,13 @@ Packages
 
 The following is a list of packages and codeowners with familiarity in the area
 
-| Component                 | Contact(s)       | 
+| Component                 | Contact(s)       |
 |---------------------------|------------------|
-| Caliper cli               | klenik, nkl199   |
-| Caliper core              | klenik, nkl199   |
-| Caliper publish           | klenik, nkl199   |
+| Caliper cli               | klenik, nkl199, davidkel |
+| Caliper core              | klenik, nkl199, davidkel |
+| Caliper publish           | klenik, nkl199, davidkel |
 | Caliper ethereum          | benjamincburns, shemnon |
-| Caliper fabric            | klenik, nkl199   |
+| Caliper fabric            | klenik, nkl199, davidkel |
 | Caliper fisco bcos        | vita-dounai      |
 | Caliper gui dashboard     | Jasonyou         |
 | Caliper gui server        | Jasonyou         |

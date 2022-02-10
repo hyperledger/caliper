@@ -362,13 +362,12 @@ class MonitorDocker extends MonitorInterface {
                     watchItemStat.set('Name', container.name);
                     watchItemStat.set('Memory(max)', mem_stat.max);
                     watchItemStat.set('Memory(avg)', mem_stat.avg);
-                    if(this.options.hasOwnProperty('cpuUsageNormalization')){
-                        if(this.options.cpuUsageNormalization){
-                            cpuCores = os.cpus().length;
-                        }
+                    let cpuCores = 1;
+                    if (this.options.cpuUsageNormalization) {
+                        cpuCores = os.cpus().length;
                     }
-                    watchItemStat.set('CPU%(max)', cpu_stat.max.toFixed(2)/cpuCores);
-                    watchItemStat.set('CPU%(avg)', cpu_stat.avg.toFixed(2)/cpuCores);
+                    watchItemStat.set('CPU%(max)', cpu_stat.max.toFixed(2) / cpuCores);
+                    watchItemStat.set('CPU%(avg)', cpu_stat.avg.toFixed(2) / cpuCores);
                     watchItemStat.set('Traffic In', (net.in[net.in.length - 1] - net.in[0]));
                     watchItemStat.set('Traffic Out', (net.out[net.out.length - 1] - net.out[0]));
                     watchItemStat.set('Disc Write', (disc.write[disc.write.length - 1] - disc.write[0]));
