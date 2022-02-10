@@ -1,12 +1,12 @@
 trigger:
   branches:
     include:
-      - master
+      - main
 
 pr:
   branches:
     include:
-      - master
+      - main
 
 pool:
   vmImage: "ubuntu-latest"
@@ -27,17 +27,17 @@ stages:
             displayName: "Install Node.js"
           - script: |
               ./scripts/check-package-names.sh
-            displayName: "check package names"
+            displayName: "Check correct usage of Caliper package names"
           - script: |
               npm install
               npm run bootstrap
-            displayName: "npm install, bootstrap"
+            displayName: "Install project dependencies"
           - script: |
               ./packages/caliper-publish/publish.js version check
-            displayName: "version check"
+            displayName: "Check the version consistency of subpackages"
           - script: |
               npm test
-            displayName: "unit test"
+            displayName: "Run unit tests"
 
   - stage: IntegrationTests
     displayName: Run integration tests
@@ -109,7 +109,7 @@ stages:
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "10.x"
+              versionSpec: "14.x"
             displayName: "Install Node.js"
           - script: .build/publish-caliper.sh
             displayName: Publish Caliper

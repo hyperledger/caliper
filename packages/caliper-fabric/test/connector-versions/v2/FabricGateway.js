@@ -25,6 +25,7 @@ const DefaultEventHandlerStrategies = {};
 const DefaultQueryHandlerStrategies = {};
 
 const configWith2Orgs1AdminInWallet = '../../sample-configs/BasicConfig.yaml';
+const configWith2Orgs1AdminInWalletNotMutual = '../../sample-configs/BasicConfigNotMutual.yaml';
 
 const { Gateway, Transaction, Network, Wallets } = require('./V2GatewayStubs');
 const GenerateConfiguration = require('../../utils/GenerateConfiguration');
@@ -74,6 +75,12 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
 
     it('should be able to initialise in preperation for use by a caliper master', async () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
+        const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
+        await fabricGateway.init().should.not.be.rejected;
+    });
+
+    it('should be able to initialise in preperation for use by a caliper master when mutual tls is false', async () => {
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWalletNotMutual), walletFacadeFactory);
         const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
         await fabricGateway.init().should.not.be.rejected;
     });

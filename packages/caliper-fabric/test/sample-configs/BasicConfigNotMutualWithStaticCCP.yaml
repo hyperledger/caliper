@@ -1,0 +1,89 @@
+---
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+name: BasicConfigWithStaticCCP
+version: "2.0.0"
+
+caliper:
+  blockchain: fabric,
+  sutOptions :
+    mutualTls: false
+
+channels:
+  - channelName: mychannel
+    create:
+      buildTransaction:
+        capabilities: []
+        consortium: 'SampleConsortium2'
+        msps: ['Org1MSP', 'Org2MSP']
+        version: 0
+    contracts:
+    - id: marbles
+      contractID: myMarbles
+      install:
+        version: v0
+        language: golang
+        path: marbles/go
+        metadataPath: src/marbles/go/metadata
+      instantiate:
+        initFunction: init
+        initArguments: []
+        initTransientMap:
+          key1: value1
+          key2: value2
+        endorsementPolicy: ''
+        collectionsConfig: ''
+
+  - channelName: yourchannel
+    contracts:
+    - id: marbles
+      contractID: lostMyMarbles
+      version: v0
+
+organizations:
+  - mspid: Org1MSP
+    identities:
+      wallet:
+        path: './test/sample-configs'
+        adminNames:
+        - admin
+      certificates:
+      - name: 'User1'
+        clientPrivateKey:
+          pem: |-
+            -----BEGIN PRIVATE KEY-----
+            -----END PRIVATE KEY-----
+        clientSignedCert:
+          pem: |-
+            -----BEGIN CERTIFICATE-----
+            -----END CERTIFICATE-----
+    connectionProfile:
+      path: './test/sample-configs/StaticOrg1ConnectionProfile.json'
+      discover: false
+  - mspid: Org2MSP
+    identities:
+      certificates:
+      - name: 'User1'
+        clientPrivateKey:
+          pem: |-
+            -----BEGIN PRIVATE KEY-----
+            -----END PRIVATE KEY-----
+        clientSignedCert:
+          pem: |-
+            -----BEGIN CERTIFICATE-----
+            -----END CERTIFICATE-----
+    connectionProfile:
+      path: './test/sample-configs/StaticOrg2ConnectionProfile.json'
+      discover: false

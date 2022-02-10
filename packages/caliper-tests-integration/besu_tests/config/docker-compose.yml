@@ -15,10 +15,7 @@
 version: "3"
 services:
   node:
-    build:
-      context: .
-      dockerfile: caliper-besu-clique.Dockerfile
-    image: caliper-besu-clique
+    image: hyperledger/besu:21.10.1
     container_name: besu_clique
     volumes:
       - ./keys:/root/.ethereum/keystore
@@ -26,7 +23,22 @@ services:
       - ./orion:/orion
     ports:
       - 8545-8547:8545-8547
-    command: --min-gas-price 0 --revert-reason-enabled --rpc-ws-enabled --rpc-ws-host 0.0.0.0 --host-whitelist=* --rpc-ws-apis admin,eth,miner,web3,net,priv,eea --graphql-http-enabled --discovery-enabled=false --privacy-enabled=true --privacy-url=http://orion:8888 --privacy-public-key-file=/orion/key/orion.pub
+    entrypoint: 
+    - /opt/besu/bin/besu
+    - --genesis-file=/root/genesis.json
+    - --node-private-key-file=/root/.ethereum/keystore/key
+    command: 
+    - --min-gas-price=0 
+    - --revert-reason-enabled 
+    - --rpc-ws-enabled 
+    - --rpc-ws-host=0.0.0.0 
+    - --host-allowlist=* 
+    - --rpc-ws-apis=ADMIN,ETH,MINER,WEB3,NET,PRIV,EEA 
+    - --graphql-http-enabled
+    - --discovery-enabled=false 
+    - --privacy-enabled=true 
+    - --privacy-url=http://orion:8888 
+    - --privacy-public-key-file=/orion/key/orion.pub
   orion:
     image: "pegasyseng/orion:1.6.0"
     container_name: orion

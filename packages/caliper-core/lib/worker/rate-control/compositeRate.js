@@ -116,8 +116,10 @@ class CompositeRateController extends RateInterface{
         }
         weights = weights.map(w => w / weightSum);
 
+        const numberOfTxs = this.testMessage.getNumberOfTxs();
+
         // pre-set switch logic to avoid an other condition check during rate control
-        this.controllerSwitch = this.roundConfig.txNumber ? this._controllerSwitchForTxNumber : this._controllerSwitchForDuration;
+        this.controllerSwitch = numberOfTxs ? this._controllerSwitchForTxNumber : this._controllerSwitchForDuration;
 
         let currentWeightSum = 0;
         // create controller instances, skip zero-weight cases
@@ -132,35 +134,36 @@ class CompositeRateController extends RateInterface{
             currentWeightSum += currentWeight;
 
             // create a modified copy of the round configuration according to the weights
-            let controllerRoundConfig = Object.assign({}, this.roundConfig);
+            let controllerRoundConfig = this.testMessage.clone();
 
             // lie to the sub-controller that it's the only one
-            controllerRoundConfig.rateControl = currentControllerOptions;
+            controllerRoundConfig.setRateControlSpec(currentControllerOptions);
 
             // create the sub-collector to be activated later, and add it to the current stats collector (which could be another sub-collector)
             let statSubCollector = new TransactionStatisticsCollector(this.workerIndex, this.roundIndex, this.roundLabel);
             this.stats.addSubCollector(statSubCollector);
 
             // scale down number of TXs or the duration
-            if (this.roundConfig.txNumber) {
-                controllerRoundConfig.txNumber = Math.floor(this.roundConfig.txNumber * currentWeight);
+            if (numberOfTxs) {
+                controllerRoundConfig.setNumberOfTxs(Math.floor(numberOfTxs * currentWeight));
 
                 // the sub-controller is initialized with the TX stat sub-collector, which is inactive at this point (i.e., the round hasn't started for it)
-                let subcontroller = new RateControl(rateControllers[i], statSubCollector, this.workerIndex, this.roundIndex, this.numberOfWorkers, controllerRoundConfig);
+                let subcontroller = new RateControl(controllerRoundConfig, statSubCollector, this.workerIndex);
                 let controllerData = new ControllerData(subcontroller, statSubCollector);
 
                 // the sub-controller should be switched after this TX index
-                controllerData.lastTxIndex = Math.floor(this.roundConfig.txNumber * currentWeightSum);
+                controllerData.lastTxIndex = Math.floor(numberOfTxs * currentWeightSum);
                 this.controllers.push(controllerData);
             } else {
-                controllerRoundConfig.txDuration = Math.floor(this.roundConfig.txDuration * currentWeight);
+                const txDuration = this.testMessage.getRoundDuration();
+                controllerRoundConfig.setRoundDuration(Math.floor(txDuration * currentWeight));
 
                 // the sub-controller is initialized with the TX stat sub-collector, which is inactive at this point (i.e., the round hasn't started for it)
-                let subcontroller = new RateControl(rateControllers[i], statSubCollector, this.workerIndex, this.roundIndex, this.numberOfWorkers, controllerRoundConfig);
+                let subcontroller = new RateControl(controllerRoundConfig, statSubCollector, this.workerIndex);
                 let controllerData = new ControllerData(subcontroller, statSubCollector);
 
                 // the sub-controller should be switched "around" this time
-                controllerData.relFinishTime = Math.floor(this.roundConfig.txDuration * 1000 * currentWeightSum);
+                controllerData.relFinishTime = Math.floor(txDuration * 1000 * currentWeightSum);
                 this.controllers.push(controllerData);
             }
         }
@@ -254,9 +257,6 @@ class CompositeRateController extends RateInterface{
  * @param {TestMessage} testMessage start test message
  * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
  * @param {number} workerIndex The 0-based index of the worker node.
- * @param {number} roundIndex The 0-based index of the current round.
- * @param {number} numberOfWorkers The total number of worker nodes.
- * @param {object} roundConfig The round configuration object.
  *
  * @return {RateInterface} The new rate controller instance.
  */

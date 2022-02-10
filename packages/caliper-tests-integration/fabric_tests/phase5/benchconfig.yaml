@@ -20,7 +20,17 @@ test:
     rounds:
     - label: query1
       txNumber: 50
-      rateControl: { type: 'fixed-rate', opts: { tps: 3 } }
+      rateControl:
+        type: composite-rate
+        opts:
+          weights: [2,1]
+          rateControllers:
+          - type: fixed-rate
+            opts:
+              tps: 2
+          - type: fixed-rate
+            opts:
+              tps: 4
       workload:
         module: ./../query.js
     - label: query2

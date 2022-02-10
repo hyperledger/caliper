@@ -43,7 +43,7 @@ sut:
             settings:
             - *new-node-old-grpc
         1.4.11:
-            packages: ['fabric-client@1.4.11', 'fabric-protos@2.1.0, 'fabric-network@1.4.11']
+            packages: ['fabric-client@1.4.11', 'fabric-protos@2.1.0', 'fabric-network@1.4.11']
         1.4.14: &fabric-v1-lts
             packages: ['fabric-client@1.4.14', 'fabric-protos@2.1.0', 'fabric-network@1.4.14']
         1.4: *fabric-v1-lts
