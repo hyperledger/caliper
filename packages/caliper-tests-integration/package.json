@@ -3,6 +3,10 @@
     "version": "0.4.3-unstable",
     "private": true,
     "description": "Integration tests for Hyperledger Caliper",
+    "engines": {
+        "node": ">=14.19.0",
+        "npm": ">=6.14.16"
+    },
     "scripts": {
         "cleanup": "./scripts/cleanup.sh",
         "start_verdaccio": "npm run cleanup && ./scripts/start-verdaccio.sh",
