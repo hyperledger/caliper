@@ -72,7 +72,7 @@ stages:
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "10.x"
+              versionSpec: "14.x"
             displayName: "Install Node.js"
           - script: |
               .build/benchmark-integration-test-direct.sh
@@ -83,7 +83,7 @@ stages:
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "10.x"
+              versionSpec: "14.x"
             displayName: "Install Node.js"
           - script: |
               .build/benchmark-integration-test-direct.sh
@@ -94,7 +94,7 @@ stages:
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "10.x"
+              versionSpec: "14.x"
             displayName: "Install Node.js"
           - script: |
               .build/benchmark-integration-test-direct.sh

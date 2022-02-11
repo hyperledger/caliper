@@ -12,14 +12,14 @@
 # limitations under the License.
 #
 
-FROM node:10.22-alpine
+FROM node:14.19-alpine
 
 # require to set these explicitly to avoid mistakes
 ARG npm_registry
 ARG caliper_version
 
 # Install packages for dependency compilation
-RUN apk add --no-cache python g++ make git
+RUN apk add --no-cache python3 g++ make git
 
 # execute as the "node" user, created in the base image
 USER node:node
