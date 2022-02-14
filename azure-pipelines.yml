@@ -13,6 +13,8 @@ pool:
 
 variables:
   - group: credentials
+  - name: NODEVER
+    value: 14.x
 
 stages:
   - stage: UnitTests
@@ -20,10 +22,16 @@ stages:
     jobs:
       - job: unitTests
         displayName: "Base build and unit tests"
+        strategy:
+          matrix:
+            Node14:
+              NODEVER: 14.x
+            Node16:
+              NODEVER: 16.x
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "14.x"
+              versionSpec: "$(NODEVER)"
             displayName: "Install Node.js"
           - script: |
               ./scripts/check-package-names.sh
@@ -46,55 +54,85 @@ stages:
     jobs:
       - job: fabricIntegration
         displayName: "Fabric Integration Test"
+        strategy:
+          matrix:
+            Node14:
+              NODEVER: 14.x
+            Node16:
+              NODEVER: 16.x
         variables: { BENCHMARK: fabric }
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "14.x"
+              versionSpec: "$(NODEVER)"
             displayName: "Install Node.js"
           - script: |
               .build/benchmark-integration-test-direct.sh
 
       - job: ethereumIntegration
         displayName: "Ethereum Integration Test"
+        strategy:
+          matrix:
+            Node14:
+              NODEVER: 14.x
+            Node16:
+              NODEVER: 16.x
         variables: { BENCHMARK: ethereum }
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "14.x"
+              versionSpec: "$(NODEVER)"
             displayName: "Install Node.js"
           - script: |
               .build/benchmark-integration-test-direct.sh
 
       - job: besuIntegration
         displayName: "Besu Integration Test"
+        strategy:
+          matrix:
+            Node14:
+              NODEVER: 14.x
+            Node16:
+              NODEVER: 16.x
         variables: { BENCHMARK: besu }
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "14.x"
+              versionSpec: "$(NODEVER)"
             displayName: "Install Node.js"
           - script: |
               .build/benchmark-integration-test-direct.sh
 
       - job: fiscoIntegration
         displayName: "FISCO BCOS Integration Test"
+        strategy:
+          matrix:
+            Node14:
+              NODEVER: 14.x
+            Node16:
+              NODEVER: 16.x
         variables: { BENCHMARK: fisco-bcos }
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "14.x"
+              versionSpec: "$(NODEVER)"
             displayName: "Install Node.js"
           - script: |
               .build/benchmark-integration-test-direct.sh
 
       - job: generatorIntegration
         displayName: "Generator Integration Test"
+        strategy:
+          matrix:
+            Node14:
+              NODEVER: 14.x
+            Node16:
+              NODEVER: 16.x
         variables: { BENCHMARK: generator }
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "14.x"
+              versionSpec: "$(NODEVER)"
             displayName: "Install Node.js"
           - script: |
               .build/benchmark-integration-test-direct.sh
@@ -109,7 +147,7 @@ stages:
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: "14.x"
+              versionSpec: "$(NODEVER)"
             displayName: "Install Node.js"
           - script: .build/publish-caliper.sh
             displayName: Publish Caliper

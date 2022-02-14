@@ -42,7 +42,7 @@ describe('caliper utilities', () => {
                 ConfigUtil.set(ConfigUtil.keys.Auth[Constants.AuthComponents.PushGateway].UserName, 'penguin');
                 ConfigUtil.set(ConfigUtil.keys.Auth[Constants.AuthComponents.PushGateway].Password, 'madagascar');
                 CaliperUtils.augmentUrlWithBasicAuth('badUrl', Constants.AuthComponents.PushGateway);
-            }).should.throw('Invalid URL: badUrl');
+            }).should.throw(/Invalid URL/);
         });
 
         it('should augment a valid http URL with basic auth', () => {
