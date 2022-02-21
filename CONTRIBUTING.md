@@ -8,9 +8,9 @@ If you have further suggestions about improving the guideline, then you can foll
 
 ## Overview
 
-The project uses GitHub to manage [issues](https://github.com/hyperledger/caliper/issues) (bug reports and feature requests) and [contributions](https://github.com/hyperledger/caliper/pulls) (in the form of pull requests). 
+The project uses GitHub to manage [issues](https://github.com/hyperledger/caliper/issues) (bug reports and feature requests) and [contributions](https://github.com/hyperledger/caliper/pulls) (in the form of pull requests).
 
-> For general queries and discussion, please use the [#caliper](https://chat.hyperledger.org/channel/caliper) channel of the Hyperledger Rocket.Chat (LFID required) or the Caliper [mailing list](https://lists.hyperledger.org/g/caliper) (LFID recommended).
+> For general queries and discussion, please use the [#caliper](https://discord.com/channels/905194001349627914/941417677778473031) channel on the Hyperledger Discord Server (Discord Id required) or the Caliper [mailing list](https://lists.hyperledger.org/g/caliper) (LFID recommended).
 
 The contribution process boils down to two major steps: opening an issue and submitting a pull request (PR). Opening issues before PRs serves the following purposes:
 * Documenting bugs, related error logs, potential fixes, and/or workarounds that users can find using their favorite search engine.
@@ -24,7 +24,7 @@ Opening issues can be omitted only in the case of trivial and small fixes (e.g.,
 Before opening an issue, make sure that:
 1. You read the documentation carefully, so the observed error does not stem from incorrect Caliper configuration or usage.
 2. You searched older issues (or other forums) for your question, maybe it is already answered/fixed.
-3. It is worth to ask around on Rocket.Chat, maybe other users already encountered your issue/task, and managed to solve it.
+3. It is worth to ask around on Discord, maybe other users already encountered your issue/task, and managed to solve it.
 
 > When opening an issue about a potential bug or feature request, make sure to properly fill and format the issue contents!
 
@@ -44,7 +44,7 @@ The details of the blank template should be filled according to the following gu
     * The workload module implementation.
     * The exact error logs (and their surroundings).
     * Any other information you deem neccessary.
-7. **Existing Issues**: You can also provide links to similar (or the same) issues in other forums (GitHub issues, StackOverflow questions or Rocket.Chat messages). Such cross-linking can help us ensure that we can broadcast the potential fixes to multiple instances of the question.
+7. **Existing Issues**: You can also provide links to similar (or the same) issues in other forums (GitHub issues, StackOverflow questions or Discord messages). Such cross-linking can help us ensure that we can broadcast the potential fixes to multiple instances of the question.
 8. **Your Environment**: Always include your execution environment information, including the used version/commit of Caliper, the operating system, Node.JS version, or any relevant information about your project that uses Caliper.
 
 ## Submitting Pull Requests
@@ -147,7 +147,7 @@ The [packages/](packages/) directory contains the following internal packages:
 
 ## Creating New SUT Connectors
 
-Connectors are relatively heavy components in Caliper. Before you attemp to create a new connector for a new SUT type, consult with the Caliper maintainers (on Rocket.Chat, or in the form of a feature request). 
+Connectors are relatively heavy components in Caliper. Before you attempt to create a new connector for a new SUT type, consult with the Caliper maintainers (on Discord, or in the form of a feature request).
 
 > More importantly, make sure that you are overly familiar with the documentation page about [implementing new connectors](https://hyperledger.github.io/caliper/vNext/writing-connectors/).
 
