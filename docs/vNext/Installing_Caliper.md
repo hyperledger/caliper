@@ -238,7 +238,7 @@ Now that we ignored the tags, let's see the two types of version numbers you wil
 
 The following tools are required to install the CLI from NPM:
 * node-gyp, python2, make, g++ and git (for fetching and compiling some packages during install)
-* Node.js v8.X LTS or v10.X LTS (for running Caliper)
+* Node.js v14 LTS or v16 LTS (for running Caliper)
 * Docker and Docker Compose (only needed when running local examples, or using Caliper through its Docker image)
 
 ### Local NPM install
