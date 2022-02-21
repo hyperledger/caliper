@@ -208,8 +208,8 @@ caliper:
             contractinstantiate: 300000
             # Timeout in milliseconds for receiving the event about the result of a contract instantiation
             contractinstantiateevent: 100000
-            # The default timeout in milliseconds to use for invoking or querying transactions (applied for the entire life-cycle)
-            invokeorquery: 60000
+            # The default timeout in seconds to use for invoking or querying transactions (applied for the entire life-cycle)
+            invokeorquery: 60
         # Determines how automatic load balancing is applied if the worker callback module doesn’t provide explicit targets.
         # Use the value 'worker' to perform worker-based load balancing, meaning that each worker process will have fix target peers and target orderer.
         # Use the value 'tx' to perform transaction-based load balancing, meaning that the peer and orderer targets change for every submitted transaction or query.

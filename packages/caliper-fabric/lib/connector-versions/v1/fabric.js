@@ -113,7 +113,7 @@ class LegacyV1Fabric extends ConnectorBase {
         this.configOverwriteGopath = ConfigUtil.get(ConfigUtil.keys.Fabric.OverwriteGopath, true);
         this.configContractInstantiateTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.ContractInstantiate, 300000);
         this.configContractInstantiateEventTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.ContractInstantiateEvent, 300000);
-        this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60000);
+        this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60);
         this.configClientBasedLoadBalancing = ConfigUtil.get(ConfigUtil.keys.Fabric.LoadBalancing, 'client') === 'client';
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
 
