@@ -329,7 +329,6 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 | Key | Description |
 |:----|:------------|
 | caliper-fabric-countqueryasload | Indicates whether to count queries as workload, i.e., whether the generated report should include them. |
-| caliper-fabric-gateway-discovery | Indicates whether to use the Fabric discovery mechanism (via Gateway API). |
 | caliper-fabric-gateway-eventstrategy | Sets the event strategy to use. |
 | caliper-fabric-gateway-localhost | Indicates whether to use the localhost default within the Fabric Gateway API. |
 | caliper-fabric-gateway-querystrategy | Sets the query strategy to use. |
