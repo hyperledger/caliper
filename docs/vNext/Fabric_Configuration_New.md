@@ -7,53 +7,18 @@ order: 3
 ---
 
 ## Table of contents
+
 {:.no_toc}
 
 - TOC
 {:toc}
-
-## Introducing the new Fabric Connector
-
-This page describes the new fabric connector implementation that replaces the deprecated legacy fabric connector
-
-The differences between the 2 implementations are as follows
-
-> * A more logical network configuration utilising provided connection profiles from a network provider
-> * More robust implementation
-> * Fixes and improvements will only be done on the new connector implementation
-> * The new connector implementation has dropped some of the capability of the old connector
->> * Cannot specify targetPeers during install/instantiate of a contract
->> * storing or reading identities from node-sdk credential/cypto stores is not implemented
->> * Support for automatically registering and enroling identities through a Certificate Authority is not implemented
->> * Cannot specify to use an admin identity in a workload request using the `#ORG2` type notation
-
-How you select which implementation you use is via the provided network configuration file and specifically the version you declare in that file
-
-> * a version of 1.0 selects the legacy connector
-> * a version of 2.0.0 selects the new connector
-
-For example
-
-```yaml
-name: Fabric
-version: "1.0"
-```
-would select the legacy connector and the file must conform to the old deprecated network configuration file format
-
-```yaml
-name: Fabric
-version: "2.0.0"
-```
-
-would select the new connector and the file must conform to the new network configuration file format
-
 
 ## Overview
 
 This page introduces the Fabric adapter that utilizes the Common Connection Profile (CCP) feature of the Fabric SDK to provide compatibility and a unified programming model across different Fabric versions.
 
 > The latest supported version of Hyperledger Fabric is v2.x
-> The ability to discover can only be used if you use the `gateway` option 
+> The ability to discover can only be used if you use the `gateway` option
 
 The adapter exposes many SDK features directly to the user callback modules, making it possible to implement complex scenarios.
 
@@ -70,11 +35,13 @@ The adapter exposes many SDK features directly to the user callback modules, mak
 You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](./Installing_Caliper.md#the-bind-command) for details. It is confirmed that a 1.4 Fabric SDK is compatible with a Fabric 2.1 and 2.2 SUT however any installation or instantiation of contracts (chaincode) will only work if you are still using the old lifecycle implementation.
 
 ### Binding with Fabric SDK 2.x
+
 > Note that when using the binding target for the Fabric SDK 2.x there are capability restrictions:
 > * The 2.x SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate contract. Consequently the 2.x binding only facilitates operation with a `--caliper-flow-only-test` flag
 > * The 2.x SDK only supports operation using a `gateway`. Consequently the 2.x binding requires a `--caliper-fabric-gateway-enabled` flag
 
 ### Using the Operational capabilities of the Adapters
+
 The ability to create channels and perform install/instantiate of contracts (chaincode) remains in the new 1.x sdk based adapters, and nothing equivalent exists for the 2.x sdk based adapters. This capability remains mainly to support the Caliper integration tests and the use of these mechanisms to setup your channels and contracts is highly discouraged. This capability is considered legacy and will not be maintained. You should look into alternative methods for setting up your network prior to running Caliper to benchmark it.
 
 ## Runtime settings
@@ -98,8 +65,15 @@ The above settings are processed when starting Caliper. Modifying them during te
 > * Setting `caliper-fabric-gateway-localhost` is set to `false`
 >
 > __The other settings remain unchanged.__
-
-The setting `caliper-fabric-gateway-discovery` is not supported in these new connectors and should be defined within the configuration file but remains available only to support the legacy fabric connectors.
+>
+> Alternatively you can change these settings when you launch caliper with the CLI options of
+> ```
+> --caliper-fabric-gateway-enabled
+> ```
+> and
+> ```
+> --caliper-fabric-gateway-localhost false
+> ```
 
 ### Skip channel creation
 
@@ -132,6 +106,7 @@ The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` f
 The `sendRequests` method of the connector API allows the workload module to submit requests to the SUT. It takes a single parameter: an object or array of objects containing the settings of the requests.
 
 The settings object has the following structure:
+
 * `contractId`: _string. Required._ The ID of the contract to call.
 * `contractFunction`: _string. Required._ The name of the function to call in the contract.
 * `contractArguments`: _string[]. Optional._ The list of __string__ arguments to pass to the contract.
@@ -162,7 +137,6 @@ await this.sutAdapter.sendRequests(requestSettings);
 
 > __Note:__ `sendRequests` also accepts an array of request settings. However, Fabric does not support submitting an atomic batch of transactions like Sawtooth, so there is no guarantee that the order of these transactions will remain the same, or whether they will reside in the same block.
 
-
 ## Gathered TX data
 
 The previously discussed  `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
@@ -183,9 +157,7 @@ The adapter-specific data keys are that are common across both the gateway and n
 |:------------------------------:|:---------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |         `request_type`         |  string   | Either the `transaction` or `query` string value for traditional transactions or queries, respectively. |
 
-
 The adapter-specific data keys that only the v1.x non gateway adapter makes available are :
-
 
 |            Key name            | Data type | Description                                                                                                                                                                                                                                                           |
 |:------------------------------:|:---------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -235,7 +207,6 @@ The YAML network configuration file of the adapter mainly describes the organiza
 The following sections detail each part separately. For a complete example, please refer to the [example section](#network-configuration-example) or one of the files in the [Caliper repository](https://github.com/hyperledger/caliper), such as the caliper-fabric test folder
 
 > __Note:__ Unknown keys are not allowed anywhere in the configuration. The only exception is the `info` property and when network artifact names serve as keys (peer names, channel names, etc.).
-
 
 <details><summary markdown="span">__name__
 </summary>
@@ -289,8 +260,8 @@ Contains runtime information for Caliper. Can contain the following keys.
          sutOptions:
            mutualTls: true
        ```
-      </details>   
-   </details>   
+      </details>
+   </details>
 
 *  <details><summary markdown="span">__command__
    </summary>
@@ -1022,7 +993,7 @@ channels:
 
 The following example is a Fabric network configuration for the following network topology and artifacts:
 * two organizations `Org1MSP` and `Org2MSP`
-* one channel named `mychannel` 
+* one channel named `mychannel`
 * `marbles@v0` contract installed and instantiated in `mychannel` on every peer;
 * the nodes of the network use TLS communication, but not mutual TLS;
 * the local network is deployed and cleaned up automatically by Caliper.
@@ -1120,4 +1091,5 @@ organizations:
 ```
 
 ## License
+
 The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
