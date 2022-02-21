@@ -342,7 +342,7 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 | caliper-fabric-sleepafter-instantiatecontract | The time in milliseconds to sleep after instantiated the contracts. |
 | caliper-fabric-timeout-contractinstantiate | Timeout in milliseconds for the endorsement part of a contract instantiation. |
 | caliper-fabric-timeout-contractinstantiateevent | Timeout in milliseconds for receiving the event about the result of a contract instantiation. |
-| caliper-fabric-timeout-invokeorquery | The default timeout in milliseconds to use for invoking or querying transactions. |
+| caliper-fabric-timeout-invokeorquery | The default timeout in seconds to use for invoking or querying transactions. |
 | caliper-fabric-verify-proposalresponse | Indicates whether to verify the received proposal responses. |
 | caliper-fabric-verify-readwritesets | Indicates whether to verify that the read-write sets returned by the endorsers match. |
 
