@@ -25,7 +25,7 @@
 <!-- Have you searched for any existing issues or are their any similar issues that you've found? -->
 - [ ] [Stack Overflow issues](http://stackoverflow.com/tags/hyperledger-caliper)
 - [ ] [GitHub Issues](https://github.com/hyperledger/caliper/issues)
-- [ ] [Rocket Chat history](https://chat.hyperledger.org/channel/caliper)
+- [ ] [Discord history](https://discord.com/channels/905194001349627914/941417677778473031)
 
 <!-- please include any links to issues here -->
 
