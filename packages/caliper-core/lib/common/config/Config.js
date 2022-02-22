@@ -160,7 +160,6 @@ const keys = {
         CountQueryAsLoad: 'caliper-fabric-countqueryasload',
         SkipCreateChannelPrefix: 'caliper-fabric-skipcreatechannel-',
         Gateway: {
-            Discovery: 'caliper-fabric-gateway-discovery',
             Enabled: 'caliper-fabric-gateway-enabled',
             EventStrategy: 'caliper-fabric-gateway-eventstrategy',
             LocalHost: 'caliper-fabric-gateway-localhost',

@@ -90,7 +90,6 @@ class CaliperEngine {
         BenchValidator.validateObject(this.benchmarkConfig);
 
         logger.info('Starting benchmark flow');
-        let connector = await this.adapterFactory(-1);
 
         try {
 
@@ -101,10 +100,13 @@ class CaliperEngine {
                 await this._executeCommand('start', 0);
             }
 
+            let connector;
+
             // Conditional network initialization
             if (!flowOpts.performInit) {
                 logger.info('Skipping initialization phase due to benchmark flow conditioning');
             } else {
+                connector = connector ? connector : await this.adapterFactory(-1);
                 let initStartTime = Date.now();
                 try {
                     await connector.init();
@@ -123,6 +125,7 @@ class CaliperEngine {
             if (!flowOpts.performInstall) {
                 logger.info('Skipping install smart contract phase due to benchmark flow conditioning');
             } else {
+                connector = connector ? connector : await this.adapterFactory(-1);
                 let installStartTime = Date.now();
                 try {
                     await connector.installSmartContract();
@@ -143,6 +146,7 @@ class CaliperEngine {
             } else {
                 let numberSet = this.benchmarkConfig.test && this.benchmarkConfig.test.workers && this.benchmarkConfig.test.workers.number;
                 let numberOfWorkers = numberSet ? this.benchmarkConfig.test.workers.number : 1;
+                connector = connector ? connector : await this.adapterFactory(-1);
                 let workerArguments = await connector.prepareWorkerArguments(numberOfWorkers);
 
                 const roundOrchestrator = new RoundOrchestrator(this.benchmarkConfig, this.networkConfig, workerArguments);

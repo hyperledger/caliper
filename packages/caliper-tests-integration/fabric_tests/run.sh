@@ -30,7 +30,7 @@ cd ${DIR}
 # bind during CI tests, using the package dir as CWD
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    ${CALL_METHOD} bind --caliper-bind-sut fabric:1.4 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev"
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:1.4 --caliper-bind-cwd ./../../caliper-fabric/
 fi
 
 # change default settings (add config paths too)
@@ -91,26 +91,8 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
-echo "Run Legacy connector. NOTE: Marble creation will fail with errors as they have already been created."
-${CALL_METHOD} launch manager --caliper-workspace phase4 --caliper-networkconfig networkconfig-legacy.yaml --caliper-flow-only-test
-rc=$?
-if [[ ${rc} != 0 ]]; then
-    echo "Failed CI step 6";
-    dispose;
-    exit ${rc};
-fi
-
 # PHASE 5: testing through the gateway API (v1 SDK)
 ${CALL_METHOD} launch manager --caliper-workspace phase5 --caliper-flow-only-test --caliper-fabric-gateway-enabled
-rc=$?
-if [[ ${rc} != 0 ]]; then
-    echo "Failed CI step 6";
-    dispose;
-    exit ${rc};
-fi
-
-echo "Run Legacy connector"
-${CALL_METHOD} launch manager --caliper-workspace phase5 --caliper-networkconfig networkconfig-legacy.yaml --caliper-flow-only-test --caliper-fabric-gateway-enabled
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 6";
@@ -121,12 +103,12 @@ fi
 # UNBIND SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    ${CALL_METHOD} unbind --caliper-bind-sut fabric:1.4 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev" --caliper-projectconfig ./caliper.yaml
+    ${CALL_METHOD} unbind --caliper-bind-sut fabric:1.4 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-projectconfig ./caliper.yaml
 fi
-# BIND with 2.2.2 SDK, using the package dir as CWD
+# BIND with 2.2 SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    ${CALL_METHOD} bind --caliper-bind-sut fabric:2.1 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev"
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:2.2 --caliper-bind-cwd ./../../caliper-fabric/
 fi
 
 # PHASE 6: testing through the gateway API (v2 SDK)
@@ -137,16 +119,6 @@ if [[ ${rc} != 0 ]]; then
     dispose;
     exit ${rc};
 fi
-
-echo "Run Legacy connector, NOTE: Marble creation will fail with errors as they have already been created."
-${CALL_METHOD} launch manager --caliper-workspace phase6 --caliper-networkconfig networkconfig-legacy.yaml --caliper-flow-only-test --caliper-fabric-gateway-enabled
-rc=$?
-if [[ ${rc} != 0 ]]; then
-    echo "Failed CI step 7";
-    dispose;
-    exit ${rc};
-fi
-
 
 # PHASE 7: just disposing of the network
 ${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-end --caliper-fabric-gateway-enabled
