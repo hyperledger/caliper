@@ -89,7 +89,7 @@ class V2FabricGateway extends ConnectorBase {
 
         // Timeouts
         this.configSmallestTimeout = 1000;
-        this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60000);
+        this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60);
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
 
         // Gateway connector
