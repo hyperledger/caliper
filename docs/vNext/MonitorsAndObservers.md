@@ -8,19 +8,26 @@ order: 6
 
 ## Table of Contents
 
-* [Overview](#overview)
-* [Resource](#resource)
-  * [Process monitor](#process-monitor)
-  * [Docker monitor](#docker-monitor)
-  * [Prometheus monitor](#prometheus-monitor)
-* [Transaction](#transaction)
-  * [Logging](#logging)
-  * [Prometheus](#prometheus)
-  * [Prometheus Push Gateway](#prometheus-push-gateway)
-* [Resource Charting](#resource-charting)
-  * [Process charting](#process-charting)
-  * [Docker charting](#docker-charting)
-  * [Prometheus charting](#prometheus-charting)
+- [Table of Contents](#table-of-contents)
+- [Overview](#overview)
+- [Resource](#resource)
+  - [Process Monitor](#process-monitor)
+  - [Docker Monitor](#docker-monitor)
+  - [Prometheus Monitor](#prometheus-monitor)
+    - [Configuring The Prometheus Monitor](#configuring-the-prometheus-monitor)
+    - [Basic Auth](#basic-auth)
+    - [Obtaining a Prometheus Enabled Network](#obtaining-a-prometheus-enabled-network)
+- [Transaction](#transaction)
+  - [Logging](#logging)
+  - [Prometheus](#prometheus)
+  - [Prometheus Push Gateway](#prometheus-push-gateway)
+    - [Basic Auth](#basic-auth-1)
+  - [Grafana Visualization](#grafana-visualization)
+- [Resource Charting](#resource-charting)
+  - [Process Charting](#process-charting)
+  - [Docker Charting](#docker-charting)
+  - [Prometheus Charting](#prometheus-charting)
+- [License](#license)
 
 
 ## Overview
@@ -29,7 +36,7 @@ Caliper monitoring modules are used to collect resource utilization and transact
 - Transaction monitors. Collect worker transaction statistics and provide conditional dispatch actions.
 
 ## Resource
-The type of resource monitor to be used within a Caliper benchmark is declared in the `benchmark configuration file` through the specification one or more monitoring modules in an array under the label `monitors.resource`. 
+The type of resource monitor to be used within a Caliper benchmark is declared in the `benchmark configuration file` through the specification one or more monitoring modules in an array under the label `monitors.resource`.
 
 Permitted monitors are:
 - **Process:** The `process` monitor enables monitoring of a named process on the host machine, and is most typically used to monitor the resources consumed by the running clients. This monitor will retrieve statistics on: [memory(max), memory(avg), CPU(max), CPU(avg), Network I/O, Disc I/O]
@@ -41,7 +48,7 @@ Each declared resource monitoring module is accompanied with options required to
 ### Process Monitor
 The process monitoring module options comprise:
 - interval: monitor update interval
-- processes: of an array of `[command, arguments, multiOutput]` key:value pairs. 
+- processes: of an array of `[command, arguments, multiOutput]` key:value pairs.
     - command: names the parent process to monitor
     - arguments: filters on the parent process being monitored
     - multiOutput: enables handling of the discovery of multiple processes and may be one of:
@@ -81,7 +88,7 @@ monitors:
   resource:
   - module: docker
     options:
-      interval: 5 
+      interval: 5
       cpuUsageNormalization: true
       containers:
       - all
@@ -96,7 +103,7 @@ All data stored on Prometheus may be queried by Caliper using the Prometheus que
 The prometheus monitoring module options comprise:
 - interval: monitor update interval
 - url: The Prometheus URL, used for direct queries
-- metrics: The queries to be run for inclusion within the Caliper report, comprised of to keys: `include` and `queries`. 
+- metrics: The queries to be run for inclusion within the Caliper report, comprised of to keys: `include` and `queries`.
   - `include` a string array that is used to determine metric inclusion through javascript regex. Any query results where the label of interest, as specified in the queries block, matches an item within the include list via regex, will be included in a generated report.
   - `queries` a series of blocks that describe the queries that are to be run at the end of each Caliper test.
 
@@ -151,7 +158,7 @@ These will be used to augment the configuration file based URL prior to making a
 A sample network that includes a docker-compose file for standing up a Prometheus server, a Prometheus PushGateway and a linked Grafana analytics container, is available within the companion [caliper-benchmarks repository](https://github.com/hyperledger/caliper-benchmarks/tree/master/networks/prometheus-grafana).
 
 ## Transaction
-Transaction monitors are used by Caliper workers to act on the completion of transactions. They are used internally to aggregate and dispatch transaction statistics to the manager process to enable transaction statistics aggregation for progress reporting via the default observer, and report generation. 
+Transaction monitors are used by Caliper workers to act on the completion of transactions. They are used internally to aggregate and dispatch transaction statistics to the manager process to enable transaction statistics aggregation for progress reporting via the default observer, and report generation.
 
 The default observer, used for progress reporting by consuming information from the internal transaction monitor, may be updated through configuration file settings:
 - `caliper-progress-reporting-enabled`: boolean flag to enable progress reporting, default true
@@ -185,7 +192,7 @@ monitors:
     - module: prometheus
 ```
 
-If operating with process based workers, each worker will increment the default (or overridden) port with their 0 based index, thereby exposing metrics for each worker on different ports. 
+If operating with process based workers, each worker will increment the default (or overridden) port with their 0 based index, thereby exposing metrics for each worker on different ports.
 
 It is the responsibility of the user to configure a Prometheus server that correctly targets the exposed URLS through a correctly specified [configuration file](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 
@@ -237,7 +244,7 @@ Options comprise:
     - factor: bucket factor
     - count: number of buckets to create
 
-Use of a `prometheus-push` transaction module is predicated on the availability and use of a Prometheus Push Gateway that is available as a scrape target to Prometheus. 
+Use of a `prometheus-push` transaction module is predicated on the availability and use of a Prometheus Push Gateway that is available as a scrape target to Prometheus.
 
 #### Basic Auth
 It is possible to use a Prometheus Push Gateway that is secured via basic authentication through provision of a username and password as runtime parameters, under the flags:
@@ -252,7 +259,7 @@ Grafana is an analytics platform that may be used to query and visualize metrics
 - caliper_tx_finished (counter)
 - caliper_tx_e2e_latency (histogram)
 
- Each of the above are tagged with the following default labels: 
+ Each of the above are tagged with the following default labels:
   - roundLabel: the current test round label
   - roundIndex: the current test round index
   - workerIndex: the zero based worker index that is sending the information
@@ -294,9 +301,9 @@ monitors:
     options:
       interval: 3
       processes: [{ command: 'node', arguments: 'caliper.js', multiOutput: 'avg' }]
-    charting:
-      bar:
-        metrics: [all]
+      charting:
+        bar:
+          metrics: [all]
 ```
 ### Docker Charting
 The docker resource monitor exposes the following metrics: Memory(max), Memory(avg), CPU%(max), CPU%(avg), Traffic In, Traffic Out, Disc Read, Disc Write.
@@ -307,18 +314,18 @@ monitors:
   resource:
   - module: docker
     options:
-      interval: 5 
+      interval: 5
       containers:
       - all
-    charting:
-      bar:
-        metrics: [Memory(avg), CPU%(avg)]
-      polar:
-        metrics: [all]
+      charting:
+        bar:
+          metrics: [Memory(avg), CPU%(avg)]
+        polar:
+          metrics: [all]
 ```
 
 ### Prometheus Charting
-The Prometheus monitor enables user definition of all metrics within the configuration file. 
+The Prometheus monitor enables user definition of all metrics within the configuration file.
 
 The following declares the monitoring of two user defined metrics `Endorse Time(s)` and `Max Memory(MB)`. Charting options are specified to produce polar charts filtered on the metric `Max Memory (MB)`, and bar charts of all user defined metrics.
 ```
@@ -342,11 +349,11 @@ monitors:
                   label: name
                   statistic: max
                   multiplier: 0.000001
-      charting:
-        polar:
-          metrics: [Max Memory (MB)]
-        bar:
-          metrics: [all]
+        charting:
+          polar:
+            metrics: [Max Memory (MB)]
+          bar:
+            metrics: [all]
 ```
 
 ## License
