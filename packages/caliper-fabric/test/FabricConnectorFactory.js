@@ -23,11 +23,10 @@ const mockery = require('mockery');
 const path = require('path');
 
 const { Constants } = require('./connector-versions/v1/ClientStubs');
-const { Wallets } = require('./connector-versions/v2/V2GatewayStubs');
 const { ConnectorFactory } = require('../lib/FabricConnectorFactory');
 const { ConfigUtil } = require('@hyperledger/caliper-core');
 
-const legacyConfig = './sample-configs/LegacyNetworkConfig.yaml';
+const unsupportedConfig = './sample-configs/LegacyNetworkConfig.yaml';
 const v2Config = './sample-configs/NoIdentitiesNetworkConfig.yaml';
 const unknownVersionConfig = './sample-configs/UnknownVersionConfig.yaml';
 
@@ -80,18 +79,22 @@ const loadFromConfig = () => { return {
     getCertificateAuthority
 };};
 
-mockery.enable({
-    warnOnReplace: false,
-    warnOnUnregistered: false
-});
 
 describe('A Fabric Connector Factory', () => {
-    after(() => {
+    beforeEach(() => {
+        mockery.enable({
+            warnOnReplace: false,
+            warnOnUnregistered: false,
+            useCleanCache: true
+        });
+    });
+
+    afterEach(() => {
         mockery.deregisterAll();
         mockery.disable();
     });
 
-    it('should create a legacy V1 Gateway connector if a 1.4 fabric library is bound and usegateway was specified', async () => {
+    it('should throw an error if a version 1.0 network configuration is used', async () => {
         mockery.registerMock('fabric-network', {
             DefaultEventHandlerStrategies,
             DefaultQueryHandlerStrategies,
@@ -103,31 +106,13 @@ describe('A Fabric Connector Factory', () => {
             loadFromConfig
         });
         mockery.registerMock('fabric-client/package', {version: '1.4.11'});
-        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, legacyConfig));
+        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, unsupportedConfig));
         ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, true);
-        const connector = await ConnectorFactory(1);
-        connector.constructor.name.should.equal('LegacyV1FabricGateway');
+        await ConnectorFactory(1).should.be.rejectedWith(/Network configuration version 1.0 is not supported anymore, please use version 2/);
         mockery.deregisterAll();
     });
 
-    it('should create a legacy V2 Gateway connector if a 2.x fabric library is bound and usegateway was specified', async () => {
-        mockery.registerMock('./registrarHelper', {
-            newWithNetwork: () => ''
-        });
-        mockery.registerMock('fabric-network', {
-            DefaultEventHandlerStrategies,
-            DefaultQueryHandlerStrategies,
-            Wallets
-        });
-        mockery.registerMock('fabric-network/package', {version: '2.2.1'});
-        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, legacyConfig));
-        ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, true);
-        const connector = await ConnectorFactory(1);
-        connector.constructor.name.should.equal('LegacyV2FabricGateway');
-        mockery.deregisterAll();
-    });
-
-    it('should create a new V1 Gateway connector when a 1.4 fabric library is bound, usegateway was specified and a v2 network config', async () => {
+    it('should create a V1 Gateway connector when a 1.4 fabric library is bound, usegateway was specified', async () => {
         mockery.registerMock('fabric-network', {
             DefaultEventHandlerStrategies,
             DefaultQueryHandlerStrategies,
@@ -144,7 +129,7 @@ describe('A Fabric Connector Factory', () => {
         mockery.deregisterAll();
     });
 
-    it('should create a new V2 Gateway connector when a 2.x fabric library is bound, usegateway was specified and a v2 network config', async () => {
+    it('should create a V2 Gateway connector when a 2.x fabric library is bound, usegateway was specified', async () => {
         mockery.registerMock('fabric-network', {
             DefaultEventHandlerStrategies,
             DefaultQueryHandlerStrategies,
@@ -158,27 +143,7 @@ describe('A Fabric Connector Factory', () => {
         mockery.deregisterAll();
     });
 
-    it('should create a legacy V1 Fabric connector if a 1.4 fabric library is bound and usegateway was not specified', async () => {
-        mockery.registerMock('fabric-network', {
-            DefaultEventHandlerStrategies,
-            DefaultQueryHandlerStrategies,
-            InMemoryWallet,
-            X509WalletMixin
-        });
-        mockery.registerMock('fabric-network/package', {version: '1.4.11'});
-        mockery.registerMock('fabric-client', {
-            loadFromConfig
-        });
-        mockery.registerMock('fabric-client/lib/Constants', Constants);
-        mockery.registerMock('fabric-client/package', {version: '1.4.11'});
-        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, legacyConfig));
-        ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, false);
-        const connector = await ConnectorFactory(1);
-        connector.constructor.name.should.equal('LegacyV1Fabric');
-        mockery.deregisterAll();
-    });
-
-    it('should create a new V1 Fabric connector if a 1.4 fabric library is bound and usegateway was not specified', async () => {
+    it('should create a V1 Fabric connector if a 1.4 fabric library is bound and usegateway was not specified', async () => {
         mockery.registerMock('fabric-network', {
             DefaultEventHandlerStrategies,
             DefaultQueryHandlerStrategies,
@@ -198,7 +163,6 @@ describe('A Fabric Connector Factory', () => {
         mockery.deregisterAll();
     });
 
-
     it('should throw an error if no fabric library is bound', async () => {
         // Can't test this with mockery because really need require to fail trying to
         // find `fabric-network` or `fabric-client`
@@ -207,15 +171,13 @@ describe('A Fabric Connector Factory', () => {
     it('should throw an error if fabric library bound is not V1 or V2', async () => {
         mockery.registerMock('fabric-network', {});
         mockery.registerMock('fabric-network/package', {version: '3.0.0'});
-        mockery.registerMock('fabric-client', {});
-        mockery.registerMock('fabric-client/package', {version: '3.0.0'});
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, v2Config));
         ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, true);
         await ConnectorFactory(1).should.be.rejectedWith(/Installed SDK version 3.0.0 did not match any compatible Fabric connectors/);
         mockery.deregisterAll();
     });
 
-    it('should throw an error version if not for legacy or the new connector', async () => {
+    it('should throw a generic error if network configuration version is not 1.0 or 2.0', async () => {
         mockery.registerMock('fabric-network', {});
         mockery.registerMock('fabric-network/package', {version: '1.4.11'});
         mockery.registerMock('fabric-client', {});

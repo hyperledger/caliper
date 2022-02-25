@@ -367,6 +367,7 @@ class ConnectorConfiguration {
     async _createDefaultInvokerCache() {
         for (const organization of this.getOrganizations()) {
             const aliasNames = await this.identityManager.getAliasNamesForOrganization(organization);
+
             if (aliasNames.length > 0) {
                 this.defaultInvokerMap.set(organization, aliasNames[0]);
                 if (!this.defaultInvokerForDefaultOrganization) {

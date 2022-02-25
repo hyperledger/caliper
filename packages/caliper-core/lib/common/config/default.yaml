@@ -226,8 +226,6 @@ caliper:
             enabled: false
             # Indicates whether to use the localhost default within the Fabric Gateway API
             localhost: true
-            # Indicates whether to use the Fabric discovery mechanism (via Gateway API)
-            discovery: false
             # Which event strategy to use
             eventstrategy: msp_any
             # Which query strategy to use
