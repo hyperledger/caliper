@@ -45,7 +45,9 @@ docker image tag hyperledger/fabric-ccenv:1.4.8 hyperledger/fabric-ccenv:latest
 ${GENERATOR_METHOD} -- --workspace 'myWorkspace' --contractId 'mymarbles' --contractVersion 'v0' --contractFunction 'queryMarblesByOwner' --contractArguments '["Alice"]' --workers 'marbles' --benchmarkName 'A name for the marbles benchmark' --benchmarkDescription 'A description for the marbles benchmark' --label 'A label for the round' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 'marbles'
 # start network and run benchmark test
 cd ../
-${CALL_METHOD} launch manager --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-skip-end
+# bind the sdk into the packages directory as it will search for it there, this ensures it doesn't contaminate real node_modules dirs
+${CALL_METHOD} bind --caliper-bind-sut fabric:2.2 --caliper-bind-cwd ./../../../ --caliper-bind-args="--only=prod --save-dev"
+${CALL_METHOD} launch manager --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-skip-end  --caliper-fabric-gateway-enabled
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed start network";

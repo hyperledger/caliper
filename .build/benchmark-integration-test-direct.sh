@@ -22,11 +22,21 @@ npm i && npm run repoclean -- --yes && npm run bootstrap
 
 # Call CLI directly
 # The CWD will be in one of the caliper-tests-integration/*_tests directories
-export CALL_METHOD="node ../../caliper-cli/caliper.js"
+ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+echo $ROOT_DIR
+
+export CALL_METHOD="node $ROOT_DIR/packages/caliper-cli/caliper.js"
 # Use explicit binding for
 export BIND_IN_PACKAGE_DIR=true
 export GENERATOR_METHOD="yo ../../../generator-caliper/generators/benchmark/index.js"
 
+export SUT_DIR=$HOME/sut
+echo $SUT_DIR
+mkdir -p $SUT_DIR
+export NODE_PATH=$SUT_DIR/node_modules
+
 echo "---- Running Integration test for adaptor ${BENCHMARK}"
 cd ./packages/caliper-tests-integration/
 ./run-tests.sh
+
+rm -fr $SUT_DIR
