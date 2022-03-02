@@ -326,6 +326,7 @@ class V1Fabric extends ConnectorBase {
             chaincodeId: querySettings.contractId,
             fcn: querySettings.contractFunction,
             args: querySettings.contractArguments || [],
+            txId: txIdObject,
             transientMap: querySettings.transientMap,
             targets: targetPeers
         };
