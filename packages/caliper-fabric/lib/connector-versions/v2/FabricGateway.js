@@ -268,6 +268,7 @@ class V2FabricGateway extends ConnectorBase {
                 enabled: connectionProfileDefinition.isDynamicConnectionProfile()
             },
             eventHandlerOptions: {
+                endorseTimeout: this.configDefaultTimeout,
                 commitTimeout: this.configDefaultTimeout,
                 strategy: EventStrategies[this.configEventStrategy]
             },
