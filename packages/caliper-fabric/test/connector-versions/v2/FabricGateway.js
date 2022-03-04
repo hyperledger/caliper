@@ -30,6 +30,7 @@ const configWith2Orgs1AdminInWalletNotMutual = '../../sample-configs/BasicConfig
 const { Gateway, Transaction, Network, Wallets } = require('./V2GatewayStubs');
 const GenerateConfiguration = require('../../utils/GenerateConfiguration');
 const ConnectorConfigurationFactory = require('../../../lib/connector-configuration/ConnectorConfigurationFactory');
+const { ConfigUtil } = require('@hyperledger/caliper-core');
 
 describe('A Node-SDK V2 Fabric Gateway', () => {
 
@@ -128,6 +129,33 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
         Gateway.constructed.should.equal(4);
         for (let gatewayCounter = 0; gatewayCounter < Gateway.constructed; gatewayCounter++) {
             should.equal(Gateway.connectArgs[gatewayCounter][1].clientTlsIdentity, undefined);
+        }
+    });
+
+    const checkTimeouts = (connectionArgs, expectedTimeoutValue) => {
+        connectionArgs.eventHandlerOptions.endorseTimeout.should.equal(expectedTimeoutValue);
+        connectionArgs.eventHandlerOptions.commitTimeout.should.equal(expectedTimeoutValue);
+        connectionArgs.queryHandlerOptions.timeout.should.equal(expectedTimeoutValue);
+    };
+
+    it('should create a Gateway with defaults for submit and query timeouts when invokeorquery is not specified', async () => {
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
+        const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
+        await fabricGateway.getContext();
+        Gateway.constructed.should.equal(4);
+        for (let i = 0; i < 4; i++) {
+            checkTimeouts(Gateway.connectArgs[i][1], 60);
+        }
+    });
+
+    it('should create a Gateway with invokeorquery specified value for submit and query timeouts', async () => {
+        ConfigUtil.set(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 99);
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), walletFacadeFactory);
+        const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
+        await fabricGateway.getContext();
+        Gateway.constructed.should.equal(4);
+        for (let i = 0; i < 4; i++) {
+            checkTimeouts(Gateway.connectArgs[i][1], 99);
         }
     });
 
