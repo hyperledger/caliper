@@ -84,7 +84,8 @@
             "lib/connector-configuration",
             "lib/identity-management",
             "lib/connector-versions/v2",
-            "lib/connector-versions/v1"
+            "lib/connector-versions/v1",
+            "lib/connector-versions/peer-gateway"
         ],
         "exclude": [
             "lib/identity-management/IWallet*",

@@ -15,7 +15,7 @@
 'use strict';
 
 const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
-
+const fs = require('fs').promises;
 /**
  *
  */
@@ -72,10 +72,10 @@ class ConnectionProfileDefinition {
     }
 
     /**
-     * get the list of peers in this connection profile organisation that are part of the requested chanel
+     * get the list of peers in this connection profile organization that are part of the requested chanel
      *
      * @param {*} channelName The channel name
-     * @returns {[string]} The array of peers that are in the channel for this organisation's CCP
+     * @returns {[string]} The array of peers that are in the channel for this organization's CCP
      */
     getOwnedEndorsingPeersInChannel(channelName) {
         const channelPeers = this._getChannelPeers(channelName);
@@ -117,7 +117,6 @@ class ConnectionProfileDefinition {
     isTLSEnabled() {
         return this.TLSEnabled;
     }
-
 
     /**
      * Get all the peers defined in the specified channel
@@ -193,6 +192,126 @@ class ConnectionProfileDefinition {
         return false;
     }
 
+    /**
+     * Return the list of peers for organization of the connection profile
+     * @param {*} mspid the mspId of the org
+     * @returns {[string]} an array containing the list of all the peers
+     */
+    getPeersListForOrganization(mspid) {
+        if (!this.connectionProfile.organizations) {
+            throw new Error('No organizations property can be found for the connection profile provided');
+        }
+        let peers;
+        for (const org in this.connectionProfile.organizations) {
+            if (this.connectionProfile.organizations[org].mspid === mspid) {
+                if(!this.connectionProfile.organizations[org].peers) {
+                    throw new Error(`Org with mspid "${mspid}" listed in connectionProfile.organizations does not have any peers property`);
+                }
+                peers = this.connectionProfile.organizations[org].peers;
+            }
+        }
+        if (!peers) {
+            throw new Error(`Org with mspid ${mspid} cannot be found in connectionProfile.organizations`);
+        }
+        return peers;
+    }
+
+    /**
+     * Return the tls certificate for the specified peer, can only be called when a grps url and respective certs are provided
+     * @param {string} peer the name of the peer
+     * @returns {string} tls certificate
+     */
+    async getTlsCertForPeer(peer) {
+        const peerObj = this._getPeerIfValid(peer);
+
+        if (!peerObj.tlsCACerts) {
+            throw new Error(`No tlsCACert property of ${peer} in the connection profile was not provided`);
+        }
+
+        if (peerObj.tlsCACerts.pem) {
+            if (!peerObj.tlsCACerts.pem.startsWith('-----BEGIN ')) {
+                throw new Error(`pem provided for ${peer} in the connection profile .tlsCACerts.pem is not valid`);
+            }
+            return peerObj.tlsCACerts.pem;
+        } else if (peerObj.tlsCACerts.path) {
+            const pemPath = peerObj.tlsCACerts.path;
+            const resolvedPemPath = CaliperUtils.resolvePath(pemPath);
+            try {
+                await fs.stat(resolvedPemPath);
+            } catch(err) {
+                if (err.errno === -2 || err.errno === -4058) {
+                    throw new Error(`path property does not point to a file that exists at ${resolvedPemPath} for ${peer}`);
+                }
+                throw err;
+            }
+
+            const pem = (await fs.readFile(resolvedPemPath)).toString();
+
+            if (!pem.startsWith('-----BEGIN ')) {
+                throw new Error(`path property does not point to a valid pem file for ${resolvedPemPath} for ${peer}`);
+            }
+
+            return pem;
+        } else {
+            throw new Error(`No valid tls cert option provided in the ${peer}.tlsCACert property of connection profile`);
+        }
+    }
+
+    /**
+     * Return the end point of the peer
+     * @param {string} peer the name of the peer
+     * @returns {string} end point for peer
+     */
+    getGrpcEndPointForPeer(peer) {
+        const url = this._getPeerIfValid(peer).url;
+
+        if (!url.startsWith('grpcs://') && !url.startsWith('grpc://')) {
+            throw new Error(`${url} is not a valid grpc/grpcs url, make sure to prefix grpc:// or grpcs:// at the beginning of the url`);
+        }
+        return url.replace(/(grpcs|grpc)(:\/\/)/, '');
+    }
+
+    /**
+     * Return if the end point of the peer requires tls
+     * @param {string} peer the name of the peer
+     * @returns {boolean} returns true if tls is required for the endpoint, false otherwise
+     */
+    isTLSRequiredForEndpoint(peer) {
+        return this._getPeerIfValid(peer).url.startsWith('grpcs://');
+    }
+
+    /**
+     * Return the gRpc options for the specified peer
+     * @param {*} peer the name of the peer
+     * @returns {[*]} the list of grpc options
+     */
+    getGrpcOptionsForPeer(peer) {
+        const grpcOptions = this._getPeerIfValid(peer).grpcOptions;
+
+        if (!grpcOptions) {
+            return {};
+        }
+        return grpcOptions;
+    }
+
+    /**
+     * Check if peer provided is present in peers property and return it
+     * @param {string} peer the name of the peer
+     * @returns {*} the peer object
+     */
+    _getPeerIfValid(peer) {
+        if (!this.connectionProfile.peers) {
+            throw new Error('No peers property can be found in the connection profile provided');
+        }
+        if (!this.connectionProfile.peers[peer]) {
+            throw new Error(`${peer} provided is not present in the connection profile`);
+        }
+
+        if (!this.connectionProfile.peers[peer].url) {
+            throw new Error(`${peer} provided does not have url property provided in the connection Profile`);
+        }
+        return this.connectionProfile.peers[peer];
+    }
 }
 
 module.exports = ConnectionProfileDefinition;
