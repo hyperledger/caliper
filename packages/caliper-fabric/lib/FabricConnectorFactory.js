@@ -40,11 +40,14 @@ const _determineInstalledNodeSDKVersion = () => {
     }
 };
 
-const _loadAppropriateConnectorClass = (installedNodeSDKVersion, useGateway) => {
+const _loadAppropriateConnectorClass = (installedNodeSDKVersion) => {
     let connectorPath;
     let walletFacadeFactoryPath;
 
     if (semver.satisfies(installedNodeSDKVersion, '=1.x')) {
+        const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Enabled, false);
+        Logger.info(`Initializing ${useGateway ? 'gateway' : 'standard' } connector compatible with installed SDK: ${installedNodeSDKVersion}`);
+
         if (!useGateway) {
             connectorPath = NEW_V1_NODE_CONNECTOR;
             walletFacadeFactoryPath = NEW_V1_WALLET_FACADE_FACTORY;
@@ -58,12 +61,9 @@ const _loadAppropriateConnectorClass = (installedNodeSDKVersion, useGateway) => 
             }
         }
     } else if (semver.satisfies(installedNodeSDKVersion, '=2.x')) {
-        if (!useGateway) {
-            throw new Error(`Caliper currently only supports gateway based operation using the ${installedNodeSDKVersion} Fabric-SDK. Please retry with the gateway flag`);
-        } else {
-            connectorPath = NEW_V2_GATEWAY_CONNECTOR;
-            walletFacadeFactoryPath = NEW_V2_WALLET_FACADE_FACTORY;
-        }
+        Logger.info(`Initializing gateway connector compatible with installed SDK: ${installedNodeSDKVersion}`);
+        connectorPath = NEW_V2_GATEWAY_CONNECTOR;
+        walletFacadeFactoryPath = NEW_V2_WALLET_FACADE_FACTORY;
     } else {
         throw new Error(`Installed SDK version ${installedNodeSDKVersion} did not match any compatible Fabric connectors`);
     }
@@ -96,10 +96,7 @@ const connectorFactory = async (workerIndex) => {
     }
 
     const installedNodeSDKVersion = _determineInstalledNodeSDKVersion();
-    const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Enabled, false);
-
-    Logger.info(`Initializing ${useGateway ? 'gateway' : 'standard' } connector compatible with installed SDK: ${installedNodeSDKVersion}`);
-    const {fabricConnectorClass, walletFacadeFactoryClass} = _loadAppropriateConnectorClass(installedNodeSDKVersion, useGateway);
+    const {fabricConnectorClass, walletFacadeFactoryClass} = _loadAppropriateConnectorClass(installedNodeSDKVersion);
     const connectorConfiguration = await new ConnectorConfigurationFactory().create(connectorConfigurationFile, new walletFacadeFactoryClass());
     const fabricConnector = new fabricConnectorClass(connectorConfiguration, workerIndex, 'fabric');
 
