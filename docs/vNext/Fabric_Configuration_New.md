@@ -17,14 +17,16 @@ order: 3
 
 This page introduces the Fabric adapter that utilizes the Common Connection Profile (CCP) feature of the Fabric SDK to provide compatibility and a unified programming model across different Fabric versions.
 
-> The latest supported version of Hyperledger Fabric is v2.x
-> The ability to discover can only be used if you use the `gateway` option
+> The latest supported version of Hyperledger Fabric is v2.2 and later 2.x releases (eg 2.4)
+
+
 
 The adapter exposes many SDK features directly to the user callback modules, making it possible to implement complex scenarios.
 
 > Some highlights of the provided features:
-> * supporting multiple orderers
-> * supporting multiple channels and contracts
+> * supports multiple channels and contracts
+> * supports multiple organizations
+> * supports multiple identities
 > * metadata and private collection support for contracts
 > * support for TLS and mutual TLS communication
 > * option to select the identity for submitting a TX/query
@@ -32,17 +34,32 @@ The adapter exposes many SDK features directly to the user callback modules, mak
 
 ## Installing dependencies
 
-You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](./Installing_Caliper.md#the-bind-command) for details. It is confirmed that a 1.4 Fabric SDK is compatible with a Fabric 2.1 and 2.2 SUT however any installation or instantiation of contracts (chaincode) will only work if you are still using the old lifecycle implementation.
+You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](./Installing_Caliper.md#the-bind-command) for details.
 
-### Binding with Fabric SDK 2.x
+### Binding with Fabric SDK 1.4
+
+It is confirmed that a 1.4 Fabric SDK is compatible with a Fabric 2.2 and later Fabric 2.x SUTs however any installation or instantiation of contracts (chaincode) will only work if you are still using the old lifecycle implementation.
+
+> The ability to create channels and perform install/instantiate of contracts (chaincode) remains and nothing equivalent exists for the 2.x sdk based adapters. This capability remains purely to support the Caliper integration tests and the use of these mechanisms to setup your channels and contracts is deprecated and not supported. This capability is considered legacy and will not be maintained. You should look into alternative methods for setting up your network prior to running Caliper to benchmark it. This also applies to the Skip channel creation section but is included for completeness.
+
+> Currently setting `discover` to `true` in the network configuration file is not supported if you don't specify `--caliper-fabric-gateway-enabled` when bound to the Fabric 1.4 SUT
+
+#### Skip channel creation
+
+Additionally, the adapter provides a dynamic setting (family) for skipping the creation of a channel. The setting key format is `caliper-fabric-skipcreatechannel-<channel_name>`. Substitute the name of the channel you want to skip creating into `<channel_name>`, for example:
+
+```console
+user@ubuntu:~/caliper-benchmarks$ export CALIPER_FABRIC_SKIPCREATECHANNEL_MYCHANNEL=true
+```
+
+> __Note:__ This settings is intended for easily skipping the creation of a channel that is specified in the network configuration file as "not created". However, if you know that the channel always will be created during benchmarking, then it is recommended to denote this explicitly in the network configuration file.
+
+Naturally, you can specify the above setting multiple ways (e.g., command line argument, configuration file entry).
+
+### Binding with Fabric SDK 2.2
 
 > Note that when using the binding target for the Fabric SDK 2.x there are capability restrictions:
-> * The 2.x SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate contract. Consequently the 2.x binding only facilitates operation with a `--caliper-flow-only-test` flag
-> * The 2.x SDK only supports operation using a `gateway`. Consequently the 2.x binding requires a `--caliper-fabric-gateway-enabled` flag
-
-### Using the Operational capabilities of the Adapters
-
-The ability to create channels and perform install/instantiate of contracts (chaincode) remains in the new 1.x sdk based adapters, and nothing equivalent exists for the 2.x sdk based adapters. This capability remains mainly to support the Caliper integration tests and the use of these mechanisms to setup your channels and contracts is highly discouraged. This capability is considered legacy and will not be maintained. You should look into alternative methods for setting up your network prior to running Caliper to benchmark it.
+> * The 2.x SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate contract. Consequently the 2.2 binding only facilitates operation with a `--caliper-flow-only-test` flag
 
 ## Runtime settings
 
@@ -58,34 +75,16 @@ The above settings are processed when starting Caliper. Modifying them during te
 >   fabric:
 >     gateway:
 >       localhost: false
->       enabled: true
 > ```
 > After naming the [project settings](./Runtime_Configuration.md#project-level) file `caliper.yaml` and placing it in the root of your workspace directory, it will override the following two setting keys with the following values:
-> * Setting `caliper-fabric-gateway-enabled` is set to `true`
 > * Setting `caliper-fabric-gateway-localhost` is set to `false`
 >
 > __The other settings remain unchanged.__
 >
-> Alternatively you can change these settings when you launch caliper with the CLI options of
-> ```
-> --caliper-fabric-gateway-enabled
-> ```
-> and
+> Alternatively you can change this setting when you launch caliper with the CLI options of
 > ```
 > --caliper-fabric-gateway-localhost false
 > ```
-
-### Skip channel creation
-
-Additionally, the adapter provides a dynamic setting (family) for skipping the creation of a channel. The setting key format is `caliper-fabric-skipcreatechannel-<channel_name>`. Substitute the name of the channel you want to skip creating into `<channel_name>`, for example:
-
-```console
-user@ubuntu:~/caliper-benchmarks$ export CALIPER_FABRIC_SKIPCREATECHANNEL_MYCHANNEL=true
-```
-
-> __Note:__ This settings is intended for easily skipping the creation of a channel that is specified in the network configuration file as "not created". However, if you know that the channel always will be created during benchmarking, then it is recommended to denote this explicitly in the network configuration file.
-
-Naturally, you can specify the above setting multiple ways (e.g., command line argument, configuration file entry).
 
 ## The connector API
 
@@ -116,7 +115,7 @@ The settings object has the following structure:
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If not provided a user will be selected from the organization defined by `invokerMspId` or the first organization in the network configuration file if that property is not provided
 * `invokerMspId`: _string. Optional._ The mspid of the user organization who should invoke the contract. Defaults to the first organization in the network configuration file.
 * `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will be chosen for you. If discovery is used then the node sdk uses discovery to determine the correct peers.
-* `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and 
+* `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and
 are specified then targetPeers will take precedence
 * `orderer`: _string. Optional._ The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be automatically selected.
 * `channel`: _string. Optional._ The name of the channel on which the contract to call resides.
@@ -372,7 +371,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
      - mspid: Org1MSP
      connectionProfile:
       path: './test/sample-configs/Org1ConnectionProfile.yaml'
-      discover: true     
+      discover: true
    ```
    *  <details><summary markdown="span">__path__
       </summary>
@@ -472,8 +471,8 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
 
        *  <details><summary markdown="span">__name__
           </summary>
-          _Required. Non-empty string._ <br>  
-          Specifies a name to associate with this identity. This name doesn't have to match anything within the certificate itself but must be unique  
+          _Required. Non-empty string._ <br>
+          Specifies a name to associate with this identity. This name doesn't have to match anything within the certificate itself but must be unique
 
           ```yaml
           certificates:
@@ -482,8 +481,8 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
 
        *  <details><summary markdown="span">__admin__
           </summary>
-          _Optional. Boolean._ <br> 
-          Indicates if this identity can be considered an admin identity for the organization. Defaults to false if not provided 
+          _Optional. Boolean._ <br>
+          Indicates if this identity can be considered an admin identity for the organization. Defaults to false if not provided
           This only needs to be provided if you plan to create channels and/or install and instantiate contracts (chaincode)
 
           ```yaml
@@ -495,7 +494,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
        *  <details><summary markdown="span">__clientPrivateKey__
           </summary>
           _Required. Non-empty object._ <br>
-          Specifies the identity's private key for the organization. 
+          Specifies the identity's private key for the organization.
           > Must contain __at most one__ of the following keys.
 
           *  <details><summary markdown="span">__path__
@@ -529,7 +528,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
        *  <details><summary markdown="span">__clientSignedCert__
           </summary>
           _Required. Non-empty object._ <br>
-          Specifies the identity's certificate for the organization. 
+          Specifies the identity's certificate for the organization.
           > Must contain __at most one__ of the following keys.
 
           *  <details><summary markdown="span">__path__
@@ -570,7 +569,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
              </details>
           </details>
        </details>
-   
+
     *  <details><summary markdown="span">wallet
        </summary>
        _Optional. Non-empty object_ <br>
@@ -579,7 +578,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
        *  <details><summary markdown="span">__path__
           </summary>
           _Required. Non-empty string._ <br>
-          The path to the file system wallet 
+          The path to the file system wallet
 
           ```yaml
           identities:
@@ -587,7 +586,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
               path: './wallets/org1wallet'
           ```
           </details>
-       
+
        *  <details><summary markdown="span">__adminNames__
           </summary>
           _Oprional. List of strings._ <br>
@@ -600,10 +599,10 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
               path: './wallets/org1wallet'
               adminNames:
               - admin
-              - another_admin          
+              - another_admin
           ```
           </details>
-       
+
        </details>
    </details>
 </details>
@@ -671,7 +670,7 @@ channels:
    ...
    - channelName: somechannel
      create:
-       prebuiltTransaction: 'channel.tx'   
+       prebuiltTransaction: 'channel.tx'
    ...
    ```
    > Must contain __at most one__ of the following keys.
@@ -685,7 +684,7 @@ channels:
       channels:
       - channelName: somechannel
         create:
-          prebuiltTransaction: 'channel.tx'   
+          prebuiltTransaction: 'channel.tx'
       ```
       </details>
 
@@ -810,7 +809,7 @@ channels:
          </summary>
          _Required. Non-empty string._ <br>
          The version string of the contract.
- 
+
          ```yaml
          channels:
            mychannel:
@@ -890,7 +889,7 @@ channels:
               key1: value1
               key2: value2
             endorsementPolicy: ''
-            collectionsConfig: ''      
+            collectionsConfig: ''
       ```
       *  <details><summary markdown="span">__initArguments__
          </summary>
@@ -1048,7 +1047,7 @@ channels:
           policy:
             2-of:
             - signed-by: 0
-            - signed-by: 1        
+            - signed-by: 1
 
 organizations:
   - mspid: Org1MSP
@@ -1074,7 +1073,7 @@ organizations:
     identities:
       certificates:
       - name: 'admin.org2.example.com'
-        admin: true      
+        admin: true
         clientPrivateKey:
           pem: |-
             -----BEGIN PRIVATE KEY-----
