@@ -20,13 +20,32 @@ set -o pipefail
 # Bootstrap the project again
 npm i && npm run repoclean -- --yes && npm run bootstrap
 
-# Call CLI directly
-# The CWD will be in one of the caliper-tests-integration/*_tests directories
-export CALL_METHOD="node ../../caliper-cli/caliper.js"
+# Get the root directory of the caliper source
+ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+echo $ROOT_DIR
+
+# Call the CLI directly in the source tree
+export CALL_METHOD="node $ROOT_DIR/packages/caliper-cli/caliper.js"
 # Use explicit binding for
 export BIND_IN_PACKAGE_DIR=true
-export GENERATOR_METHOD="yo ../../../generator-caliper/generators/benchmark/index.js"
+
+# Call the Generator code directly from source
+export GENERATOR_METHOD="yo $ROOT_DIR/packages/generator-caliper/generators/benchmark/index.js"
+
+# Create a directory outside of the source code tree to install SUT binding node modules
+# We have to do this otherwise npm will attempt to hoist the npm modules to a directory
+# which subsequently doesn't get searched
+# This approach means we can drop having to declare dependencies on SUT bound modules in the
+# connector and makes it more like the way a user would use caliper.
+export SUT_DIR=$HOME/sut
+echo $SUT_DIR
+mkdir -p $SUT_DIR
+
+# Ensure node searches this directory by setting NODE_PATH
+export NODE_PATH=$SUT_DIR/node_modules
 
 echo "---- Running Integration test for adaptor ${BENCHMARK}"
 cd ./packages/caliper-tests-integration/
 ./run-tests.sh
+
+rm -fr $SUT_DIR

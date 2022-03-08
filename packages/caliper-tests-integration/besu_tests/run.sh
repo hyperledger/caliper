@@ -25,7 +25,9 @@ npm i
 # bind during CI tests, using the package dir as CWD
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    ${CALL_METHOD} bind --caliper-bind-sut besu:latest --caliper-bind-cwd ./../../caliper-ethereum/ --caliper-bind-args="--no-save"
+    pushd $SUT_DIR
+    ${CALL_METHOD} bind --caliper-bind-sut besu:latest
+    popd
 fi
 
 # change default settings (add config paths too)
