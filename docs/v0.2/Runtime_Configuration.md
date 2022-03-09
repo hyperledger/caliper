@@ -20,7 +20,7 @@ Caliper supports the following sources/locations where runtime settings can be s
 
 For simplicity, you can think of the above order as the following: the "closer" the setting is set to its point of use, the higher the priority of the set value.
 
-For the available settings, see the `config/default.yaml` file and its comments.  
+For the available settings, see the `config/default.yaml` file and its comments.
 In general, a setting is a simple `string` key associated with some `value`. However, it is highly recommended to compose the keys in a way that follows the place of the module in the hierarchy that uses the setting. Consider the following key, for example:
 
 `caliper-fabricccp-timeout-invokeorquery`
@@ -35,10 +35,10 @@ If some component (Caliper-related, or user provided) sets a setting during runt
 
 The simple configuration API is provided by the `ConfigUtil` module of the `caliper-core` package. It exports a simple `get` and `set` method:
 
-* `get(key:string, fallbackValue:any) => any` 
+* `get(key:string, fallbackValue:any) => any`
 
     Returns the value of the setting associated with the given `key`. If the setting is not set from any sources, then the `fallbackValue` is returned.
-* `set(key:string, value:any)` 
+* `set(key:string, value:any)`
 
     Sets the `value` for the settings associated with the given `key`. It will overwrite any other value set by other sources.
 
@@ -52,7 +52,7 @@ const shouldBeFast = config.get('mymodule-performance-shoudbefast', /*default:*/
 if (shouldBeFast) { /* ... */ } else { /* ... */ }
 ```
 
-The above code also shows how a custom user module/code can easily leverage Caliper's configuration mechanism. Since the `mymodule-performance-shoudbefast` setting is queried through the configuration API, setting it from various sources automatically became possible (see the next sections for details). 
+The above code also shows how a custom user module/code can easily leverage Caliper's configuration mechanism. Since the `mymodule-performance-shoudbefast` setting is queried through the configuration API, setting it from various sources automatically became possible (see the next sections for details).
 
 > Thus adding a flexible runtime setting to any module requires only to query that setting through the configuration API when you need it (with the desired default/fallback value).
 
@@ -106,13 +106,13 @@ Note the standard notation of environment variable setting: upper-case letters s
 
 ## Configuration files
 
-Depending on the scenario, users may want to change multiple runtime settings. Using command line arguments and environment variables to change multiple settings can become cumbersome. 
+Depending on the scenario, users may want to change multiple runtime settings. Using command line arguments and environment variables to change multiple settings can become cumbersome.
 
 Using configuration files is a standard way of overriding multiple settings in a manageable way. Caliper provides multiple configuration "locations" where you can insert configuration files into the settings hierarchy. These locations also follow the "closer one wins" semantic of the hierarchical configuration mechanism.
 
 Moreover, YAML-based configuration files allow comments that make your configuration choices self-documenting and self-contained.
 
-Note, that no additional transformation is performed on the key names of a YAML file, they are simply concatenated with `-` to get a flat string key from the object hierarchy. 
+Note, that no additional transformation is performed on the key names of a YAML file, they are simply concatenated with `-` to get a flat string key from the object hierarchy.
 
 So the hierarchical setting
 ```yaml
@@ -130,32 +130,32 @@ The project-level configuration file can be included into the hierarchy in two w
 * Define the overridden settings in the `caliper.yaml` file in the **workspace directory**
 * Or set the path of the configuration file explicitly through the `caliper-projectconfig` setting key using one of the higher priority locations above (i.e., in-memory, command line argument or environment variable):
 
-  * The command line approach: 
+  * The command line approach:
     ```bash
     caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml --Caliper-ProjectConfig=mypath/project1-config.yaml
     ```
-  * The environment variable approach: 
+  * The environment variable approach:
     ```bash
     export CALIPER_PROJECTCONFIG=mypath/project1-config.yaml
     caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml
     ```
-    
+
 Note that project-level settings will override the settings defined by the locations of the next sections.
 
 ### User-level
 
 If you find yourself overriding the same settings for multiple Caliper benchmark projects, then it is recommended to extract the common settings into a user-level configuration file. To include a user-level configuration file into the hierarchy, specify its path through the `caliper-userconfig` settings key using one of the higher priority locations above (i.e., in-memory, command line argument, environment variable or the project-level configuration file):
 
-* The command line approach: 
+* The command line approach:
     ```bash
     caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml --Caliper-UserConfig=~/.config/my-caliper-config.yaml
     ```
-* The environment variable approach: 
+* The environment variable approach:
     ```bash
     export CALIPER_USERCONFIG=~/.config/my-caliper-config.yaml
     caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml
     ```
-* The configuration file approach (excerpt from the project-level configuration file): 
+* The configuration file approach (excerpt from the project-level configuration file):
     ```yaml
     caliper:
       userconfig: ~/.config/my-caliper-config.yaml
@@ -166,16 +166,16 @@ If you find yourself overriding the same settings for multiple Caliper benchmark
 
 If multiple users use the same workstation and want to share common settings across Caliper projects and users, then a machine-level configuration file can be included into the hierarchy by specifying its path through the `caliper-machineconfig` settings key using one of the higher priority locations above (i.e., in-memory, command line argument, environment variable, project- or user-level configuration files):
 
-* The command line approach: 
+* The command line approach:
     ```bash
     caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml --Caliper-MachineConfig=/etc/config/caliper.yaml
     ```
-* The environment variable approach: 
+* The environment variable approach:
     ```bash
     export CALIPER_MACHINECONFIG=/etc/config/caliper.yaml
     caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml
     ```
-* The configuration file approach (excerpt from the project- or user-level configuration file): 
+* The configuration file approach (excerpt from the project- or user-level configuration file):
     ```yaml
     caliper:
       machineconfig: /etc/config/caliper.yaml
@@ -186,4 +186,4 @@ If multiple users use the same workstation and want to share common settings acr
 
 A default/fallback configuration file is shipped with the Caliper-related packages that defines fallback values and documentation for each available setting used by the Caliper modules. This configuration file has the lowest priority among the supported setting locations.
 
-Always refer to the self-documenting [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/config/default.yaml) for the currently supported runtime configuration settings.
+Always refer to the self-documenting [default configuration file](https://github.com/hyperledger/caliper/blob/v0.2.0/packages/caliper-core/lib/config/default.yaml) for the currently supported runtime configuration settings.

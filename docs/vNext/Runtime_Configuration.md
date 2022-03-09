@@ -240,7 +240,7 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 
 ## Available settings
 
-> Always refer to the self-documenting [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/config/default.yaml) for the currently supported runtime configuration settings.
+> Always refer to the self-documenting [default configuration file](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/common/config/default.yaml) for the currently supported runtime configuration settings.
 
 ### Basic settings
 

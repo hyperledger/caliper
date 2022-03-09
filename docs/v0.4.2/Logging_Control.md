@@ -22,7 +22,7 @@ Caliper builds on the [winston](https://github.com/winstonjs/winston) logger mod
 
 The first two points can be achieved through the [runtime configuration mechanism](./Runtime_Configuration.md) of Caliper. So make sure that you are familiar with the different way of overriding runtime settings before reading on. The examples below only set the different options through the command line. Naturally, any other setting source could be used.
 
-The runtime configuration settings corresponding to logging reside under the `caliper-logging` key hierarchy. See the `caliper.logging` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/config/default.yaml) bundled with Caliper for the general structure of the settings.
+The runtime configuration settings corresponding to logging reside under the `caliper-logging` key hierarchy. See the `caliper.logging` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-core/lib/config/default.yaml) bundled with Caliper for the general structure of the settings.
 
 ## Customizing the logging style
 
@@ -32,7 +32,7 @@ The `caliper.logging.formats` hierarchy is special in a sense that every leaf pr
 
 > __Note:__ the following style settings apply to every specified logging target!
 
-### Setting the message structure  
+### Setting the message structure
 
 The message structure can be easily customized through the `caliper.logging.template` property. It is a simple string that contains predefined placeholders for some special values. Some placeholders are only available, when a corresponding format is also applied.
 
@@ -57,7 +57,7 @@ The following placeholders are available at the moment.
 
 You can override this template by changing the `caliper-logging-template` setting key, for example, from the command line: `--caliper-logging-template="%time%: %message%"`
 
-> __Note:__ 
+> __Note:__
 > 1. Do not forget the two enclosing quotes, since the template can contain spaces!
 > 2. This template if applied after every format has been applied!
 > 3. Adding spaces and different brackets this way is fine for simple coloring scenarios (or when coloring is disabled). However, when coloring the entire log message (or just parts that should be surrounded with additional characters), the result looks inconsistent when formatted this way. See the [Tips & Tricks](#tips--tricks) section for advanced message formatting scenarios.
@@ -66,8 +66,8 @@ You can override this template by changing the `caliper-logging-template` settin
 
 The logging subsystem relies on winston's [format mechanism](https://github.com/winstonjs/logform#understanding-formats) to further modify the log messages. The corresponding settings are under the `caliper.logging.formats` property.
 
-Each of these formats can be easily disabled by setting its property to `false`. For example, to disable the `colorize` format, set its corresponding `caliper.logging.formats.colorize` property to false, for example, from the command line: `--caliper-logging-formats-colorize=false` 
-  
+Each of these formats can be easily disabled by setting its property to `false`. For example, to disable the `colorize` format, set its corresponding `caliper.logging.formats.colorize` property to false, for example, from the command line: `--caliper-logging-formats-colorize=false`
+
 Similarly, any sub-property of a format can be easily overridden. For example, changing the `caliper.logging.formats.colorize.colors.info` property from the command line: `--caliper-logging-formats-colorize-colors-info=blue`
 
 The following formats and their options (sub-properties) are supported.
@@ -136,7 +136,7 @@ Applies color coding for the different attributes of a message. Enabling/disabli
 * module
 * message
 * metadata
-* __all:__ setting it to true enables coloring for every attribute  
+* __all:__ setting it to true enables coloring for every attribute
 
 For example, to colorize every part of the message: `--caliper-logging-formats-colorize-all=true`
 
@@ -186,7 +186,7 @@ The following `target` values (i.e., transports) are supported. Click on the lin
 ### Disabling loggers
 
 Even though the setting keys/properties of the `caliper.logging.targets` section cannot be overridden one-by-one (like the properties in the `caliper.logging.formats` section), the `enabled` property is an exception. To easily disable a logger, set its `enabled` property to `false` (using the target's name in the property hierarchy).
- 
+
 For example, to disable the `mylogger1` target, the following approaches are available:
 * From the command line: `--caliper-logging-targets-mylogger1-enabled=false`
 * From an environment variable: `export CALIPER_LOGGING_TARGETS_MYLOGGER1_ENABLED=false`
@@ -197,7 +197,7 @@ For example, to disable the `mylogger1` target, the following approaches are ava
 
 But what if you would like to modify one of the options of a transport? You can use a [configuration file](./Runtime_Configuration.md#configuration-files) for that!
 
-For the next example, we will disable the default file logger, modify the logging level of the console target, and also add a new daily rotating file logger. We can do all of this with a single configuration file.   
+For the next example, we will disable the default file logger, modify the logging level of the console target, and also add a new daily rotating file logger. We can do all of this with a single configuration file.
 
 ```yaml
 caliper:
@@ -206,7 +206,7 @@ caliper:
       console:
         options:
           # we don't care about info level messages anymore
-          level: warn 
+          level: warn
       file:
         # we disable this
         enabled: false
@@ -235,7 +235,7 @@ If you save the above content as `caliper.yaml` in your workspace directory, the
 > __Note:__ some remarks about the above file content:
 > 1. We only set the properties we wanted to override. The default configuration file will be merged with the above configuration file, the values in the latter taking precedence.
 > 2. The provided options for a transport are not verified by Caliper. It is simple passed to the specific transport. It is your responsibility to configure the transport the right way.
-> 3. We could have disabled the `file` logger also from the command line, or from an environment variable. The reason we did it from a config file is explained in the [Tips & tricks](#tips--tricks) section.  
+> 3. We could have disabled the `file` logger also from the command line, or from an environment variable. The reason we did it from a config file is explained in the [Tips & tricks](#tips--tricks) section.
 
 ## Creating your own loggers
 
@@ -270,11 +270,11 @@ The "metadata" will appear at the place of the `%metadata%` placeholder, as disc
 
 ### The format pipeline
 
-Winston formats are a powerful feature that allow the arbitrary manipulation of log messages. From the user's perspective, a log message is a simple string displayed on the console, or saved in a file. However, to fully utilize the logging styles described in this documentation, it might help knowing what really happens under the hood. 
+Winston formats are a powerful feature that allow the arbitrary manipulation of log messages. From the user's perspective, a log message is a simple string displayed on the console, or saved in a file. However, to fully utilize the logging styles described in this documentation, it might help knowing what really happens under the hood.
 
-> __Note:__ in the remainder of this section, we'll refer to log messages as LOG. 
+> __Note:__ in the remainder of this section, we'll refer to log messages as LOG.
 
-LOG can be considered an item/object, that is generated when issuing a call to `logger.info(...)` or similar functions. A LOG can have several attributes attached to it. Every LOG has the `level` and `message` attributes, containing the severity and the "description" of LOG. Additionally, Caliper automatically adds the `module` attribute to LOGs of every logger created through the Caliper API, denoting the name of the module who issued the log.  
+LOG can be considered an item/object, that is generated when issuing a call to `logger.info(...)` or similar functions. A LOG can have several attributes attached to it. Every LOG has the `level` and `message` attributes, containing the severity and the "description" of LOG. Additionally, Caliper automatically adds the `module` attribute to LOGs of every logger created through the Caliper API, denoting the name of the module who issued the log.
 
 Let's introduce the format pipeline through an example.
 
@@ -420,7 +420,7 @@ Omitting the color code for the sake of readability, this results in:
 2019.10.07-12:45:47.962 info  [caliper] [my-module] Doing operation X with: (["someSetting", "anotherSetting"])
 ```
 
-> __Note:__ try adding other characters to the template string. And then be surprised that they are not colorized with the rest of the line. Actually, this is not surprising at all. The template string is "evaluated" after the colorizing format. Since these extra characters are not part of any attributes of LOG, they won't be colorized.  
+> __Note:__ try adding other characters to the template string. And then be surprised that they are not colorized with the rest of the line. Actually, this is not surprising at all. The template string is "evaluated" after the colorizing format. Since these extra characters are not part of any attributes of LOG, they won't be colorized.
 
 ### Use a configuration file
 

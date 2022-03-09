@@ -36,7 +36,7 @@ function createWorkloadModule() {
 module.exports.createWorkloadModule = createWorkloadModule;
 ```
 
-The factory function must return an instance that implements the [`WorkloadModuleInterface`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/worker/workload/workloadModuleInterface.js) class. See the [example](#example) for a complete implementation.
+The factory function must return an instance that implements the [`WorkloadModuleInterface`](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-core/lib/worker/workload/workloadModuleInterface.js) class. See the [example](#example) for a complete implementation.
 
 The interface contains the following three __asynchronous__ functions:
 
@@ -89,7 +89,7 @@ class MyWorkload extends WorkloadModuleInterface {
         this.sutAdapter = undefined;
         this.sutContext = undefined;
     }
-    
+
     async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
         this.workerIndex = workerIndex;
         this.totalWorkers = totalWorkers;
@@ -98,7 +98,7 @@ class MyWorkload extends WorkloadModuleInterface {
         this.sutAdapter = sutAdapter;
         this.sutContext = sutContext;
     }
-    
+
     async submitTransaction() {
         let txArgs = {
             // TX arguments for "mycontract"
@@ -106,7 +106,7 @@ class MyWorkload extends WorkloadModuleInterface {
 
         return this.sutAdapter.invokeSmartContract('mycontract', 'v1', txArgs, 30);
     }
-    
+
     async cleanupWorkloadModule() {
         // NOOP
     }

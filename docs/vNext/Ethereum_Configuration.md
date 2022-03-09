@@ -237,7 +237,7 @@ The `fromAddress` property is the [benchmark address](#benchmark-address) while 
 
 ## The _submitTransaction_ function
 
-The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`ConnectorInterface`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/connector-interface.js). Its `getType()` function returns the `fabric` string value.
+The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`ConnectorInterface`](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/common/core/connector-interface.js). Its `getType()` function returns the `fabric` string value.
 
 The `sendRequests` method of the connector API allows the workload module to submit requests to the SUT. It takes a single parameter: an object or array of objects containing the settings of the requests.
 
@@ -272,7 +272,7 @@ To query a state on a contract state, set the `readOnly` attribute to `true`. Th
 
 # Transaction Data Gathered by the Adapter
 
-The previously discussed  `invokeSmartContract` and `queryState` functions return an array whose elements correspond to the result of the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
+The previously discussed  `invokeSmartContract` and `queryState` functions return an array whose elements correspond to the result of the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
 
 The standard information provided by the type are the following:
 * `GetID():string` returns the transaction ID for `invokeSmartContract`, `null` for `queryState` and `querySmartContract`.

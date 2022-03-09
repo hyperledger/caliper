@@ -50,7 +50,7 @@ monitor:
 Each declared monitor must be accompanied by a block that describes the required configuration of the monitor.
 
 ### Process Monitor
-The process monitor definition consists of an array of `[command, arguments, multiOutput]` key:value pairs. 
+The process monitor definition consists of an array of `[command, arguments, multiOutput]` key:value pairs.
 - command: names the parent process to monitor
 - arguments: filters on the parent process being monitored
 - multiOutput: enables handling of the discovery of multiple processes and may be one of:
@@ -62,7 +62,7 @@ The following declares the monitoring of all local `node` processes that match `
 monitor:
   type:
   - process
-  process:  
+  process:
   - command: node
     arguments: fabricClientWorker.js
     multiOutput: avg
@@ -70,12 +70,12 @@ monitor:
 ### Docker Monitor
 The docker monitor definition consists of an array of container names that may relate to local or remote docker containers that are listed under a name label. If all local docker containers are to be monitored, this may be achieved by providing `all` as a name
 
-The following declares the monitoring of two named docker containers; one local and the other remote. 
+The following declares the monitoring of two named docker containers; one local and the other remote.
 ```
 monitor:
   type:
   - docker
-  docker:  
+  docker:
     name:
     - peer0.org1.example.com
     - http://192.168.1.100:2375/orderer.example.com
@@ -86,7 +86,7 @@ The following declares the monitoring of all local docker containers:
 monitor:
   type:
   - docker
-  docker:  
+  docker:
     name:
     - all
 ```
@@ -102,7 +102,7 @@ All data stored on Prometheus may be queried by Caliper using the Prometheus que
 The prometheus monitor definition consists of:
 - url: The Prometheus URL, used for direct queries
 - push_url: The Prometheus Push Gateway URL
-- metrics: The queries to be run for inclusion within the Caliper report, comprised of to keys: `ignore` and `include`. 
+- metrics: The queries to be run for inclusion within the Caliper report, comprised of to keys: `ignore` and `include`.
   - `ignore` a string array that is used as a blacklist for report results. Any results where the component label matches an item in the list, will *not* be included in a generated report.
   - `include` a series of blocks that describe the queries that are to be run at the end of each Caliper test.
 
@@ -121,7 +121,7 @@ The following declares a Prometheus monitor that will run two bespoke queries be
 monitor:
   type:
   - prometheus
-  prometheus:  
+  prometheus:
 	url: "http://localhost:9090"
 	push_url: "http://localhost:9091"
   metrics:
@@ -130,12 +130,12 @@ monitor:
 	    Endorse Time (s):
 		    query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[5m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[5m])
 		    step: 1
-		    label: instance		
+		    label: instance
 		    statistic: avg
 	    Max Memory (MB):
 		    query: sum(container_memory_rss{name=~".+"}) by (name)
 		    step: 10
-		    label: name		
+		    label: name
 		    statistic: max
 		    multiplier: 0.000001
 ```
@@ -145,7 +145,7 @@ The two queries above will be listed in the generated report as "Endorse Time (s
 
 
 #### Obtaining a Prometheus Enabled Network
-A sample network that includes a docker-compose file for standing up a Prometheus server, a Prometheus PushGateway and a linked Grafana analytics container, is available within the companion [caliper-benchmarks repository](https://github.com/hyperledger/caliper-benchmarks/tree/master/networks/prometheus-grafana).
+A sample network that includes a docker-compose file for standing up a Prometheus server, a Prometheus PushGateway and a linked Grafana analytics container, is available within the companion [caliper-benchmarks repository](https://github.com/hyperledger/caliper-benchmarks/tree/v0.2.0/networks/prometheus-grafana).
 
 
 ## Observers
@@ -196,7 +196,7 @@ Grafana is an analytics platform that may be used to query and visualize metrics
  - caliper_txn_failure
  - caliper_txn_pending
 
- Each of the above are sent to the PushGateway, tagged with the following labels: 
+ Each of the above are sent to the PushGateway, tagged with the following labels:
   - instance: the current test label
   - round: the current test round
   - client: the client identifier that is sending the information

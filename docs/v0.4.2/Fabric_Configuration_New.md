@@ -53,7 +53,7 @@ would select the new connector and the file must conform to the new network conf
 This page introduces the Fabric adapter that utilizes the Common Connection Profile (CCP) feature of the Fabric SDK to provide compatibility and a unified programming model across different Fabric versions.
 
 > The latest supported version of Hyperledger Fabric is v2.x
-> The ability to discover can only be used if you use the `gateway` option 
+> The ability to discover can only be used if you use the `gateway` option
 
 The adapter exposes many SDK features directly to the user callback modules, making it possible to implement complex scenarios.
 
@@ -81,7 +81,7 @@ The ability to create channels and perform install/instantiate of contracts (cha
 
 ### Common settings
 
-Some runtime properties of the adapter can be set through Caliper's [runtime configuration mechanism](./Runtime_Configuration.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
+Some runtime properties of the adapter can be set through Caliper's [runtime configuration mechanism](./Runtime_Configuration.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
 
 The above settings are processed when starting Caliper. Modifying them during testing will have no effect. However, you can override the default values _before Caliper starts_ from the usual configuration sources.
 
@@ -121,13 +121,13 @@ The [workload modules](./Workload_Module.md) interact with the adapter at three 
 
 See the [corresponding documentation](./Workload_Module.md#initializeworkloadmodule) of the function for the description of its parameters.
 
-The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain's connector. The context object provided by this connector is a `FabricNetwork` instance that provides simple string-based "queries" and results about the network topology, so user callbacks can be implemented in a more general way.
+The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain's connector. The context object provided by this connector is a `FabricConnectorContext` instance but this doesn't provide anything of use at this time.
 
-For the current details/documentation of the API, refer to the [source code](https://github.com/hyperledger/caliper/blob/master/packages/caliper-fabric/lib/fabricNetwork.js).
+For the current details/documentation of the API, refer to the [source code](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-fabric/lib/FabricConnectorContext.js).
 
 ### The `submitTransaction` function
 
-The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`ConnectorInterface`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/connector-interface.js). Its `getType()` function returns the `fabric` string value.
+The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`ConnectorInterface`](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-core/lib/common/core/connector-interface.js). Its `getType()` function returns the `fabric` string value.
 
 The `sendRequests` method of the connector API allows the workload module to submit requests to the SUT. It takes a single parameter: an object or array of objects containing the settings of the requests.
 
@@ -141,7 +141,7 @@ The settings object has the following structure:
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If not provided a user will be selected from the organization defined by `invokerMspId` or the first organization in the network configuration file if that property is not provided
 * `invokerMspId`: _string. Optional._ The mspid of the user organization who should invoke the contract. Defaults to the first organization in the network configuration file.
 * `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will be chosen for you. If discovery is used then the node sdk uses discovery to determine the correct peers.
-* `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and 
+* `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and
 are specified then targetPeers will take precedence
 * `orderer`: _string. Optional._ The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be automatically selected.
 * `channel`: _string. Optional._ The name of the channel on which the contract to call resides.
@@ -165,7 +165,7 @@ await this.sutAdapter.sendRequests(requestSettings);
 
 ## Gathered TX data
 
-The previously discussed  `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
+The previously discussed  `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
 
 The standard data provided are the following:
 * `GetID():string` returns the transaction ID.
@@ -289,8 +289,8 @@ Contains runtime information for Caliper. Can contain the following keys.
          sutOptions:
            mutualTls: true
        ```
-      </details>   
-   </details>   
+      </details>
+   </details>
 
 *  <details><summary markdown="span">__command__
    </summary>
@@ -401,7 +401,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
      - mspid: Org1MSP
      connectionProfile:
       path: './test/sample-configs/Org1ConnectionProfile.yaml'
-      discover: true     
+      discover: true
    ```
    *  <details><summary markdown="span">__path__
       </summary>
@@ -501,8 +501,8 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
 
        *  <details><summary markdown="span">__name__
           </summary>
-          _Required. Non-empty string._ <br>  
-          Specifies a name to associate with this identity. This name doesn't have to match anything within the certificate itself but must be unique  
+          _Required. Non-empty string._ <br>
+          Specifies a name to associate with this identity. This name doesn't have to match anything within the certificate itself but must be unique
 
           ```yaml
           certificates:
@@ -511,8 +511,8 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
 
        *  <details><summary markdown="span">__admin__
           </summary>
-          _Optional. Boolean._ <br> 
-          Indicates if this identity can be considered an admin identity for the organization. Defaults to false if not provided 
+          _Optional. Boolean._ <br>
+          Indicates if this identity can be considered an admin identity for the organization. Defaults to false if not provided
           This only needs to be provided if you plan to create channels and/or install and instantiate contracts (chaincode)
 
           ```yaml
@@ -524,7 +524,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
        *  <details><summary markdown="span">__clientPrivateKey__
           </summary>
           _Required. Non-empty object._ <br>
-          Specifies the identity's private key for the organization. 
+          Specifies the identity's private key for the organization.
           > Must contain __at most one__ of the following keys.
 
           *  <details><summary markdown="span">__path__
@@ -558,7 +558,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
        *  <details><summary markdown="span">__clientSignedCert__
           </summary>
           _Required. Non-empty object._ <br>
-          Specifies the identity's certificate for the organization. 
+          Specifies the identity's certificate for the organization.
           > Must contain __at most one__ of the following keys.
 
           *  <details><summary markdown="span">__path__
@@ -599,7 +599,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
              </details>
           </details>
        </details>
-   
+
     *  <details><summary markdown="span">wallet
        </summary>
        _Optional. Non-empty object_ <br>
@@ -608,7 +608,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
        *  <details><summary markdown="span">__path__
           </summary>
           _Required. Non-empty string._ <br>
-          The path to the file system wallet 
+          The path to the file system wallet
 
           ```yaml
           identities:
@@ -616,7 +616,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
               path: './wallets/org1wallet'
           ```
           </details>
-       
+
        *  <details><summary markdown="span">__adminNames__
           </summary>
           _Oprional. List of strings._ <br>
@@ -629,10 +629,10 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
               path: './wallets/org1wallet'
               adminNames:
               - admin
-              - another_admin          
+              - another_admin
           ```
           </details>
-       
+
        </details>
    </details>
 </details>
@@ -700,7 +700,7 @@ channels:
    ...
    - channelName: somechannel
      create:
-       prebuiltTransaction: 'channel.tx'   
+       prebuiltTransaction: 'channel.tx'
    ...
    ```
    > Must contain __at most one__ of the following keys.
@@ -714,7 +714,7 @@ channels:
       channels:
       - channelName: somechannel
         create:
-          prebuiltTransaction: 'channel.tx'   
+          prebuiltTransaction: 'channel.tx'
       ```
       </details>
 
@@ -839,7 +839,7 @@ channels:
          </summary>
          _Required. Non-empty string._ <br>
          The version string of the contract.
- 
+
          ```yaml
          channels:
            mychannel:
@@ -919,7 +919,7 @@ channels:
               key1: value1
               key2: value2
             endorsementPolicy: ''
-            collectionsConfig: ''      
+            collectionsConfig: ''
       ```
       *  <details><summary markdown="span">__initArguments__
          </summary>
@@ -967,7 +967,7 @@ channels:
       *  <details><summary markdown="span">__collectionsConfig__
          </summary>
          _Optional. Non-empty, non-sparse array of objects._ <br>
-         List of private collection definitions for the contract or a path to the JSON file containing the definitions. For details about the content of such definitions, refer to the [SDK page](https://fabric-sdk-node.github.io/release-1.4/tutorial-private-data.html).
+         List of private collection definitions for the contract or a path to the JSON file containing the definitions. For details about the content of such definitions, refer to the [SDK page](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-private-data.html).
 
          ```yaml
          instantiate:
@@ -1022,7 +1022,7 @@ channels:
 
 The following example is a Fabric network configuration for the following network topology and artifacts:
 * two organizations `Org1MSP` and `Org2MSP`
-* one channel named `mychannel` 
+* one channel named `mychannel`
 * `marbles@v0` contract installed and instantiated in `mychannel` on every peer;
 * the nodes of the network use TLS communication, but not mutual TLS;
 * the local network is deployed and cleaned up automatically by Caliper.
@@ -1077,7 +1077,7 @@ channels:
           policy:
             2-of:
             - signed-by: 0
-            - signed-by: 1        
+            - signed-by: 1
 
 organizations:
   - mspid: Org1MSP
@@ -1103,7 +1103,7 @@ organizations:
     identities:
       certificates:
       - name: 'admin.org2.example.com'
-        admin: true      
+        admin: true
         clientPrivateKey:
           pem: |-
             -----BEGIN PRIVATE KEY-----

@@ -16,7 +16,6 @@ order: 6
   - [Prometheus Monitor](#prometheus-monitor)
     - [Configuring The Prometheus Monitor](#configuring-the-prometheus-monitor)
     - [Basic Auth](#basic-auth)
-    - [Obtaining a Prometheus Enabled Network](#obtaining-a-prometheus-enabled-network)
 - [Transaction](#transaction)
   - [Logging](#logging)
   - [Prometheus](#prometheus)
@@ -153,9 +152,6 @@ It is possible to use a Prometheus Server that is secured via basic authenticati
 - caliper-auth-prometheus-password
 
 These will be used to augment the configuration file based URL prior to making a connection.
-
-#### Obtaining a Prometheus Enabled Network
-A sample network that includes a docker-compose file for standing up a Prometheus server, a Prometheus PushGateway and a linked Grafana analytics container, is available within the companion [caliper-benchmarks repository](https://github.com/hyperledger/caliper-benchmarks/tree/master/networks/prometheus-grafana).
 
 ## Transaction
 Transaction monitors are used by Caliper workers to act on the completion of transactions. They are used internally to aggregate and dispatch transaction statistics to the manager process to enable transaction statistics aggregation for progress reporting via the default observer, and report generation.

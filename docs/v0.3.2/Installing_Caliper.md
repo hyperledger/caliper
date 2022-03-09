@@ -126,7 +126,7 @@ The following SUT name (column header) and SDK version (column value) combinatio
 
 The `bind` command is useful when you plan to run multiple benchmarks against the same SUT version. Bind once, then run different benchmarks without the need to bind again. As you will see in the next sections, the launcher commands for the master and worker processes can also perform the binding step if the required parameter is present.
 
-> __Note:__ the built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-cli/lib/lib/config.yaml). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. __This also means that we cannot provide help for such SDK versions!__
+> __Note:__ the built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/v0.3.2/packages/caliper-cli/lib/lib/config.yaml). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. __This also means that we cannot provide help for such SDK versions!__
 
 ### The unbind command
 

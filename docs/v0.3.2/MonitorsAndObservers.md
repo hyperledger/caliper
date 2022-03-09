@@ -69,7 +69,7 @@ The following declares the monitoring of all local `node` processes that match `
 monitor:
   type:
   - process
-  process: 
+  process:
     processes:
     - command: node
       arguments: fabricClientWorker.js
@@ -83,7 +83,7 @@ The following declares the monitoring of two named docker containers; one local 
 monitor:
   type:
   - docker
-  docker:  
+  docker:
     containers:
     - peer0.org1.example.com
     - http://192.168.1.100:2375/orderer.example.com
@@ -94,7 +94,7 @@ The following declares the monitoring of all local docker containers:
 monitor:
   type:
   - docker
-  docker:  
+  docker:
     containers:
     - all
 ```
@@ -130,7 +130,7 @@ The following declares a Prometheus monitor that will run two bespoke queries be
 monitor:
   type:
   - prometheus
-  prometheus:  
+  prometheus:
 	url: "http://localhost:9090"
 	push_url: "http://localhost:9091"
   metrics:
@@ -139,12 +139,12 @@ monitor:
 	    Endorse Time (s):
 		    query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[5m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[5m])
 		    step: 1
-		    label: instance		
+		    label: instance
 		    statistic: avg
 	    Max Memory (MB):
 		    query: sum(container_memory_rss{name=~".+"}) by (name)
 		    step: 10
-		    label: name		
+		    label: name
 		    statistic: max
 		    multiplier: 0.000001
 ```
@@ -154,7 +154,7 @@ The two queries above will be listed in the generated report as "Endorse Time (s
 
 
 #### Obtaining a Prometheus Enabled Network
-A sample network that includes a docker-compose file for standing up a Prometheus server, a Prometheus PushGateway and a linked Grafana analytics container, is available within the companion [caliper-benchmarks repository](https://github.com/hyperledger/caliper-benchmarks/tree/master/networks/prometheus-grafana).
+A sample network that includes a docker-compose file for standing up a Prometheus server, a Prometheus PushGateway and a linked Grafana analytics container, is available within the companion [caliper-benchmarks repository](https://github.com/hyperledger/caliper-benchmarks/tree/v0.3.2/networks/prometheus-grafana).
 
 
 ## Observers
@@ -245,7 +245,7 @@ monitor:
   type:
   - process
   process:
-    processes:    
+    processes:
     - command: node
       arguments: fabricClientWorker.js
       multiOutput: avg
@@ -264,7 +264,7 @@ The following declares the monitoring of all local docker containers, with chart
 monitor:
   type:
   - docker
-  docker:  
+  docker:
     containers:
     - all
     charting:
@@ -291,12 +291,12 @@ monitor:
         Endorse Time(s):
           query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[5m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[5m])
           step: 1
-          label: instance		
+          label: instance
           statistic: avg
         Max Memory(MB):
           query: sum(container_memory_rss{name=~".+"}) by (name)
           step: 10
-          label: name		
+          label: name
           statistic: max
           multiplier: 0.000001
     charting:
