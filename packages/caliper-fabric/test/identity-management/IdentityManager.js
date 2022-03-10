@@ -288,16 +288,16 @@ describe('An Identity Manager', () => {
 
         it('should throw an error if path specified for clientSignCert or clientPrivateKey does not exist', async () => {
             let badOrg1MSP = JSON.parse(JSON.stringify(org1MSPWithCertificates));
-            badOrg1MSP.identities.certificates[0].clientSignedCert.path = '/to/some/known/path/file';
+            badOrg1MSP.identities.certificates[0].clientSignedCert.path = '/to/some/known/path/cert';
             delete badOrg1MSP.identities.certificates[0].clientPrivateKey.path;
             badOrg1MSP.identities.certificates[0].clientPrivateKey.pem = '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----';
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a file that exists for clientSignedCert for name User1 in organization Org1MSP/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property \/to\/some\/known\/path\/cert does not point to a file that exists for clientSignedCert for name User1 in organization Org1MSP/);
 
             badOrg1MSP = JSON.parse(JSON.stringify(org1MSPWithCertificates));
-            badOrg1MSP.identities.certificates[0].clientPrivateKey.path = '/to/some/known/path/file';
+            badOrg1MSP.identities.certificates[0].clientPrivateKey.path = '/to/some/known/path/key';
             delete badOrg1MSP.identities.certificates[0].clientSignedCert.path;
             badOrg1MSP.identities.certificates[0].clientSignedCert.pem = '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----';
-            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a file that exists for clientPrivateKey for name User1 in organization Org1MSP/);
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property \/to\/some\/known\/path\/key does not point to a file that exists for clientPrivateKey for name User1 in organization Org1MSP/);
         });
 
         it('should throw an error if path specified for clientSignCert or clientPrivateKey does not appear to have valid PEM contents', async () => {
