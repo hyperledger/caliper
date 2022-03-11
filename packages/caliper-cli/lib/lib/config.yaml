@@ -52,8 +52,10 @@ sut:
         latest: *fisco-latest
 
     ethereum:
-        1.2.1: &ethereum-latest
+        1.2.1:
             packages: ['web3@1.2.2']
+        1.3: &ethereum-latest
+            packages: ['web3@1.3.0']
         latest: *ethereum-latest
 
     besu:
