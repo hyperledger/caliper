@@ -14,15 +14,15 @@ order: 2
 
 ## Overview
 
-Connectors are probably the most important modules in Caliper. They provide an abstraction layer between the system under test (SUT) and the different Caliper components (e.g., the manager and workers processes, or the workload modules). A connector's job is to simplify interaction with the SUT as much as possible, hiding any peculiarities behind its API. 
+Connectors are probably the most important modules in Caliper. They provide an abstraction layer between the system under test (SUT) and the different Caliper components (e.g., the manager and workers processes, or the workload modules). A connector's job is to simplify interaction with the SUT as much as possible, hiding any peculiarities behind its API.
 
 > __Note:__ To get a sense of how a connector fits into the Caliper architecture, see the corresponding architecture documentation sections about [multi-platform support](./Architecture.md#multi-platform-support), [the manager process](./Architecture.md#the-manager-process) and [the worker processes](./Architecture.md#the-worker-process).
 
-Caliper ships with some [predefined/built-in connectors](./Getting_Started.md#supported-blockchain-solutions), but in general, connectors are treated as pluggable components (just like resource and TX monitors, workload modules, etc.). So nothing stops you from implementing and using your 3rd party connector! However, we strongly recommend that you absorb every part of this guide before implementing a new connector.   
+Caliper ships with some [predefined/built-in connectors](./Getting_Started.md#supported-blockchain-solutions), but in general, connectors are treated as pluggable components (just like resource and TX monitors, workload modules, etc.). So nothing stops you from implementing and using your 3rd party connector! However, we strongly recommend that you absorb every part of this guide before implementing a new connector.
 
 ## Requirements for quality connectors
 
-A connector's complexity is usually proportional to the complexity of the SUT (and/or its programming model). Accordingly, connectors are considered heavy-weight components compared to other extension points in Caliper. 
+A connector's complexity is usually proportional to the complexity of the SUT (and/or its programming model). Accordingly, connectors are considered heavy-weight components compared to other extension points in Caliper.
 
 There are a few things to keep in mind when implementing a connector. Some are technical, some impact usability.
 
@@ -50,10 +50,10 @@ There are a few things to keep in mind when implementing a connector. Some are t
   * If assembling and sending a request takes time in the same order of magnitude as executing the request, then the results won't be representative. Sending requests is considered a hot path for connectors, and it should be as efficient as possible.
   * Using SDKs and widely known client libraries is an exception. Real client-side applications will probably do the same, so the library overheads must be incorporated into the request latencies. Do not micro-optimize by writing your own special-purpose SDK, just to push down the latency numbers!
   * Connector bottlenecks on the hot path will influence/limit the request output rate of Caliper worker processes. Caliper users won't be happy if they have to launch 10 worker processes just to send 100 requests per second to the SUT.
-  
-  
+
+
 > __A connector's job is to bridge the platform-agnostic Caliper-side API with the high-level SUT-specific client library, while adhering to the above points.__
-    
+
 
 ## Implementing the connector
 
@@ -65,7 +65,7 @@ You should treat a connector implementation process as a full-fledged Node.js pr
 
 ### The connector interface
 
-Once you add the `@hyperledger/caliper-core` package (or one of its specific versions) as your project dependency, you will gain access to its exported `ConnectorInterface` class, which declares the following [interface](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/connector-interface.js):
+Once you add the `@hyperledger/caliper-core` package (or one of its specific versions) as your project dependency, you will gain access to its exported `ConnectorInterface` class, which declares the following [interface](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/common/core/connector-interface.js):
 
 ```javascript
 class ConnectorInterface extends EventEmitter {
@@ -133,7 +133,7 @@ The interface is detailed in the next subsection, but for now, keep the followin
 * __Returns__ The promise that will resolve upon method completion.
 
 ##### `sendRequests`
-* __Description__ This method is the hot path of the connector, called in the worker processes by the workload modules of the rounds. The method must accept one or multiple settings objects pertaining to the request or requests that must be sent to the SUT. The connector doesn't have to preserve the order of execution for the requests, unless the target SUT type supports such request batches. The connector must gather at least the start time, finish time and final status (successful or failed) of every request through [TxStatus](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/transaction-status.js) instances.
+* __Description__ This method is the hot path of the connector, called in the worker processes by the workload modules of the rounds. The method must accept one or multiple settings objects pertaining to the request or requests that must be sent to the SUT. The connector doesn't have to preserve the order of execution for the requests, unless the target SUT type supports such request batches. The connector must gather at least the start time, finish time and final status (successful or failed) of every request through [TxStatus](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/common/core/transaction-status.js) instances.
 * __Parameters__
   * _requests_ (_object\|object[]_) One or more connector-specific settings object for the request(s).
 * __Return type__ _Promise<TxStatus\|TxStatus[]>_
@@ -141,7 +141,7 @@ The interface is detailed in the next subsection, but for now, keep the followin
 
 #### Exposed events
 
-The connector must expose the following events with names matching the defined [constants](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/utils/constants.js) for them. Without these events the Caliper scheduling mechanism won't function correctly, and other components might also rely on them (like TX monitors).
+The connector must expose the following events with names matching the defined [constants](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/common/utils/constants.js) for them. Without these events the Caliper scheduling mechanism won't function correctly, and other components might also rely on them (like TX monitors).
 
 ##### `txsSubmitted`
 * __Description__ The event must be raised when one or more requests are submitted for execution to the SUT. Typically the event should be raised for every individual request.
@@ -189,15 +189,15 @@ The following is a possible implementation of a factory method for our `fast-led
     'use strict';
 
     const FastLedgerConnector = require('./fast-ledger-connector');
-    
+
     async function ConnectorFactory(workerIndex) {
         const connector = new FastLedgerConnector(workerIndex, 'fast-ledger');
-        
+
         // initialize the connector for the worker processes
         if (workerIndex >= 0) {
             await connector.init(true);
         }
-        
+
         return connector;
     }
 
@@ -226,7 +226,7 @@ The `caliper.blockchain` attribute tells Caliper which connector to load for the
 
 The [binding](./Installing_Caliper.md#the-bind-command) command of Caliper allows you to specify major connector dependencies to be installed during runtime (instead of packaged with the connector during development time). SUT SDKs and other client libraries usually fall into this category (i.e., libraries that facilitate interactions with the SUT). If the APIs of such libraries are consistent across different versions, then your single connector implementation can possibly target multiple SUT versions.
 
-In that case, users should be able to select a specific SDK version that will target the corresponding SUT version. You can achieve this by providing a binding configuration file (JSON or YAML) for your connector. 
+In that case, users should be able to select a specific SDK version that will target the corresponding SUT version. You can achieve this by providing a binding configuration file (JSON or YAML) for your connector.
 
 ### Simple configuration
 
@@ -235,13 +235,13 @@ The schema of a general binding configuration is usually simple:
 ```yaml
 sut:
   fast-ledger:
-    1.0: 
+    1.0:
       packages: ['fast-ledger-sdk@1.0.0']
     1.4:
       packages: ['fast-ledger-sdk@1.4.5']
     2.0: &fast-ledger-latest
       packages: ['fast-ledger-sdk@2.0.0']
-    latest: *fast-ledger-latest 
+    latest: *fast-ledger-latest
 ```
 
 Several things to note about the above configuration:
@@ -252,11 +252,11 @@ Several things to note about the above configuration:
 5. Even though we declared `1.4` as SUT version, we asked Caliper to install the `1.4.5` SDK version. It's good practice to always bind to the latest available patch release, so users can enjoy the latest bug fixes for an SDK version.
 6. Many library management systems (like NPM and DockerHub) provide `latest` tags to denote the newest release. If you provide such a binding "version" for your connector, then users can bind your connector by using the simplified `--caliper-bind-sut fast-ledger` notation. You can easily refer to the binding version you deem latest using YAML anchors and aliases. Doing so will make your configuration easier to read and maintain.
 
-### Advanced configuration 
+### Advanced configuration
 
 Even though your connector supports multiple SUT versions on the implementation level, that doesn't mean that all versions can be equally supported in the same environment. A typical example would be to support older SUT versions, whose corresponding SDK packages fail to build "automagically" under newer Node.js version. The binding configuration provides some flexibility to tune the installation of these packages.
 
-Consider the following example, taken from the built-in [Caliper binding configuration](https://github.com/hyperledger/caliper/blob/master/packages/caliper-cli/lib/lib/config.yaml). The `1.1` SDK binding of the Fabric connector depends on a specific `grpc` package version. Starting from Node.js 10, there are no prebuilt binaries available for that package version. The package must be compiled from source, which doesn't happen automatically (for example, as a fallback mechanism). Moreover, the used compiler is strict by default, resulting in multiple compilation errors.
+Node modules can include native components which may have to be compiled on the system it will run on and against the specific version of node that is being used (some package owners make precompiled versions for specific platforms and versions of node available to download to avoid having to perform a local compilation). This means you will have to have appropriate compilers installed. Moreover, the used compiler is strict by default, resulting in multiple compilation errors.
 
 To circumvent such hardships, the binding configuration schema allows us to tinker with the install process by specifying command line arguments and environment variables (picked up by `npm install`). You can put such install logic under the `settings` attribute.
 
@@ -298,9 +298,9 @@ However, it can happen that not every SUT feature is supported by every binding.
 
 ### Runtime settings
 
-The network configuration file only describes the SUT topology and related artifacts. SUT-agnostic design choices can still arise during the development of a connector. Instead of deciding yourself, you should delegate such choices to the end users utilizing the [runtime configuration mechanism](./Runtime_Configuration.md) of Caliper where possible/meaningful. 
+The network configuration file only describes the SUT topology and related artifacts. SUT-agnostic design choices can still arise during the development of a connector. Instead of deciding yourself, you should delegate such choices to the end users utilizing the [runtime configuration mechanism](./Runtime_Configuration.md) of Caliper where possible/meaningful.
 
-Such settings typically affect the operating mode of the connector, but don't change the overall semantics of the SUT interactions. Be sure to document every available runtime setting for your connector! Also, don't forget to provide sensible defaults to these settings where possible. 
+Such settings typically affect the operating mode of the connector, but don't change the overall semantics of the SUT interactions. Be sure to document every available runtime setting for your connector! Also, don't forget to provide sensible defaults to these settings where possible.
 
 ### Request API
 
@@ -339,10 +339,10 @@ module.exports.ConnectorFactory = require('./lib/connectorFactory').ConnectorFac
   ```
 2. Set the `./fast-ledger/index.js` path for the `caliper.blockchain` attribute in your network configuration file. The path should be relative to the Caliper workspace directory, or an absolute path (not recommended for portability reasons). Caliper will load the module and the factory method from this path.
 3. If you support different bindings, then prepare a binding configuration file for your connector.
-4. When you launch Caliper, your connector implementation will be picked up through your network configuration file. 
+4. When you launch Caliper, your connector implementation will be picked up through your network configuration file.
 5. You can specify your custom binding configuration using, for example, the `--caliper-bind-file ./fast-ledger-binding.yaml` command line argument that points to your custom file. Don't forget to also specify the binding itself with `--caliper-bind-sut fast-ledger:1.0`.
 
-Alternatively, you can set your `caliper.blockchain` attribute to an NPM package name if you published your connector. In that case, you must ensure that the package is installed in the Caliper workspace directory prior to running the benchmark. The recommended naming convention for packages is `caliper-sut`. For our example, the `caliper.blockchain` attribute would be set to `caliper-fast-ledger`. 
+Alternatively, you can set your `caliper.blockchain` attribute to an NPM package name if you published your connector. In that case, you must ensure that the package is installed in the Caliper workspace directory prior to running the benchmark. The recommended naming convention for packages is `caliper-sut`. For our example, the `caliper.blockchain` attribute would be set to `caliper-fast-ledger`.
 
 > __Note:__ Until Caliper reaches its first major version, it is recommended to version your connector package based on which `@hyperledger/caliper-core` version you depend on.
 
@@ -354,12 +354,12 @@ If you would like to expose you connector to a wider user-base, then you should 
 
 > __Note:__ Don't hesitate to reach out to the project maintainers on Rocket.Chat (`#caliper-contributors` channel) who will help you with the integration.
 
-The integration consists of the following steps (for an example, see the [`caliper-ethereum`](https://github.com/hyperledger/caliper/tree/master/packages/caliper-ethereum) connector):
+The integration consists of the following steps (for an example, see the [`caliper-ethereum`](https://github.com/hyperledger/caliper/tree/main/packages/caliper-ethereum) connector):
 1. Create a `caliper-fast-ledger` directory in the `packages` directory of the repository. This will contain your connector implementation.
-2. Update your metadata in your own `package.json` file accordingly. The package name should be scoped: `@hyperledger/caliper-fast-ledger`. 
-3. If your connector supports binding, then you should list the dynamic packages in the `devDependencies` section, so they're not automatically installed with Caliper (since the users will rebind it anyway). Also, add your connector's binding specifications to the built-in [binding configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-cli/lib/lib/config.yaml).
+2. Update your metadata in your own `package.json` file accordingly. The package name should be scoped: `@hyperledger/caliper-fast-ledger`.
+3. If your connector supports binding, then you should list the dynamic packages in the `devDependencies` section, so they're not automatically installed with Caliper (since the users will rebind it anyway). Also, add your connector's binding specifications to the built-in [binding configuration file](https://github.com/hyperledger/caliper/blob/main/packages/caliper-cli/lib/lib/config.yaml).
 4. Add your new directory path to the root `lerna.json` file, under the `packages` section. This will ensure that your package is bootstrapped correctly for other developers (and for testing, publishing, etc.).
-5. Add your new package (by name) to the [Caliper CLI dependencies](https://github.com/hyperledger/caliper/blob/master/packages/caliper-cli/package.json).
+5. Add your new package (by name) to the [Caliper CLI dependencies](https://github.com/hyperledger/caliper/blob/main/packages/caliper-cli/package.json).
 6. List your connector as a built-in connector in the `caliper-utils.js` module, under the `BuiltinConnectors` variable:
   ```javascript
 const BuiltinConnectors = new Map([
@@ -367,7 +367,7 @@ const BuiltinConnectors = new Map([
     // other connectors...
 ]);
   ```
-7. It is highly recommended to provide [integration tests](https://github.com/hyperledger/caliper/tree/master/packages/caliper-tests-integration) for your connector.
+7. It is highly recommended to provide [integration tests](https://github.com/hyperledger/caliper/tree/main/packages/caliper-tests-integration) for your connector.
 8. Make sure that every code-related artifact (mostly `.js`, `.yaml` and `.md` files) contains the appropriate licence header!
 9. And you're done! Now users can refer to the connector as `fast-ledger` in their network configuration files. The connector package will be published automatically upon every merged PR.
 

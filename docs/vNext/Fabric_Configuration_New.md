@@ -65,7 +65,7 @@ Naturally, you can specify the above setting multiple ways (e.g., command line a
 
 ### Common settings
 
-Some runtime properties of the adapter can be set through Caliper's [runtime configuration mechanism](./Runtime_Configuration.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
+Some runtime properties of the adapter can be set through Caliper's [runtime configuration mechanism](./Runtime_Configuration.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
 
 The above settings are processed when starting Caliper. Modifying them during testing will have no effect. However, you can override the default values _before Caliper starts_ from the usual configuration sources.
 
@@ -94,13 +94,13 @@ The [workload modules](./Workload_Module.md) interact with the adapter at three 
 
 See the [corresponding documentation](./Workload_Module.md#initializeworkloadmodule) of the function for the description of its parameters.
 
-The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain's connector. The context object provided by this connector is a `FabricNetwork` instance that provides simple string-based "queries" and results about the network topology, so user callbacks can be implemented in a more general way.
+The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain's connector. The context object provided by this connector is a `FabricConnectorContext` instance but this doesn't provide anything of use at this time.
 
-For the current details/documentation of the API, refer to the [source code](https://github.com/hyperledger/caliper/blob/master/packages/caliper-fabric/lib/fabricNetwork.js).
+For the current details/documentation of the API, refer to the [source code](https://github.com/hyperledger/caliper/blob/main/packages/caliper-fabric/lib/FabricConnectorContext.js).
 
 ### The `submitTransaction` function
 
-The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`ConnectorInterface`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/connector-interface.js). Its `getType()` function returns the `fabric` string value.
+The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`ConnectorInterface`](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/common/core/connector-interface.js). Its `getType()` function returns the `fabric` string value.
 
 The `sendRequests` method of the connector API allows the workload module to submit requests to the SUT. It takes a single parameter: an object or array of objects containing the settings of the requests.
 
@@ -138,7 +138,7 @@ await this.sutAdapter.sendRequests(requestSettings);
 
 ## Gathered TX data
 
-The previously discussed  `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
+The previously discussed  `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
 
 The standard data provided are the following:
 * `GetID():string` returns the transaction ID.
@@ -937,7 +937,7 @@ channels:
       *  <details><summary markdown="span">__collectionsConfig__
          </summary>
          _Optional. Non-empty, non-sparse array of objects._ <br>
-         List of private collection definitions for the contract or a path to the JSON file containing the definitions. For details about the content of such definitions, refer to the [SDK page](https://fabric-sdk-node.github.io/release-1.4/tutorial-private-data.html).
+         List of private collection definitions for the contract or a path to the JSON file containing the definitions. For details about the content of such definitions, refer to the [SDK page](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-private-data.html).
 
          ```yaml
          instantiate:

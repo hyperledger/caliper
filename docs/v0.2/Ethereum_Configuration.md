@@ -55,7 +55,7 @@ We will provide an example of the configuration and then we'll in deep key by ke
 }
 ```
 
-The top-level `caliper` attribute specifies the type of the blockchain platform, so Caliper can instantiate the appropriate adapter when it starts. To use this adapter, specify the `ethereum` value for the `blockchain` attribute. 
+The top-level `caliper` attribute specifies the type of the blockchain platform, so Caliper can instantiate the appropriate adapter when it starts. To use this adapter, specify the `ethereum` value for the `blockchain` attribute.
 
 Furthermore, it also contains two optional commands: a `start` command to execute once before the tests and an `end` command to execute once after the tests. Using these commands is an easy way, for example, to automatically start and stop a test network. When connecting to an already deployed network, you can omit these commands.
 
@@ -228,7 +228,7 @@ Currently each method call inside `invokeData` is sent separately, that is, they
 ### Querying a contract
 
 To query a state on a contract state, call the `blockchain.querySmartContract` function that has exactly same arguments as the `blockchain.invokeSmartContract` function. The difference is that it can't produce any change on the blockchain and node will answer with its local view of data. For backward compatibility reasons also the `blockchain.queryState` is present. It takes five parameters: the previously saved `context` object, the `contractID` of the contract, an unused contract version, the `key` to request information on and `fcn` to point which function call on the contract. `fcn` function on the contract must accept exactly one parameter; the `key` string will be passed as that parameter. `fcn` can also be omitted and the adapter will search on the contract for a function called `query`.
-  
+
   > Querying a value in a contract is always counted in the workload. So keep it in mind that if you think to query a value when executing a workload.
 
 Querying a chaincode looks like the following:
@@ -256,7 +256,7 @@ Like invoke, currently there is not any support for batch calls.
 
 # Transaction Data Gathered by the Adapter
 
-The previously discussed  `invokeSmartContract` and `queryState` functions return an array whose elements correspond to the result of the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
+The previously discussed  `invokeSmartContract` and `queryState` functions return an array whose elements correspond to the result of the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/v0.2.0/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
 
 The standard information provided by the type are the following:
 * `GetID():string` returns the transaction ID for `invokeSmartContract`, `null` for `queryState` and `querySmartContract`.

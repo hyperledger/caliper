@@ -48,10 +48,10 @@ If some component (Caliper-related, or user provided) sets a setting during runt
 
 The simple configuration API is provided by the `ConfigUtil` module of the `@hyperledger/caliper-core` package. It exports a simple `get` and `set` method:
 
-* `get(key:string, fallbackValue:any) => any` 
+* `get(key:string, fallbackValue:any) => any`
 
     Returns the value of the setting associated with the given `key`. If the setting is not set from any sources, then the `fallbackValue` is returned.
-* `set(key:string, value:any)` 
+* `set(key:string, value:any)`
 
     Sets the `value` for the setting associated with the given `key`. It will overwrite any other value set by other sources.
 
@@ -65,7 +65,7 @@ const shouldBeFast = ConfigUtil.get('mymodule-performance-shoudbefast', /*defaul
 if (shouldBeFast) { /* ... */ } else { /* ... */ }
 ```
 
-The above code also shows how a custom user module/code can easily leverage Caliper's configuration mechanism. Since the `mymodule-performance-shoudbefast` setting is queried through the configuration API, setting it from various sources automatically became possible (see the next sections for details). 
+The above code also shows how a custom user module/code can easily leverage Caliper's configuration mechanism. Since the `mymodule-performance-shoudbefast` setting is queried through the configuration API, setting it from various sources automatically became possible (see the next sections for details).
 
 > Thus adding a flexible runtime setting to any module requires only to query that setting through the configuration API when you need it (with the desired default/fallback value).
 
@@ -143,7 +143,7 @@ Using configuration files is a standard way of overriding multiple settings in a
 
 Moreover, YAML-based configuration files allow comments that make your configuration choices self-documenting and self-contained.
 
-Note, that no additional transformation is performed on the key names of a YAML file, they are simply concatenated with `-` to get a flat string key from the object hierarchy. 
+Note, that no additional transformation is performed on the key names of a YAML file, they are simply concatenated with `-` to get a flat string key from the object hierarchy.
 
 So the hierarchical setting
 ```yaml
@@ -161,7 +161,7 @@ The project-level configuration file can be included into the hierarchy in two w
 * Define the overridden settings in the `caliper.yaml` file in the **workspace directory**
 * Or set the path of the configuration file explicitly through the `caliper-projectconfig` setting key using one of the higher priority locations above (i.e., command line argument or environment variable):
 
-  * The command line approach: 
+  * The command line approach:
     ```bash
     caliper launch master \
         --caliper-workspace yourworkspace/ \
@@ -169,7 +169,7 @@ The project-level configuration file can be included into the hierarchy in two w
         --caliper-networkconfig yournetwork.yaml \
         --Caliper-ProjectConfig mypath/project1-config.yaml
     ```
-  * The environment variable approach: 
+  * The environment variable approach:
     ```bash
     export CALIPER_PROJECTCONFIG=mypath/project1-config.yaml
     caliper launch master \
@@ -177,14 +177,14 @@ The project-level configuration file can be included into the hierarchy in two w
         --caliper-benchconfig yourconfig.yaml \
         --caliper-networkconfig yournetwork.yaml
     ```
-    
+
 Note that project-level settings will override the settings defined by the locations of the next sections.
 
 #### User-level
 
 If you find yourself overriding the same settings for multiple Caliper benchmark projects, then it is recommended to extract the common settings into a user-level configuration file. To include a user-level configuration file into the hierarchy, specify its path through the `caliper-userconfig` settings key using one of the higher priority locations above (i.e., command line argument, environment variable or the project-level configuration file):
 
-* The command line approach: 
+* The command line approach:
     ```bash
     caliper launch master \
         --caliper-workspace yourworkspace/ \
@@ -192,7 +192,7 @@ If you find yourself overriding the same settings for multiple Caliper benchmark
         --caliper-networkconfig yournetwork.yaml \
         --Caliper-UserConfig ~/.config/my-caliper-config.yaml
     ```
-* The environment variable approach: 
+* The environment variable approach:
     ```bash
     export CALIPER_USERCONFIG=~/.config/my-caliper-config.yaml
     caliper launch master \
@@ -200,7 +200,7 @@ If you find yourself overriding the same settings for multiple Caliper benchmark
         --caliper-benchconfig yourconfig.yaml \
         --caliper-networkconfig yournetwork.yaml
     ```
-* The configuration file approach (excerpt from the project-level configuration file): 
+* The configuration file approach (excerpt from the project-level configuration file):
     ```yaml
     caliper:
       userconfig: ~/.config/my-caliper-config.yaml
@@ -211,7 +211,7 @@ If you find yourself overriding the same settings for multiple Caliper benchmark
 
 If multiple users use the same workstation and want to share common settings across Caliper projects and users, then a machine-level configuration file can be included into the hierarchy by specifying its path through the `caliper-machineconfig` settings key using one of the higher priority locations above (i.e., command line argument, environment variable, project- or user-level configuration files):
 
-* The command line approach: 
+* The command line approach:
     ```bash
     caliper launch master \
         --caliper-workspace yourworkspace/ \
@@ -219,7 +219,7 @@ If multiple users use the same workstation and want to share common settings acr
         --caliper-networkconfig yournetwork.yaml \
         --Caliper-MachineConfig /etc/config/caliper.yaml
     ```
-* The environment variable approach: 
+* The environment variable approach:
     ```bash
     export CALIPER_MACHINECONFIG=/etc/config/caliper.yaml
     caliper launch master \
@@ -227,7 +227,7 @@ If multiple users use the same workstation and want to share common settings acr
         --caliper-benchconfig yourconfig.yaml \
         --caliper-networkconfig yournetwork.yaml
     ```
-* The configuration file approach (excerpt from the project- or user-level configuration file): 
+* The configuration file approach (excerpt from the project- or user-level configuration file):
     ```yaml
     caliper:
       machineconfig: /etc/config/caliper.yaml
@@ -240,7 +240,7 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 
 ## Available settings
 
-> Always refer to the self-documenting [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/config/default.yaml) for the currently supported runtime configuration settings.
+> Always refer to the self-documenting [default configuration file](https://github.com/hyperledger/caliper/blob/v0.3.2/packages/caliper-core/lib/common/config/default.yaml) for the currently supported runtime configuration settings.
 
 ### Basic settings
 

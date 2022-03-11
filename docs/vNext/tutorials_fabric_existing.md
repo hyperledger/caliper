@@ -84,7 +84,7 @@ Common Connection Profiles are a file format by which all the Hyperledger Fabric
 
 A Common Connection Profile will be organization specific. So each organization will have their own unique file. Again the network provider should provide a file for each organization.
 
-These profiles can come in 2 forms termed `static` or `dynamic` in the Hyperledger Fabric documentation. In summary `static` connection profiles contain all the information up front about the fabric network. It contains, amonst other things, all the peers, orderers and channels that exist. A `dynamic` connection profile is minimal usually containing (plus a client section to say which organization the client is in) just 1 or 2 peers of your organization for which the SDK will need to use discovery with in order to determine all the required information to be able to interact with the fabric network.
+These profiles can come in 2 forms termed `static` or `dynamic` in the Hyperledger Fabric documentation. In summary `static` connection profiles contain all the information up front about the fabric network. It contains, amonst other things, all the peers, orderers and channels that exist. A `dynamic` connection profile is minimal usually containing just 1 or 2 peers of your organization for which the SDK will need to use discovery with in order to determine all the required information to be able to interact with the fabric network.
 
 You will see that the `test-network` in fabric samples provides common connection profiles for each organization, and that they are dynamic connection profiles.
 

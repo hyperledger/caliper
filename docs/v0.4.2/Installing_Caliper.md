@@ -21,7 +21,7 @@ Installing and running Caliper usually consists of the following steps, thorough
 2. Execute a _bind_ command through the CLI. This step pulls the specified version of SDK packages for the selected platform.
 3. Start the benchmark through the CLI or by starting the Docker container.
 
-The examples in the rest of the documentation use the [caliper-benchmarks](https://github.com/hyperledger/caliper-benchmarks) repository as the Caliper _workspace_ since it contains many sample artifacts for benchmarking. 
+The examples in the rest of the documentation use the [caliper-benchmarks](https://github.com/hyperledger/caliper-benchmarks) repository as the Caliper _workspace_ since it contains many sample artifacts for benchmarking.
 
 > **Important:** make sure you check out the appropriate tag/commit of the repository, matching the version of Caliper you use.
 
@@ -113,7 +113,7 @@ The following SUT name and SDK version combinations are supported:
 
 The `bind` command is useful when you plan to run multiple benchmarks against the same SUT version. Bind once, then run different benchmarks without the need to bind again. As you will see in the next sections, the launcher commands for the manager and worker processes can also perform the binding step if the required parameter is present.
 
-> __Note:__ the built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-cli/lib/lib/config.yaml), documented [here](./Writing_Connectors.md#binding-configuration). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. __This also means that we cannot provide help for such SDK versions!__
+> __Note:__ the built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-cli/lib/lib/config.yaml), documented [here](./Writing_Connectors.md#binding-configuration). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. __This also means that we cannot provide help for such SDK versions!__
 
 ### The unbind command
 
@@ -230,7 +230,7 @@ But why is all this important to you? Because Caliper is still in its pre-releas
 
 Now that we ignored the tags, let's see the two types of version numbers you will encounter:
 * `0.2.0`: Version numbers of this form denote releases deemed _stable_ by the maintainers. Such versions have a corresponding GitHub tag, both in the `caliper` and `caliper-benchmarks` repositories. Moreover, the latest stable version is documented by the matching version of the documentation page. So make sure to align the different versions if you run into some issue.
-* `0.4.0-unstable-20200206065953`: Such version "numbers" denote _unstable_ releases that are published upon every merged pull request (hence the timestamp at the end), and eventually will become a stable version, e.g., `0.4.0`. This way you always have access to the NPM (and Docker) artifacts pertaining to the `master` branch of the repository. Let's find and fix the bugs of new features before they make it to the stable release!
+* `0.4.0-unstable-20200206065953`: Such version "numbers" denote _unstable_ releases that are published upon every merged pull request (hence the timestamp at the end), and eventually will become a stable version, e.g., `0.4.0`. This way you always have access to the NPM (and Docker) artifacts pertaining to the `main` branch of the repository. Let's find and fix the bugs of new features before they make it to the stable release!
 
 > __Note:__ The newest unstable release always corresponds to the up-to-date version of the related repositories, and the `vNext` version of the documentation page!
 

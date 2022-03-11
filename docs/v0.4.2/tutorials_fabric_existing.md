@@ -1,9 +1,9 @@
 ---
 layout: v0.4.2
 title:  "Setting up and Running a Performance Benchmark on an existing network"
-categories: 
+categories:
 permalink: /v0.4.2/fabric-tutorial/tutorials-fabric-existing/
-order: 
+order:
 ---
 ## Table of Contents
 {:.no_toc}
@@ -12,11 +12,11 @@ order:
 {:toc}
 
 ## Overview
-This tutorial takes you through performance testing a smart contract on a pre-existing Fabric network using Caliper. 
+This tutorial takes you through performance testing a smart contract on a pre-existing Fabric network using Caliper.
 
 To complete this tutorial you will need to have installed NodeJS. To do this, we recommend using [nvm](https://github.com/nvm-sh/nvm).
 
-This tutorial is based on resources available from the official [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-2.2/tutorials.html). A network comprised of two organizations and a solo orderer, with the javascript `asset-transfer-basic` smart contract, is assumed to be built and ready to performance test. 
+This tutorial is based on resources available from the official [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-2.2/tutorials.html). A network comprised of two organizations and a solo orderer, with the javascript `asset-transfer-basic` smart contract, is assumed to be built and ready to performance test.
 
 > The following command list is a minimalist quick step guide to get the required Fabric network up and running. __We use available Hyperledger Fabric resources at explicit levels. To understand and troubleshoot what occurs during the creation of the test network, please refer to the Fabric documentation linked above!__
 
@@ -48,13 +48,13 @@ Bind the SDK using the following terminal command:
 Further information relating to the installation and binding of Caliper may be found within the relevant [documentation pages](./Installing_Caliper.md).
 
 Caliper requires two configuration files:
-- The network configuration file, which describes the network under test and provides the test identities to use. 
-- The benchmark file, which defines the performance test to be completed via a sequenced set of test rounds, each specifying a workload module and a series of options to drive the workload over a time interval. 
+- The network configuration file, which describes the network under test and provides the test identities to use.
+- The benchmark file, which defines the performance test to be completed via a sequenced set of test rounds, each specifying a workload module and a series of options to drive the workload over a time interval.
 
-We will now populate these folders with the assets required by Caliper. 
+We will now populate these folders with the assets required by Caliper.
 
 ## Step 2 - Build a Network Configuration File
-The network configuration file is the file required by Caliper workers to be able to submit and evaluate transactions on a Hyperledger Fabric network. The file can be in YAML or JSON format, this tutorial shows the YAML format. 
+The network configuration file is the file required by Caliper workers to be able to submit and evaluate transactions on a Hyperledger Fabric network. The file can be in YAML or JSON format, this tutorial shows the YAML format.
 
 ### Create a Template Network Configuration File
 Under the **networks** folder create a template file called **networkConfig.yaml** with the following content:
@@ -80,25 +80,25 @@ __channels__: Describes the Hyperledger Fabric channels and the smart contracts 
 __organizations__: A list of the Hyperledger Fabric organizations with identities and connection profiles associated with each organization
 
 ### A brief introduction to Common Connection Profiles (CCP)
-Common Connection Profiles are a file format by which all the Hyperledger Fabric SDKs can use to connect to a Hyperledger Fabric Network. As Caliper utilizes the fabric node sdk to connect to the network, caliper makes use of these connection profiles. Whoever is responsible for building a Hyperledger Fabric network should create these files. 
+Common Connection Profiles are a file format by which all the Hyperledger Fabric SDKs can use to connect to a Hyperledger Fabric Network. As Caliper utilizes the fabric node sdk to connect to the network, caliper makes use of these connection profiles. Whoever is responsible for building a Hyperledger Fabric network should create these files.
 
-A Common Connection Profile will be organization specific. So each organization will have their own unique file. Again the network provider should provide a file for each organization. 
+A Common Connection Profile will be organization specific. So each organization will have their own unique file. Again the network provider should provide a file for each organization.
 
-These profiles can come in 2 forms termed `static` or `dynamic` in the Hyperledger Fabric documentation. In summary `static` connection profiles contain all the information up front about the fabric network. It contains, amonst other things, all the peers, orderers and channels that exist. A `dynamic` connection profile is minimal usually containing (plus a client section to say which organization the client is in) just 1 or 2 peers of your organization for which the SDK will need to use discovery with in order to determine all the required information to be able to interact with the fabric network.
+These profiles can come in 2 forms termed `static` or `dynamic` in the Hyperledger Fabric documentation. In summary `static` connection profiles contain all the information up front about the fabric network. It contains, amonst other things, all the peers, orderers and channels that exist. A `dynamic` connection profile is minimal usually containing just 1 or 2 peers of your organization for which the SDK will need to use discovery with in order to determine all the required information to be able to interact with the fabric network.
 
 You will see that the `test-network` in fabric samples provides common connection profiles for each organization, and that they are dynamic connection profiles.
 
 ### Populating The Template File
-Following the test-network tutorial, a Common Connection Profile is generated as well as a set of identities for each organization. 
+Following the test-network tutorial, a Common Connection Profile is generated as well as a set of identities for each organization.
 
 We will be using Org1 whose MSP id is `Org1MSP` to connect in this example, so there is no need to provide details about Org2 which is part of the test-network. Only having to provide a single organization is a very common pattern.
 
 #### Organizations
-Here we need to add information about the organization whose MSP id is `Org1MSP`. We need to provide a name, it's associated connection profile and at least 1 identity. 
+Here we need to add information about the organization whose MSP id is `Org1MSP`. We need to provide a name, it's associated connection profile and at least 1 identity.
 
 The connection profile can be found in **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com**. There are both json and yaml versions of this file, we will make use of  **connection-org1.yaml**. These connection profiles are what Hyperledger Fabric refer to as dynamic so they are expected to be used in conjunction with discovery, therefore we need to declare that this connection profile requires the use of discovery.
 
-The identity we will use will be `User1@org1.example.com`. 
+The identity we will use will be `User1@org1.example.com`.
 
 The private key can be found in **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **users** -> **User1** -> **msp** -> **keystore** -> **priv_sk**
 
@@ -142,7 +142,7 @@ channels:
 note the `-` sign in front of `channelName` and `id` in the above example. This is required because there can be more than 1 channel so channels specify a list of channels and contracts can have more than 1 contract (chaincode) ids that are of interest.
 
 ### The Complete Network Configuration File
-The Caliper network configuration file should now be fully populated. It can be useful to take time to look over and ensure that the paths to the certificates, private keys and connection profile are correct. 
+The Caliper network configuration file should now be fully populated. It can be useful to take time to look over and ensure that the paths to the certificates, private keys and connection profile are correct.
 
 ```yaml
 name: Calier test
@@ -171,7 +171,7 @@ organizations:
 ```
 
 ## Step 3 - Build a Test Workload Module
-The workload module interacts with the deployed smart contract during the benchmark round. The workload module extends the Caliper class `WorkloadModuleBase` from `caliper-core`. The workload module provides three overrides: 
+The workload module interacts with the deployed smart contract during the benchmark round. The workload module extends the Caliper class `WorkloadModuleBase` from `caliper-core`. The workload module provides three overrides:
 - `initializeWorkloadModule` - used to initialize any required items for the benchmark
 - `submitTransaction` - used to interact with the smart contract method during the monitored phase of the benchmark
 - `cleanupWorkloadModule` - used to clean up after the completion of the benchmark
@@ -184,7 +184,7 @@ The workload we will be driving aims to benchmark the querying of existing asset
 - `cleanupWorkloadModule` - used to remove assets created in the `initializeWorkloadModule` phase so that the benchmark may be repeated
 
 ### Create A Template Workload Module
-Within the **workload** folder create a file called **readAsset.js** with the following content: 
+Within the **workload** folder create a file called **readAsset.js** with the following content:
 
 ``` js
 'use strict';
@@ -195,15 +195,15 @@ class MyWorkload extends WorkloadModuleBase {
     constructor() {
         super();
     }
-    
+
     async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
         await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
     }
-    
+
     async submitTransaction() {
         // NOOP
     }
-    
+
     async cleanupWorkloadModule() {
         // NOOP
     }
@@ -220,7 +220,7 @@ module.exports.createWorkloadModule = createWorkloadModule;
 When we populate this file we make reference to the available methods within the deployed smart contract **assetTransfer.js** file that can be found in: **fabric-samples** -> **asset-transfer-basic** -> **chaincode-javascript** -> **lib** -> **assetTransfer.js**
 
 #### Populate initializeWorkloadModule
-This method is used to prepare any items required by the primary `submitTransaction` method as the benchmark completes. 
+This method is used to prepare any items required by the primary `submitTransaction` method as the benchmark completes.
 
 The number of assets to be created will be given as `roundArguments.assets`. We create assets using the smart contract by populating an arguments object, which defines the transaction body, and using the Caliper API `sendRequests`, which requires knowledge of:
 - contractId, the name of smart contract that is to be used and is present within the Caliper network configuration file
@@ -253,11 +253,11 @@ The method should look like this:
 In the above example, different assets will be created that have the same parameters (blue, 20, penguin, 500). Comparing the above to the smart contract method itself, it should be evident that there is a 1:1 mapping of contract arguments to the method parameters.
 
 #### Populate submitTransaction
-This method runs repeatedly in the benchmark test phase. We will be evaluating the `ReadAsset` smart contract method by querying the assets we created in the `initializeWorkloadModule` method. 
+This method runs repeatedly in the benchmark test phase. We will be evaluating the `ReadAsset` smart contract method by querying the assets we created in the `initializeWorkloadModule` method.
 
-First, create a string identity for the asset to query, formed by the concatenation of the worker index and a random integer between 0 and the number of created assets. 
+First, create a string identity for the asset to query, formed by the concatenation of the worker index and a random integer between 0 and the number of created assets.
 
-Then await the call on `sendRequests`, passing an object containing: `contractId` set as that passed in from the round arguments; `contractFunction` set as `ReadAsset`; `invokerIdentity` set as `User1`; and `chaincodeArguments` set as an array that contains the asset to query in this run. 
+Then await the call on `sendRequests`, passing an object containing: `contractId` set as that passed in from the round arguments; `contractFunction` set as `ReadAsset`; `invokerIdentity` set as `User1`; and `chaincodeArguments` set as an array that contains the asset to query in this run.
 
 The method should look like this:
 ```js
@@ -272,7 +272,7 @@ The method should look like this:
         };
 
         await this.sutAdapter.sendRequests(myArgs);
-    } 
+    }
 ```
 
 #### Populate cleanupWorkloadModule
@@ -308,7 +308,7 @@ class MyWorkload extends WorkloadModuleBase {
     constructor() {
         super();
     }
-    
+
     async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
         await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
 
@@ -326,7 +326,7 @@ class MyWorkload extends WorkloadModuleBase {
             await this.sutAdapter.sendRequests(request);
         }
     }
-    
+
     async submitTransaction() {
         const randomId = Math.floor(Math.random()*this.roundArguments.assets);
         const myArgs = {
@@ -339,7 +339,7 @@ class MyWorkload extends WorkloadModuleBase {
 
         await this.sutAdapter.sendRequests(myArgs);
     }
-    
+
     async cleanupWorkloadModule() {
         for (let i=0; i<this.roundArguments.assets; i++) {
             const assetID = `${this.workerIndex}_${i}`;
@@ -367,7 +367,7 @@ module.exports.createWorkloadModule = createWorkloadModule;
 ## Step 4 - Build a Benchmark Configuration File
 The benchmark configuration file defines the benchmark rounds and references the defined workload module(s). It will specify the number of test workers to use when generating the load, the number of test rounds, the duration of each round, the rate control applied to the transaction load during each round, and options relating to monitors. This particular tutorial will not make use of any of the available monitors or transaction observers; for these details please refer to the documentation.
 
-The benchmark configuration file may be provided in a yaml or json format: here we will use a yaml format. Please note that yaml files are case sensitive and all labels are in lowercase. 
+The benchmark configuration file may be provided in a yaml or json format: here we will use a yaml format. Please note that yaml files are case sensitive and all labels are in lowercase.
 
 The benchmark configuration file has a single required stanza:
 
@@ -395,7 +395,7 @@ __description__: A description for the benchmark, in this case "A test benchmark
 
 __workers__: A set of keys used to define the number of workers (separate worker client instances) used in the subsequent benchmark.
 
-__rounds__: An array of distinct test rounds that will be progressed sequentially. Rounds may be used to benchmark different smart contract methods, or the same method in a different manner. 
+__rounds__: An array of distinct test rounds that will be progressed sequentially. Rounds may be used to benchmark different smart contract methods, or the same method in a different manner.
 
 ### Populating the Template File
 We will now populate the template file to specify the number of workers and the test round that uses the workload module we have created.
@@ -409,11 +409,11 @@ We will be using two separate workers, this is accomplished through the workers 
 ```
 
 #### Populate Rounds
-Each `round` block contains the following: 
+Each `round` block contains the following:
 - `label` - the unique header label to use for the round.
 - `description` - a description of the round being run.
 - `txDuration` - the specification of the test duration, in seconds
-- `rateControl` - a rate control type, with options. 
+- `rateControl` - a rate control type, with options.
 - `workload` - the workload module to use, with arguments to pass to the module. All arguments passed are available as `roundArguments` within the workload module.
 
 We will specify a benchmark round labeled `readAsset`, with the description `Query asset benchmark`, to run for a 30s duration, using a `fixed-load` rate controller aiming to maintain a constant transaction pressure of 2. Additionally we will be providing a workload through specification of our `readAsset.js` workload file, which we will pass the arguments `{assets: 10, contractId: asset-transfer-basic}`.
@@ -424,7 +424,7 @@ The above is accomplished through the round specification:
     - label: readAsset
       description: Read asset benchmark
       txDuration: 30
-      rateControl: 
+      rateControl:
         type: fixed-load
         opts:
           transactionLoad: 2
@@ -449,7 +449,7 @@ test:
       - label: readAsset
         description: Read asset benchmark
         txDuration: 30
-        rateControl: 
+        rateControl:
           type: fixed-load
           opts:
             transactionLoad: 2
@@ -468,7 +468,7 @@ Since the smart contract has already been installed and instantiated, Caliper on
 As we are using a 2.2 SUT, we must specify to use the gateway capability because there is no non gateway version for the 2.x connectors, so specify the flag `--caliper-fabric-gateway-enabled`
 
 ### Run the command
-Ensure that you are in the **caliper-workspace** directory. 
+Ensure that you are in the **caliper-workspace** directory.
 
 In the terminal run the following Caliper CLI command:
 

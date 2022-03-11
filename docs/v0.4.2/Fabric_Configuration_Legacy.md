@@ -79,7 +79,7 @@ You must bind Caliper to a specific Fabric SDK to target the corresponding (or c
 
 ### Common settings
 
-Some runtime properties of the adapter can be set through Caliper's [runtime configuration mechanism](./Runtime_Configuration.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
+Some runtime properties of the adapter can be set through Caliper's [runtime configuration mechanism](./Runtime_Configuration.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
 
 The above settings are processed when starting Caliper. Modifying them during testing will have no effect. However, you can override the default values _before Caliper starts_ from the usual configuration sources.
 
@@ -119,11 +119,11 @@ See the [corresponding documentation](./Workload_Module.md#initializeworkloadmod
 
 The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain's connector. The context object provided by this connector is a `FabricNetwork` instance that provides simple string-based "queries" and results about the network topology, so user callbacks can be implemented in a more general way.
 
-For the current details/documentation of the API, refer to the [source code](https://github.com/hyperledger/caliper/blob/master/packages/caliper-fabric/lib/fabricNetwork.js).
+For the current details/documentation of the API, refer to the [source code](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-fabric/lib/fabricNetwork.js).
 
 ### The `submitTransaction` function
 
-The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`ConnectorInterface`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/connector-interface.js). Its `getType()` function returns the `fabric` string value.
+The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`ConnectorInterface`](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-core/lib/common/core/connector-interface.js). Its `getType()` function returns the `fabric` string value.
 
 The `sendRequests` method of the connector API allows the workload module to submit requests to the SUT. It takes a single parameter: an object or array of objects containing the settings of the requests.
 
@@ -137,9 +137,9 @@ The settings object has the following structure:
 * `transientMap`: _Map<string, byte[]>. Optional._ The transient map to pass to the contract.
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
 * `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will be chosen for you. If discovery is used then the node sdk uses discovery to determine the correct peers.
-* `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and 
+* `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and
 are specified then targetPeers will take precedence
-* `orderer`: _string. Optional._ The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be selected for use. 
+* `orderer`: _string. Optional._ The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be selected for use.
 * `channel`: _string. Optional._ The name of the channel on which the contract to call resides.
 
 So invoking a contract looks like the following:
@@ -162,7 +162,7 @@ await this.sutAdapter.sendRequests(requestSettings);
 
 ## Gathered TX data
 
-The previously discussed  `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
+The previously discussed  `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
 
 The standard data provided are the following:
 * `GetID():string` returns the transaction ID.
@@ -217,9 +217,7 @@ console.log(`TX [${shortID}] took ${executionTime}ms to execute. Result: ${resul
 
 ## Network configuration file reference
 
-The YAML network configuration file of the adapter builds upon the CCP of the Fabric SDK while adding some Caliper-specific extensions. The definitive documentation for the base CCP is the [corresponding Fabric SDK documentation page](https://fabric-sdk-node.github.io/master/tutorial-network-config.html). However, this page also includes the description of different configuration elements to make this documentation as self-contained as possible.
-
-The following sections detail each part separately. For a complete example, please refer to the [example section](#connection-profile-example) or one of the files in the [Caliper benchmarks](https://github.com/hyperledger/caliper-benchmarks/tree/master/networks/fabric) repository. Look for files in the `fabric-v*` directories that start with `fabric-*`.
+The YAML network configuration file of the adapter builds upon the CCP of the Fabric SDK while adding some Caliper-specific extensions. The definitive documentation for the base CCP is the [corresponding Fabric SDK documentation page](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-network-config.html). However, this page also includes the description of different configuration elements to make this documentation as self-contained as possible.
 
 > __Note:__ Unknown keys are not allowed anywhere in the configuration. The only exception is the `info` property and when network artifact names serve as keys (peer names, channel names, etc.).
 
@@ -470,7 +468,7 @@ A peer object (e.g., `peer0.org1.example.com`) can contain the following propert
    ```yaml
    peers:
      peer0.org1.example.com:
-       url: grpcs://localhost:7051   
+       url: grpcs://localhost:7051
    ```
    </details>
 
@@ -489,7 +487,7 @@ A peer object (e.g., `peer0.org1.example.com`) can contain the following propert
 *  <details><summary markdown="span">__grpcOptions__
    </summary>
    _Optional. Object._ <br>
-   The properties specified under this object set the gRPC settings used on connections to the Fabric network. See the available options in the [gRPC settings tutorial](https://fabric-sdk-node.github.io/master/tutorial-grpc-settings.html) of the Fabric SDK.
+   The properties specified under this object set the gRPC settings used on connections to the Fabric network. See the available options in the [gRPC settings tutorial](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-grpc-settings.html) of the Fabric SDK.
 
    ```yaml
    peers:
@@ -573,14 +571,14 @@ An orderer object (e.g., `orderer1.example.com`) can contain the following prope
    ```yaml
    orderers:
      orderer1.example.com:
-       url: grpcs://localhost:7050   
+       url: grpcs://localhost:7050
    ```
    </details>
 
 *  <details><summary markdown="span">__grpcOptions__
    </summary>
    _Optional. Object._ <br>
-   The properties specified under this object set the gRPC settings used on connections to the Fabric network. See the available options in the [gRPC settings tutorial](https://fabric-sdk-node.github.io/master/tutorial-grpc-settings.html) of the Fabric SDK.
+   The properties specified under this object set the gRPC settings used on connections to the Fabric network. See the available options in the [gRPC settings tutorial](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-grpc-settings.html) of the Fabric SDK.
 
    ```yaml
    orderers:
@@ -1436,7 +1434,7 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].collections-config__
       </summary>
       _Optional. Non-empty, non-sparse array of objects._ <br>
-      List of private collection definitions for the contract or a path to the JSON file containing the definitions. For details about the content of such definitions, refer to the [SDK page](https://fabric-sdk-node.github.io/release-1.4/tutorial-private-data.html).
+      List of private collection definitions for the contract or a path to the JSON file containing the definitions. For details about the content of such definitions, refer to the [SDK page](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-private-data.html).
 
       ```yaml
       channels:
@@ -1602,7 +1600,7 @@ channels:
       metadataPath: src/marbles/node/metadata
       init: []
       function: init
-      
+
       initTransientMap:
         pemContent: |
           -----BEGIN PRIVATE KEY-----
@@ -1611,7 +1609,7 @@ channels:
           V0BCfsl+ByVKUUdXypNrluQfm28AxX7sEDQLKtHVmuMi/BGaKahZ6Snk
           -----END PRIVATE KEY-----
         stringArg: this is also passed as a byte array
-        
+
       endorsement-policy:
         identities:
         - role:
