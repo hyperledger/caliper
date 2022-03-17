@@ -494,7 +494,7 @@ describe('A Connection Profile Definition', async () => {
             ]);
         });
 
-        it('should throw an error if no organizations property was found in the connectionProfile provided', async () => {
+        it('should throw an error if no organizations property was found in the connectionProfile provided', () => {
             const noOrgConnectionProfile = {
             };
             const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
@@ -508,7 +508,7 @@ describe('A Connection Profile Definition', async () => {
             );
         });
 
-        it('should throw an error if the org defined cannot be found in connectionProfile.organizations', async () => {
+        it('should throw an error if the org defined cannot be found in connectionProfile.organizations', () => {
             const noOrgConnectionProfile = {
                 organizations: {
                     Org2: {
@@ -530,7 +530,27 @@ describe('A Connection Profile Definition', async () => {
             );
         });
 
-        it('should throw an error if the org with Org1MSP listed in connectionProfile.organizations does not have any peers property', async () => {
+        it('should throw an error if the org defined has a peers property but it is empty', () => {
+            const noOrgConnectionProfile = {
+                organizations: {
+                    Org1: {
+                        mspid: 'Org1MSP',
+                        peers: []
+                    }
+                }
+            };
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: noOrgConnectionProfile,
+                discover: false
+            });
+            (() => {
+                connectionProfileDefinition.getPeersListForOrganization('Org1MSP');
+            }).should.throw(
+                'Org with mspid Org1MSP has a peers property but it is empty'
+            );
+        });
+
+        it('should throw an error if the org with Org1MSP listed in connectionProfile.organizations does not have any peers property', () => {
             const noOrgConnectionProfile = {
                 organizations: {
                     Org1: {
@@ -545,7 +565,7 @@ describe('A Connection Profile Definition', async () => {
             (() => {
                 connectionProfileDefinition.getPeersListForOrganization('Org1MSP');
             }).should.throw(
-                'Org with mspid "Org1MSP" listed in connectionProfile.organizations does not have any peers property'
+                'Org with mspid Org1MSP listed in connectionProfile.organizations does not have any peers property'
             );
         });
     });
@@ -707,7 +727,7 @@ describe('A Connection Profile Definition', async () => {
 
         const peer = 'peer0.org1.example.com';
 
-        it('should return the correct endpoint for a grpcs url', async () => {
+        it('should return the correct endpoint for a grpcs url', () => {
             const grpcsConnectionProfile = {
                 peers: {
                     'peer0.org1.example.com': {
@@ -722,7 +742,7 @@ describe('A Connection Profile Definition', async () => {
             connectionProfileDefinition.getGrpcEndPointForPeer(peer).should.deep.equal('localhost:7051');
         });
 
-        it('should return the correct endpoint for a grpc url', async () => {
+        it('should return the correct endpoint for a grpc url', () => {
             const grpcConnectionProfile = {
                 peers: {
                     'peer0.org1.example.com': {
@@ -737,7 +757,7 @@ describe('A Connection Profile Definition', async () => {
             connectionProfileDefinition.getGrpcEndPointForPeer(peer).should.deep.equal('localhost:7051');
         });
 
-        it('should throw an error if url provided is not a valid grpc/grpcs url', async () => {
+        it('should throw an error if url provided is not a valid grpc/grpcs url', () => {
             const wrongUrlConnectionProfile = {
                 peers: {
                     'peer0.org1.example.com': {
@@ -756,7 +776,7 @@ describe('A Connection Profile Definition', async () => {
             );
         });
 
-        it('should throw an error if peer specified was not provided in the connection Profile', async () => {
+        it('should throw an error if peer specified was not provided in the connection Profile', () => {
             const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
                 loadedConnectionProfile: noPeerConnectionProfile,
                 discover: false
@@ -768,7 +788,7 @@ describe('A Connection Profile Definition', async () => {
             );
         });
 
-        it('should throw an error if no peers property is found', async () => {
+        it('should throw an error if no peers property is found', () => {
             const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
                 loadedConnectionProfile: blankConnectionProfile,
                 discover: false
@@ -780,7 +800,7 @@ describe('A Connection Profile Definition', async () => {
             );
         });
 
-        it('should throw an error if no url property for peer is found', async () => {
+        it('should throw an error if no url property for peer is found', () => {
             const noUrlConnectionProfile = {
                 peers: {
                     'peer0.org1.example.com': {
@@ -794,7 +814,8 @@ describe('A Connection Profile Definition', async () => {
             (() => {
                 connectionProfileDefinition.getGrpcEndPointForPeer(peer);
             }).should.throw(
-                `${peer} provided does not have url property provided in the connection Profile`            );
+                `${peer} provided does not have url property provided in the connection Profile`
+            );
         });
     });
 
@@ -802,7 +823,7 @@ describe('A Connection Profile Definition', async () => {
 
         const peer = 'peer0.org1.example.com';
 
-        it('should return the defined grpcOptions if present', async () => {
+        it('should return the defined grpcOptions if present', () => {
             const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
                 loadedConnectionProfile: JSON.parse(connectionProfile.toString()),
                 discover: true
@@ -816,7 +837,7 @@ describe('A Connection Profile Definition', async () => {
             );
         });
 
-        it('should throw an error if peer specified was not provided in the connection Profile', async () => {
+        it('should throw an error if peer specified was not provided in the connection Profile', () => {
             const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
                 loadedConnectionProfile: noPeerConnectionProfile,
                 discover: false
@@ -828,7 +849,7 @@ describe('A Connection Profile Definition', async () => {
             );
         });
 
-        it('should throw an error if no peers property is found in the connection profile', async () => {
+        it('should throw an error if no peers property is found in the connection profile', () => {
             const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
                 loadedConnectionProfile: blankConnectionProfile,
                 discover: false
@@ -840,7 +861,7 @@ describe('A Connection Profile Definition', async () => {
             );
         });
 
-        it('should return an empty object if no grpcOptions property for the provided peer was found', async () => {
+        it('should return an empty object if no grpcOptions property for the provided peer was found', () => {
             const noGrpcOptionsConnectionProfile = {
                 peers: {
                     'peer0.org1.example.com': {
@@ -860,7 +881,7 @@ describe('A Connection Profile Definition', async () => {
 
         const peer = 'peer0.org1.example.com';
 
-        it('should return true for a grpcs url ', async () => {
+        it('should return true for a grpcs url ', () => {
             const grpcsConnectionProfile = {
                 peers: {
                     'peer0.org1.example.com': {
@@ -875,7 +896,7 @@ describe('A Connection Profile Definition', async () => {
             connectionProfileDefinition.isTLSRequiredForEndpoint(peer).should.deep.equal(true);
         });
 
-        it('should return false for a grpc url', async () => {
+        it('should return false for a grpc url', () => {
             const grpcConnectionProfile = {
                 peers: {
                     'peer0.org1.example.com': {
@@ -890,7 +911,7 @@ describe('A Connection Profile Definition', async () => {
             connectionProfileDefinition.isTLSRequiredForEndpoint(peer).should.deep.equal(false);
         });
 
-        it('should return false for a http url', async () => {
+        it('should return false for a http url', () => {
             const grpcConnectionProfile = {
                 peers: {
                     'peer0.org1.example.com': {
@@ -905,7 +926,7 @@ describe('A Connection Profile Definition', async () => {
             connectionProfileDefinition.isTLSRequiredForEndpoint(peer).should.deep.equal(false);
         });
 
-        it('should throw an error if no url property for peer is found', async () => {
+        it('should throw an error if no url property for peer is found', () => {
             const noUrlConnectionProfile = {
                 peers: {
                     'peer0.org1.example.com': {
@@ -924,7 +945,7 @@ describe('A Connection Profile Definition', async () => {
         });
 
 
-        it('should throw an error if peer specified was not provided in the connection Profile', async () => {
+        it('should throw an error if peer specified was not provided in the connection Profile', () => {
             const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
                 loadedConnectionProfile: noPeerConnectionProfile,
                 discover: false
@@ -936,7 +957,7 @@ describe('A Connection Profile Definition', async () => {
             );
         });
 
-        it('should throw an error if no peers property is found in the connection profile', async () => {
+        it('should throw an error if no peers property is found in the connection profile', () => {
             const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
                 loadedConnectionProfile: blankConnectionProfile,
                 discover: false
