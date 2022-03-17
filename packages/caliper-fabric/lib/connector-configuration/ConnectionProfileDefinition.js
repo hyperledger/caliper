@@ -229,7 +229,7 @@ class ConnectionProfileDefinition {
         }
 
         if (peerObj.tlsCACerts.pem) {
-            if (!peerObj.tlsCACerts.pem.startsWith('-----BEGIN ')) {
+            if (!peerObj.tlsCACerts.pem.toString().startsWith('-----BEGIN ')) {
                 throw new Error(`pem provided for ${peer} in the connection profile .tlsCACerts.pem is not valid`);
             }
             return peerObj.tlsCACerts.pem;

@@ -114,5 +114,5 @@ organizations:
             -----BEGIN CERTIFICATE-----
             -----END CERTIFICATE-----
     connectionProfile:
-      path: './test/sample-configs/StaticOrg2ConnectionProfile.json'
+      path: './test/sample-configs/Org2ConnectionProfile.yaml'
       discover: false
