@@ -89,9 +89,7 @@ class V1FabricGateway extends ConnectorBase {
         this.context = undefined;
 
         // this value is hardcoded, if it's used, that means that the provided timeouts are not sufficient
-        this.configSmallestTimeout = 1000;
         this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60);
-        this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
 
         // Gateway connector
         this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.LocalHost, true);
