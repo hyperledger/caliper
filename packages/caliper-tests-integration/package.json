@@ -88,7 +88,9 @@
             "fisco-bcos_tests/config/node3",
             "fisco-bcos_tests/config/sdk",
             "generator_tests/fabric/.gitignore",
-            "generator_tests/fabric/config/.gitignore"
+            "generator_tests/fabric/config/.gitignore",
+            "generator_tests/fabric/config/bin",
+            "generator_tests/fabric/config/config"
         ],
         "file_type_method": "EXCLUDE",
         "file_types": [
