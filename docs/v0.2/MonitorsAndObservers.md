@@ -8,16 +8,19 @@ order: 5
 
 ## Table of Contents
 
-* [Overview](#overview)
-* [Monitors](#monitors)
-  * [Process monitor](#process-monitor)
-  * [Docker monitor](#docker-monitor)
-  * [Prometheus monitor](#prometheus-monitor)
-* [Observers](#observers)
-  * [Null observer](#null-observer)
-  * [Local observer](#local-observer)
-  * [Prometheus observer](#prometheus-observer)
-  * [Grafana](#grafana-visualization)
+- [Table of Contents](#table-of-contents)
+- [Overview](#overview)
+- [Monitors](#monitors)
+  - [Process Monitor](#process-monitor)
+  - [Docker Monitor](#docker-monitor)
+  - [Prometheus Monitor](#prometheus-monitor)
+    - [Configuring The Prometheus Monitor](#configuring-the-prometheus-monitor)
+    - [Obtaining a Prometheus Enabled Network](#obtaining-a-prometheus-enabled-network)
+- [Observers](#observers)
+  - [None Observer](#none-observer)
+  - [Local Observer](#local-observer)
+  - [Prometheus Observer](#prometheus-observer)
+  - [Grafana Visualization](#grafana-visualization)
 
 ## Overview
 Caliper monitors are used to collect statistics on resource utilization during benchmarking, the statistics are collated into a report at the culmination of the benchmark process. Caliper also enables real time reporting of current transaction status through observers, or enhanced data visualization using Prometheus and Grafana.
@@ -103,7 +106,7 @@ The prometheus monitor definition consists of:
 - url: The Prometheus URL, used for direct queries
 - push_url: The Prometheus Push Gateway URL
 - metrics: The queries to be run for inclusion within the Caliper report, comprised of to keys: `ignore` and `include`.
-  - `ignore` a string array that is used as a blacklist for report results. Any results where the component label matches an item in the list, will *not* be included in a generated report.
+  - `ignore` a string array that is used as a denylist for report results. Any results where the component label matches an item in the list, will *not* be included in a generated report.
   - `include` a series of blocks that describe the queries that are to be run at the end of each Caliper test.
 
 The `include` block is defined by:
