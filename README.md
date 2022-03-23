@@ -45,7 +45,7 @@ All pages are contained wihtin the `/docs` folder as markdown files, and any res
 
 ### Editing Pages
 
-There is nothing in particular to consider when editing a page; markdown files are used for which there are numerous online guides, such as the [GitHub guide](https://guides.github.com/features/mastering-markdown/)
+There is nothing in particular to consider when editing a page; markdown files are used for which there are numerous online guides, such as the [GitHub guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
 ### Adding Pages
 
