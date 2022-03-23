@@ -27,10 +27,9 @@ The adapter exposes many SDK features directly to the user callback modules, mak
 > * supports multiple channels and contracts
 > * supports multiple organizations
 > * supports multiple identities
-> * metadata and private collection support for contracts
+> * private collection support for contracts
 > * support for TLS and mutual TLS communication
 > * option to select the identity for submitting a TX/query
-> * detailed execution data for every TX
 
 ## Installing dependencies
 
@@ -38,28 +37,20 @@ You must bind Caliper to a specific Fabric SDK to target the corresponding (or c
 
 ### Binding with Fabric SDK 1.4
 
-It is confirmed that a 1.4 Fabric SDK is compatible with a Fabric 2.2 and later Fabric 2.x SUTs however any installation or instantiation of contracts (chaincode) will only work if you are still using the old lifecycle implementation.
+It is confirmed that a 1.4 Fabric SDK is compatible with a Fabric 2.2 and later Fabric 2.x SUTs.
 
-> The ability to create channels and perform install/instantiate of contracts (chaincode) remains and nothing equivalent exists for the 2.x sdk based adapters. This capability remains purely to support the Caliper integration tests and the use of these mechanisms to setup your channels and contracts is deprecated and not supported. This capability is considered legacy and will not be maintained. You should look into alternative methods for setting up your network prior to running Caliper to benchmark it. This also applies to the Skip channel creation section but is included for completeness.
-
-> Currently setting `discover` to `true` in the network configuration file is not supported if you don't specify `--caliper-fabric-gateway-enabled` when bound to the Fabric 1.4 SUT
-
-#### Skip channel creation
-
-Additionally, the adapter provides a dynamic setting (family) for skipping the creation of a channel. The setting key format is `caliper-fabric-skipcreatechannel-<channel_name>`. Substitute the name of the channel you want to skip creating into `<channel_name>`, for example:
-
-```console
-user@ubuntu:~/caliper-benchmarks$ export CALIPER_FABRIC_SKIPCREATECHANNEL_MYCHANNEL=true
-```
-
-> __Note:__ This settings is intended for easily skipping the creation of a channel that is specified in the network configuration file as "not created". However, if you know that the channel always will be created during benchmarking, then it is recommended to denote this explicitly in the network configuration file.
-
-Naturally, you can specify the above setting multiple ways (e.g., command line argument, configuration file entry).
+Note that when using the binding target for the Fabric SDK 1.4 there are capability restrictions:
+> * The 1.4 SDK does not support administration actions. It it not possible to create/join channels, nor install/instantiate a contract. Consequently the 1.4 binding only facilitates operation with a `--caliper-flow-only-test` flag
+> * Currently setting `discover` to `true` in the network configuration file is not supported if you don't specify `--caliper-fabric-gateway-enabled` when bound to the Fabric 1.4 SUT
+> * Detailed execution data for every transaction is only available if you don't enable the `gateway` option
 
 ### Binding with Fabric SDK 2.2
 
+It is confirmed that a 2.2 Fabric SDK is compatible with later Fabric 2.x SUTs.
+
 > Note that when using the binding target for the Fabric SDK 2.x there are capability restrictions:
 > * The 2.x SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate contract. Consequently the 2.2 binding only facilitates operation with a `--caliper-flow-only-test` flag
+> * Detailed execution data for every transaction is not available.
 
 ## Runtime settings
 
@@ -110,15 +101,15 @@ The settings object has the following structure:
 * `contractFunction`: _string. Required._ The name of the function to call in the contract.
 * `contractArguments`: _string[]. Optional._ The list of __string__ arguments to pass to the contract.
 * `readOnly`: _boolean. Optional._ Indicates whether the request is a TX or a query. Defaults to `false`.
-* `timeout`: _number. Optional._ The timeout in seconds to use for this request. This setting is not applicable when gateway use is enabled.
+
 * `transientMap`: _Map<string, byte[]>. Optional._ The transient map to pass to the contract.
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If not provided a user will be selected from the organization defined by `invokerMspId` or the first organization in the network configuration file if that property is not provided
 * `invokerMspId`: _string. Optional._ The mspid of the user organization who should invoke the contract. Defaults to the first organization in the network configuration file.
 * `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will be chosen for you. If discovery is used then the node sdk uses discovery to determine the correct peers.
-* `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and
-are specified then targetPeers will take precedence
-* `orderer`: _string. Optional._ The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be automatically selected.
+* `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and targetOrganizations are specified then targetPeers will take precedence
 * `channel`: _string. Optional._ The name of the channel on which the contract to call resides.
+* `timeout`: _number. Optional._ [**Only applies to 1.4 binding when not enabling gateway use**] The timeout in seconds to use for this request.
+* `orderer`: _string. Optional._ [**Only applies to 1.4 binding when not enabling gateway use**] The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be automatically selected.
 
 So invoking a contract looks like the following:
 
@@ -150,13 +141,15 @@ The standard data provided are the following:
 
 The adapter also gathers the following platform-specific data (if observed) about each transaction, each exposed through a specific key name. The placeholders `<P>` and `<O>` in the key names are node names taking their values from the top-level peers and orderers sections from the network configuration file (e.g., `endorsement_result_peer0.org1.example.com`). The `Get(key:string):any` function returns the value of the observation corresponding to the given key. Alternatively, the `GetCustomData():Map<string,any>` returns the entire collection of gathered data as a `Map`.
 
-The adapter-specific data keys are that are common across both the gateway and non gateway adapters are :
+### Available data keys for all Fabric SUTs
+The adapter-specific data keys that are available when binding to any of the Fabric SUT versions are :
 
 |            Key name            | Data type | Description                                                                                                                                                                                                                                                                  |
 |:------------------------------:|:---------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |         `request_type`         |  string   | Either the `transaction` or `query` string value for traditional transactions or queries, respectively. |
 
-The adapter-specific data keys that only the v1.x non gateway adapter makes available are :
+## Available data keys for the Fabric 1.4 SUT when gateway is not enabled
+The adapter-specific data keys that only the v1.4 SUT when not enabling the gateway makes available are :
 
 |            Key name            | Data type | Description                                                                                                                                                                                                                                                           |
 |:------------------------------:|:---------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -204,8 +197,6 @@ The `cleanupWorkloadModule` function is called at the end of the round, and can 
 The YAML network configuration file of the adapter mainly describes the organizations and the identities associated with those organizations, It also provides explicit information about the channels in your fabric network and the contracts (chaincode) deployed to those channels. It will reference Common Connection Profiles for each organization (as common connection profiles are specific to a single organization). These are the same connection profiles that would be consumed by the node-sdk. Whoever creates the fabric network and channels would be able to provide appropriate profiles for each organization.
 
 The following sections detail each part separately. For a complete example, please refer to the [example section](#network-configuration-example) or one of the files in the [Caliper repository](https://github.com/hyperledger/caliper), such as the caliper-fabric test folder
-
-> __Note:__ Unknown keys are not allowed anywhere in the configuration. The only exception is the `info` property and when network artifact names serve as keys (peer names, channel names, etc.).
 
 <details><summary markdown="span">__name__
 </summary>
@@ -615,32 +606,13 @@ Contains one or more unique channels with associated information about the contr
 ```yaml
 channels:
   - channelName: mychannel
-    create:
-      buildTransaction:
-        capabilities: []
-        consortium: 'SampleConsortium2'
-        msps: ['Org1MSP', 'Org2MSP']
-        version: 0
     contracts:
     - id: marbles
       contractID: myMarbles
-      install:
-        version: v0
-        language: golang
-        path: marbles/go
-        metadataPath: src/marbles/go/metadata
-      instantiate:
-        initFunction: init
-        initArguments: []
-        initTransientMap:
-          key1: value1
-          key2: value2
-        endorsementPolicy: ''
-        collectionsConfig: ''
 
   - channelName: somechannel
-    create:
-      prebuiltTransaction: 'channel.tx'
+    contracts:
+    - id: basic
 ```
 
 *  <details><summary markdown="span">__channelName__
@@ -652,85 +624,6 @@ channels:
    channels:
      - channelName: mychannel
    ```
-
-*  <details><summary markdown="span">__create__
-   </summary>
-   _Optional. Non-empty object._  <br>
-   Indicates That a channel should be created and the child properties will define how the channel will be created either by building a channel transaction or by using a prebuilt one
-
-   ```yaml
-   channels:
-   - channelName: mychannel
-     create:
-       buildTransaction:
-         capabilities: []
-         consortium: 'SampleConsortium2'
-         msps: ['Org1MSP', 'Org2MSP']
-         version: 0
-   ...
-   - channelName: somechannel
-     create:
-       prebuiltTransaction: 'channel.tx'
-   ...
-   ```
-   > Must contain __at most one__ of the following keys.
-
-   *  <details><summary markdown="span">__prebuiltTransaction__
-      </summary>
-      _Optional. Non-empty string._ <br>
-      If a channel doesn't exist yet, the adapter will create it based on the provided path of a channel configuration binary (which is typically the output of the [configtxgen](https://hyperledger-fabric.readthedocs.io/en/latest/commands/configtxgen.html) tool).
-
-      ```yaml
-      channels:
-      - channelName: somechannel
-        create:
-          prebuiltTransaction: 'channel.tx'
-      ```
-      </details>
-
-   *  <details><summary markdown="span">__buildTransaction__
-      </summary>
-      _Optional. Object._ <br>
-      If a channel doesn't exist yet, the adapter will create it based on the provided information on how to build a transaction that will create a channel, consisting of multiple properties.
-
-      ```yaml
-      channels:
-        - channelName: somechannel
-          create:
-            buildTransaction:
-              capabilities: []
-              consortium: SampleConsortium
-              msps: ['Org1MSP', 'Org2MSP']
-              version: 0
-      ```
-
-      *  <details><summary markdown="span">__capabilities__
-         </summary>
-         _Required. Non-sparse array of strings._ <br>
-         List of channel capabilities to include in the configuration transaction.
-         </details>
-
-      *  <details><summary markdown="span">__consortium__
-         </summary>
-         _Required. Non-empty string._ <br>
-         The name of the consortium.
-         </details>
-
-      *  <details><summary markdown="span">__msps__
-         </summary>
-         _Required. Non-sparse array of unique strings._ <br>
-         The MSP IDs of the organizations in the channel.
-         </details>
-
-      *  <details><summary markdown="span">__version__
-         </summary>
-         _Required. Non-negative integer._ <br>
-         The version number of the configuration.
-         </details>
-      </details>
-
-    </details>
-
 
 *  <details><summary markdown="span">__contracts__
    </summary>
@@ -744,20 +637,8 @@ channels:
      mychannel:
        contracts:
        - id: simple
-         # other properties of simple CC
        - id: smallbank
-         # other properties of smallbank CC
    ```
-   Some prorperties are required depending on whether a contract needs to be deployed. The following constraints apply:
-   > __Note:__
-   >
-   > Constraints for installing contracts:
-   > * if `metadataPath` is provided, `path` is also required
-   > * if `path` is provided, `language` is also required
-   >
-   > Constraints for instantiating contracts:
-   > * if any of the following properties are provided, `language` is also needed: `initArguments`, `initFunction`, `initTransientMap`, `collectionsConfig`, `endorsementPolicy`
-   Each element can contain the following properties.
 
    *  <details><summary markdown="span">__id__
       </summary>
@@ -769,7 +650,6 @@ channels:
         mychannel:
           contracts:
           - id: simple
-            # other properties
       ```
       </details>
 
@@ -785,205 +665,9 @@ channels:
       channels:
         mychannel:
           contracts:
+          - id: simple
           - contractID: simpleContract
-            # other properties
       ```
-      </details>
-
-   *  <details><summary markdown="span">__install__
-      </summary>
-      _Optional. Non-empty object_ <br>
-      Defines the requirement that the contract (chaincode) will be installed and instantiated. The sub properties provided will define the information about the contract (chaincode) to be installed. This can only be used with a 1.4 SUT and can only be used against a Fabric 2.x network if the new lifecycle has not been enabled.
-
-      ```yaml
-      contracts:
-      - id: marbles
-        contractID: myMarbles
-        install:
-          version: v0
-          language: golang
-          path: marbles/go
-          metadataPath: src/marbles/go/metadata
-      ```
-      *  <details><summary markdown="span">__version__
-         </summary>
-         _Required. Non-empty string._ <br>
-         The version string of the contract.
-
-         ```yaml
-         channels:
-           mychannel:
-             contracts:
-               install:
-                 version: v1.0
-                 # other properties
-         ```
-         </details>
-
-      *  <details><summary markdown="span">__language__
-         </summary>
-         _Optional. Non-empty string._ <br>
-         Denotes the language of the contract. Currently supported values: `golang`, `node` and `java`.
-
-         ```yaml
-         channels:
-           mychannel:
-             contracts:
-               install:
-                 language: node
-                 # other properties
-         ```
-         </details>
-
-      *  <details><summary markdown="span">__path__
-         </summary>
-         _Optional. Non-empty string._ <br>
-         The path to the contract directory. For golang contracts, it is the fully qualified package name (relative to the `GOPATH/src` directory). Note, that `GOPATH` is temporarily set to the workspace directory by default. To disable this behavior, set the `caliper-fabric-overwritegopath` setting key to `false`.
-
-         ```yaml
-         channels:
-           mychannel:
-             contracts:
-               install:
-                 path: contracts/mycontract
-                 # other properties
-         ```
-         </details>
-
-      *  <details><summary markdown="span">__metadataPath__
-         </summary>
-         _Optional. Non-empty string._ <br>
-         The directory path for additional metadata for the contract (like CouchDB indexes). Only supported since Fabric v1.1.
-
-         ```yaml
-         channels:
-           mychannel:
-             contracts:
-               install:
-                 metadataPath: contracts/mycontract/metadata
-                 # other properties
-         ```
-         </details>
-      </details>
-
-   *  <details><summary markdown="span">__instantiate__
-      </summary>
-      _Optional. Non-empty object._ <br>
-      Defines the optional parameters to provided during the instantiate phase. This section does not control whether the contact (chaincode) is instantiated or not it just provides the capability to provide optional instantiation parameters. This can only be used with a 1.4 SUT and can only be used against a Fabric 2.x network if the new lifecycle has not been enabled.
-
-      ```yaml
-      contracts:
-        - id: marbles
-          contractID: myMarbles
-          # define the install requirements to install chaincode if chaincode is to be installed
-          install:
-            version: v0
-            language: golang
-            path: marbles/go
-            metadataPath: src/marbles/go/metadata
-          # define the instantiate requirements to instantiate chaincode all of this section is optional depending on chaincode requirements
-          instantiate:
-            initFunction: init
-            initArguments: []
-            initTransientMap:
-              key1: value1
-              key2: value2
-            endorsementPolicy: ''
-            collectionsConfig: ''
-      ```
-      *  <details><summary markdown="span">__initArguments__
-         </summary>
-         _Optional. Non-sparse array of strings._ <br>
-         The list of string arguments to pass to the contract's `Init` function during instantiation. Defaults to an empty array if not specified
-
-         ```yaml
-         instantiate:
-           initArguments: ['arg1', 'arg2']
-           # other properties
-         ```
-         </details>
-
-      *  <details><summary markdown="span">__initFunction__
-         </summary>
-         _Optional. String._ <br>
-         The function name to pass to the contract's `Init` function during instantiation. Defaults to `init` if not specified
-
-         ```yaml
-         instantiate:
-           initFunction: 'bootstrap'
-           # other properties
-         ```
-         </details>
-
-      *  <details><summary markdown="span">__initTransientMap__
-         </summary>
-         _Optional. Object containing string keys associated with string values._ <br>
-         The transient key-value map to pass to the `Init` function when instantiating a contract. The adapter encodes the values as byte arrays before sending them.
-
-         ```yaml
-         instantiate:
-           initTransientMap:
-             pemContent: |
-               -----BEGIN PRIVATE KEY-----
-               MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgQDk37WuVcnQUjE3U
-               NTW7PpPfcp54q/KBKNrtFXjAtUChRANCAAQ0xnSUxoocDsb2YIrmtFIKZ4XAiwqu
-               V0BCfsl+ByVKUUdXypNrluQfm28AxX7sEDQLKtHVmuMi/BGaKahZ6Snk
-               -----END PRIVATE KEY-----
-             stringArg: this is also passed as a byte array
-             # other properties
-         ```
-         </details>
-
-      *  <details><summary markdown="span">__collectionsConfig__
-         </summary>
-         _Optional. Non-empty, non-sparse array of objects._ <br>
-         List of private collection definitions for the contract or a path to the JSON file containing the definitions. For details about the content of such definitions, refer to the [SDK page](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-private-data.html).
-
-         ```yaml
-         instantiate:
-           collectionsConfig:
-           - name: twoOrgCollection
-             policy:
-               identities:
-               - role:
-                   name: member
-                   mspId: Org1MSP
-               - role:
-                   name: member
-                   mspId: Org2MSP
-               policy:
-                 2-of:
-                 - signed-by: 0
-                 - signed-by: 1
-             requiredPeerCount: 1
-             maxPeerCount: 1
-             blockToLive: 0
-           # other properties
-         ```
-         </details>
-
-      *  <details><summary markdown="span">__endorsementPolicy__
-         </summary>
-         _Optional. Object._ <br>
-         The endorsement policy of the contract as required by the Fabric Node.js SDK. If omitted, then a default N-of-N policy is used based on the target peers (thus organizations) of the contract.
-
-         ```yaml
-         instantiate:
-           endorsementPolicy:
-             identities:
-             - role:
-                 name: member
-                 mspId: Org1MSP
-             - role:
-                 name: member
-                 mspId: Org2MSP
-             policy:
-               2-of:
-               - signed-by: 0
-               - signed-by: 1
-           # other properties
-         ```
-         </details>
       </details>
    </details>
 </details>
@@ -991,11 +675,11 @@ channels:
 ## Network Configuration Example
 
 The following example is a Fabric network configuration for the following network topology and artifacts:
-* two organizations `Org1MSP` and `Org2MSP`
-* one channel named `mychannel`
-* `marbles@v0` contract installed and instantiated in `mychannel` on every peer;
+* two organizations `Org1MSP` and `Org2MSP`;
+* one channel named `mychannel`;
+* `asset-transfer-basic` contract deployed to `mychannel`;
 * the nodes of the network use TLS communication, but not mutual TLS;
-* the local network is deployed and cleaned up automatically by Caliper.
+* the fabric samples test network is started and terminated automatically by Caliper;
 
 ```yaml
 name: Fabric
@@ -1006,8 +690,8 @@ caliper:
   sutOptions:
     mutualTls: false
   command:
-    start: docker-compose -f network/fabric-v1.1/2org2peergoleveldb/docker-compose-tls.yaml up -d;sleep 3s
-    end: docker-compose -f network/fabric-v1.1/2org2peergoleveldb/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)
+    start: ../fabric-samples/test-network/network.sh up createChannel && ../fabric-samples/test-network/network.sh deployCC -ccn basic -ccl javascript
+    end: ../fabric-samples/test-network/network.sh down
 
 info:
   Version: 1.1.0
@@ -1018,36 +702,9 @@ info:
 
 channels:
   - channelName: mychannel
-    create:
-      buildTransaction:
-        capabilities: []
-        consortium: 'SampleConsortium'
-        msps: ['Org1MSP', 'Org2MSP']
-        version: 0
-    # Array of contracts to be installed/instantiated on the named channel and available for use by the workload module
     contracts:
-    - id: marbles
-      contractID: myMarbles
-      install:
-        version: v0
-        language: golang
-        path: marbles/go
-        metadataPath: src/marbles/go/metadata
-      instantiate:
-        initFunction: init
-        initArguments: []
-        endorsementPolicy:
-          identities:
-          - role:
-              name: member
-              mspId: Org1MSP
-          - role:
-              name: member
-              mspId: Org2MSP
-          policy:
-            2-of:
-            - signed-by: 0
-            - signed-by: 1
+    - id: basic
+      contractID: BasicOnMyChannel
 
 organizations:
   - mspid: Org1MSP
