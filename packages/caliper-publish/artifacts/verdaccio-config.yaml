@@ -17,7 +17,7 @@
 # so don't use it on production systems.
 #
 # Look here for more config file examples:
-# https://github.com/verdaccio/verdaccio/tree/master/conf
+# https://github.com/verdaccio/verdaccio/tree/5.x/conf
 #
 # path to a directory with all packages
 storage: ./storage

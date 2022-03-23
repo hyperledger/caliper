@@ -127,7 +127,7 @@ class V1FabricGateway extends ConnectorBase {
     }
 
     /**
-     * Initializes the Fabric adapter for use by the Caliper Master
+     * Initializes the Fabric adapter for use by the Caliper Manager
      * @async
      */
     async init() {

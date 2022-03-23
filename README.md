@@ -1,9 +1,8 @@
 # ![Hyperledger Caliper](https://wiki.hyperledger.org/download/attachments/2392434/Hyperledger_Caliper_Logo_Color.svg?version=1&modificationDate=1548883186000&api=v2)
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/hyperledger/caliper)
-[![Build Status](https://travis-ci.com/hyperledger/caliper.svg?branch=master)](https://travis-ci.com/hyperledger/caliper)
+[![Build Status](https://dev.azure.com/Hyperledger/Caliper/_apis/build/status/Caliper?branchName=main)](https://dev.azure.com/Hyperledger/Caliper/_build/latest?definitionId=33&branchName=main)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2381/badge)](https://bestpractices.coreinfrastructure.org/projects/2381)
-[![license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/aklenik/caliper/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/hyperledger/caliper/blob/main/LICENSE)
 [![node (scoped)](https://img.shields.io/node/v/@hyperledger/caliper-cli)](https://www.npmjs.com/package/@hyperledger/caliper-cli)
 [![npm (scoped)](https://img.shields.io/npm/v/@hyperledger/caliper-cli?label=version)](https://www.npmjs.com/package/@hyperledger/caliper-cli)
 [![npm](https://img.shields.io/npm/dt/@hyperledger/caliper-cli?label=npm%20downloads)](https://www.npmjs.com/package/@hyperledger/caliper-cli)
@@ -26,7 +25,7 @@ Currently supported performance indicators:
 * Transaction/Read latency (minimum, maximum, average)
 * Resource consumption (CPU, Memory, Network IO, ...)
 
-See the [PSWG white paper](https://www.hyperledger.org/resources/publications/blockchain-performance-metrics) to find out the definitions and corresponding measurement methods.  
+See the [PSWG white paper](https://www.hyperledger.org/resources/publications/blockchain-performance-metrics) to find out the definitions and corresponding measurement methods.
 
 For more information on using Caliper, please consult the [documentation site](https://hyperledger.github.io/caliper/)
 

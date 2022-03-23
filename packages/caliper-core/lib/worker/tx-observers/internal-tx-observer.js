@@ -40,7 +40,7 @@ class InternalTxObserver extends TxObserverInterface {
     }
 
     /**
-     * Sends the current aggregated statistics to the master node when triggered by "setInterval".
+     * Sends the current aggregated statistics to the manager node when triggered by "setInterval".
      * @private
      */
     async _sendUpdate() {

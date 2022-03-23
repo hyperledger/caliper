@@ -121,11 +121,11 @@ class V2FabricGateway extends ConnectorBase {
     }
 
     /**
-     * Initializes the Fabric adapter for use by the Caliper Master
+     * Initializes the Fabric adapter for use by the Caliper Manager
      * @async
      */
     async init() {
-        // Seems to be only for operational initialisation but need to implement as the master
+        // Seems to be only for operational initialisation but need to implement as the manager
         // will call it
         const defaultOrganization = this.connectorConfiguration.getOrganizations()[0];
         const tlsInfo = this.connectorConfiguration.isMutualTLS() ? 'mutual'
