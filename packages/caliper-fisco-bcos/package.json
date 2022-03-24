@@ -33,7 +33,6 @@
         "uuid": "^3.3.2"
     },
     "devDependencies": {
-        "web3": "0.20.7",
         "license-check-and-add": "2.3.6"
     },
     "license-check-and-add-config": {

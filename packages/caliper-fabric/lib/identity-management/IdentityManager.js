@@ -321,7 +321,7 @@ class IdentityManager {
             await fs.stat(configPath);
         } catch(err) {
             if (err.errno === -2 || err.errno === -4058) {
-                throw new Error(`path property does not point to a file that exists for ${propertyNameBeingProcessed} for name ${identityName} in organization ${mspId}`);
+                throw new Error(`path property ${configPath} does not point to a file that exists for ${propertyNameBeingProcessed} for name ${identityName} in organization ${mspId}`);
             }
             throw err;
         }

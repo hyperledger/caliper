@@ -83,7 +83,6 @@ class V1Fabric extends ConnectorBase {
         this.configLatencyThreshold = ConfigUtil.get(ConfigUtil.keys.Fabric.LatencyThreshold, 1.0);
         this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60);
         this.configClientBasedLoadBalancing = ConfigUtil.get(ConfigUtil.keys.Fabric.LoadBalancing, 'client') === 'client';
-        this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
 
         this.transactionCounter = -1;
     }

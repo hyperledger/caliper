@@ -88,9 +88,7 @@ class V2FabricGateway extends ConnectorBase {
         this.context = undefined;
 
         // Timeouts
-        this.configSmallestTimeout = 1000;
         this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60);
-        this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
 
         // Gateway connector
         this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.LocalHost, true);
@@ -121,11 +119,11 @@ class V2FabricGateway extends ConnectorBase {
     }
 
     /**
-     * Initializes the Fabric adapter for use by the Caliper Master
+     * Initializes the Fabric adapter for use by the Caliper Manager
      * @async
      */
     async init() {
-        // Seems to be only for operational initialisation but need to implement as the master
+        // Seems to be only for operational initialisation but need to implement as the manager
         // will call it
         const defaultOrganization = this.connectorConfiguration.getOrganizations()[0];
         const tlsInfo = this.connectorConfiguration.isMutualTLS() ? 'mutual'

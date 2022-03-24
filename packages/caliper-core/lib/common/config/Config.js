@@ -157,7 +157,6 @@ const keys = {
         LoadBalancing: 'caliper-fabric-loadbalancing',
         OverwriteGopath: 'caliper-fabric-overwritegopath',
         LatencyThreshold: 'caliper-fabric-latencythreshold',
-        CountQueryAsLoad: 'caliper-fabric-countqueryasload',
         SkipCreateChannelPrefix: 'caliper-fabric-skipcreatechannel-',
         Gateway: {
             Enabled: 'caliper-fabric-gateway-enabled',

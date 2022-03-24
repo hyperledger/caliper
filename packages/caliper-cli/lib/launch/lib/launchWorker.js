@@ -25,7 +25,7 @@ class LaunchWorker {
 
     /**
     * Command processing for the Launch Worker command.
-    * @param {object} argv Argument list from the caliper Launch Master command. Unused, relying on ConfigUtil instead.
+    * @param {object} argv Argument list from the caliper Launch manager command. Unused, relying on ConfigUtil instead.
     */
     static async handler(argv) {
         CaliperUtils.assertConfigurationFilePaths();

@@ -112,7 +112,7 @@ describe('A Fabric Connector Factory', () => {
         mockery.deregisterAll();
     });
 
-    it('should create a V1 Gateway connector when a 1.4 fabric library is bound, usegateway was specified', async () => {
+    it('should create a V1 Gateway connector when a 1.4 fabric library is bound and gateway is specified', async () => {
         mockery.registerMock('fabric-network', {
             DefaultEventHandlerStrategies,
             DefaultQueryHandlerStrategies,
@@ -129,7 +129,7 @@ describe('A Fabric Connector Factory', () => {
         mockery.deregisterAll();
     });
 
-    it('should create a V2 Gateway connector when a 2.x fabric library is bound, usegateway was specified', async () => {
+    it('should create a V2 Gateway connector when a 2.x fabric library is bound', async () => {
         mockery.registerMock('fabric-network', {
             DefaultEventHandlerStrategies,
             DefaultQueryHandlerStrategies,
@@ -137,13 +137,13 @@ describe('A Fabric Connector Factory', () => {
         });
         mockery.registerMock('fabric-network/package', {version: '2.2.1'});
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, v2Config));
-        ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, true);
+        ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, false);
         const connector = await ConnectorFactory(1);
         connector.constructor.name.should.equal('V2FabricGateway');
         mockery.deregisterAll();
     });
 
-    it('should create a V1 Fabric connector if a 1.4 fabric library is bound and usegateway was not specified', async () => {
+    it('should create a V1 Fabric connector if a 1.4 fabric library is bound gateway not specified', async () => {
         mockery.registerMock('fabric-network', {
             DefaultEventHandlerStrategies,
             DefaultQueryHandlerStrategies,

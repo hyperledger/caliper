@@ -258,9 +258,9 @@ services:
         environment:
             DB_URL: http://localhost:5984/member_db
 
-##################
-# CALIPER MASTER #
-##################
+###################
+# CALIPER MANAGER #
+###################
 
     caliper-manager:
         image: caliper:test

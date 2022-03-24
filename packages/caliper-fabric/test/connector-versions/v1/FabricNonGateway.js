@@ -73,19 +73,19 @@ describe('A Node-SDK V1 Fabric Non Gateway', () => {
         stubWalletFacadeFactory = walletSetup.walletFacadeFactory;
     });
 
-    it('should be able to initialise in preperation for use by a caliper master', async () => {
+    it('should be able to initialise in preperation for use by a caliper manager', async () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWallet), stubWalletFacadeFactory);
         const fabricNonGateway = new FabricNonGateway(connectorConfiguration, 1, 'fabric');
         await fabricNonGateway.init().should.not.be.rejected;
     });
 
-    it('should be able to initialise in preperation for use by a caliper master when mutual tls is false', async () => {
+    it('should be able to initialise in preperation for use by a caliper manager when mutual tls is false', async () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWalletNotMutual), stubWalletFacadeFactory);
         const fabricGateway = new FabricNonGateway(connectorConfiguration, 1, 'fabric');
         await fabricGateway.init().should.not.be.rejected;
     });
 
-    it('should throw an error if the connection profile is defined with discover when initalizing for use by caliper master', async () => {
+    it('should throw an error if the connection profile is defined with discover when initalizing for use by caliper manager', async () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWalletWithDiscover), stubWalletFacadeFactory);
         const fabricNonGateway = new FabricNonGateway(connectorConfiguration, 1, 'fabric');
         await fabricNonGateway.init().should.be.rejectedWith(/Connection profiles for the organization\(s\).*Org1MSP.*have been specified as discover which is not allowed/);
