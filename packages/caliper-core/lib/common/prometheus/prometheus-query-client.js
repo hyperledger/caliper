@@ -149,10 +149,11 @@ class PrometheusQueryClient {
                         resolve();
                     }
                 });
-                res.on('error', err => {
-                    Logger.error(err);
-                    reject(err);
-                });
+            });
+
+            req.on('error', err => {
+                Logger.error(err);
+                reject(err);
             });
 
             req.end();
