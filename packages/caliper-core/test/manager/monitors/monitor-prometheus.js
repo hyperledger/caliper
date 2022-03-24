@@ -21,33 +21,58 @@ const chai = require('chai');
 const should = chai.should();
 const sinon = require('sinon');
 
+class FakeQueryClient {
+    static getByEncodedUrlCount = 0;
+
+    static reset() {
+        FakeQueryClient.getByEncodedUrlCount = 0;
+    }
+
+    static setGetByEncodedUrlResponse(ableToConnect, response) {
+        FakeQueryClient.ableToConnect = ableToConnect;
+        FakeQueryClient.response = response;
+    }
+
+    async getByEncodedUrl() {
+        FakeQueryClient.getByEncodedUrlCount++;
+        if (!FakeQueryClient.ableToConnect) {
+            throw new Error('ECONNREFUSED');
+        }
+        return FakeQueryClient.response;
+    }
+}
+
 describe('Prometheus monitor implementation', () => {
 
-    const fakeQueryClient = sinon.stub();
-    PrometheusMonitorRewire.__set__('PrometheusQueryClient', fakeQueryClient);
+    PrometheusMonitorRewire.__set__('PrometheusQueryClient', FakeQueryClient);
 
     // Before/After
     let clock;
-    beforeEach( () => {
+    beforeEach(() => {
         clock = sinon.useFakeTimers();
     });
 
-    afterEach( () => {
+    afterEach(() => {
         clock.restore();
     });
 
     // Test data
     const monitorOptions = {
         metrics : {
-            include: ['peer', 'pushgateway', 'dev.*'],
+            url: 'http://localhost:9090',
+            include: ['peer', 'orderer', 'dev.*'],
             queries: [
                 {
+                    name: 'avg cpu',
+                    label: 'name',
                     query: 'sum(rate(container_cpu_usage_seconds_total{name=~".+"}[$interval])) by (name) * 100',
-                    statistic: 'average'
+                    statistic: 'avg'
                 },
                 {
+                    name: 'max cpu',
+                    label: 'name',
                     query: 'sum(rate(container_cpu_usage_seconds_total{name=~".+"}[$interval])) by (name) * 100',
-                    statistic: 'maximum'
+                    statistic: 'max'
                 }
             ]
         }
@@ -78,7 +103,7 @@ describe('Prometheus monitor implementation', () => {
         });
     });
 
-    describe('#getQueryClient', ()=>{
+    describe('#getQueryClient', () => {
 
         it('should return the internal Query Client', () => {
             const mon = new PrometheusMonitorRewire({});
@@ -92,7 +117,7 @@ describe('Prometheus monitor implementation', () => {
 
         it('should set the start time with the current time', () => {
             clock.tick(42);
-            const mon = new PrometheusMonitorRewire({push_url: '123'});
+            const mon = new PrometheusMonitorRewire({ push_url: '123' });
             mon.start();
             mon.startTime.should.equal(0.042);
         });
@@ -102,7 +127,7 @@ describe('Prometheus monitor implementation', () => {
     describe('#stop', () => {
         it('should remove startTime if it exists', () => {
             clock.tick(42);
-            const mon = new PrometheusMonitorRewire({push_url: '123'});
+            const mon = new PrometheusMonitorRewire({ push_url: '123' });
             mon.start();
             mon.startTime.should.equal(0.042);
             mon.stop();
@@ -114,7 +139,7 @@ describe('Prometheus monitor implementation', () => {
 
         it('should reset the start time', () => {
             clock.tick(42);
-            const mon = new PrometheusMonitorRewire({push_url: '123'});
+            const mon = new PrometheusMonitorRewire({ push_url: '123' });
             mon.start();
             clock.tick(42);
             mon.restart();
@@ -149,15 +174,83 @@ describe('Prometheus monitor implementation', () => {
             const mon = new PrometheusMonitorRewire(monitorOptions);
             mon.includeStatistic('peer0.org0.example.com').should.equal(true);
 
-            mon.includeStatistic('pushgateway').should.equal(true);
+            mon.includeStatistic('pushgateway').should.equal(false);
 
             mon.includeStatistic('dev-org0.example.com').should.equal(true);
 
             mon.includeStatistic('penuin').should.equal(false);
 
-            mon.includeStatistic('orderer0.example.com').should.equal(false);
+            mon.includeStatistic('orderer0.example.com').should.equal(true);
         });
     });
 
+    describe('When getting statistics', () => {
+        const response = {
+            status: 'success',
+            data: {
+                resultType: 'matrix',
+                result: [
+                    {
+                        metric: {
+                            name: 'orderer.example.com'
+                        },
+                        values: [
+                            [
+                                1648125000.736,
+                                '37318656'
+                            ],
+                            [
+                                1648125010.736,
+                                '37318656'
+                            ],
+                            [
+                                1648125020.736,
+                                '37318656'
+                            ]
+                        ]
+                    },
+                    {
+                        metric: {
+                            name: 'peer0.org1.example.com'
+                        },
+                        values: [
+                            [
+                                1648125000.736,
+                                '80855040'
+                            ],
+                            [
+                                1648125010.736,
+                                '80855040'
+                            ],
+                            [
+                                1648125020.736,
+                                '80855040'
+                            ]
+                        ]
+                    }
+                ]
+            }
+        };
+
+        it('should stop processing further queries and return an empty set of results if it fails to connect to prometheus ', async () => {
+            const prometheusMonitor = new PrometheusMonitorRewire(monitorOptions);
+            FakeQueryClient.reset();
+            FakeQueryClient.setGetByEncodedUrlResponse(false);
+            const res = await prometheusMonitor.getStatistics();
+            FakeQueryClient.getByEncodedUrlCount.should.equal(1);
+            res.resourceStats.length.should.equal(0);
+            res.chartStats.length.should.equal(0);
+        });
+
+        it('should process all queries successfully if able to connect to prometheus', async () => {
+            const prometheusMonitor = new PrometheusMonitorRewire(monitorOptions);
+            FakeQueryClient.reset();
+            FakeQueryClient.setGetByEncodedUrlResponse(true, response);
+            const res = await prometheusMonitor.getStatistics();
+            FakeQueryClient.getByEncodedUrlCount.should.equal(2);
+            res.resourceStats.length.should.equal(4);
+            res.chartStats.length.should.equal(0);
+        });
+    });
 
 });

@@ -65,7 +65,7 @@ class PrometheusMonitor extends MonitorInterface {
      * Retrieve the query client
      * @returns {PrometheusQueryClient} the query client
      */
-    getQueryClient(){
+    getQueryClient() {
         return this.prometheusQueryClient;
     }
 
@@ -74,7 +74,7 @@ class PrometheusMonitor extends MonitorInterface {
     * @async
     */
     async start() {
-        this.startTime = Date.now()/1000;
+        this.startTime = Date.now() / 1000;
     }
 
     /**
@@ -114,7 +114,7 @@ class PrometheusMonitor extends MonitorInterface {
      * @async
      */
     async getStatistics(testLabel) {
-        this.endTime = Date.now()/1000;
+        this.endTime = Date.now() / 1000;
 
         const resourceStats = [];
         const chartArray = [];
@@ -131,7 +131,14 @@ class PrometheusMonitor extends MonitorInterface {
                 //     label: a matching label for the component of interest
                 // }
                 const queryString = PrometheusQueryHelper.buildStringRangeQuery(queryObject.query, this.startTime, this.endTime, queryObject.step);
-                const response = await this.prometheusQueryClient.getByEncodedUrl(queryString);
+
+                let response;
+                try {
+                    response = await this.prometheusQueryClient.getByEncodedUrl(queryString);
+                } catch (error) {
+                    Logger.warn('Failed to connect to Prometheus, unable to perform queries');
+                    break;
+                }
 
                 // Retrieve map of component names and corresponding values for the issued query
                 const componentNameValueMap = PrometheusQueryHelper.extractStatisticFromRange(response, queryObject.statistic, queryObject.label);
@@ -146,13 +153,13 @@ class PrometheusMonitor extends MonitorInterface {
                         newQueryObjectIteration = false;
                         watchItemStat.set('Name', key);
                         const multiplier = queryObject.multiplier ? queryObject.multiplier : 1;
-                        watchItemStat.set('Value', (value*multiplier).toPrecision(this.precision));
+                        watchItemStat.set('Value', (value * multiplier).toPrecision(this.precision));
                         // Store
                         resourceStats.push(watchItemStat);
 
                         // Build separate charting information
                         const metricMap = new Map();
-                        metricMap.set('Name',  watchItemStat.get('Name'));
+                        metricMap.set('Name', watchItemStat.get('Name'));
                         metricMap.set(queryObject.name, watchItemStat.get('Value'));
                         metricArray.push(metricMap);
                     }
