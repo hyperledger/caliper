@@ -16,7 +16,7 @@
 
 const EthereumHDKey = require('ethereumjs-wallet/hdkey');
 const Web3 = require('web3');
-const EEAClient = require('web3-eea');
+const Web3Quorum = require('web3js-quorum');
 const {ConnectorBase, CaliperUtils, ConfigUtil, TxStatus} = require('@hyperledger/caliper-core');
 
 const logger = CaliperUtils.getLogger('ethereum-connector');
@@ -52,7 +52,7 @@ class EthereumConnector extends ConnectorBase {
         this.ethereumConfig = ethereumConfig;
         this.web3 = new Web3(this.ethereumConfig.url);
         if (this.ethereumConfig.privacy) {
-            this.web3eea = new EEAClient(this.web3, ethereumConfig.chainId);
+            this.web3Quorum = new Web3Quorum(this.web3);
         }
         this.web3.transactionConfirmationBlocks = this.ethereumConfig.transactionConfirmationBlocks;
         this.workerIndex = workerIndex;
@@ -192,7 +192,7 @@ class EthereumConnector extends ConnectorBase {
         }
 
         if (this.ethereumConfig.privacy) {
-            context.web3eea = this.web3eea;
+            context.web3Quorum = this.web3Quorum;
             context.privacy = this.ethereumConfig.privacy;
         }
 
@@ -293,7 +293,7 @@ class EthereumConnector extends ConnectorBase {
      */
     async _sendSinglePrivateRequest(request) {
         const context = this.context;
-        const web3eea = context.web3eea;
+        const web3Quorum = context.web3Quorum;
         const contractInfo = context.contracts[request.contract];
         const privacy = request.privacy;
         const sender = privacy.sender;
@@ -327,17 +327,17 @@ class EthereumConnector extends ConnectorBase {
 
         try {
             if (request.readOnly) {
-                transaction.privacyGroupId = await this.resolvePrivacyGroup(privacy);
+                const privacyGroupId = await this.resolvePrivacyGroup(privacy);
 
-                const value = await web3eea.priv.call(transaction);
+                const value = await web3Quorum.priv.call(privacyGroupId, transaction);
                 onSuccess(value);
             } else {
                 transaction.nonce = sender.nonce;
                 transaction.privateKey = sender.privateKey.substring(2);
                 this.setPrivateTransactionParticipants(transaction, privacy);
 
-                const txHash = await web3eea.eea.sendRawTransaction(transaction);
-                const rcpt = await web3eea.priv.getTransactionReceipt(txHash, transaction.privateFrom);
+                const txHash = await web3Quorum.priv.generateAndSendRawTransaction(transaction);
+                const rcpt = await web3Quorum.priv.waitForTransactionReceipt(txHash);
                 if (rcpt.status === '0x1')  {
                     onSuccess(rcpt);
                 } else {
@@ -383,7 +383,7 @@ class EthereumConnector extends ConnectorBase {
      */
     async deployPrivateContract(contractData, privacy) {
         const web3 = this.web3;
-        const web3eea = this.web3eea;
+        const web3Quorum = this.web3Quorum;
         // Using randomly generated account to deploy private contract to avoid public/private nonce issues
         const deployerAccount =  web3.eth.accounts.create();
 
@@ -396,8 +396,8 @@ class EthereumConnector extends ConnectorBase {
         this.setPrivateTransactionParticipants(transaction, privacy);
 
         try {
-            const txHash = await web3eea.eea.sendRawTransaction(transaction);
-            const txRcpt = await web3eea.priv.getTransactionReceipt(txHash, transaction.privateFrom);
+            const txHash = await web3Quorum.priv.generateAndSendRawTransaction(transaction);
+            const txRcpt = await web3Quorum.priv.getTransactionReceipt(txHash, transaction.privateFrom);
 
             if (txRcpt.status === '0x1') {
                 return new web3.eth.Contract(contractData.abi, txRcpt.contractAddress);
@@ -431,11 +431,11 @@ class EthereumConnector extends ConnectorBase {
      * @returns {Promise<string>} The privacyGroupId
      */
     async resolvePrivacyGroup(privacy) {
-        const web3eea = this.context.web3eea;
+        const web3Quorum = this.context.web3Quorum;
 
         switch(privacy.groupType) {
         case 'legacy': {
-            const privGroups = await web3eea.priv.findPrivacyGroup({addresses: [privacy.privateFrom, ...privacy.privateFor]});
+            const privGroups = await web3Quorum.priv.findPrivacyGroup([privacy.privateFrom, ...privacy.privateFor]);
             if (privGroups.length > 0) {
                 return privGroups.filter(function(el) {
                     return el.type === 'LEGACY';
