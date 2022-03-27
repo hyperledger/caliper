@@ -1,5 +1,5 @@
 {
-    "name": "caliper",
+    "name": "@fpt-blockchain/caliper",
     "description": "Performance benchmarking for Hyperledger blockchain technologies.  You must install [Lerna](https://lernajs.io) to build this multi-package repository.",
     "version": "0.5.0-unstable",
     "repository": {
