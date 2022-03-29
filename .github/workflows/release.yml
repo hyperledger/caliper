@@ -1,6 +1,8 @@
 name: release
 
-on: workflow_dispatch
+on:
+  release:
+    types: [published]
 
 jobs:
   publish-npm:
@@ -11,7 +13,15 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - run: echo "`jq '.version="${{ github.event.release.tag_name }}"' package.json`" > package.json
       - run: npm i
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.repository }} phiên bản ${{ github.event.release.tag_name }} vừa được biu thành công 
+            Kiểm tra tại https://www.npmjs.com/package/@fpt-blockchain/caliper
