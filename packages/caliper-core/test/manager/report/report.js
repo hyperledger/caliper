@@ -82,6 +82,7 @@ describe('report implementation', () => {
         it('should set Max Latency to 2DP if available', () => {
             const report = new Report();
             const txnStats = new TransactionStatisticsCollector();
+            txnStats.stats.txCounters.totalSuccessful = 100;
             txnStats.stats.latency.successful.max = 1232.2;
 
             const output = report.getResultValues('myTestLabel', txnStats );
@@ -91,18 +92,21 @@ describe('report implementation', () => {
         it('should set Min Latency to 2DP if available', () => {
             const report = new Report();
             const txnStats = new TransactionStatisticsCollector();
+            txnStats.stats.txCounters.totalSuccessful = 100;
             txnStats.stats.latency.successful.min = 232.2;
 
             const output = report.getResultValues('myTestLabel', txnStats);
             output.get('Min Latency (s)').should.equal('0.23');
         });
 
-        it('should set Avg Latency to `-` if no successful transactions', () => {
+        it('should set Min/Max/Avg Latency to `-` if no successful transactions', () => {
             const report = new Report();
             const txnStats = new TransactionStatisticsCollector();
-
+            txnStats.stats.txCounters.totalSuccessful = 0;
             const output = report.getResultValues('myTestLabel', txnStats);
             output.get('Avg Latency (s)').should.equal('-');
+            output.get('Min Latency (s)').should.equal('-');
+            output.get('Max Latency (s)').should.equal('-');
         });
 
         it('should set Avg Latency to 2DP if available', () => {

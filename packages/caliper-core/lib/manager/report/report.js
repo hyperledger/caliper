@@ -156,8 +156,8 @@ class Report {
         resultMap.set('Name', testLabel ? testLabel : 'unknown');
         resultMap.set('Succ', results.getTotalSuccessfulTx());
         resultMap.set('Fail', results.getTotalFailedTx());
-        resultMap.set('Max Latency (s)', CaliperUtils.millisToSeconds(results.getMaxLatencyForSuccessful()).toFixed(2));
-        resultMap.set('Min Latency (s)', CaliperUtils.millisToSeconds(results.getMinLatencyForSuccessful()).toFixed(2));
+        resultMap.set('Max Latency (s)', results.getTotalSuccessfulTx() > 0 ? CaliperUtils.millisToSeconds(results.getMaxLatencyForSuccessful()).toFixed(2) : '-');
+        resultMap.set('Min Latency (s)', results.getTotalSuccessfulTx() > 0 ? CaliperUtils.millisToSeconds(results.getMinLatencyForSuccessful()).toFixed(2) : '-');
         resultMap.set('Avg Latency (s)', results.getTotalSuccessfulTx() > 0 ? (CaliperUtils.millisToSeconds(results.getTotalLatencyForSuccessful() / results.getTotalSuccessfulTx())).toFixed(2) : '-');
 
         // Send rate
