@@ -78,7 +78,10 @@ class RecordRateController extends RateInterface {
         this.pathTemplate = this.pathTemplate.replace(/<C>/gi, this.workerIndex.toString());
         this.pathTemplate = util.resolvePath(this.pathTemplate);
 
-        this.rateController = new RateControl(testMessage, stats, workerIndex,);
+        let rateControllerTestMessage = this.testMessage.clone();
+        rateControllerTestMessage.setRateControlSpec(this.options.rateController);
+
+        this.recordedRateController = new RateControl(rateControllerTestMessage, stats, workerIndex);
     }
 
     /**
@@ -128,7 +131,7 @@ class RecordRateController extends RateInterface {
      * @async
      */
     async applyRateControl() {
-        await this.rateController.applyRateControl();
+        await this.recordedRateController.applyRateControl();
         this.records[this.stats.getTotalSubmittedTx()] = Date.now() - this.stats.getRoundStartTime();
     }
 
@@ -137,7 +140,7 @@ class RecordRateController extends RateInterface {
      * @async
      */
     async end() {
-        await this.rateController.end();
+        await this.recordedRateController.end();
 
         try {
             switch (this.outputFormat) {
