@@ -21,17 +21,15 @@ This tutorial is based on resources available from the official [Hyperledger Fab
 > The following command list is a minimalist quick step guide to get the required Fabric network up and running. __We use available Hyperledger Fabric resources at explicit levels. To understand and troubleshoot what occurs during the creation of the test network, please refer to the Fabric documentation linked above!__
 
 ```bash
-# Clone a fixed version of the Hyperledger Fabric samples repo
-git clone https://github.com/hyperledger/fabric-samples.git
+# Pull down the 2.2.5 hyperledger fabric images/binaries and the fabric-samples checked out at tag v2.2.5
+curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.5 1.5.2
 cd fabric-samples
-git checkout 22393b629bcac7f7807cc6998aa44e06ecc77426
-# Install the Fabric tools and add them to PATH
-curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.0 1.4.8 -s
-export PATH=$PATH:$(pwd)/bin
-# Create and initialize the network
-cd test-network
+# Switch to a release-2.2 git branch that has a fix for asset-transfer-basic chaincode
+git checkout c3a0e814f1609eda2b2f4403b38e33b8b4a16675
+# Start up the test-network
+cd test-network/
 ./network.sh up createChannel
-./network.sh deployCC -ccn basic -ccl javascript
+./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript -ccl javascript
 ```
 
 ## Step 1 - Create a Caliper Workspace
@@ -39,7 +37,7 @@ Create a folder named **caliper-workspace** at the same level as the **fabric-sa
 
 Caliper installation and use will be based on a local npm installation. Within the **caliper-workspace** directory, install caliper CLI using the following terminal command:
 
-`npm install --only=prod @hyperledger/caliper-cli@0.4.2`
+`npm install --only=prod @hyperledger/caliper-cli@0.5.0`
 
 Bind the SDK using the following terminal command:
 
