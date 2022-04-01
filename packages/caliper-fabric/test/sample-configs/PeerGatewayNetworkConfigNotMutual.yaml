@@ -1,0 +1,53 @@
+---
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# The name of the benchmark
+name: PeerGatewayNetworkConfigNotMutual
+# The caliper semantic version
+version: "2.0.0"
+
+# Global properties that define the SUT, and options that are specific to the target SUT
+caliper:
+  blockchain: fabric
+  sutOptions :
+    mutualTls: false
+
+# Array of fabric channels for creation or use
+channels:
+  - channelName: mychannel
+      # Array of contracts to be installed/instantiated on the named channel and available for use by the workload module
+    contracts:
+    - id: marbles
+      contractID: myMarbles
+
+  - channelName: somechannel
+    contracts:
+    - id: marbles
+      contractID: foundMyMarbles
+
+  - channelName: yourchannel
+    contracts:
+    - id: marbles
+      contractID: lostMyMarbles
+
+# [Minimum 1] Array of organizations that are to be used within the benchmarking, containing one of more identities to be used by the connector
+organizations:
+  - mspid: Org1MSP
+    connectionProfile:
+      path: './test/sample-configs/Org1ConnectionProfile.yaml'
+      discover: true
+  - mspid: Org2MSP
+    connectionProfile:
+      path: './test/sample-configs/Org2StaticConnectionProfile.yaml'

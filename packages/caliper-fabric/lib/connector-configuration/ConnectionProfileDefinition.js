@@ -201,20 +201,25 @@ class ConnectionProfileDefinition {
         if (!this.connectionProfile.organizations) {
             throw new Error('No organizations property can be found for the connection profile provided');
         }
-        let peers;
+
         for (const org in this.connectionProfile.organizations) {
             if (this.connectionProfile.organizations[org].mspid === mspid) {
-                if(!this.connectionProfile.organizations[org].peers) {
-                    throw new Error(`Org with mspid "${mspid}" listed in connectionProfile.organizations does not have any peers property`);
+                const peers = this.connectionProfile.organizations[org].peers;
+
+                if (!peers) {
+                    throw new Error(`Org with mspid ${mspid} listed in connectionProfile.organizations does not have any peers property`);
                 }
-                peers = this.connectionProfile.organizations[org].peers;
+                if (peers.length === 0) {
+                    throw new Error(`Org with mspid ${mspid} has a peers property but it is empty`);
+                }
+
+                return peers;
             }
         }
-        if (!peers) {
-            throw new Error(`Org with mspid ${mspid} cannot be found in connectionProfile.organizations`);
-        }
-        return peers;
+
+        throw new Error(`Org with mspid ${mspid} cannot be found in connectionProfile.organizations`);
     }
+
 
     /**
      * Return the tls certificate for the specified peer, can only be called when a grps url and respective certs are provided
