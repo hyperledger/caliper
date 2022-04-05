@@ -44,7 +44,7 @@ The entry point of the CLI is the `caliper` binary. You can confirm whether the 
 
 ```console
 user@ubuntu:~/caliper-benchmarks$ npx caliper --version
-v0.4.0
+v0.4.2
 ```
 
 The CLI provides multiple commands to perform different tasks. To check the available commands and their descriptions, execute:
@@ -84,7 +84,7 @@ To have a look at the help page of the command, execute:
 ```console
 user@ubuntu:~/caliper-benchmarks$ npx caliper bind --help
 Usage:
-  caliper bind --caliper-bind-sut fabric:1.4.1 --caliper-bind-cwd ./ --caliper-bind-args="-g"
+  caliper bind --caliper-bind-sut fabric:1.4 --caliper-bind-cwd ./ --caliper-bind-args="-g"
 
 Options:
   --help, -h           Show usage information  [boolean]
@@ -97,14 +97,14 @@ Options:
 
  The binding step technically consists of an extra `npm install` call with the appropriate packages and install settings, fully managed by the CLI. The following parameters can be set for the command:
 
- * __SUT/platform name and SDK version:__ specifies the name of the target platform and its SDK version to install e.g., `fabric:1.4.1`
+ * __SUT/platform name and SDK version:__ specifies the name of the target platform and its SDK version to install e.g., `fabric:2.2`
  * __Working directory:__ the directory from which the `npm install` command must be performed. Defaults to the current working directory
  * __User arguments:__ additional arguments to pass to `npm install`, e.g., `--save`
 
 The following SUT name and SDK version combinations are supported:
 * **besu**: `1.3.2`, `1.3`, `1.4`, `latest`
-* **ethereum**: `1.2.1`, `latest`
-* **fabric**: `1.1.0 [1.1]`, `1.4.11 [1.4, latest]`, `2.1.0 [2.1, latest-v2]`
+* **ethereum**: `1.2.1`, `1.3.0`, `latest`
+* **fabric**: `1.1.0 [1.1]`, `1.4.11 [1.4, latest]`, `2.2.3 [2.2, latest-v2]`
 * **fisco-bcos**: `2.0.0`, `latest`
 
 > __Note:__ Ensure that the SDK you are binding is compatible with the the SUT version that you intend to target.
@@ -113,7 +113,9 @@ The following SUT name and SDK version combinations are supported:
 
 The `bind` command is useful when you plan to run multiple benchmarks against the same SUT version. Bind once, then run different benchmarks without the need to bind again. As you will see in the next sections, the launcher commands for the manager and worker processes can also perform the binding step if the required parameter is present.
 
-> __Note:__ the built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-cli/lib/lib/config.yaml), documented [here](./Writing_Connectors.md#binding-configuration). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. __This also means that we cannot provide help for such SDK versions!__
+#### Custom bindings
+
+The built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/v0.4.2/packages/caliper-cli/lib/lib/config.yaml), documented [here](../writing-connectors#binding-configuration). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. __This also means that we cannot provide help for such SDK versions!__
 
 ### The unbind command
 
@@ -125,7 +127,7 @@ To have a look at the help page of the command, execute:
 ```console
 user@ubuntu:~/caliper-benchmarks$ npx caliper unbind --help
 Usage:
-  caliper unbind --caliper-bind-sut fabric:1.4.1 --caliper-bind-cwd ./ --caliper-bind-args="-g"
+  caliper unbind --caliper-bind-sut fabric:1.4 --caliper-bind-cwd ./ --caliper-bind-args="-g"
 
 Options:
   --help, -h           Show usage information  [boolean]
@@ -166,7 +168,7 @@ To have a look at the help page of the command, execute:
 ```console
 user@ubuntu:~/caliper-benchmarks$ npx caliper launch manager --help
 Usage:
- caliper launch manager --caliper-bind-sut fabric:1.4.1 [other options]
+ caliper launch manager --caliper-bind-sut fabric:1.4 [other options]
 
 Options:
   --help, -h           Show usage information  [boolean]
@@ -192,7 +194,7 @@ To have a look at the help page of the command, execute:
 ```console
 user@ubuntu:~/caliper-benchmarks$ npx caliper launch worker --help
 Usage:
- caliper launch manager --caliper-bind-sut fabric:1.4.1 [other options]
+ caliper launch manager --caliper-bind-sut fabric:1.4 [other options]
 
 Options:
   --help, -h           Show usage information  [boolean]
@@ -230,7 +232,7 @@ But why is all this important to you? Because Caliper is still in its pre-releas
 
 Now that we ignored the tags, let's see the two types of version numbers you will encounter:
 * `0.2.0`: Version numbers of this form denote releases deemed _stable_ by the maintainers. Such versions have a corresponding GitHub tag, both in the `caliper` and `caliper-benchmarks` repositories. Moreover, the latest stable version is documented by the matching version of the documentation page. So make sure to align the different versions if you run into some issue.
-* `0.4.0-unstable-20200206065953`: Such version "numbers" denote _unstable_ releases that are published upon every merged pull request (hence the timestamp at the end), and eventually will become a stable version, e.g., `0.4.0`. This way you always have access to the NPM (and Docker) artifacts pertaining to the `main` branch of the repository. Let's find and fix the bugs of new features before they make it to the stable release!
+* `0.4.2-unstable-20201127140758`: Such version "numbers" denote _unstable_ releases that are published upon every merged pull request (hence the timestamp at the end), and eventually will become a stable version, e.g., `0.4.2`. This way you always have access to the NPM (and Docker) artifacts pertaining to the `main` branch of the repository. Let's find and fix the bugs of new features before they make it to the stable release!
 
 > __Note:__ The newest unstable release always corresponds to the up-to-date version of the related repositories, and the `vNext` version of the documentation page!
 
@@ -246,33 +248,33 @@ The following tools are required to install the CLI from NPM:
 > __Note:__ this is the highly recommended way to install Caliper for your project. Keeping the project dependencies local makes it easier to setup multiple Caliper projects. Global dependencies would require re-binding every time before a new benchmark run (to ensure the correct global dependencies).
 
 1. Set your NPM project details with `npm init` (or just execute `npm init -y`) in your workspace directory (if you haven't done this already, i.e., you don't have a `package.json` file).
-2. Install the Caliper CLI as you would any other NPM package. It is highly recommended to explicitly specify the version number, e.g., `@hyperledger/caliper-cli@0.4.0`
-3. Bind the CLI to the required platform SDK (e.g., `fabric` with the `1.4.0` SDK).
-4. Invoke the local CLI binary (using [npx](https://www.npmjs.com/package/npx)) with the appropriate parameters. You can repeat this step for as many Fabric 1.4.0 benchmarks as you would like.
+2. Install the Caliper CLI as you would any other NPM package. It is highly recommended to explicitly specify the version number, e.g., `@hyperledger/caliper-cli@0.4.2`
+3. Bind the CLI to the required platform SDK (e.g., `fabric` with the `2.2` SDK).
+4. Invoke the local CLI binary (using [npx](https://www.npmjs.com/package/npx)) with the appropriate parameters. You can repeat this step for as many benchmarks as you would like.
 
 Putting it all together:
 ```console
 user@ubuntu:~/caliper-benchmarks$ npm init -y
 user@ubuntu:~/caliper-benchmarks$ npm install --only=prod \
-    @hyperledger/caliper-cli@0.4.0
+    @hyperledger/caliper-cli@0.4.2
 user@ubuntu:~/caliper-benchmarks$ npx caliper bind \
-    --caliper-bind-sut fabric:1.4.0
+    --caliper-bind-sut fabric:2.2
 user@ubuntu:~/caliper-benchmarks$ npx caliper launch manager \
     --caliper-workspace . \
     --caliper-benchconfig benchmarks/scenario/simple/config.yaml \
-    --caliper-networkconfig networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
+    --caliper-networkconfig networks/fabric/test-network.yaml
 ```
 
 We could also perform the binding automatically when launching the manager process (note the extra parameter for `caliper launch manager`):
 ```console
 user@ubuntu:~/caliper-benchmarks$ npm init -y
 user@ubuntu:~/caliper-benchmarks$ npm install --only=prod \
-    @hyperledger/caliper-cli@0.4.0
+    @hyperledger/caliper-cli@0.4.2
 user@ubuntu:~/caliper-benchmarks$ npx caliper launch manager \
-    --caliper-bind-sut fabric:1.4.0 \
+    --caliper-bind-sut fabric:2.2 \
     --caliper-workspace . \
     --caliper-benchconfig benchmarks/scenario/simple/config.yaml \
-    --caliper-networkconfig networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
+    --caliper-networkconfig networks/fabric/test-network.yaml
 ```
 
 > __Note:__ specifying the `--only=prod` parameter in step 2 will ensure that the default __latest__ SDK dependencies for __every__ platform will __not__ be installed. Since we perform an explicit binding anyway (and only for a single platform), this is the desired approach, while also saving some storage and time.
@@ -291,14 +293,14 @@ There are some minor differences compared to the local install:
 5. You can omit the `npx` command, since `caliper` will be in your `PATH`.
 
 ```console
-user@ubuntu:~$ npm install -g --only=prod @hyperledger/caliper-cli@0.4.0
+user@ubuntu:~$ npm install -g --only=prod @hyperledger/caliper-cli@0.4.2
 user@ubuntu:~$ caliper bind \
-    --caliper-bind-sut fabric:1.4.0 \
+    --caliper-bind-sut fabric:2.2 \
     --caliper-bind-args=-g
 user@ubuntu:~$ caliper launch manager \
     --caliper-workspace ~/caliper-benchmarks \
     --caliper-benchconfig benchmarks/scenario/simple/config.yaml \
-    --caliper-networkconfig networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
+    --caliper-networkconfig networks/fabric/test-network.yaml
 ```
 
 > __Note:__ for global install you don't need to change the directory to your workspace, you can simply specify `--caliper-workspace ~/caliper-benchmarks`. But this way you can't utilize the auto complete feature of your commandline for the relative paths of the artifacts.
@@ -330,17 +332,17 @@ Parts of starting a Caliper container (following the recommendations above):
 2. Mount your local working directory to a container directory
 3. Set the required binding and run parameters
 
-> __Note:__ the __latest__ (or any other) tag is __not supported__, i.e, you explicitly have to specify the image version you want: `hyperledger/caliper:0.4.0`, just like it's the recommended approach for the [NPM packages](#versioning-semantics).
+> __Note:__ the __latest__ (or any other) tag is __not supported__, i.e, you explicitly have to specify the image version you want: `hyperledger/caliper:0.4.2`, just like it's the recommended approach for the [NPM packages](#versioning-semantics).
 
 Putting it all together, split into multiple lines for clarity, and naming the container `caliper`:
 
 ```console
 user@ubuntu:~/caliper-benchmarks$ docker run \
     -v $PWD:/hyperledger/caliper/workspace \
-    -e CALIPER_BIND_SUT=fabric:1.4.0 \
+    -e CALIPER_BIND_SUT=fabric:2.2 \
     -e CALIPER_BENCHCONFIG=benchmarks/scenario/simple/config.yaml \
-    -e CALIPER_NETWORKCONFIG=networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml \
-    --name caliper hyperledger/caliper:0.4.0 launch manager
+    -e CALIPER_NETWORKCONFIG=networks/fabric/test-network.yaml \
+    --name caliper hyperledger/caliper:0.4.2 launch manager
 ```
 
 > __Note:__ the above network configuration file contains a start script to spin up a local Docker-based Fabric network, which will not work in this form. So make sure to remove the start (and end) script, and change the node endpoints to remote addresses.
@@ -354,12 +356,12 @@ version: '2'
 services:
     caliper:
         container_name: caliper
-        image: hyperledger/caliper:0.4.0
+        image: hyperledger/caliper:0.4.2
         command: launch manager
         environment:
-        - CALIPER_BIND_SUT=fabric:1.4.0
+        - CALIPER_BIND_SUT=fabric:2.2
         - CALIPER_BENCHCONFIG=benchmarks/scenario/simple/config.yaml
-        - CALIPER_NETWORKCONFIG=networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
+        - CALIPER_NETWORKCONFIG=networks/fabric/test-network.yaml
         volumes:
         - ~/caliper-benchmarks:/hyperledger/caliper/workspace
 ```
@@ -423,7 +425,7 @@ If you would like to run other examples, then you can directly access the CLI in
 user@ubuntu:~/caliper$ node ./packages/caliper-cli/caliper.js launch manager \
     --caliper-workspace ~/caliper-benchmarks \
     --caliper-benchconfig benchmarks/scenario/simple/config.yaml \
-    --caliper-networkconfig networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
+    --caliper-networkconfig networks/fabric/test-network.yaml
 ```
 
 ### Publishing to local NPM repository
@@ -470,14 +472,14 @@ Once Verdaccio is running, you can run the following command to publish every Ca
 ```console
 user@ubuntu:~/caliper/packages/caliper-publish$ ./publish.js npm --registry "http://localhost:4873"
 ...
-+ @hyperledger/caliper-core@0.4.0-unstable-20200206065953
-[PUBLISH] Published package @hyperledger/caliper-core@0.4.0-unstable-20200206065953
++ @hyperledger/caliper-core@0.4.2-unstable-20201127140758
+[PUBLISH] Published package @hyperledger/caliper-core@0.4.2-unstable-20201127140758
 ...
-+ @hyperledger/caliper-fabric@0.4.0-unstable-20200206065953
-[PUBLISH] Published package @hyperledger/caliper-fabric@0.4.0-unstable-20200206065953
++ @hyperledger/caliper-fabric@0.4.2-unstable-20201127140758
+[PUBLISH] Published package @hyperledger/caliper-fabric@0.4.2-unstable-20201127140758
 ...
-+ @hyperledger/caliper-cli@0.4.0-unstable-20200206065953
-[PUBLISH] Published package @hyperledger/caliper-cli@0.4.0-unstable-20200206065953
++ @hyperledger/caliper-cli@0.4.2-unstable-20201127140758
+[PUBLISH] Published package @hyperledger/caliper-cli@0.4.2-unstable-20201127140758
 ```
 
 Take note of the dynamic version number you see in the logs, you will need it to install you modified Caliper version from Verdaccio (the `unstable` tag is also present on NPM, so Verdaccio would probably pull that version instead of your local one).
@@ -491,12 +493,12 @@ Once the packages are published to the local Verdaccio server, we can use the us
 ```console
 user@ubuntu:~/caliper-benchmarks$ npm init -y
 user@ubuntu:~/caliper-benchmarks$ npm install --registry=http://localhost:4873 --only=prod \
-    @hyperledger/caliper-cli@0.4.0-unstable-20200206065953
-user@ubuntu:~/caliper-benchmarks$ npx caliper bind --caliper-bind-sut fabric:1.4.0
+    @hyperledger/caliper-cli@0.4.2-unstable-20201127140758
+user@ubuntu:~/caliper-benchmarks$ npx caliper bind --caliper-bind-sut fabric:2.2
 user@ubuntu:~/caliper-benchmarks$ npx caliper launch manager \
     --caliper-workspace . \
     --caliper-benchconfig benchmarks/scenario/simple/config.yaml \
-    --caliper-networkconfig networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
+    --caliper-networkconfig networks/fabric/test-network.yaml
 ```
 
 > __Note:__ we used the local registry only for the Caliper packages. The binding happens through the public NPM registry. Additionally, we performed the commands through npx and the newly installed CLI binary (i.e., not directly calling the CLI code file).

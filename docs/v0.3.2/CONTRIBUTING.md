@@ -25,8 +25,8 @@ If you haven't heard from anyone in one week, feel free to @ or mail a maintaine
 All PRs must be signed before be merged, be sure to use `git commit -s` to commit your changes.
 
 We use Travis Ci to test the build - please test on your local branch before raising a PR. More information on Travis, and linking to your github repository may be found here: https://docs.travis-ci.com/user/for-beginners/
-   
-There is also a [RocketChat Channel](https://chat.hyperledger.org/channel/caliper) for communication, anybody is welcome to join. 
+
+There is also [Discord](https://discord.com/channels/905194001349627914/941417677778473031) with a Caliper channel for communication, anybody is welcome to join.
 
 ## Caliper Structure
 Caliper is modularised under `packages` into the following components:
@@ -65,10 +65,10 @@ Currently the easiest way to create a new test case is to extend or add to the `
 - directly run `node ./packages/caliper-cli/caliper.js benchmark run --caliper-benchconfig benchmark/my-config.yaml --caliper-networkconfig network/my-network.yaml --caliper-workspace ./packages/caliper-samples` from the root folder
 
 Before adding a benchmark, please inspect the `caliper-samples` structure and example benchmarks; you will need to add your own configuration files for the blockchain system under test, the benchmark configuration, smart contracts, and test files (callbacks) that interact with the deployed smart contract. You can then run the benchmark using the approaches above.
-    
+
 ## Add an Adaptor for a New DLT
-  
+
 New adaptors must be added within a new package, under `packages`, with the naming convention `caliper-<adaptor_name>`. Each adaptor must implement a new class inherited from `BlockchainInterface` as the adaptor for the DLT, as well as a `ClientFactory` and `ClientWorker`. For more information, consult our main documentation.
-  
+
 ## License
 The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
