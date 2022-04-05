@@ -118,23 +118,13 @@ describe('A Fabric Peer Gateway sdk gateway', () => {
     });
 
 
-    it('should pass a defined grpcClinet in the gateway options', async () => {
+    it('should pass a defined grpcClient in the gateway options', async () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWalletNotMutual), walletFacadeFactory);
         const peerGateway = new PeerGateway(connectorConfiguration, 1, 'fabric');
         await peerGateway.getContext();
         for(const args of Gateway.connectArgs){
             args.client.should.be.instanceOf(GrpcClient);
         }
-    });
-
-    it('should pass the default timeout in the gateway options', async () => {
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWalletNotMutual), walletFacadeFactory);
-        const peerGateway = new PeerGateway(connectorConfiguration, 1, 'fabric');
-        const now = new Date();
-        const clock = sinon.useFakeTimers(now.getTime());
-        await peerGateway.getContext();
-        Gateway.connectArgs[0].evaluateOptions().should.be.deep.equal({deadline: now.getTime() + 60000});
-        clock.restore();
     });
 
     it('should pass the default timeout in the gateway options', async () => {
@@ -173,6 +163,14 @@ describe('A Fabric Peer Gateway sdk gateway', () => {
         const peerGateway = new PeerGateway(connectorConfiguration, 1, 'fabric');
         await peerGateway.getContext();
         Gateway.constructed.should.equal(4);
+    });
+
+
+    it('should create a Gateway with the specified created identity', async () => {
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWalletNotMutual), walletFacadeFactory);
+        const peerGateway = new PeerGateway(connectorConfiguration, 1, 'fabric');
+        await peerGateway.getContext();
+        Gateway.connectArgs[0].identity.should.deep.equal({mspId: 'Org1MSP', credentials: Buffer.from('-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----')});
     });
 
     it('should a attempt to create a grpc client with default grpc options when not provided through the connection profile', async () => {

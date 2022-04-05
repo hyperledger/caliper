@@ -42,6 +42,8 @@ sut:
         2.2.11: &fabric-v2-lts
             packages: ['fabric-network@2.2.11']
         2.2: *fabric-v2-lts
+        2.4: 
+            packages: ['@hyperledger/fabric-gateway@1.0.1']
         latest: *fabric-v1-lts
         latest-v2-lts: *fabric-v2-lts
         latest-v2: *fabric-v2-lts

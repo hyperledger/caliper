@@ -19,53 +19,87 @@ const ConnectorConfigurationFactory = require('./connector-configuration/Connect
 const Logger = CaliperUtils.getLogger('FabricConnectorFactory');
 const semver = require('semver');
 
-const NEW_V1_NODE_CONNECTOR = './connector-versions/v1/FabricNonGateway.js';
-const NEW_V1_GATEWAY_CONNECTOR = './connector-versions/v1/FabricGateway.js';
-const NEW_V1_WALLET_FACADE_FACTORY = './connector-versions/v1/WalletFacadeFactory.js';
+const V1_NODE_CONNECTOR = './connector-versions/v1/FabricNonGateway.js';
+const V1_GATEWAY_CONNECTOR = './connector-versions/v1/FabricGateway.js';
+const V1_WALLET_FACADE_FACTORY = './connector-versions/v1/WalletFacadeFactory.js';
 
-const NEW_V2_GATEWAY_CONNECTOR = './connector-versions/v2/FabricGateway.js';
-const NEW_V2_WALLET_FACADE_FACTORY = './connector-versions/v2/WalletFacadeFactory.js';
+const V2_GATEWAY_CONNECTOR = './connector-versions/v2/FabricGateway.js';
+const V2_WALLET_FACADE_FACTORY = './connector-versions/v2/WalletFacadeFactory.js';
+
+const PEER_GATEWAY_CONNECTOR = './connector-versions/peer-gateway/PeerGateway.js';
+const PEER_WALLET_FACADE_FACTORY = './connector-versions/peer-gateway/WalletFacadeFactory.js';
 
 /**
- * @returns {string} version
+ * @typedef {Object} Sdk
+ * @property {String} module - The sdk module name
+ * @property {String} version - The version of the sdk module
  */
-const _determineInstalledNodeSDKVersion = () => {
 
+/**
+ * @returns {Sdk} installedSDKmodule and version
+ */
+const _determineInstalledNodeSDKandVersion = () => {
     // Caliper can only work if you use bind and it will pull in fabric network even for non gateway 1.4
+    let sdk, packageVersion;
+
+    if (CaliperUtils.moduleIsInstalled('@hyperledger/fabric-gateway')) {
+        packageVersion = semver.coerce(require('@hyperledger/fabric-gateway/package').version);
+        sdk = 'fabric-gateway';
+    }
+
     if (CaliperUtils.moduleIsInstalled('fabric-network')) {
-        const packageVersion = require('fabric-network/package').version;
-        return semver.coerce(packageVersion);
-    } else {
+        if (sdk) {
+            throw new Error('Multiple bindings for fabric have been detected, you need to unbind one or more to ensure only a single bind is present to continue');
+        }
+        packageVersion = semver.coerce(require('fabric-network/package').version);
+        sdk = 'fabric-network';
+    }
+
+
+    if (!sdk) {
         throw new Error('Unable to detect required Fabric binding packages');
     }
+
+    return {sdk, packageVersion};
 };
 
-const _loadAppropriateConnectorClass = (installedNodeSDKVersion) => {
+const _loadAppropriateConnectorClass = (installedNodeSdk, version) => {
     let connectorPath;
     let walletFacadeFactoryPath;
 
-    if (semver.satisfies(installedNodeSDKVersion, '=1.x')) {
-        const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Enabled, false);
-        Logger.info(`Initializing ${useGateway ? 'gateway' : 'standard' } connector compatible with installed SDK: ${installedNodeSDKVersion}`);
+    if (installedNodeSdk ===  'fabric-network') {
+        if (semver.satisfies(version, '=1.x')) {
+            const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Enabled, false);
+            Logger.info(`Initializing ${useGateway ? 'gateway' : 'standard' } connector compatible with installed fabric-network SDK: ${version}`);
 
-        if (!useGateway) {
-            connectorPath = NEW_V1_NODE_CONNECTOR;
-            walletFacadeFactoryPath = NEW_V1_WALLET_FACADE_FACTORY;
-        } else {
-            // gateway with default event handlers appears in SDK > 1.4.2
-            if (semver.satisfies(installedNodeSDKVersion, '>=1.4.2')) {
-                connectorPath = NEW_V1_GATEWAY_CONNECTOR;
-                walletFacadeFactoryPath = NEW_V1_WALLET_FACADE_FACTORY;
+            if (!useGateway) {
+                connectorPath = V1_NODE_CONNECTOR;
+                walletFacadeFactoryPath = V1_WALLET_FACADE_FACTORY;
             } else {
-                throw new Error('Caliper currently only supports Fabric gateway based operation using Fabric-SDK 1.4.2 and higher. Please retry with a different SDK binding');
+                // gateway with default event handlers appears in SDK > 1.4.2
+                if (semver.satisfies(version, '>=1.4.2')) {
+                    connectorPath = V1_GATEWAY_CONNECTOR;
+                    walletFacadeFactoryPath = V1_WALLET_FACADE_FACTORY;
+                } else {
+                    throw new Error('Caliper currently only supports Fabric gateway based operation using Fabric-SDK 1.4.2 and higher. Please retry with a different SDK binding');
+                }
             }
+        } else if (semver.satisfies(version, '=2.x')) {
+            Logger.info(`Initializing gateway connector compatible with installed SDK: ${version}`);
+            connectorPath = V2_GATEWAY_CONNECTOR;
+            walletFacadeFactoryPath = V2_WALLET_FACADE_FACTORY;
+        } else {
+            throw new Error(`Installed fabric-network SDK version ${version} did not match any compatible Fabric connectors`);
         }
-    } else if (semver.satisfies(installedNodeSDKVersion, '=2.x')) {
-        Logger.info(`Initializing gateway connector compatible with installed SDK: ${installedNodeSDKVersion}`);
-        connectorPath = NEW_V2_GATEWAY_CONNECTOR;
-        walletFacadeFactoryPath = NEW_V2_WALLET_FACADE_FACTORY;
     } else {
-        throw new Error(`Installed SDK version ${installedNodeSDKVersion} did not match any compatible Fabric connectors`);
+        // can only be fabric-gateway binding due to check done in _determineInstalledNodeSDKandVersion
+        if (semver.satisfies(version, '=1.x')) {
+            Logger.info(`Initializing peer gateway connector compatible with installed fabric-gateway SDK: ${version}`);
+            connectorPath = PEER_GATEWAY_CONNECTOR;
+            walletFacadeFactoryPath = PEER_WALLET_FACADE_FACTORY;
+        } else {
+            throw new Error(`Installed fabric-gateway SDK version ${version} did not match any compatible Fabric connectors`);
+        }
     }
 
     const fabricConnectorClass = require(connectorPath);
@@ -95,8 +129,9 @@ const connectorFactory = async (workerIndex) => {
         throw new Error(`Unknown network configuration version ${loadedConnectorConfiguration.version} specified`);
     }
 
-    const installedNodeSDKVersion = _determineInstalledNodeSDKVersion();
-    const {fabricConnectorClass, walletFacadeFactoryClass} = _loadAppropriateConnectorClass(installedNodeSDKVersion);
+    const sdk = _determineInstalledNodeSDKandVersion();
+
+    const {fabricConnectorClass, walletFacadeFactoryClass} = _loadAppropriateConnectorClass(sdk.sdk, sdk.packageVersion);
     const connectorConfiguration = await new ConnectorConfigurationFactory().create(connectorConfigurationFile, new walletFacadeFactoryClass());
     const fabricConnector = new fabricConnectorClass(connectorConfiguration, workerIndex, 'fabric');
 
