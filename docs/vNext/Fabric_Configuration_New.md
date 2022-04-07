@@ -15,9 +15,9 @@ order: 3
 
 ## Overview
 
-This page introduces the Fabric adapter that utilizes the Common Connection Profile (CCP) feature of the Fabric SDK to provide compatibility and a unified programming model across different Fabric versions.
+This page introduces the Fabric adapter to provide compatibility and a unified programming model across different Fabric versions.
 
-> The latest supported version of Hyperledger Fabric is v2.2 and later 2.x releases (eg 2.4)
+> The latest supported version of Hyperledger Fabric is v2.2 LTS and later 2.x releases (eg 2.4, ie 2.3 is not supported)
 
 
 
@@ -33,23 +33,30 @@ The adapter exposes many SDK features directly to the user callback modules, mak
 
 ## Installing dependencies
 
-You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](./Installing_Caliper.md#the-bind-command) for details.
+You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](./Installing_Caliper.md#the-bind-command) for details. When you bind to an SUT, you are in fact selecting a specific fabric SDK to use which could be used with different versions of Fabric SUTs.
 
-### Binding with Fabric SDK 1.4
+> * None of the Fabric bindings support administration actions. It it not possible to create/join channels, nor install/instantiate a contract. Consequently the bindings only facilitates operation with a `--caliper-flow-only-test` flag
 
-It is confirmed that a 1.4 Fabric SDK is compatible with a Fabric 2.2 and later Fabric 2.x SUTs.
+### Binding with Fabric 1.4
+
+It is confirmed that a 1.4 Fabric SDK is compatible with a Fabric 2.2 and later Fabric 2.x SUTs, therefore this binding can be used with later Fabric SUTs
 
 Note that when using the binding target for the Fabric SDK 1.4 there are capability restrictions:
-> * The 1.4 SDK does not support administration actions. It it not possible to create/join channels, nor install/instantiate a contract. Consequently the 1.4 binding only facilitates operation with a `--caliper-flow-only-test` flag
-> * Currently setting `discover` to `true` in the network configuration file is not supported if you don't specify `--caliper-fabric-gateway-enabled` when bound to the Fabric 1.4 SUT
+> * Currently setting `discover` to `true` in the network configuration file is not supported if you don't enable the `gateway` option
 > * Detailed execution data for every transaction is only available if you don't enable the `gateway` option
 
-### Binding with Fabric SDK 2.2
+### Binding with Fabric 2.2
 
-It is confirmed that a 2.2 Fabric SDK is compatible with later Fabric 2.x SUTs.
+It is confirmed that a 2.2 Fabric SDK is compatible with 2.2 and later Fabric SUTs, therefore this binding can be used with later 2.2 and later Fabric SUTs
 
-> Note that when using the binding target for the Fabric SDK 2.x there are capability restrictions:
-> * The 2.x SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate contract. Consequently the 2.2 binding only facilitates operation with a `--caliper-flow-only-test` flag
+> The following further restrictions exist for this binding
+> * Detailed execution data for every transaction is not available.
+
+### Binding with Fabric 2.4
+
+Only Fabric 2.4 and later with the Peer Gateway capability enabled (which is the default setting for a fabric peer) can be used.
+
+> The following further restrictions exist for this binding
 > * Detailed execution data for every transaction is not available.
 
 ## Runtime settings
@@ -58,7 +65,7 @@ It is confirmed that a 2.2 Fabric SDK is compatible with later Fabric 2.x SUTs.
 
 Some runtime properties of the adapter can be set through Caliper's [runtime configuration mechanism](./Runtime_Configuration.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
 
-The above settings are processed when starting Caliper. Modifying them during testing will have no effect. However, you can override the default values _before Caliper starts_ from the usual configuration sources.
+The above settings are processed when starting Caliper. Modifying them during testing will have no effect. However, you can override the default values _before Caliper starts_ from the usual configuration sources. In the following example the `localhost` property applies only when binding with Fabric 2.2 or Fabric 1.4 (and only if the `gateway` option is enabled)
 
 > __Note:__ An object hierarchy in a configuration file generates a setting entry for every leaf property. Consider the following configuration file:
 > ```yaml
