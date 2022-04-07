@@ -7,6 +7,7 @@ order: 3
 ---
 
 ## Table of contents
+
 {:.no_toc}
 
 - TOC
@@ -56,6 +57,7 @@ The simple configuration API is provided by the `ConfigUtil` module of the `@hyp
     Sets the `value` for the setting associated with the given `key`. It will overwrite any other value set by other sources.
 
 For example:
+
 ```js
 const { ConfigUtil } = require('@hyperledger/caliper-core');
 
@@ -146,11 +148,13 @@ Moreover, YAML-based configuration files allow comments that make your configura
 Note, that no additional transformation is performed on the key names of a YAML file, they are simply concatenated with `-` to get a flat string key from the object hierarchy.
 
 So the hierarchical setting
+
 ```yaml
 mymodule:
   performance:
     shouldbefast: true
 ```
+
 will be parsed as the `mymodule-performance-shouldbefast` string key associated with the `true` Boolean value.
 
 #### Project-level
@@ -158,6 +162,7 @@ will be parsed as the `mymodule-performance-shouldbefast` string key associated 
 If you have a group of settings that are always overridden in your Caliper benchmark project, then it is recommended to define them as a project-level configuration file. This file will usually consist of a subset of settings defined in the default configuration file (and probably your custom settings associated with your custom user module).
 
 The project-level configuration file can be included into the hierarchy in two ways:
+
 * Define the overridden settings in the `caliper.yaml` file in the **workspace directory**
 * Or set the path of the configuration file explicitly through the `caliper-projectconfig` setting key using one of the higher priority locations above (i.e., command line argument or environment variable):
 
@@ -324,25 +329,62 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 | caliper-auth-prometheuspush-username | Basic authentication username to use authenticate with an existing prometheus push gateway. |
 | caliper-auth-prometheuspush-password | Basic authentication password to use authenticate with an existing prometheus push gateway. |
 
-### Fabric adapter settings
+### Fabric Connector settings
 
-| Key | Description |
-|:----|:------------|
-| caliper-fabric-gateway-eventstrategy | Sets the event strategy to use. |
-| caliper-fabric-gateway-localhost | Indicates whether to use the localhost default within the Fabric Gateway API. |
-| caliper-fabric-gateway-querystrategy | Sets the query strategy to use. |
-| caliper-fabric-gateway-enabled | Indicates whether to use the Fabric gateway-based SDK API for the 1.4 Fabric SUT. |
-| caliper-fabric-latencythreshold | Determines the reported commit time of a transaction based on the given percentage of event sources. |
-| caliper-fabric-loadbalancing | Determines how automatic load balancing is applied. |
-| caliper-fabric-overwritegopath | Indicates whether to temporarily set the GOPATH environment variable to the workspace directory. |
-| caliper-fabric-sleepafter-createchannel | The time in milliseconds to sleep after creating the channels. |
-| caliper-fabric-sleepafter-joinchannel | The time in milliseconds to sleep after joining the channels. |
-| caliper-fabric-sleepafter-instantiatecontract | The time in milliseconds to sleep after instantiated the contracts. |
-| caliper-fabric-timeout-contractinstantiate | Timeout in milliseconds for the endorsement part of a contract instantiation. |
-| caliper-fabric-timeout-contractinstantiateevent | Timeout in milliseconds for receiving the event about the result of a contract instantiation. |
-| caliper-fabric-timeout-invokeorquery | The default timeout in seconds to use for invoking or querying transactions. |
-| caliper-fabric-verify-proposalresponse | Indicates whether to verify the received proposal responses. |
-| caliper-fabric-verify-readwritesets | Indicates whether to verify that the read-write sets returned by the endorsers match. |
+In the following table, The `1.4` Refers to 1.4 SUT without the caliper-fabric-gateway-enabled specified and `1.4Gateway` Refers to 1.4 SUT with the caliper-fabric-gateway-enabled specfied. `All` means that all the SUT versions support this option
+
+| Key | SUT Version | Description |
+|:----|:------------|:------------|
+| caliper-fabric-timeout-invokeorquery | All | The default timeout in seconds to use for invoking or querying transactions. Default is 60 Seconds |
+| caliper-fabric-gateway-enabled | 1.4 | Indicates whether to use the Fabric gateway-based SDK API for the 1.4 Fabric SUT. Default is false |
+| caliper-fabric-gateway-localhost | 1.4Gateway, 2.2 | Indicates whether to convert discovered endpoints to localhost. Does not apply if discover is set to false in network config. Default is true |
+| caliper-fabric-gateway-querystrategy | 1.4Gateway, 2.2 | Sets the query strategy to use for 2.2 and 1.4 when gateway is enabled. Default is Round Robin |
+| caliper-fabric-gateway-eventstrategy | 1.4Gateway, 2.2 | Sets the event strategy to use for 2.2 and 1.4 when gateway is enabled. Default is any in Invoker Organisation |
+| caliper-fabric-latencythreshold | 1.4 | Determines the reported commit time of a transaction based on the given percentage of event sources. |
+| caliper-fabric-loadbalancing | 1.4 | Determines how automatic load balancing is applied. |
+| caliper-fabric-verify-proposalresponse | 1.4 | Indicates whether to verify the received proposal responses. |
+| caliper-fabric-verify-readwritesets | 1.4 | Indicates whether to verify that the read-write sets returned by the endorsers match. |
+
+#### Supported Event Strategies
+
+A description of the different types of event strategy for both the 1.4 and 2.2 SUT can be found [here](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.html#.DefaultEventHandlerStrategies__anchor)
+
+To select an event strategy set the property `caliper-fabric-gateway-eventstrategy` to one of the following
+
+| strategy | corresponds to |
+| :------- | :------------- |
+| msp_all | MSPID_SCOPE_ALLFORTX |
+| msp_any | MSPID_SCOPE_ANYFORTX |
+| network_all | NETWORK_SCOPE_ALLFORTX |
+| network_any | NETWORK_SCOPE_ANYFORTX |
+
+for example using a flag on the cli to set to have all peers in the network report that the transaction was committed you would specify
+
+```console
+--caliper-fabric-gateway-eventstrategy network_all
+```
+
+The default is `msp_any`
+
+#### Supported Query Strategies
+
+A description of the different types of query strategy for both the 1.4 and 2.2 SUT can be found [here](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.html#.DefaultQueryHandlerStrategies__anchor)
+
+To select a query strategy set the property `caliper-fabric-gateway-querystrategy` to one of the following
+
+| strategy | corresponds to |
+| :------- | :------------- |
+| msp_single | MSPID_SCOPE_SINGLE |
+| msp_round_robin | MSPID_SCOPE_ROUND_ROBIN |
+
+for example using a flag on the cli to set to have all peers in the network report that the transaction was committed you would specify
+
+```console
+--caliper-fabric-gateway-querystrategy msp_single
+```
+
+The default is `msp_round_robin`
 
 ## License
+
 The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
