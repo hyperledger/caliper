@@ -34,7 +34,7 @@ class FabricChannelOperations {
         this.aliasNameToFabricClientMap = null;
 
         this.configSleepAfterCreateChannel = ConfigUtil.get(ConfigUtil.keys.Fabric.SleepAfter.CreateChannel, 5000);
-        this.configSleepAfterJoinChannel = ConfigUtil.get(ConfigUtil.keys.Fabric.SleepAfter.JoinChannel, 3000);
+        this.configSleepAfterJoinChannel = ConfigUtil.get(ConfigUtil.keys.Fabric.SleepAfter.JoinChannel, 5000);
     }
 
     /**
