@@ -100,7 +100,7 @@ The Caliper manager process is the orchestrator of the entire benchmark run. It 
 
 If your SUT is already deployed an initialized, then you only need Caliper to execute the rounds and nothing else. Luckily, you can configure every stage one-by-one whether it should be executed or not. See the [flow control settings](./Runtime_Configuration.md#benchmark-phase-settings) for details.
 
-The above figure only shows the high-level steps of executing a benchmark. Some components are omitted for the sake of simplicity, like the monitor and worker progress observer components. To learn more about the purpose and configuration of these components, refer to the [Monitors and Observers](./MonitorsAndObservers.md) documentation page.
+The above figure only shows the high-level steps of executing a benchmark. Some components are omitted for the sake of simplicity, like the resource and transaction monitor components. To learn more about the purpose and configuration of these components, refer to the [Resource and Transaction Monitors](./ResourceAndTransactionMonitors.md) documentation page.
 
 ### The worker process
 
