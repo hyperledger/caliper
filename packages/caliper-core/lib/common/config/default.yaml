@@ -185,46 +185,31 @@ caliper:
             # Indicates whether to only perform the end command script in the network configuration file, if provided
             end: false
 
-    # Configurations related to the Fabric CCP adapter
+    # Configurations related to the Fabric Connector
     fabric:
-        # Sets the sleep behaviors after different init actions
-        sleepafter:
-            # The time in milliseconds to sleep after creating the channels (if created channels at all)
-            createchannel: 5000
-            # The time in milliseconds to sleep after joining the channels (if joined channels at all)
-            joinchannel: 5000
-            # The time in milliseconds to sleep after instantiated the contracts (if instantiated contracts at all)
-            instantiatecontract: 5000
-        # Enables extra verification steps during the transaction proposal phase
+        # Enables extra verification steps during the transaction proposal phase for 1.4 SUT without gateway being enabled
         verify:
-            # Indicates whether to verify the identity of the endorsers and their signatures for each proposal response after endorsing a transaction.
+            # For 1.4 SUT without gateway enabled, Indicates whether to verify the identity of the endorsers and their signatures for
+            # each proposal response after endorsing a transaction.
             # Note, that this is a CPU intensive step, use it with caution
             proposalresponse: false
-            # Indicates whether to verify that the read-write sets returned by the endorsers match
+            # For 1.4 SUT without gateway enabled, indicates whether to verify that the read-write sets returned by the endorsers match
             readwritesets: true
-        # Contains worker-side timeouts related to the initialization part of the adapter
+        # Contains worker-side timeouts
         timeout:
-            # Timeout in milliseconds for the endorsement part of a contract instantiation
-            contractinstantiate: 300000
-            # Timeout in milliseconds for receiving the event about the result of a contract instantiation
-            contractinstantiateevent: 100000
             # The default timeout in seconds to use for invoking or querying transactions (applied for the entire life-cycle)
             invokeorquery: 60
-        # Determines how automatic load balancing is applied if the worker callback module doesn’t provide explicit targets.
+        # For 1.4 SUT without gateway enabled, determines how automatic load balancing is applied if the worker callback module doesn’t provide explicit targets.
         # Use the value 'worker' to perform worker-based load balancing, meaning that each worker process will have fix target peers and target orderer.
         # Use the value 'tx' to perform transaction-based load balancing, meaning that the peer and orderer targets change for every submitted transaction or query.
         loadbalancing: tx
-        # Indicates whether to temporarily set the GOPATH environment variable to the Caliper root directory
-        overwritegopath: true
-        # Determines the reported commit time of a transaction based on the given percentage of event sources
+        # For 1.4 SUT without gateway enabled, determines the reported commit time of a transaction based on the given percentage of event sources
         latencythreshold: 1.0
-        # Indicates whether to count queries as workload, i.e., whether the generated report should include them
-        countqueryasload: true
-        # Settings for the Fabric Gateway API
+        # Settings for the 1.4 SUT with gateway enabled option and the 2.2 SUT (except the enabled option)
         gateway:
-            # Indicates whether to use the Fabric Gateway API
+            # For 1.4 SUT, Indicates whether to use the Fabric Gateway API. For 2.2 SUT it is always true and cannot be changed
             enabled: false
-            # Indicates whether to use the localhost default within the Fabric Gateway API
+            # Indicates whether to convert discovered endpoints to localhost. Ignored when if discover is set to false in network config
             localhost: true
             # Which event strategy to use
             eventstrategy: msp_any
