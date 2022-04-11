@@ -175,6 +175,7 @@ class PeerGateway extends ConnectorBase {
             client.close();
         }
 
+        this.clients.clear();
         this.context = undefined;
     }
 

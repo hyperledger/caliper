@@ -24,7 +24,7 @@ services:
 #######
 
     ca.org1.example.com:
-        image: hyperledger/fabric-ca:1.4.8
+        image: hyperledger/fabric-ca:1.5.3
         environment:
         - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
         - FABRIC_CA_SERVER_CA_NAME=ca.org1.example.com
@@ -42,8 +42,9 @@ services:
         - ./config/crypto-config/peerOrganizations/org1.example.com/tlsca/:/etc/hyperledger/fabric-ca-server-tls
         container_name: ca.org1.example.com
 
+
     ca.org2.example.com:
-        image: hyperledger/fabric-ca:1.4.8
+        image: hyperledger/fabric-ca:1.5.3
         environment:
         - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
         - FABRIC_CA_SERVER_CA_NAME=ca.org2.example.com
@@ -67,7 +68,7 @@ services:
 
     orderer0.example.com:
         container_name: orderer0.example.com
-        image: hyperledger/fabric-orderer:1.4.8
+        image: hyperledger/fabric-orderer:2.4.3
         environment:
         - FABRIC_LOGGING_SPEC=info
         - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
@@ -80,9 +81,6 @@ services:
         - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
         - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
         - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/msp/orderer/tls/ca.crt]
-        # Mutual TLS
-        - ORDERER_GENERAL_TLS_CLIENTAUTHREQUIRED=true
-        - ORDERER_GENERAL_TLS_CLIENTROOTCAS=[/etc/hyperledger/msp/caOrg1/ca.org1.example.com-cert.pem, /etc/hyperledger/msp/caOrg2/ca.org2.example.com-cert.pem, /etc/hyperledger/msp/caOrderer/ca.example.com-cert.pem]
         # Raft TLS
         - ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
         - ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
@@ -107,7 +105,7 @@ services:
 
     orderer1.example.com:
         container_name: orderer1.example.com
-        image: hyperledger/fabric-orderer:1.4.8
+        image: hyperledger/fabric-orderer:2.4.3
         environment:
         - FABRIC_LOGGING_SPEC=info
         - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
@@ -120,9 +118,6 @@ services:
         - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
         - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
         - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/msp/orderer/tls/ca.crt]
-        # Mutual TLS
-        - ORDERER_GENERAL_TLS_CLIENTAUTHREQUIRED=true
-        - ORDERER_GENERAL_TLS_CLIENTROOTCAS=[/etc/hyperledger/msp/caOrg1/ca.org1.example.com-cert.pem, /etc/hyperledger/msp/caOrg2/ca.org2.example.com-cert.pem, /etc/hyperledger/msp/caOrderer/ca.example.com-cert.pem]
         # Raft TLS
         - ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
         - ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
@@ -151,7 +146,7 @@ services:
 
     peer0.org1.example.com:
         container_name: peer0.org1.example.com
-        image: hyperledger/fabric-peer:1.4.8
+        image: hyperledger/fabric-peer:2.4.3
         environment:
         - FABRIC_LOGGING_SPEC=info
         - CORE_CHAINCODE_LOGGING_LEVEL=INFO
@@ -169,14 +164,16 @@ services:
         # CouchDB
         - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
         - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer0.org1.example.com:5984
+        # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+        # provide the credentials for ledger to connect to CouchDB.  The username and password must
+        # match the username and password set for the associated CouchDB.
+        - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+        - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
         # TLS
         - CORE_PEER_TLS_ENABLED=true
         - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
         - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
         - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
-        # Mutual TLS
-        - CORE_PEER_TLS_CLIENTAUTHREQUIRED=true
-        - CORE_PEER_TLS_CLIENTROOTCAS_FILES=/etc/hyperledger/msp/caOrg1/ca.org1.example.com-cert.pem /etc/hyperledger/msp/caOrg2/ca.org2.example.com-cert.pem /etc/hyperledger/msp/caOrderer/ca.example.com-cert.pem
         # setting up metrics
         - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9000
         - CORE_OPERATIONS_TLS_ENABLED=false
@@ -199,15 +196,18 @@ services:
 
     couchdb.peer0.org1.example.com:
         container_name: couchdb.peer0.org1.example.com
-        image: hyperledger/fabric-couchdb:0.4.14
+        image: couchdb:3.1.1
         ports:
         - 5984:5984
+        # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+        # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
         environment:
-            DB_URL: http://localhost:5984/member_db
+        - COUCHDB_USER=admin
+        - COUCHDB_PASSWORD=adminpw
 
     peer0.org2.example.com:
         container_name: peer0.org2.example.com
-        image: hyperledger/fabric-peer:1.4.8
+        image: hyperledger/fabric-peer:2.4.3
         environment:
         - FABRIC_LOGGING_SPEC=info
         - CORE_CHAINCODE_LOGGING_LEVEL=INFO
@@ -225,14 +225,16 @@ services:
         # CouchDB
         - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
         - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer0.org2.example.com:5984
+        # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+        # provide the credentials for ledger to connect to CouchDB.  The username and password must
+        # match the username and password set for the associated CouchDB.
+        - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
+        - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw
         # TLS
         - CORE_PEER_TLS_ENABLED=true
         - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
         - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
         - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
-        # Mutual TLS
-        - CORE_PEER_TLS_CLIENTAUTHREQUIRED=true
-        - CORE_PEER_TLS_CLIENTROOTCAS_FILES=/etc/hyperledger/msp/caOrg1/ca.org1.example.com-cert.pem /etc/hyperledger/msp/caOrg2/ca.org2.example.com-cert.pem /etc/hyperledger/msp/caOrderer/ca.example.com-cert.pem
         # setting up metrics
         - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9000
         - CORE_OPERATIONS_TLS_ENABLED=false
@@ -255,11 +257,14 @@ services:
 
     couchdb.peer0.org2.example.com:
         container_name: couchdb.peer0.org2.example.com
-        image: hyperledger/fabric-couchdb:0.4.14
+        image: couchdb:3.1.1
         ports:
         - 6984:5984
+        # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+        # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
         environment:
-            DB_URL: http://localhost:5984/member_db
+        - COUCHDB_USER=admin
+        - COUCHDB_PASSWORD=adminpw
 
 ##############
 # MONITORING #
@@ -313,4 +318,3 @@ services:
         - "9001:9001"
         volumes:
         - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
-

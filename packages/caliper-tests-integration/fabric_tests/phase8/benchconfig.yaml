@@ -1,0 +1,39 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+---
+test:
+    workers:
+        type: local
+        number: 2
+    rounds:
+    - label: init1
+      txNumber: 100
+      rateControl: { type: 'fixed-rate', opts: { tps: 20 } }
+      workload:
+          module: ./../init.js
+          arguments:
+              marblePrefix: marbles_phase_5
+    - label: init2
+      txNumber: 200
+      rateControl: { type: 'fixed-feedback-rate', opts: { tps: 20, maximum_transaction_load: 5 } }
+      workload:
+          module: ./../init.js
+          arguments:
+              marblePrefix: marbles_phase_5
+    - label: query
+      txNumber: 100
+      rateControl: { type: 'linear-rate', opts: { startingTps: 10, finishingTps: 20 } }
+      workload:
+        module: ./../query.js

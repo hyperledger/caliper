@@ -40,12 +40,8 @@ export CALIPER_PROJECTCONFIG=../caliper.yaml
 
 dispose () {
     docker ps -a
-    ${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-end
+    ${CALL_METHOD} launch manager --caliper-workspace phase8 --caliper-flow-only-end
 }
-
-# needed, since the peer looks for the latest, which is no longer on dockerhub
-docker pull hyperledger/fabric-ccenv:1.4.8
-docker image tag hyperledger/fabric-ccenv:1.4.8 hyperledger/fabric-ccenv:latest
 
 # PHASE 1: just starting the network
 ${CALL_METHOD} launch manager --caliper-workspace phase1 --caliper-flow-only-start
@@ -126,10 +122,35 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
-# PHASE 7: just disposing of the network
-${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-end
+# UNBIND SDK, using the package dir as CWD
+# Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
+if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
+    pushd $SUT_DIR
+    ${CALL_METHOD} unbind --caliper-bind-sut fabric:2.2
+    popd
+fi
+
+# BIND with 2.4 SDK, using the package dir as CWD
+# Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
+if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
+    pushd $SUT_DIR
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:2.4
+    popd
+fi
+
+# PHASE 7: testing through the peer gateway API (fabric-gateway SDK)
+${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 8";
+    dispose;
+    exit ${rc};
+fi
+
+# PHASE 8: just disposing of the network
+${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-end
+rc=$?
+if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 9";
     exit ${rc};
 fi
