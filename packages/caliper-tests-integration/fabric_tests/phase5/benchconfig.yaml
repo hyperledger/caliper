@@ -43,12 +43,12 @@ monitors:
     transaction:
     - module: prometheus-push
       options:
-        pushInterval: 5
+        pushInterval: 5000
         pushUrl: "http://localhost:9091"
     resource:
     - module: prometheus
       options:
-        interval: 5
+        interval: 5000
         url: "http://localhost:9090"
         metrics:
             include: [peer*, dev*]
@@ -71,9 +71,9 @@ monitors:
                 metrics: [all]
     - module: process
       options:
-        interval: 3
+        interval: 3000
         processes: [{ command: 'node', arguments: 'caliper.js', multiOutput: 'avg' }]
     - module: docker
       options:
-        interval: 4
+        interval: 4000
         containers: ['peer0.org1.example.com', 'peer0.org2.example.com', 'orderer0.example.com', 'orderer1.example.com']

@@ -51,12 +51,12 @@ monitors:
         messageLevel: info
     - module: prometheus-push
       options:
-        pushInterval: 5
+        pushInterval: 5000
         pushUrl: "http://localhost:9091"
     resource:
     - module: prometheus
       options:
-        interval: 5
+        interval: 5000
         url: "http://localhost:9090"
         metrics:
             include: [peer*, dev*]
