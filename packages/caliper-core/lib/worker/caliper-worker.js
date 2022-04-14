@@ -150,10 +150,11 @@ class CaliperWorker {
         Logger.debug(`Worker #${this.workerIndex} creating workload module`);
         const workloadModuleFactory = CaliperUtils.loadModuleFunction(new Map(), prepareTestMessage.getWorkloadSpec().module, 'createWorkloadModule');
         this.workloadModule = workloadModuleFactory();
+        let context;
 
         try {
             // Retrieve context for this round
-            const context = await this.connector.getContext(roundIndex, prepareTestMessage.getWorkerArguments());
+            context = await this.connector.getContext(roundIndex, prepareTestMessage.getWorkerArguments());
 
             // Run init phase of callback
             Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${roundIndex} is starting...`);
@@ -163,6 +164,7 @@ class CaliperWorker {
             Logger.info(`Worker [${this.workerIndex}] encountered an error during prepare test phase for round ${roundIndex}: ${(err.stack ? err.stack : err)}`);
             throw err;
         } finally {
+            await this.connector.releaseContext(context);
             Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${roundIndex} is completed`);
         }
     }
@@ -179,21 +181,24 @@ class CaliperWorker {
         const roundIndex = testMessage.getRoundIndex();
         const roundLabel = testMessage.getRoundLabel();
         Logger.debug(`Worker #${this.workerIndex} starting round #${roundIndex}`);
+        let context, rateController, observerActivated;
 
         try {
             Logger.debug(`Worker #${this.workerIndex} initializing adapter context`);
-            let context = await this.connector.getContext(roundIndex, workerArguments);
+            context = await this.connector.getContext(roundIndex, workerArguments);
 
             // Activate dispatcher
             Logger.debug(`Worker #${this.workerIndex} activating TX observer dispatch`);
             await this.txObserverDispatch.activate(roundIndex, roundLabel);
+            observerActivated = true;
 
             // Configure
             Logger.debug(`Worker #${this.workerIndex} creating rate controller`);
-            let rateController = new RateControl(testMessage, this.internalTxObserver.getCurrentStatistics(), this.workerIndex);
+            rateController = new RateControl(testMessage, this.internalTxObserver.getCurrentStatistics(), this.workerIndex);
 
             // Run the test loop
             Logger.info(`Worker #${this.workerIndex} starting workload loop`);
+
             if (testMessage.getRoundDuration()) {
                 const duration = testMessage.getRoundDuration(); // duration in seconds
                 await this.runDuration(this.workloadModule, duration, rateController);
@@ -202,25 +207,45 @@ class CaliperWorker {
                 await this.runFixedNumber(this.workloadModule, number, rateController);
             }
 
-            // Deactivate dispatcher
-            Logger.debug(`Worker #${this.workerIndex} deactivating TX observer dispatch`);
-            await this.txObserverDispatch.deactivate();
-
-            // Clean up
-            Logger.debug(`Worker #${this.workerIndex} cleaning up rate controller`);
-            await rateController.end();
-
-            Logger.debug(`Worker #${this.workerIndex} cleaning up user test module`);
-            await this.workloadModule.cleanupWorkloadModule();
-
-            Logger.debug(`Worker #${this.workerIndex} cleaning up adapter context`);
-            await this.connector.releaseContext(context);
-
             Logger.debug(`Worker #${this.workerIndex} finished round #${roundIndex}`, this.internalTxObserver.getCurrentStatistics().getCumulativeTxStatistics());
             return this.internalTxObserver.getCurrentStatistics();
         } catch (err) {
-            Logger.error(`Unexpected error in worker #${this.workerIndex}: ${(err.stack || err)}`);
+            Logger.error(`Unexpected error in worker #${this.workerIndex} caused worker to finish round #${roundIndex}: ${(err.stack || err)}`);
             throw err;
+        } finally {
+            if (observerActivated) {
+                Logger.debug(`Worker #${this.workerIndex} deactivating TX observer dispatch`);
+                try {
+                    await this.txObserverDispatch.deactivate();
+                } catch(err) {
+                    Logger.warn(`Worker #${this.workerIndex} failed to deactivate TX observer dispatch:  ${(err.stack || err)}`);
+                }
+            }
+
+            if (rateController) {
+                Logger.debug(`Worker #${this.workerIndex} cleaning up rate controller`);
+                try {
+                    await rateController.end();
+                } catch(err) {
+                    Logger.warn(`Worker #${this.workerIndex} failed to clean up rate controller:  ${(err.stack || err)}`);
+                }
+            }
+
+            Logger.debug(`Worker #${this.workerIndex} cleaning up workload module`);
+            try {
+                await this.workloadModule.cleanupWorkloadModule();
+            } catch(err) {
+                Logger.warn(`Worker #${this.workerIndex} failed to clean up workload module:  ${(err.stack || err)}`);
+            }
+
+            if (context) {
+                Logger.debug(`Worker #${this.workerIndex} cleaning up connector context`);
+                try {
+                    await this.connector.releaseContext(context);
+                } catch(err) {
+                    Logger.warn(`Worker #${this.workerIndex} failed to release connector context:  ${(err.stack || err)}`);
+                }
+            }
         }
     }
 }
