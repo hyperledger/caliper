@@ -363,7 +363,7 @@ module.exports.createWorkloadModule = createWorkloadModule;
 ```
 
 ## Step 4 - Build a Benchmark Configuration File
-The benchmark configuration file defines the benchmark rounds and references the defined workload module(s). It will specify the number of test workers to use when generating the load, the number of test rounds, the duration of each round, the rate control applied to the transaction load during each round, and options relating to monitors. This particular tutorial will not make use of any of the available monitors or transaction observers; for these details please refer to the documentation.
+The benchmark configuration file defines the benchmark rounds and references the defined workload module(s). It will specify the number of test workers to use when generating the load, the number of test rounds, the duration of each round, the rate control applied to the transaction load during each round, and options relating to monitors. This particular tutorial will not make use of any of the available resource and transaction monitors; for these details please refer to the documentation.
 
 The benchmark configuration file may be provided in a yaml or json format: here we will use a yaml format. Please note that yaml files are case sensitive and all labels are in lowercase.
 

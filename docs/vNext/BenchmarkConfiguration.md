@@ -54,7 +54,7 @@ A benchmark configuration with the above structure will define a benchmark run t
 
 ## Monitoring settings
 
-The monitoring configuration determines what kind of metrics the manager process can gather and from where. The configuration resides under the `monitors` attribute. Refer to the [monitors configuration page](./MonitorsAndObservers.md) for the details.
+The monitoring configuration determines what kind of metrics the manager process can gather and from where. The configuration resides under the `monitors` attribute. Refer to the [monitors configuration page](./ResourceAndTransactionMonitors.md) for the details.
 
 ## Example
 
