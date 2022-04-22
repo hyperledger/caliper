@@ -23,7 +23,6 @@ const ChartBuilder = require('../charts/chart-builder');
 const os = require('os');
 const URL = require('url');
 const Docker = require('dockerode');
-const SystemInformation = require('systeminformation');
 
 /**
  * Resource monitor for local/remote docker containers
@@ -63,7 +62,7 @@ class MonitorDocker extends MonitorInterface {
      */
     async findContainers() {
         this.containers = [];
-        let filterName = { local: [], remote: {} };
+        let filterName = {};
         // Split docker items that are local or remote
         if (this.options.hasOwnProperty('containers')) {
             for (let key in this.options.containers) {
@@ -74,77 +73,68 @@ class MonitorDocker extends MonitorInterface {
                     if (remote.hostname === null || remote.port === null || remote.pathname === '/') {
                         Logger.warn('unrecognized host, ' + container);
                     } else if (filterName.remote.hasOwnProperty(remote.hostname)) {
-                        filterName.remote[remote.hostname].containers.push(remote.pathname);
+                        filterName[remote.hostname].containers.push(remote.pathname);
                     } else {
-                        filterName.remote[remote.hostname] = { port: remote.port, containers: [remote.pathname] };
+                        filterName[remote.hostname] = { port: remote.port, containers: [remote.pathname] };
                     }
                 } else {
                     // Is local
-                    filterName.local.push(container);
-                }
-            }
-        }
-
-        // Filter local containers by name
-        if (filterName.local.length > 0) {
-            try {
-                const containers = await SystemInformation.dockerContainers('active');
-                let size = containers.length;
-                if (size === 0) {
-                    Logger.error('Could not find any active local containers');
-                } else {
-                    if (filterName.local.indexOf('all') !== -1) {
-                        // Add all containers
-                        for (let i = 0; i < size; i++) {
-                            this.containers.push({ id: containers[i].id, name: containers[i].name, remote: null });
-                            this.stats[containers[i].id] = this.newContainerStat();
-                        }
+                    if (filterName.hasOwnProperty('localhost')) {
+                        filterName.localhost.containers.push(container);
                     } else {
-                        // Filter containers
-                        for (let i = 0; i < size; i++) {
-                            if (filterName.local.indexOf(containers[i].name) !== -1) {
-                                this.containers.push({ id: containers[i].id, name: containers[i].name, remote: null });
-                                this.stats[containers[i].id] = this.newContainerStat();
-                            }
-                        }
+                        filterName.localhost = { containers: [container] };
                     }
                 }
-            } catch (error) {
-                Logger.error(`Error retrieving local containers: ${error}`);
             }
         }
-        // Filter remote containers by name
-        for (let h in filterName.remote) {
+
+        // Filter containers by name
+        for (let hostname in filterName) {
             try {
-                // Instantiate for the host/port
-                let docker = new Docker({
-                    host: h,
-                    port: filterName.remote[h].port
-                });
+                let docker;
+                if (hostname === 'localhost'){
+                    // Instantiate for local host
+                    docker = new Docker({});
+                } else {
+                    // Instantiate for the host/port
+                    docker = new Docker({
+                        host: hostname,
+                        port: filterName[hostname].port
+                    });
+                }
 
                 // Retrieve and filter containers
+                // Retrieve and filter containers
                 const containers = await docker.listContainers();
+
+                const simplifyName = (host, containerName) => {
+                    if (host === 'localhost') {
+                        return containerName;
+                    }
+                    return host + containerName;
+                };
+
                 if (containers.length === 0) {
-                    Logger.error('monitor-docker: could not find remote container at ' + h);
+                    Logger.error('monitor-docker: could not find container at' + hostname);
                 } else {
-                    if (filterName.remote[h].containers.indexOf('/all') !== -1) {
+                    if (filterName[hostname].containers.indexOf('all') !== -1) {
                         for (let i = 0; i < containers.length; i++) {
                             let container = docker.getContainer(containers[i].Id);
-                            this.containers.push({ id: containers[i].Id, name: h + containers[i].Names[0], remote: container });
+                            this.containers.push({ id: containers[i].Id, name: simplifyName(hostname, containers[i].Names[0]), container: container });
                             this.stats[containers[i].Id] = this.newContainerStat();
                         }
                     } else {
                         for (let i = 0; i < containers.length; i++) {
-                            if (filterName.remote[h].containers.indexOf(containers[i].Names[0]) !== -1) {
+                            if (filterName[hostname].containers.indexOf(containers[i].Names[0]) !== -1) {
                                 let container = docker.getContainer(containers[i].Id);
-                                this.containers.push({ id: containers[i].Id, name: h + containers[i].Names[0], remote: container });
+                                this.containers.push({ id: containers[i].Id, name: simplifyName(hostname, containers[i].Names[0]), container: container });
                                 this.stats[containers[i].Id] = this.newContainerStat();
                             }
                         }
                     }
                 }
             } catch (error) {
-                Logger.error(`Error retrieving remote containers: ${error}`);
+                Logger.error(`Error retrieving containers: ${error}`);
             }
         }
     }
@@ -178,19 +168,14 @@ class MonitorDocker extends MonitorInterface {
             let startPromises = [];
             try {
                 for (let i = 0; i < this.containers.length; i++) {
-                    if (this.containers[i].remote === null) {
-                        // local
-                        startPromises.push(SystemInformation.dockerContainerStats(this.containers[i].id));
-                    } else {
-                        // remote
-                        startPromises.push(this.containers[i].remote.stats({ stream: false }));
-                    }
+                    startPromises.push(this.containers[i].container.stats({ stream: false }));
                 }
 
                 const results = await Promise.all(startPromises);
                 this.stats.time.push(Date.now() / 1000);
                 for (let i = 0; i < results.length; i++) {
                     let stat = results[i];
+
                     let id = stat.id;
                     if (this.containers.length <= i) {
                         break;
@@ -199,68 +184,45 @@ class MonitorDocker extends MonitorInterface {
                         Logger.warn('inconsistent id within statistics gathering');
                         continue;
                     }
-                    if (this.containers[i].remote === null) {
-                        // local
-                        const actualMemUsage = stat.memory_stats.usage - stat.memory_stats.stats.cache;
-                        this.stats[id].mem_usage.push(actualMemUsage);
-                        this.stats[id].mem_percent.push(actualMemUsage / stat.mem_limit);
-                        let cpuDelta = stat.cpu_stats.cpu_usage.total_usage - stat.precpu_stats.cpu_usage.total_usage;
-                        let sysDelta = stat.cpu_stats.system_cpu_usage - stat.precpu_stats.system_cpu_usage;
-                        if (cpuDelta > 0 && sysDelta > 0) {
-                            if (stat.cpu_stats.cpu_usage.hasOwnProperty('percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
-                                this.stats[id].cpu_percent.push(cpuDelta / sysDelta * this.coresInUse(stat.cpu_stats) * 100.0);
-                            } else {
-                                this.stats[id].cpu_percent.push(cpuDelta / sysDelta * 100.0);
-                            }
+                    // get stats
+                    const actualMemUsage = stat.memory_stats.usage - stat.memory_stats.stats.inactive_file;
+                    this.stats[id].mem_usage.push(actualMemUsage);
+                    this.stats[id].mem_percent.push(actualMemUsage / stat.mem_limit);
+                    let cpuDelta = stat.cpu_stats.cpu_usage.total_usage - stat.precpu_stats.cpu_usage.total_usage;
+                    let sysDelta = stat.cpu_stats.system_cpu_usage - stat.precpu_stats.system_cpu_usage;
+                    if (cpuDelta > 0 && sysDelta > 0) {
+                        if (stat.cpu_stats.cpu_usage.hasOwnProperty('percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
+                            // this.stats[id].cpu_percent.push(cpuDelta / sysDelta * stat.cpu_stats.cpu_usage.percpu_usage.length * 100.0);
+                            this.stats[id].cpu_percent.push(cpuDelta / sysDelta * this.coresInUse(stat.cpu_stats) * 100.0);
                         } else {
-                            this.stats[id].cpu_percent.push(0);
+                            this.stats[id].cpu_percent.push(cpuDelta / sysDelta * 100.0);
                         }
-                        this.stats[id].netIO_rx.push(stat.netIO.rx);
-                        this.stats[id].netIO_tx.push(stat.netIO.tx);
-                        this.stats[id].blockIO_rx.push(stat.blockIO.r);
-                        this.stats[id].blockIO_wx.push(stat.blockIO.w);
                     } else {
-                        // remote
-                        const actualMemUsage = stat.memory_stats.usage - stat.memory_stats.stats.cache;
-                        this.stats[id].mem_usage.push(actualMemUsage);
-                        this.stats[id].mem_percent.push(actualMemUsage / stat.mem_limit);
-                        //this.stats[id].cpu_percent.push((stat.cpu_stats.cpu_usage.total_usage - stat.precpu_stats.cpu_usage.total_usage) / (stat.cpu_stats.system_cpu_usage - stat.precpu_stats.system_cpu_usage) * 100);
-                        let cpuDelta = stat.cpu_stats.cpu_usage.total_usage - stat.precpu_stats.cpu_usage.total_usage;
-                        let sysDelta = stat.cpu_stats.system_cpu_usage - stat.precpu_stats.system_cpu_usage;
-                        if (cpuDelta > 0 && sysDelta > 0) {
-                            if (stat.cpu_stats.cpu_usage.hasOwnProperty('percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
-                                // this.stats[id].cpu_percent.push(cpuDelta / sysDelta * stat.cpu_stats.cpu_usage.percpu_usage.length * 100.0);
-                                this.stats[id].cpu_percent.push(cpuDelta / sysDelta * this.coresInUse(stat.cpu_stats) * 100.0);
-                            } else {
-                                this.stats[id].cpu_percent.push(cpuDelta / sysDelta * 100.0);
-                            }
-                        } else {
-                            this.stats[id].cpu_percent.push(0);
-                        }
-                        let ioRx = 0, ioTx = 0;
-                        for (let eth in stat.networks) {
-                            ioRx += stat.networks[eth].rx_bytes;
-                            ioTx += stat.networks[eth].tx_bytes;
-                        }
-                        this.stats[id].netIO_rx.push(ioRx);
-                        this.stats[id].netIO_tx.push(ioTx);
-                        let diskR = 0, diskW = 0;
-                        if (stat.blkio_stats && stat.blkio_stats.hasOwnProperty('io_service_bytes_recursive')) {
-                            //Logger.debug(stat.blkio_stats.io_service_bytes_recursive);
-                            let temp = stat.blkio_stats.io_service_bytes_recursive;
-                            for (let dIo = 0; dIo < temp.length; dIo++) {
-                                if (temp[dIo].op.toLowerCase() === 'read') {
-                                    diskR += temp[dIo].value;
-                                }
-                                if (temp[dIo].op.toLowerCase() === 'write') {
-                                    diskW += temp[dIo].value;
-                                }
-                            }
-                        }
-                        //Logger.debug(diskR+'  W: '+diskW);
-                        this.stats[id].blockIO_rx.push(diskR);
-                        this.stats[id].blockIO_wx.push(diskW);
+                        this.stats[id].cpu_percent.push(0);
                     }
+                    let ioRx = 0, ioTx = 0;
+                    for (let eth in stat.networks) {
+                        ioRx += stat.networks[eth].rx_bytes;
+                        ioTx += stat.networks[eth].tx_bytes;
+                    }
+                    this.stats[id].netIO_rx.push(ioRx);
+                    this.stats[id].netIO_tx.push(ioTx);
+                    let diskR = 0, diskW = 0;
+                    if (stat.blkio_stats && stat.blkio_stats.hasOwnProperty('io_service_bytes_recursive')) {
+                        //Logger.debug(stat.blkio_stats.io_service_bytes_recursive);
+                        let temp = stat.blkio_stats.io_service_bytes_recursive;
+                        for (let dIo = 0; dIo < temp.length; dIo++) {
+                            if (temp[dIo].op.toLowerCase() === 'read') {
+                                diskR += temp[dIo].value;
+                            }
+                            if (temp[dIo].op.toLowerCase() === 'write') {
+                                diskW += temp[dIo].value;
+                            }
+                        }
+                    }
+                    //Logger.debug(diskR+'  W: '+diskW);
+                    this.stats[id].blockIO_rx.push(diskR);
+                    this.stats[id].blockIO_wx.push(diskW);
                 }
                 this.isReading = false;
             } catch (error) {
