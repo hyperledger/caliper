@@ -46,7 +46,7 @@ Each declared resource monitoring module is accompanied with options required to
 
 ### Process Monitor
 The process monitoring module options comprise:
-- interval: monitor update interval
+- interval: monitor update interval in milliseconds
 - processes: of an array of `[command, arguments, multiOutput]` key:value pairs.
     - command: names the parent process to monitor
     - arguments: filters on the parent process being monitored
@@ -60,33 +60,33 @@ monitors:
   resource:
   - module: process
     options:
-      interval: 3
+      interval: 3000
       processes: [{ command: 'node', arguments: 'caliper.js', multiOutput: 'avg' }]
 ```
 ### Docker Monitor
 The docker monitoring module options comprise:
- - interval: monitor update interval
+ - interval: monitor update interval in milliseconds
  - containers: an array of container names that may relate to local or remote docker containers to be monitored. If all **local** docker containers are to be monitored, this may be achieved by providing `all` as a name
 
-The following declares the monitoring of two named docker containers; one local and the other remote, with a 5second update frequency:
+The following declares the monitoring of two named docker containers; one local and the other remote, with a 5 second update frequency:
 ```
 monitors:
   resource:
   - module: docker
     options:
-      interval: 5
+      interval: 5000
       containers:
       - peer0.org1.example.com
       - http://192.168.1.100:2375/orderer.example.com
 ```
 
-The following declares the monitoring of all local docker containers, with a 5second update frequency:
+The following declares the monitoring of all local docker containers, with a 5 second update frequency:
 ```
 monitors:
   resource:
   - module: docker
     options:
-      interval: 5
+      interval: 5000
       containers:
       - all
 ```
@@ -98,7 +98,7 @@ All data stored on Prometheus may be queried by Caliper using the Prometheus que
 
 #### Configuring The Prometheus Monitor
 The prometheus monitoring module options comprise:
-- interval: monitor update interval
+- interval: monitor update interval in milliseconds
 - url: The Prometheus URL, used for direct queries
 - metrics: The queries to be run for inclusion within the Caliper report, comprised of to keys: `include` and `queries`.
   - `include` a string array that is used to determine metric inclusion through javascript regex. Any query results where the label of interest, as specified in the queries block, matches an item within the include list via regex, will be included in a generated report.
@@ -122,7 +122,7 @@ monitors:
     resource:
     - module: prometheus
       options:
-        interval: 5
+        interval: 5000
         url: "http://localhost:9090"
         metrics:
             include: [dev-.*, couch, peer, orderer]
@@ -219,11 +219,11 @@ monitors:
     transaction:
     - module: prometheus-push
       options:
-        pushInterval: 5
+        pushInterval: 5000
         pushUrl: "http://localhost:9091"
 ```
 Options comprise:
-- pushInterval: override for the metrics path to be scraped (default `/metrics`).
+- pushInterval: frequency of pushes to the Push Gateway in milliseconds
 - pushUrl: URL for Prometheus Push Gateway
 - processMetricCollectInterval: time interval for default metrics collection, enabled when present
 - defaultLabels: object of key:value pairs to augment the default labels applied to the exposed metrics during collection.
@@ -293,7 +293,7 @@ monitors:
   resource:
   - module: process
     options:
-      interval: 3
+      interval: 3000
       processes: [{ command: 'node', arguments: 'caliper.js', multiOutput: 'avg' }]
       charting:
         bar:
@@ -308,7 +308,7 @@ monitors:
   resource:
   - module: docker
     options:
-      interval: 5
+      interval: 5000
       containers:
       - all
       charting:
@@ -327,7 +327,7 @@ monitors:
     resource:
     - module: prometheus
       options:
-        interval: 5
+        interval: 5000
         url: "http://localhost:9090"
         metrics:
             include: [dev.*, couch, peer, orderer]

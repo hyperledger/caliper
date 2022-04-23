@@ -98,7 +98,7 @@ monitors:
   resource:
   - module: docker
     options:
-      interval: 1
+      interval: 1000
       containers: ['all']
   - module: prometheus
     options:
