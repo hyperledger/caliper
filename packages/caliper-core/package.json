@@ -29,7 +29,7 @@
         "js-yaml": "^3.13.1",
         "mustache": "^2.3.0",
         "mqtt": "3.0.0",
-        "nconf": "^0.10.0",
+        "nconf": "0.12.0",
         "nconf-yaml": "^1.0.2",
         "pidusage": "^1.1.6",
         "prom-client": "12.0.0",
