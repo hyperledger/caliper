@@ -52,7 +52,7 @@ describe('A Docker monitor', () => {
         },
         memory_stats: {
             "usage":46100480,
-            "stats":{"cache": 500,"active_anon":0,"active_file":0,"anon":32440320,"anon_thp":0,"file":11624448,"file_dirty":0,"file_mapped":10407936,"file_writeback":0,"inactive_anon":29007872,"inactive_file":15003648,"kernel_stack":147456,"pgactivate":0,"pgdeactivate":0,"pgfault":10065,"pglazyfree":759,"pglazyfreed":0,"pgmajfault":66,"pgrefill":0,"pgscan":0,"pgsteal":0,"shmem":0,"slab":0,"slab_reclaimable":0,"slab_unreclaimable":0,"sock":0,"thp_collapse_alloc":0,"thp_fault_alloc":0,"unevictable":0,"workingset_activate":0,"workingset_nodereclaim":0,"workingset_refault":0},
+            "stats":{"inactive_file": 500,"active_anon":0,"active_file":0,"anon":32440320,"anon_thp":0,"file":11624448,"file_dirty":0,"file_mapped":10407936,"file_writeback":0,"inactive_anon":29007872,"inactive_file":15003648,"kernel_stack":147456,"pgactivate":0,"pgdeactivate":0,"pgfault":10065,"pglazyfree":759,"pglazyfreed":0,"pgmajfault":66,"pgrefill":0,"pgscan":0,"pgsteal":0,"shmem":0,"slab":0,"slab_reclaimable":0,"slab_unreclaimable":0,"sock":0,"thp_collapse_alloc":0,"thp_fault_alloc":0,"unevictable":0,"workingset_activate":0,"workingset_nodereclaim":0,"workingset_refault":0},
             "limit":2081312768
         },
         networks: {
@@ -81,17 +81,21 @@ describe('A Docker monitor', () => {
     const revertOS = DockerMonitorRewire.__set__("os", osStub)
 
 
-    //create System information stub
-    const SystemInformationStub = {
-        dockerContainers : sinon.stub(),
-        dockerContainerStats : sinon.stub()
-    };
-    SystemInformationStub.dockerContainers.resolves([{
-        id:"118",
-        name:"peer0.org1.example.com"
+    //create dockerode stub
+    const Docker = sinon.stub();
+
+    const getStats = sinon.stub().returns(dockerStats); 
+    Docker.prototype.listContainers = sinon.stub().resolves([{
+        Id:"118",
+        Names: ["peer0.org1.example.com"],
+        stats: getStats
     }]);
-    SystemInformationStub.dockerContainerStats.withArgs("118").resolves(dockerStats);
-    const revertSystemInfo =DockerMonitorRewire.__set__("SystemInformation", SystemInformationStub)
+    Docker.prototype.getContainer = sinon.stub().withArgs("118").returns({
+        Id:"118",
+        Names: ["peer0.org1.example.com"],
+        stats: getStats
+    });
+    const revertDockerode = DockerMonitorRewire.__set__("Docker", Docker);
 
 
     // Test data
@@ -103,7 +107,7 @@ describe('A Docker monitor', () => {
 
     after( () => {
         revertOS(); 
-        revertSystemInfo();
+        revertDockerode();
     });
 
 
@@ -138,17 +142,17 @@ describe('A Docker monitor', () => {
         it('should add containers objects to container field if exitents', async () => {
             await dockerMonitor.findContainers();
             dockerMonitor.containers.should.be.an('array').that.have.lengthOf(monitorOptions.containers.length);
-        });
-
-        it('should add and label containers as local', async () => {
             const containers = [
                 {
                     id:"118",
                     name:"peer0.org1.example.com",
-                    remote:null
+                    container: {
+                        Id:"118",
+                        Names: ["peer0.org1.example.com"],
+                        stats: getStats
+                    }
                 }
             ]
-            await dockerMonitor.findContainers();
             dockerMonitor.containers.should.be.an('array').that.deep.equals(containers);
         });
     });
@@ -157,7 +161,7 @@ describe('A Docker monitor', () => {
     describe('when retrieving container statistics', () => {
 
         //memory test values
-        const mem_usage = dockerStats.memory_stats.usage - dockerStats.memory_stats.stats.cache;
+        const mem_usage = dockerStats.memory_stats.usage - dockerStats.memory_stats.stats.inactive_file;
         const mem_percent = mem_usage / dockerStats.mem_limit;
 
         it('should set isReading to false', async () => {
