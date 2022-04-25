@@ -37,5 +37,5 @@ monitors:
     resource:
     - module: process
       options:
-        interval: 3000
+        interval: 3
         processes: [{ command: 'node', arguments: 'caliper.js', multiOutput: 'avg' }]
