@@ -38,6 +38,11 @@ let results = yargs
     .strict(false)
     .argv;
 
+if (!results.thePromise) {
+    Logger.error(`Unrecognised command: '${results._[0]}'`);
+    process.exit(1);
+}
+
 results.thePromise.then( () => {
     // DO NOT EXIT THE PROCESS HERE
     // The event loops of the workers are still running at this point
