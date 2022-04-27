@@ -51,7 +51,6 @@ monitors:
     resource:
     - module: prometheus
       options:
-        interval: 5000
         url: "http://localhost:9090"
         metrics:
             include: [peer*, dev*]
@@ -74,10 +73,10 @@ monitors:
                 metrics: [all]
     - module: process
       options:
-        interval: 3000
+        interval: 3
         processes: [{ command: 'node', arguments: 'caliper.js', multiOutput: 'avg' }]
     - module: docker
       options:
-        interval: 4000
+        interval: 4
         containers: ['peer0.org1.example.com', 'peer0.org2.example.com', 'orderer0.example.com', 'orderer1.example.com']
 

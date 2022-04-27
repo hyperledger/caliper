@@ -51,7 +51,6 @@ monitors:
     resource:
     - module: prometheus
       options:
-        interval: 5000
         url: "http://localhost:9090"
         metrics:
             include: [peer*, dev*]
