@@ -67,5 +67,22 @@ Before adding a benchmark, please inspect the `caliper-samples` structure and ex
 
 New adaptors must be added within a new package, under `packages`, with the naming convention `caliper-<adaptor_name>`. Each adaptor must implement a new class inherited from `BlockchainInterface` as the adaptor for the DLT, as well as a `ClientFactory` and `ClientWorker`. For more information, consult our main documentation.
 
+## Inclusive language guidelines
+
+Please adhere to the inclusive language guidelines that the project has adopted as you make documentation updates.
+
+- Consider that users who will read the docs are from different backgrounds and
+cultures and that they have different preferences.
+- Avoid potential offensive terms and, for instance, prefer "allow list and
+deny list" to "white list and black list".
+- We believe that we all have a role to play to improve our world, and even if
+writing inclusive documentation might not look like a huge improvement, it's a
+first step in the right direction.
+- We suggest to refer to
+[Microsoft bias free writing guidelines](https://docs.microsoft.com/en-us/style-guide/bias-free-communication)
+and
+[Google inclusive doc writing guide](https://developers.google.com/style/inclusive-documentation)
+as starting points.
+
 ## License
 The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
