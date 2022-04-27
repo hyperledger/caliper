@@ -42,11 +42,11 @@ Permitted monitors are:
 - **Docker:** The `docker` monitor enables monitoring of specified Docker containers on the host or a remote machine, through using the Docker Remote API to retrieve container statistics. This monitor will retrieve statistics on: [memory(max), memory(avg), CPU(max), CPU(avg), Network I/O, Disc I/O]
 - **Prometheus:** The `prometheus` monitor enables the retrieval of data from Prometheus. This monitor will only report based on explicit user provided queries that are issued to Prometheus. If defined, the provision of a Prometheus server will cause Caliper to default to using the Prometheus PushGateway.
 
-Each declared resource monitoring module is accompanied with options required to configure each of the named monitors. A common option for all modules is `interval`, which is used to configure the refresh interval at which point resource utilization is measured by the monitor.
+Each declared resource monitoring module is accompanied with options required to configure each of the named monitors. A common option for some modules is `interval`, which is used to configure the refresh interval at which point resource utilization is measured by the monitor.
 
 ### Process Monitor
 The process monitoring module options comprise:
-- interval: monitor update interval
+- interval: monitor update interval in seconds
 - processes: of an array of `[command, arguments, multiOutput]` key:value pairs.
     - command: names the parent process to monitor
     - arguments: filters on the parent process being monitored
@@ -65,10 +65,10 @@ monitors:
 ```
 ### Docker Monitor
 The docker monitoring module options comprise:
- - interval: monitor update interval
+ - interval: monitor update interval in seconds
  - containers: an array of container names that may relate to local or remote docker containers to be monitored. If all **local** docker containers are to be monitored, this may be achieved by providing `all` as a name
 
-The following declares the monitoring of two named docker containers; one local and the other remote, with a 5second update frequency:
+The following declares the monitoring of two named docker containers; one local and the other remote, with a 5 second update frequency:
 ```
 monitors:
   resource:
@@ -80,7 +80,7 @@ monitors:
       - http://192.168.1.100:2375/orderer.example.com
 ```
 
-The following declares the monitoring of all local docker containers, with a 5second update frequency:
+The following declares the monitoring of all local docker containers, with a 5 second update frequency:
 ```
 monitors:
   resource:
@@ -98,7 +98,6 @@ All data stored on Prometheus may be queried by Caliper using the Prometheus que
 
 #### Configuring The Prometheus Monitor
 The prometheus monitoring module options comprise:
-- interval: monitor update interval
 - url: The Prometheus URL, used for direct queries
 - metrics: The queries to be run for inclusion within the Caliper report, comprised of to keys: `include` and `queries`.
   - `include` a string array that is used to determine metric inclusion through javascript regex. Any query results where the label of interest, as specified in the queries block, matches an item within the include list via regex, will be included in a generated report.
@@ -122,7 +121,6 @@ monitors:
     resource:
     - module: prometheus
       options:
-        interval: 5
         url: "http://localhost:9090"
         metrics:
             include: [dev-.*, couch, peer, orderer]
@@ -219,11 +217,11 @@ monitors:
     transaction:
     - module: prometheus-push
       options:
-        pushInterval: 5
+        pushInterval: 5000
         pushUrl: "http://localhost:9091"
 ```
 Options comprise:
-- pushInterval: override for the metrics path to be scraped (default `/metrics`).
+- pushInterval: push interval in milliseconds
 - pushUrl: URL for Prometheus Push Gateway
 - processMetricCollectInterval: time interval for default metrics collection, enabled when present
 - defaultLabels: object of key:value pairs to augment the default labels applied to the exposed metrics during collection.
@@ -327,7 +325,6 @@ monitors:
     resource:
     - module: prometheus
       options:
-        interval: 5
         url: "http://localhost:9090"
         metrics:
             include: [dev.*, couch, peer, orderer]
