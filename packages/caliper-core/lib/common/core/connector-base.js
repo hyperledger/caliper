@@ -13,9 +13,11 @@
 */
 
 'use strict';
-
+const CaliperUtils = require('../../common/utils/caliper-utils.js');
+const TxStatus = require('../core/transaction-status');
 const ConnectorInterface = require('./connector-interface');
 const Events = require('./../utils/constants').Events.Connector;
+const Logger = CaliperUtils.getLogger('connector-base');
 
 /**
  * Optional base class for connectors.
@@ -75,20 +77,64 @@ class ConnectorBase extends ConnectorInterface {
     async sendRequests(requests) {
         if (!Array.isArray(requests)) {
             this._onTxsSubmitted(1);
-            const result = await this._sendSingleRequest(requests);
-            this._onTxsFinished(result);
+            let result = new TxStatus();
+
+            try {
+                result = await this._sendSingleRequest(requests);
+            } catch(error) {
+                Logger.error(`Unexpected error while sending request: ${error.stack || error}`);
+                result.SetStatusFail();
+                result.SetVerification(true);
+                result.SetResult('');
+
+                // re-throwing an error allows for the worker to exit doing further work
+                // and move into waiting for tx's to finish. If any further errors occur
+                // then they will be ignored but the tx's will be marked as finished still
+                throw error;
+            } finally {
+                this._onTxsFinished(result);
+            }
+
             return result;
         }
 
         const promises = [];
+        const creationTime = Date.now();
         for (let i = 0; i < requests.length; ++i) {
             this._onTxsSubmitted(1);
             promises.push(this._sendSingleRequest(requests[i]));
         }
 
-        const results = await Promise.all(promises);
-        this._onTxsFinished(results);
-        return results;
+        const results = await Promise.allSettled(promises);
+        let firstError;
+        const actualResults = results.map((result) => {
+            if (result.status === 'rejected') {
+                if (!firstError) {
+                    firstError = result.reason;
+                }
+                const failureResult = new TxStatus();
+                failureResult.SetStatusFail();
+                failureResult.SetVerification(true);
+                failureResult.SetResult('');
+                failureResult.Set('time_create', creationTime);
+                return failureResult;
+            }
+
+            return result.value;
+        });
+
+        this._onTxsFinished(actualResults);
+
+        if (firstError) {
+            Logger.error(`Unexpected error while sending multiple requests, first error was: ${firstError.stack || firstError}`);
+
+            // re-throwing an error allows for the worker to exit doing further work
+            // and move into waiting for tx's to finish. If any further errors occur
+            // then they will be ignored but the tx's will be marked as finished still
+            throw firstError;
+        }
+
+        return actualResults;
     }
 
     /**

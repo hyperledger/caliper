@@ -131,7 +131,7 @@ class CaliperWorker {
         }
 
         if (error) {
-            Logger.error(`Unhandled error while executing TX: ${error.stack || error}`);
+            // Already logged, no need to log again
             throw error;
         }
 
