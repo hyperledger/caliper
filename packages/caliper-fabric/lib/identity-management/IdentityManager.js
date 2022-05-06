@@ -190,27 +190,11 @@ class IdentityManager {
                     if (organization.identities.wallet) {
                         await this._extractIdentitiesFromWallet(organization.mspid, organization.identities.wallet);
                     }
-
-                    if (organization.identities.credentialStore) {
-                        await this._extractIdentitiesFromCredentialStore(organization.mspid, organization.identities.credentialStore);
-                    }
-
                 }
             }
         } else {
             throw new Error('No organizations have been defined');
         }
-    }
-
-    /**
-     * Extract identities from a fabric node sdk 1.4 credential store and store in the in memory wallet
-     * @param {string} mspId mspId of the organisation
-     * @param {*} credentialStore the credential store information
-     * @async
-     * @private
-     */
-    async _extractIdentitiesFromCredentialStore(mspId, credentialStore) {
-        // TODO: To be implemented
     }
 
     /**

@@ -194,30 +194,30 @@ class ConnectionProfileDefinition {
 
     /**
      * Return the list of peers for organization of the connection profile
-     * @param {*} mspid the mspId of the org
+     * @param {*} mspId the mspId of the org
      * @returns {[string]} an array containing the list of all the peers
      */
-    getPeersListForOrganization(mspid) {
+    getPeersListForOrganization(mspId) {
         if (!this.connectionProfile.organizations) {
             throw new Error('No organizations property can be found for the connection profile provided');
         }
 
         for (const org in this.connectionProfile.organizations) {
-            if (this.connectionProfile.organizations[org].mspid === mspid) {
+            if (this.connectionProfile.organizations[org].mspid === mspId) {
                 const peers = this.connectionProfile.organizations[org].peers;
 
                 if (!peers) {
-                    throw new Error(`Org with mspid ${mspid} listed in connectionProfile.organizations does not have any peers property`);
+                    throw new Error(`Org with mspid ${mspId} listed in connectionProfile.organizations does not have any peers property`);
                 }
                 if (peers.length === 0) {
-                    throw new Error(`Org with mspid ${mspid} has a peers property but it is empty`);
+                    throw new Error(`Org with mspid ${mspId} has a peers property but it is empty`);
                 }
 
                 return peers;
             }
         }
 
-        throw new Error(`Org with mspid ${mspid} cannot be found in connectionProfile.organizations`);
+        throw new Error(`Org with mspid ${mspId} cannot be found in connectionProfile.organizations`);
     }
 
 
@@ -226,11 +226,11 @@ class ConnectionProfileDefinition {
      * @param {string} peer the name of the peer
      * @returns {string} tls certificate
      */
-    async getTlsCertForPeer(peer) {
+    async getTlsCACertsForPeer(peer) {
         const peerObj = this._getPeerIfValid(peer);
 
         if (!peerObj.tlsCACerts) {
-            throw new Error(`No tlsCACert property of ${peer} in the connection profile was not provided`);
+            throw new Error(`No tlsCACerts property for ${peer} in the connection profile was provided`);
         }
 
         if (peerObj.tlsCACerts.pem) {
@@ -258,7 +258,7 @@ class ConnectionProfileDefinition {
 
             return pem;
         } else {
-            throw new Error(`No valid tls cert option provided in the ${peer}.tlsCACert property of connection profile`);
+            throw new Error(`No valid tls cert option provided in the ${peer}.tlsCACerts property of connection profile`);
         }
     }
 
@@ -305,6 +305,9 @@ class ConnectionProfileDefinition {
      * @returns {*} the peer object
      */
     _getPeerIfValid(peer) {
+        if (!peer) {
+            throw new Error('No peer provided to locate in connection profile definition');
+        }
         if (!this.connectionProfile.peers) {
             throw new Error('No peers property can be found in the connection profile provided');
         }

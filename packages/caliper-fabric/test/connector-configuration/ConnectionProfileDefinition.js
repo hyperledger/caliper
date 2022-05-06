@@ -55,7 +55,6 @@ describe('A Connection Profile Definition', async () => {
         connectionProfileDefinition.isDynamicConnectionProfile().should.equal(false);
     });
 
-
     it('should return true if a connection profile is using tls', () => {
         const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
             loadedConnectionProfile: JSON.parse(connectionProfile.toString()),
@@ -438,7 +437,6 @@ describe('A Connection Profile Definition', async () => {
     });
 
     describe('when getting the list of peer for the organization', () => {
-
         it('should return the list of all peers name in the organization', () => {
             const limitedConnectionProfile = {
                 organizations: {
@@ -574,13 +572,21 @@ describe('A Connection Profile Definition', async () => {
 
         const peer = 'peer0.org1.example.com';
 
+        it('should throw an error if no peer is provided', async() => {
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: JSON.parse(connectionProfile.toString()),
+                discover: true
+            });
+            await connectionProfileDefinition.getTlsCACertsForPeer().should.be.rejectedWith(/No peer provided to locate in connection profile definition/);
+        });
+
         it('should get the pem if embeded in the connectioProfile under .tlsCACerts.pem', async () => {
             const dynamicConnectionProfile = JSON.parse(connectionProfile.toString());
             const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
                 loadedConnectionProfile: dynamicConnectionProfile,
                 discover: true
             });
-            (await connectionProfileDefinition.getTlsCertForPeer(peer)).should.deep.equal(
+            (await connectionProfileDefinition.getTlsCACertsForPeer(peer)).should.deep.equal(
                 dynamicConnectionProfile.peers[peer].tlsCACerts.pem
             );
         });
@@ -601,7 +607,7 @@ describe('A Connection Profile Definition', async () => {
                 loadedConnectionProfile: invalidPathConnectionProfile,
                 discover: true
             });
-            await connectionProfileDefinition.getTlsCertForPeer(peer).should.be.rejectedWith(
+            await connectionProfileDefinition.getTlsCACertsForPeer(peer).should.be.rejectedWith(
                 `path property does not point to a file that exists at ${path} for ${peer}`
             );
         });
@@ -621,7 +627,7 @@ describe('A Connection Profile Definition', async () => {
                 loadedConnectionProfile: validPathConnectionProfile,
                 discover: false
             });
-            (await connectionProfileDefinition.getTlsCertForPeer(peer)).should.deep.equal(
+            (await connectionProfileDefinition.getTlsCACertsForPeer(peer)).should.deep.equal(
                 '-----BEGIN CERTIFICATE-----\nMIICKzCCAdGgAwIBAgIRAL0i4WmltsbdL5xDc0xJQYQwCgYIKoZIzj0EAwIwczEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhhbXBsZS5jb20xHDAaBgNVBAMTE2Nh\nLm9yZzEuZXhhbXBsZS5jb20wHhcNMjAwOTA3MTE0MjAwWhcNMzAwOTA1MTE0MjAw\nWjBsMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMN\nU2FuIEZyYW5jaXNjbzEPMA0GA1UECxMGY2xpZW50MR8wHQYDVQQDDBZVc2VyMUBv\ncmcxLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ6BjhMNZ\nPjLYxx+Mtq08UY7Tmill5xRqbACy13wZCmb8SIW6/pjzhWVWfM7YoSLGQWgrgiB4\n8NU8eubMyQA3DqNNMEswDgYDVR0PAQH/BAQDAgeAMAwGA1UdEwEB/wQCMAAwKwYD\nVR0jBCQwIoAgnvPwKjaMDSoQBDUfZMgJPmr5nlvrV/AdzLomWFMuLbkwCgYIKoZI\nzj0EAwIDSAAwRQIhAJwCKxXrCGZMgBlxbaMJzN7wcUM2qjX8jS4ZnBDl7HpaAiBH\nNhHITMTKPcPKgrQT/h1bTXqmxZXnwgh1n7D7VC/Fuw==\n-----END CERTIFICATE-----\n'
             );
         });
@@ -640,8 +646,8 @@ describe('A Connection Profile Definition', async () => {
                 loadedConnectionProfile: noPemConnectionProfile,
                 discover: false
             });
-            await connectionProfileDefinition.getTlsCertForPeer(peer).should.be.rejectedWith(
-                `No valid tls cert option provided in the ${peer}.tlsCACert property of connection profile`
+            await connectionProfileDefinition.getTlsCACertsForPeer(peer).should.be.rejectedWith(
+                `No valid tls cert option provided in the ${peer}.tlsCACerts property of connection profile`
             );
         });
 
@@ -657,8 +663,8 @@ describe('A Connection Profile Definition', async () => {
                 loadedConnectionProfile: notlsCACertConnectionProfile,
                 discover: false
             });
-            await connectionProfileDefinition.getTlsCertForPeer(peer).should.be.rejectedWith(
-                `No tlsCACert property of ${peer} in the connection profile was not provided`
+            await connectionProfileDefinition.getTlsCACertsForPeer(peer).should.be.rejectedWith(
+                `No tlsCACerts property for ${peer} in the connection profile was provided`
             );
         });
 
@@ -667,7 +673,7 @@ describe('A Connection Profile Definition', async () => {
                 loadedConnectionProfile: noPeerConnectionProfile,
                 discover: false
             });
-            await connectionProfileDefinition.getTlsCertForPeer(peer).should.be.rejectedWith(
+            await connectionProfileDefinition.getTlsCACertsForPeer(peer).should.be.rejectedWith(
                 `${peer} provided is not present in the connection profile`
             );
         });
@@ -677,7 +683,7 @@ describe('A Connection Profile Definition', async () => {
                 loadedConnectionProfile: blankConnectionProfile,
                 discover: false
             });
-            await connectionProfileDefinition.getTlsCertForPeer(peer).should.be.rejectedWith(
+            await connectionProfileDefinition.getTlsCACertsForPeer(peer).should.be.rejectedWith(
                 'No peers property can be found in the connection profile provided'
             );
         });
@@ -697,10 +703,11 @@ describe('A Connection Profile Definition', async () => {
                 loadedConnectionProfile: invalidPemConnectionProfile,
                 discover: false
             });
-            await connectionProfileDefinition.getTlsCertForPeer(peer).should.be.rejectedWith(
+            await connectionProfileDefinition.getTlsCACertsForPeer(peer).should.be.rejectedWith(
                 `pem provided for ${peer} in the connection profile .tlsCACerts.pem is not valid`
             );
         });
+
         it('should throw an error if path provided through tlsCAcerts.path does not point to a valid cert', async () => {
             const invalidPemConnectionProfile = {
                 peers: {
@@ -716,7 +723,7 @@ describe('A Connection Profile Definition', async () => {
                 loadedConnectionProfile: invalidPemConnectionProfile,
                 discover: false
             });
-            await connectionProfileDefinition.getTlsCertForPeer(peer).should.be.rejectedWith(
+            await connectionProfileDefinition.getTlsCACertsForPeer(peer).should.be.rejectedWith(
                 `path property does not point to a valid pem file for ${path} for ${peer}`
             );
         });
@@ -726,6 +733,17 @@ describe('A Connection Profile Definition', async () => {
     describe('when getting the grpc endpoint for a peer', () => {
 
         const peer = 'peer0.org1.example.com';
+
+        it('should throw an error if no peer is provided', async() => {
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: JSON.parse(connectionProfile.toString()),
+                discover: true
+            });
+
+            (() => {
+                connectionProfileDefinition.getGrpcEndPointForPeer();
+            }).should.throw(/No peer provided to locate in connection profile definition/);
+        });
 
         it('should return the correct endpoint for a grpcs url', () => {
             const grpcsConnectionProfile = {
@@ -823,6 +841,16 @@ describe('A Connection Profile Definition', async () => {
 
         const peer = 'peer0.org1.example.com';
 
+        it('should throw an error if no peer is provided', async() => {
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: JSON.parse(connectionProfile.toString()),
+                discover: true
+            });
+            (() => {
+                connectionProfileDefinition.getGrpcOptionsForPeer();
+            }).should.throw(/No peer provided to locate in connection profile definition/);
+        });
+
         it('should return the defined grpcOptions if present', () => {
             const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
                 loadedConnectionProfile: JSON.parse(connectionProfile.toString()),
@@ -880,6 +908,17 @@ describe('A Connection Profile Definition', async () => {
     describe('when getting checking if TLS is required for endpoint of peer', () => {
 
         const peer = 'peer0.org1.example.com';
+
+        it('should throw an error if no peer is provided', async() => {
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: JSON.parse(connectionProfile.toString()),
+                discover: true
+            });
+
+            (() => {
+                connectionProfileDefinition.isTLSRequiredForEndpoint();
+            }).should.throw(/No peer provided to locate in connection profile definition/);
+        });
 
         it('should return true for a grpcs url ', () => {
             const grpcsConnectionProfile = {

@@ -44,7 +44,6 @@ describe ('benchmark configuration generator', () => {
             name: 'x contract benchmark',
             description: 'benchmark for contract x',
             workers: {
-                type: 'local',
                 number: 10
             },
             rounds: [
@@ -184,7 +183,7 @@ describe ('benchmark configuration generator', () => {
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"workers":{"type":"local","number":1');
+        const fileContains = configStr.includes('"workers":{"number":1');
 
         fileContains.should.equal(true);
     });
@@ -195,7 +194,7 @@ describe ('benchmark configuration generator', () => {
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"workers":{"type":"local","number":10');
+        const fileContains = configStr.includes('"workers":{"number":10');
 
         fileContains.should.equal(true);
     });

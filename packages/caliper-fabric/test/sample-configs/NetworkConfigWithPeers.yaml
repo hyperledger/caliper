@@ -1,0 +1,64 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+name: Fabric
+version: "2.0.0"
+
+caliper:
+    blockchain: fabric
+    sutOptions :
+       mutualTls: false
+
+channels:
+  - channelName: mychannel
+    contracts:
+    - id: marbles
+      contractID: mymarbles
+  - channelName: yourchannel
+    contracts:
+    - id: marbles
+      contractID: yourmarbles
+
+organizations:
+  - mspid: Org1MSP
+    peers:
+    - endpoint: peer0.org1.example.com:7051
+      tlsCACerts:
+        pem: |
+          -----BEGIN CERTIFICATE-----
+          MIICWDCCAf6gAwIBAgIRAMpSgWFjDHOohXa0R6e9THgwCgYIKoZIzj0EAwIwdjEL
+          MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG
+          cmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhhbXBsZS5jb20xHzAdBgNVBAMTFnRs
+          c2NhLm9yZzEuZXhhbXBsZS5jb20wHhcNMjAwOTA3MTE0MjAwWhcNMzAwOTA1MTE0
+          MjAwWjB2MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UE
+          BxMNU2FuIEZyYW5jaXNjbzEZMBcGA1UEChMQb3JnMS5leGFtcGxlLmNvbTEfMB0G
+          A1UEAxMWdGxzY2Eub3JnMS5leGFtcGxlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49
+          AwEHA0IABMdLvSUDIjWYuBw4YVvJEW6ifFLymOAX7GKY6btVPDlkdeJ8vZErXLMz
+          JWjivr/L5V2YnZqv0OWPMMfPv+zH+RGjbTBrMA4GA1UdDwEB/wQEAwIBpjAdBgNV
+          HSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/BAUwAwEB/zApBgNV
+          HQ4EIgQg5fOhyzwaLKm3t54/H4b0aTe7/nGPyJZNh9IFRK6fDaAwCgYIKoZIzj0E
+          AwIDSAAwRQIhAKEny//JY7GXZ/THsQIvUTYmXsjP/bLTI/VuLX7TzcefAiBYoSyY
+          y90rdprI6Mp6RPiqjVf02P5ZC86UkP0Vw4pfiQ==
+          -----END CERTIFICATE-----
+      grpcOptions:
+        grpc.ssl-target-name-overide: override
+    - endpoint: peer1.org1.example.com:7052
+      grpcOptions:
+        grpc.keepalive: 100
+
+  - mspid: Org2MSP
+    peers:
+    - endpoint: peer0.org2.example.com:7051
+      tlsCACerts:
+        path: path/to/some/file

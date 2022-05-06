@@ -409,7 +409,7 @@ class PeerGateway extends ConnectorBase {
                 }
 
                 // create grpcs client with the tlsCredentials of the peer
-                const tlsRootCert = await connectionProfileDefinition.getTlsCertForPeer(peer);
+                const tlsRootCert = await connectionProfileDefinition.getTlsCACertsForPeer(peer);
                 const tlsCredentials = grpc.credentials.createSsl(Buffer.from(tlsRootCert));
                 client = new grpc.Client(peerEndpoint, tlsCredentials, grpcOptions);
             } else {

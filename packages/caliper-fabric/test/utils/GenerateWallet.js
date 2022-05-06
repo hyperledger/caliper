@@ -24,7 +24,7 @@ const IWalletFacade = require('../../lib/identity-management/IWalletFacade');
 class GenerateWallet {
 
     /**
-     * create a standard test wallet environment
+     * create a standard test wallet environment with some defined identities
      * @returns {object} the stub wallet factory and stub wallet facade
      */
     createStandardTestWalletSetup() {
@@ -46,6 +46,26 @@ class GenerateWallet {
 
         // simulate what was in the wallet plus add in an org2 admin that would have come from somewhere
         inMemoryWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_Org2MSP_issuer', '_Org2MSP_admin']);
+
+        return {
+            walletFacadeFactory,
+            inMemoryWalletFacade
+        };
+    }
+
+    /**
+     * create a standard test wallet environment which is empty
+     * @returns {object} the stub wallet factory and stub wallet facade
+     */
+    createEmptyTestWalletSetup() {
+        const walletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+        const fileSystemWalletFacade = sinon.createStubInstance(IWalletFacade);
+        const inMemoryWalletFacade = sinon.createStubInstance(IWalletFacade);
+        walletFacadeFactory.create.withArgs().resolves(inMemoryWalletFacade);
+        walletFacadeFactory.create.withArgs(sinon.match.string).resolves(fileSystemWalletFacade);
+
+        fileSystemWalletFacade.getAllIdentityNames.resolves([]);
+        inMemoryWalletFacade.getAllIdentityNames.resolves([]);
 
         return {
             walletFacadeFactory,
