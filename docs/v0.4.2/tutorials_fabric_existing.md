@@ -402,7 +402,6 @@ We will now populate the template file to specify the number of workers and the 
 We will be using two separate workers, this is accomplished through the workers specification:
 
 ``` yaml
-  type: local
   number: 2
 ```
 
@@ -441,7 +440,6 @@ test:
     name: basic-contract-benchmark
     description: test benchmark
     workers:
-      type: local
       number: 2
     rounds:
       - label: readAsset

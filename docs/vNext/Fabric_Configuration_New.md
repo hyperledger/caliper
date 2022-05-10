@@ -17,47 +17,78 @@ order: 3
 
 This page introduces the Fabric adapter to provide compatibility and a unified programming model across different Fabric versions.
 
-> The latest supported version of Hyperledger Fabric is v2.2 LTS and later 2.x releases (eg 2.4, ie 2.3 is not supported)
-
-
+> The LTS versions of Hyperledger Fabric as well as the very latest 2.x release of Hyperledger Fabric are supported, all other versions are unsupported
 
 The adapter exposes many SDK features directly to the user callback modules, making it possible to implement complex scenarios.
 
 > Some highlights of the provided features:
-> * supports multiple channels and contracts
+> * supports multiple channels and chaincodes
 > * supports multiple organizations
 > * supports multiple identities
-> * private collection support for contracts
-> * support for TLS and mutual TLS communication
+> * private data collection support
+> * support for TLS and limited mutual TLS communication (identity certificates cannot have restrictions on them)
 > * option to select the identity for submitting a TX/query
 
 ## Installing dependencies
 
-You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](./Installing_Caliper.md#the-bind-command) for details. When you bind to an SUT, you are in fact selecting a specific fabric SDK to use which could be used with different versions of Fabric SUTs.
+You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](./Installing_Caliper.md#the-bind-command) for details. When you bind to an SUT, you are in fact selecting a specific Fabric SDK to use which could be used with different versions of Fabric SUTs.
 
-> * None of the Fabric bindings support administration actions. It it not possible to create/join channels, nor install/instantiate a contract. Consequently the bindings only facilitates operation with a `--caliper-flow-only-test` flag
+> * None of the Fabric bindings support administration actions. It it not possible to create/join channels nor deploy a chaincode. Consequently running caliper only facilitate operations using the  `--caliper-flow-only-test` flag
 
 ### Binding with Fabric 1.4
 
 It is confirmed that a 1.4 Fabric SDK is compatible with a Fabric 2.2 and later Fabric 2.x SUTs, therefore this binding can be used with later Fabric SUTs
 
 Note that when using the binding target for the Fabric SDK 1.4 there are capability restrictions:
-> * Currently setting `discover` to `true` in the network configuration file is not supported if you don't enable the `gateway` option
+> * Currently setting `discover` to `true` in the network configuration file is not supported if you don't enable the `gateway` option (eg specifying --caliper-Fabric-gateway-enabled as a command line option)
 > * Detailed execution data for every transaction is only available if you don't enable the `gateway` option
 
 ### Binding with Fabric 2.2
 
-It is confirmed that a 2.2 Fabric SDK is compatible with 2.2 and later Fabric SUTs, therefore this binding can be used with later 2.2 and later Fabric SUTs
+It is confirmed that a 2.2 Fabric SDK is compatible with 2.2 and later Fabric SUTs, therefore this binding can be used with 2.2 and later Fabric SUTs
 
 > The following further restrictions exist for this binding
 > * Detailed execution data for every transaction is not available.
 
 ### Binding with Fabric 2.4
 
-Only Fabric 2.4 and later with the Peer Gateway capability enabled (which is the default setting for a fabric peer) can be used.
+Only Fabric 2.4 and later with the Peer Gateway capability enabled (which is the default setting for a Fabric peer) can be used.
 
 > The following further restrictions exist for this binding
 > * Detailed execution data for every transaction is not available.
+> * mutual TLS is not supported
+> * peer and organization targeting is not supported so the options `targetPeers` and `targetOrganizations` in a request will throw an error.
+
+## Connection Profiles
+
+Connection Profiles are a Fabric standard that provides connectivity information for your Fabric network. In the past (Hyperledger Fabric 1.1) you needed to describe all your endpoints in a connection profile, ie all the orderers and all the peers in order to be able to connect a client application to the network. This is referred to as a `static` connection profile and when you use this connection profile with Caliper you should set the `discover` property to false. The problem with static connection profiles is that if a network topology changes (eg add/remove orderer, peer, organisation etc) then every client needs to have an updated connection profile.
+
+Hyperledger Fabric in 1.2 introduced the concept of discovery. This allowed you to ask a peer for the network topology. Your Fabric network has to be configured correctly for this to work (but all Fabric networks should be configured to allow for discovery now). Connection profiles that use this capability will only have a list of 1 or more peers for the specific organisation that connection profile applies to which will be used to discover the network. These connection profiles are referred to as `dynamic` connection profiles and when you use this connection profile with Caliper you should set the `discover` property to true.
+
+Network builders and providers should generate connection profiles (for example test-network in fabric-samples does this), however if you don't have a connection profile you will need to create one. Information about creating connection profiles can be found in Hyperledger Fabric documentation as well as the node-sdk documentation (the format changed between node sdks. The 1.4 version should work when binding to either Fabric 1.4 or 2.2 but the version documented by 2.2 may only work when binding to Fabric 2.2)
+
+* [node sdk 2.2 documentation for connection profiles](https://hyperledger.github.io/fabric-sdk-node/release-2.2/tutorial-commonconnectionprofile.html)
+* [node sdk 1.4 documentation for connection profiles](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-network-config.html)
+
+Unfortunately the documentation provided by Hyperledger Fabric is more focused on static connection profiles rather than dynamic connection profiles and your aim should be to create the simpler and smaller dynamic connection profile.
+
+With the introduction of using the Peer Gateway rather than the traditional node sdks (1.4 and 2.2) caliper has introduced the concept of declaring peers in an organization within the network configuration file as an alternative to connection profiles. This provides a simple way to describe either peers to discover from (when binding to Fabric 1.4 or 2.2, for Fabric 1.4 you must enable the gateway option as it won't work otherwise as discovery is not supported with the Fabric 1.4 binding when the gateway option is not enabled) or the peer to be used as a gateway into the Fabric network (when binding to Fabric 2.4). An example of a peers section in the network configuration is
+
+```yaml
+    peers:
+      - endpoint: peer0.org3.example.com:7051
+        tlsCACerts:
+          pem: |-
+            -----BEGIN CERTIFICATE-----
+            ...
+            -----END CERTIFICATE-----
+        grpcOptions:
+          grpc.keepalive_timeout_ms: 20000
+          grpc.keepalive_time_ms: 120000
+          grpc.http2.min_time_between_pings_ms: 120000
+          grpc.http2.max_pings_without_data: 0
+          grpc.keepalive_permit_without_calls: 1
+```
 
 ## Runtime settings
 
@@ -74,7 +105,7 @@ The above settings are processed when starting Caliper. Modifying them during te
 >     gateway:
 >       localhost: false
 > ```
-> After naming the [project settings](./Runtime_Configuration.md#project-level) file `caliper.yaml` and placing it in the root of your workspace directory, it will override the following two setting keys with the following values:
+> After naming the [project settings](./Runtime_Configuration.md#project-level) file `caliper.yaml` and placing it in the root of your workspace directory, it will override the setting key with the following value:
 > * Setting `caliper-fabric-gateway-localhost` is set to `false`
 >
 > __The other settings remain unchanged.__
@@ -104,7 +135,7 @@ The `sendRequests` method of the connector API allows the workload module to sub
 
 The settings object has the following structure:
 
-* `contractId`: _string. Required._ The ID of the contract to call.
+* `contractId`: _string. Required._ The ID of the contract to call. This is either the unique contractID specified in the network configuration file or the chaincode ID used to deploy the chaincode and must match the id field in the contacts section of channels in the network configuration file.
 * `contractFunction`: _string. Required._ The name of the function to call in the contract.
 * `contractArguments`: _string[]. Optional._ The list of __string__ arguments to pass to the contract.
 * `readOnly`: _boolean. Optional._ Indicates whether the request is a TX or a query. Defaults to `false`.
@@ -112,7 +143,7 @@ The settings object has the following structure:
 * `transientMap`: _Map<string, byte[]>. Optional._ The transient map to pass to the contract.
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If not provided a user will be selected from the organization defined by `invokerMspId` or the first organization in the network configuration file if that property is not provided
 * `invokerMspId`: _string. Optional._ The mspid of the user organization who should invoke the contract. Defaults to the first organization in the network configuration file.
-* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will be chosen for you. If discovery is used then the node sdk uses discovery to determine the correct peers.
+* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will be chosen for you and if discovery is used then the node sdk uses discovery to determine the correct peers.
 * `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and targetOrganizations are specified then targetPeers will take precedence
 * `channel`: _string. Optional._ The name of the channel on which the contract to call resides.
 * `timeout`: _number. Optional._ [**Only applies to 1.4 binding when not enabling gateway use**] The timeout in seconds to use for this request.
@@ -201,7 +232,7 @@ The `cleanupWorkloadModule` function is called at the end of the round, and can 
 
 ## Network configuration file reference
 
-The YAML network configuration file of the adapter mainly describes the organizations and the identities associated with those organizations, It also provides explicit information about the channels in your fabric network and the contracts (chaincode) deployed to those channels. It will reference Common Connection Profiles for each organization (as common connection profiles are specific to a single organization). These are the same connection profiles that would be consumed by the node-sdk. Whoever creates the fabric network and channels would be able to provide appropriate profiles for each organization.
+The YAML network configuration file of the adapter mainly describes the organizations and the identities associated with those organizations, It also provides explicit information about the channels in your Fabric network and the chaincode (containing 1 or more smart contracts) deployed to those channels. It can reference Common Connection Profiles for each organization (as common connection profiles are specific to a single organization). These are the same connection profiles that would be consumed by the node-sdk. Whoever creates the Fabric network and channels would be able to provide appropriate profiles for each organization.
 
 The following sections detail each part separately. For a complete example, please refer to the [example section](#network-configuration-example) or one of the files in the [Caliper repository](https://github.com/hyperledger/caliper), such as the caliper-fabric test folder
 
@@ -244,7 +275,7 @@ Contains runtime information for Caliper. Can contain the following keys.
 *  <details><summary markdown="span">__sutOptions__
    </summary>
    _Optional. Non-empty object._ <br>
-   These are sut specific options block, the following are specific to the fabric implementation
+   These are sut specific options block, the following are specific to the Fabric implementation
 
    *  <details><summary markdown="span">__mutualTls__
       </summary>
@@ -310,7 +341,7 @@ info:
 <details><summary markdown="span">__organizations__
 </summary>
  _Required. Non-empty object._ <br>
-Contains information about 1 or more organizations that will be used when running a workload. Even in a multi-organization fabric network, workloads would usually only be run from a single organization so it would be common to only see 1 organization defined. However it does support defining multiple organizations for which a workload can explicitly declare which organization to use. The first Organization in the network configuration will be the default organization if no explicit organization is requested.
+Contains information about 1 or more organizations that will be used when running a workload. Even in a multi-organization Fabric network, workloads would usually only be run from a single organization so it would be common to only see 1 organization defined. However it does support defining multiple organizations for which a workload can explicitly declare which organization to use. The first Organization in the network configuration will be the default organization if no explicit organization is requested.
 
 ```yaml
 organizations:
@@ -344,10 +375,23 @@ organizations:
         path: './org2wallet'
         adminNames:
         - admin
-
+  - mspid: Org3MSP
+    peers:
+      - endpoint: peer0.org3.example.com:7051
+        tlsCACerts:
+          pem: |-
+            -----BEGIN CERTIFICATE-----
+            ...
+            -----END CERTIFICATE-----
+        grpcOptions:
+          grpc.keepalive_timeout_ms: 20000
+          grpc.keepalive_time_ms: 120000
+          grpc.http2.min_time_between_pings_ms: 120000
+          grpc.http2.max_pings_without_data: 0
+          grpc.keepalive_permit_without_calls: 1
 ```
 
-Each organization must have `mspid`, `connectionProfle` and `identities` provided and at least 1 cerficate or wallet definition in the identities section so that at least 1 identity is defined
+Each organization must have `mspid`,  `identities` and either `connectionProfle` or `peers` provided and at least 1 certificate or wallet definition in the identities section so that at least 1 identity is defined
 *  <details><summary markdown="span">__mspid__
    </summary>
    _Required. Non-empty string._ <br>
@@ -361,15 +405,15 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
 
 *  <details><summary markdown="span">__connectionProfile__
    </summary>
-   _Required. Non-empty object._ <br>
-   Reference to a fabric network Common Connection Profile. These profiles are the same profiles that the fabric SDKs would consume in order to interact with a fabric network. A Common Connection Profile is organization specific so you need to ensure you point to a Common Connection Profile that is representive of the organization it is being included under. Connection Profiles also can be in 2 forms. A static connection profile will contain a complete description of the fabric network, ie all the peers and orderers as well as all the channels that the organization is part of. A dynamic connection profile will contain a minimal amount of information usually just a list of 1 or more peers belonging to the organization (or is allowed to access) in order to discover the fabric network nodes and channels.
+   _Required if `peers` not provided. Non-empty object._ <br>
+   Reference to a Fabric network Common Connection Profile. These profiles are the same profiles that the Fabric SDKs would consume in order to interact with a Fabric network. A Common Connection Profile is organization specific so you need to ensure you point to a Common Connection Profile that is representive of the organization it is being included under. Connection Profiles also can be in 2 forms. A static connection profile will contain a complete description of the Fabric network, ie all the peers and orderers as well as all the channels that the organization is part of. A dynamic connection profile will contain a minimal amount of information usually just a list of 1 or more peers belonging to the organization (or is allowed to access) in order to discover the Fabric network nodes and channels.
 
    ```yaml
    organizations:
      - mspid: Org1MSP
-     connectionProfile:
-      path: './test/sample-configs/Org1ConnectionProfile.yaml'
-      discover: true
+       connectionProfile:
+         path: './test/sample-configs/Org1ConnectionProfile.yaml'
+         discover: true
    ```
    *  <details><summary markdown="span">__path__
       </summary>
@@ -379,21 +423,109 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
       ```yaml
       organizations:
         - mspid: Org1MSP
-        connectionProfile:
-          path: './test/sample-configs/Org1ConnectionProfile.yaml'
+          connectionProfile:
+            path: './test/sample-configs/Org1ConnectionProfile.yaml'
       ```
       </details>
    *  <details><summary markdown="span">__discover__
       </summary>
       _Optional. Boolean._ <br>
-      A value of `true` indicates that the connection profile is a dynamic connection profile and discovery should be used. If not specified then it defaults to false. You can only set this value to true if you plan to use the `gateway` option
+      A value of `true` indicates that the connection profile is a dynamic connection profile and discovery should be used. If not specified then it defaults to `false`. For a Fabric 1.4 binding you can only set this value to true if you plan to use the `gateway` option
 
       ```yaml
       organizations:
         - mspid: Org1MSP
-        connectionProfile:
-          path: './test/sample-configs/Org1ConnectionProfile.yaml'
-          discover: true
+          connectionProfile:
+            path: './test/sample-configs/Org1ConnectionProfile.yaml'
+            discover: true
+      ```
+      </details>
+   </details>
+
+*  <details><summary markdown="span">__peers__
+   </summary>
+   _Required if `connectionProfile` not provided. Non-empty object._ <br>
+   Reference to one or more peers that are either
+
+   * a peer to discover the network from when bound to Fabric 2.2 or Fabric 1.4 in conjunction with using the gateway enabled option
+   * a gateway peer when bound to Fabric 2.4
+
+   This option removes the need for connection profiles but the Fabric network must be set up correctly to allow the network to be discovered. These entries are the equivalent of a dynamic connection profile but in a more compact and easier form.
+
+   ```yaml
+   organizations:
+     - mspid: Org3MSP
+       peers:
+         - endpoint: peer0.org3.example.com:7051
+           tlsCACerts:
+             pem: |-
+               -----BEGIN CERTIFICATE-----
+               ...
+               -----END CERTIFICATE-----
+           grpcOptions:
+             grpc.keepalive_timeout_ms: 20000
+             grpc.keepalive_time_ms: 120000
+             grpc.http2.min_time_between_pings_ms: 120000
+             grpc.http2.max_pings_without_data: 0
+             grpc.keepalive_permit_without_calls: 1
+   ```
+   *  <details><summary markdown="span">__endpoint__
+      </summary>
+      _Required. Non-empty string._ <br>
+      the end point of the peer in the form of `host:port` (note that you do not specify a schema such as grpc:// or grpcs://, in fact these schemas are not real and were invented purely for connection profiles). Whether the end point is secured by tls or not is determined by the presence of the `tlsCACerts` property
+
+      ```yaml
+      peers:
+        - endpoint: peer0.org3.example.com:7051
+      ```
+      </details>
+
+   *  <details><summary markdown="span">__tlsCACerts__
+      </summary>
+      _Optional. Non-empty object._ <br>
+      Specifies the tls root certificate chain to verify a TLS connection with the peer by the client
+      > Must contain __at most one__ of the following keys.
+
+        *  <details><summary markdown="span">__path__
+           </summary>
+           _Optional. Non-empty string._ <br>
+           The path of the file containing the certificate chain.
+
+            ```yaml
+           tlsCACerts:
+             path: path/to/cert.pem
+           ```
+           </details>
+
+        *  <details><summary markdown="span">__pem__
+           </summary>
+           _Optional. Non-empty string._ <br>
+            The content of the certificate file in exact PEM format (which must split into multiple lines for yaml or include escaped new lines for json).
+
+            ```yaml
+            tlsCACerts:
+              pem: |
+                -----BEGIN CERTIFICATE-----
+                ...
+                -----END CERTIFICATE-----
+            ```
+           </details>
+      </details>
+
+   *  <details><summary markdown="span">__grpcOptions__
+      </summary>
+      _Optional. Non-empty Object._ <br>
+      A set of grpc specific options when creating a grpc connection to a peer.
+
+      ```yaml
+      peers:
+        - endpoint: peer0.org3.example.com:7051
+          grpcOptions:
+            grpc.keepalive_timeout_ms: 20000
+            grpc.keepalive_time_ms: 120000
+            grpc.http2.min_time_between_pings_ms: 120000
+            grpc.http2.max_pings_without_data: 0
+            grpc.keepalive_permit_without_calls: 1
       ```
       </details>
    </details>
@@ -608,7 +740,7 @@ Each organization must have `mspid`, `connectionProfle` and `identities` provide
 <details><summary markdown="span">__channels__
 </summary>
 _Required. A list of objects._ <br>
-Contains one or more unique channels with associated information about the contracts (chaincode) that will be available on the channel
+Contains one or more unique channels with associated information about the chaincode (contracts section) that will be available on the channel
 
 ```yaml
 channels:
@@ -635,7 +767,7 @@ channels:
 *  <details><summary markdown="span">__contracts__
    </summary>
    _Required. Non-sparse array of objects._ <br>
-   Each array element contains information about a contract in the channel.
+   Each array element contains information about a chaincode deployed to the channel.
 
    > __Note:__ the `contractID` value of __every__ contract in __every__ channel must be unique on the configuration file level! If `contractID` is not specified for a contract then its default value is the `id` of the contract.
 
@@ -650,7 +782,7 @@ channels:
    *  <details><summary markdown="span">__id__
       </summary>
       _Required. Non-empty string._ <br>
-      The ID of the contract.
+      The chaincode ID that was specified when the chaincode was deployed to the channel
 
       ```yaml
       channels:
@@ -682,11 +814,11 @@ channels:
 ## Network Configuration Example
 
 The following example is a Fabric network configuration for the following network topology and artifacts:
-* two organizations `Org1MSP` and `Org2MSP`;
+* two organizations `Org1MSP` and `Org2MSP` (Note that having 2 organizations is not common in a network configuration file);
 * one channel named `mychannel`;
-* `asset-transfer-basic` contract deployed to `mychannel`;
+* `asset-transfer-basic` chaincode deployed to `mychannel` with a chaincode id of `basic`;
 * the nodes of the network use TLS communication, but not mutual TLS;
-* the fabric samples test network is started and terminated automatically by Caliper;
+* the Fabric samples test network is started and terminated automatically by Caliper;
 
 ```yaml
 name: Fabric
@@ -697,7 +829,7 @@ caliper:
   sutOptions:
     mutualTls: false
   command:
-    start: ../fabric-samples/test-network/network.sh up createChannel && ../fabric-samples/test-network/network.sh deployCC -ccn basic -ccl javascript
+    start: ../fabric-samples/test-network/network.sh up createChannel && ../fabric-samples/test-network/network.sh deployCC -ccp ../fabric-samples/asset-transfer-basic/chaincode-javascript -ccn basic -ccl javascript
     end: ../fabric-samples/test-network/network.sh down
 
 info:
@@ -750,7 +882,50 @@ organizations:
             -----END CERTIFICATE-----
       path: './Org2ConnectionProfile.json'
       discover: true
+```
 
+Another example with only a single organization but using the peers property so everything required is contained in a single network configuration file:
+
+```yaml
+name: Fabric
+version: "2.0.0"
+
+caliper:
+  blockchain: fabric
+  sutOptions:
+    mutualTls: false
+
+channels:
+  - channelName: mychannel
+    contracts:
+    - id: basic
+
+organizations:
+  - mspid: Org1MSP
+    identities:
+      certificates:
+      - name: 'admin.org1.example.com'
+        admin: true
+        clientPrivateKey:
+          pem: |-
+            -----BEGIN PRIVATE KEY-----
+            ...
+            -----END PRIVATE KEY-----
+        clientSignedCert:
+          pem: |-
+            -----BEGIN CERTIFICATE-----
+            ...
+            -----END CERTIFICATE-----
+    peers:
+      - endpoint: peer0.org1.example.com:7051
+        grpcOptions:
+          ssl-target-name-override: peer0.org1.example.com
+          grpc.keepalive_time_ms: 600000
+        tlsCACerts:
+          pem: |-
+            -----BEGIN CERTIFICATE-----
+            ...
+            -----END CERTIFICATE-----
 ```
 
 ## License
