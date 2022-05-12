@@ -136,10 +136,10 @@ caliper:
                 enabled: true # Enables the target
                 options: # These are passed to the winston console target as-is
                     level: info
-            # Defines a target with debug level
+            # Defines a file target with debug level but is disabled by default
             file:
                 target: file
-                enabled: true
+                enabled: false
                 options:
                     level: debug
                     filename: caliper.log
