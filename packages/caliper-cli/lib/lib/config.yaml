@@ -39,8 +39,8 @@ sut:
         1.4: *fabric-v1-lts
         2.2.3:
             packages: ['fabric-network@2.2.3']
-        2.2.11: &fabric-v2-lts
-            packages: ['fabric-network@2.2.11']
+        2.2.12: &fabric-v2-lts
+            packages: ['fabric-network@2.2.12']
         2.2: *fabric-v2-lts
         2.4: 
             packages: ['@hyperledger/fabric-gateway@1.0.1']
