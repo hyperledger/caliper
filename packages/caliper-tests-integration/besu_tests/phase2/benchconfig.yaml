@@ -19,7 +19,6 @@ params:
 
 test:
     workers:
-        type: local
         number: 1
     rounds:
     - label: open

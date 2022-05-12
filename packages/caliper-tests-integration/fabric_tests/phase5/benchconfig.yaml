@@ -15,7 +15,6 @@
 ---
 test:
     workers:
-        type: local
         number: 2
     rounds:
     - label: query1

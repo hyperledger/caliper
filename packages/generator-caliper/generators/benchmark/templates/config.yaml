@@ -17,7 +17,6 @@ test:
   name: <%= benchmarkName %>
   description: <%= benchmarkDescription %>
   workers:
-    type: local
     number: <%= workers %>
   rounds:
   - label: <%= label %>

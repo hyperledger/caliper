@@ -15,5 +15,4 @@
 ---
 test:
     workers:
-        type: local
         number: 1

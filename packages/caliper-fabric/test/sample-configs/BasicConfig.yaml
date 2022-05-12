@@ -73,11 +73,6 @@ organizations:
   - mspid: Org1MSP
     # One or more identity specification types that may provide a unique identity for the use by the connector.
     identities:
-      # [NOT CURRENTLY SUPPORTED] [Optional] only for use by non gateway fabric connector (could also be defined in connection profile)
-      credentialStore:
-        path: /tmp/hfc-kvs/org1
-        cryptoStore:
-            path: /tmp/hfc-cvs/org1
       # [Optional] File path to a FileWallet, within which all entries are all for the same org. Only for use by gateway
       wallet:
         path: './test/sample-configs'

@@ -160,22 +160,90 @@ class ConnectorConfiguration {
 
         if (filteredOrganizationList.length > 0) {
             const connectionProfileEntry = filteredOrganizationList[0].connectionProfile;
-            if (!connectionProfileEntry) {
-                throw new Error(`No connection profile entry for organization ${mspId} has been defined`);
+            if (connectionProfileEntry) {
+                return await this._parseConnectionProfile(mspId, connectionProfileEntry);
             }
 
-            if (!connectionProfileEntry.path) {
-                throw new Error(`No path for the connection profile for organization ${mspId} has been defined`);
+            const peersEntry = filteredOrganizationList[0].peers;
+            if (peersEntry) {
+                return this._parsePeersIntoConnectionProfileDefinition(mspId, peersEntry);
             }
 
-            if (!connectionProfileEntry.loadedConnectionProfile) {
-                connectionProfileEntry.loadedConnectionProfile = await this._loadConnectionProfile(connectionProfileEntry.path);
-            }
-
-            return new ConnectionProfileDefinition(mspId, connectionProfileEntry);
+            throw new Error(`No connection profile or peers entry for organization ${mspId} has been defined`);
         }
 
         throw new Error(`No organization defined for ${mspId}`);
+    }
+
+    /**
+     * Parse the network config reference to a connection profile
+     * @param {*} mspId The msp ID of the organization
+     * @param {*} connectionProfileEntry the network config definition of a connection profile
+     * @returns {Promise<ConnectionProfileDefinition>} A connection profile definition
+     * @async
+     */
+    async _parseConnectionProfile(mspId, connectionProfileEntry) {
+
+        if (!connectionProfileEntry.path) {
+            throw new Error(`No path for the connection profile for organization ${mspId} has been defined`);
+        }
+
+        if (!connectionProfileEntry.loadedConnectionProfile) {
+            connectionProfileEntry.loadedConnectionProfile = await this._loadConnectionProfile(connectionProfileEntry.path);
+        }
+
+        return new ConnectionProfileDefinition(mspId, connectionProfileEntry);
+    }
+
+    /**
+     * Parse the peers section in the network config into a connection profile defintion
+     * @param {*} mspId The msp ID of the organization
+     * @param {*} peersEntry the peers section in the network config
+     * @returns {ConnectionProfileDefinition} A connection profile definition
+     */
+    _parsePeersIntoConnectionProfileDefinition(mspId, peersEntry) {
+        const connectionProfileEntry = {
+            discover: true,
+            loadedConnectionProfile: {
+                name: 'network',
+                version: '1.0.0',
+                client: {
+                    organization: mspId
+                },
+                organizations: {
+                },
+                peers: {}
+            }
+        };
+
+        connectionProfileEntry.loadedConnectionProfile.organizations[mspId] = {
+            mspid: mspId,
+            peers: []
+        };
+
+        for (const peer of peersEntry) {
+            if (!peer.endpoint) {
+                throw new Error(`Peers are defined for organization ${mspId} but one or more entries do not have an endpoint defined`);
+            }
+
+            const peerURL = (peer.tlsCACerts ? 'grpcs://' : 'grpc://') + peer.endpoint;
+            const uniquePeerName = `${mspId}_${peer.endpoint}`;
+            connectionProfileEntry.loadedConnectionProfile.peers[uniquePeerName] = {
+                url: peerURL
+            };
+
+            if (peer.tlsCACerts) {
+                connectionProfileEntry.loadedConnectionProfile.peers[uniquePeerName].tlsCACerts = peer.tlsCACerts;
+            }
+
+            if (peer.grpcOptions) {
+                connectionProfileEntry.loadedConnectionProfile.peers[uniquePeerName].grpcOptions = peer.grpcOptions;
+            }
+
+            connectionProfileEntry.loadedConnectionProfile.organizations[mspId].peers.push(uniquePeerName);
+        }
+
+        return new ConnectionProfileDefinition(mspId, connectionProfileEntry);
     }
 
     /**

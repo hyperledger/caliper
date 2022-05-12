@@ -59,12 +59,6 @@
       {
         "mspid": "Org1MSP",
         "identities": {
-          "credentialStore": {
-            "path": "/tmp/hfc-kvs/org1",
-            "cryptoStore": {
-              "path": "/tmp/hfc-cvs/org1"
-            }
-          },
           "wallet": {
             "path": "./test/sample-configs",
             "adminNames": [

@@ -15,7 +15,6 @@
 ---
 test:
     workers:
-        type: local
         number: 2
     rounds:
     - label: init1
@@ -29,7 +28,7 @@ test:
       txNumber: 200
       rateControl: { type: 'fixed-feedback-rate', opts: { tps: 20, maximum_transaction_load: 5 } }
       workload:
-        module: ./queryByChannelNoTargetPeer.js
+        module: ./queryByChannelNoTargetPeers.js
     - label: init2
       txNumber: 25
       rateControl: { type: 'linear-rate', opts: { startingTps: 10, finishingTps: 20 } }
@@ -41,7 +40,7 @@ test:
       txNumber: 25
       rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
       workload:
-        module: ./../queryNoTargetPeers.js
+        module: ./queryNoTargetPeers.js
 monitors:
     transaction:
     - module: prometheus-push
