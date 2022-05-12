@@ -73,7 +73,6 @@ The example configuration below says the following:
 ```yaml
 test:
   workers:
-    type: local
     number: 5
   rounds:
     - label: init
