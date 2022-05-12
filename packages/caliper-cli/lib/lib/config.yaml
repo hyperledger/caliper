@@ -34,8 +34,8 @@ sut:
             packages: ['fabric-client@1.4.11', 'fabric-protos@2.1.0', 'fabric-network@1.4.11','fs-extra@8.1.0']
         1.4.14:
             packages: ['fabric-client@1.4.14', 'fabric-protos@2.1.0', 'fabric-network@1.4.14','fs-extra@8.1.0']
-        1.4.19: &fabric-v1-lts
-            packages: ['fabric-client@1.4.19', 'fabric-protos@2.1.0', 'fabric-network@1.4.19','fs-extra@8.1.0']
+        1.4.20: &fabric-v1-lts
+            packages: ['fabric-client@1.4.20', 'fabric-protos@2.1.0', 'fabric-network@1.4.20','fs-extra@8.1.0']
         1.4: *fabric-v1-lts
         2.2.3:
             packages: ['fabric-network@2.2.3']
