@@ -273,11 +273,14 @@ class V2FabricGateway extends ConnectorBase {
             queryHandlerOptions: {
                 timeout: this.configDefaultTimeout,
                 strategy: QueryStrategies[this.configQueryStrategy]
-            }
+            },
+            tlsInfo: {},
         };
 
         if (this.connectorConfiguration.isMutualTLS()) {
-            opts.clientTlsIdentity = aliasName;
+            opts.clientTlsIdentity = "";  // identity should be empty
+            opts.tlsInfo.certificate = process.env.CERT;
+            opts.tlsInfo.key = process.env.PUBLICKEY;
         }
 
         const gateway = new Gateway();
