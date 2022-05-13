@@ -2,7 +2,7 @@
 
 # if the binaries are not available, download them
 if [[ ! -d "bin" ]]; then
-  curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.4.8 1.4.8 0.4.15 -ds
+  curl -sSL -k https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/bootstrap.sh | bash -s -- 1.4.8 1.4.8 0.4.15 -ds
 fi
 
 rm -rf ./crypto-config/

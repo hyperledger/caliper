@@ -29,4 +29,3 @@ cd ${DIR}
 
 npm i
 docker-compose -p caliper up -d
-
