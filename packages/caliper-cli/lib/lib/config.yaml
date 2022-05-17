@@ -43,7 +43,7 @@ sut:
             packages: ['fabric-network@2.2.12']
         2.2: *fabric-v2-lts
         2.4: 
-            packages: ['@hyperledger/fabric-gateway@1.0.1']
+            packages: ['@hyperledger/fabric-gateway@1.0.1', '@grpc/grpc-js@1.6.7']
         latest: *fabric-v1-lts
         latest-v2-lts: *fabric-v2-lts
         latest-v2: *fabric-v2-lts
