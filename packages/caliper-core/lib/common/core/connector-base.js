@@ -116,7 +116,7 @@ class ConnectorBase extends ConnectorInterface {
                 failureResult.SetStatusFail();
                 failureResult.SetVerification(true);
                 failureResult.SetResult('');
-                failureResult.Set('time_create', creationTime);
+                failureResult.SetTimeCreate(creationTime);
                 return failureResult;
             }
 

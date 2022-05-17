@@ -377,7 +377,7 @@ class V1FabricGateway extends ConnectorBase {
 
             if (isSubmit) {
                 invokeStatus.Set('request_type', 'transaction');
-                invokeStatus.Set('time_create', Date.now());
+                invokeStatus.SetTimeCreate(Date.now());
                 result = await transaction.submit(...invokeSettings.contractArguments);
             } else {
 
@@ -386,7 +386,7 @@ class V1FabricGateway extends ConnectorBase {
                 }
 
                 invokeStatus.Set('request_type', 'query');
-                invokeStatus.Set('time_create', Date.now());
+                invokeStatus.SetTimeCreate(Date.now());
                 result = await transaction.evaluate(...invokeSettings.contractArguments);
             }
 

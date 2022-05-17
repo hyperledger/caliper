@@ -304,10 +304,10 @@ class PeerGateway extends ConnectorBase {
         // set transaction invocation result to return
         try {
             const proposal = smartContract.newProposal(invokeSettings.contractFunction, proposalOptions);
-            invokeStatus.Set('time_create', Date.now());
             invokeStatus.SetID(proposal.getTransactionId());
             if (isSubmit) {
                 invokeStatus.Set('request_type', 'transaction');
+                invokeStatus.SetTimeCreate(Date.now());
                 const transaction = await proposal.endorse();
                 const subtx = await transaction.submit();
                 const status = await subtx.getStatus();
@@ -320,6 +320,7 @@ class PeerGateway extends ConnectorBase {
                 invokeStatus.SetResult(subtx.getResult());
             } else {
                 invokeStatus.Set('request_type', 'query');
+                invokeStatus.SetTimeCreate(Date.now());
                 invokeStatus.SetResult(await proposal.evaluate());
                 invokeStatus.SetStatusSuccess();
             }

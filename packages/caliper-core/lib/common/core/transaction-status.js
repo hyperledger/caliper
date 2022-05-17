@@ -87,6 +87,14 @@ class TxStatus {
     }
 
     /**
+     * Set a new creation time
+     * @param {int} newCreationTime new creation time in ms
+     */
+    SetTimeCreate(newCreationTime) {
+        this.status.time_create = newCreationTime;
+    }
+
+    /**
      * Getter of the tx final time
      * @return {int} final time in ms
      */
@@ -177,7 +185,8 @@ class TxStatus {
     }
 
     /**
-     * Set any key/value
+     * Set a custom key/value. This sets a key with the custom subsection of this
+     * status instance and cannot be used to modify internal keys such as `time_create` or `time_final` for example.
      * @param {string} key key
      * @param {any} value value
      */
@@ -186,7 +195,7 @@ class TxStatus {
     }
 
     /**
-     * Get any specified element
+     * Get a custom value from the key
      * @param {string} key key
      * @return {any} value
      */
