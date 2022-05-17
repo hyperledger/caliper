@@ -62,10 +62,10 @@ class LaunchManager {
             const response = await engine.run();
 
             if (response === 0) {
-                logger.info('Benchmark successfully finished');
+                logger.info('Benchmark successfully finished!');
             } else {
                 knownError = true;
-                let msg = `Benchmark failed with error code ${response}`;
+                let msg = `Benchmark execution failed with error code: ${response}`;
                 logger.error(msg);
                 throw new Error(msg);
             }
