@@ -327,7 +327,13 @@ class PeerGateway extends ConnectorBase {
             return invokeStatus;
         } catch (err) {
             //check if transaction submission failed, set invokation status accordingly and return it
-            logger.error(`Failed to perform ${isSubmit ? 'submit' : 'query'} transaction [${invokeSettings.contractFunction}] using arguments [${invokeSettings.contractArguments}],  with error: ${err.stack ? err.stack : err}`);
+            if (err.details) {
+                err.message += '\nDetails:';
+                for (const detail of err.details) {
+                    err.message += `\n-  ${detail.address}:${detail.message}`;
+                }
+            }
+            logger.error(`Failed to perform ${isSubmit ? 'submit' : 'query'} transaction [${invokeSettings.contractFunction}] using arguments [${invokeSettings.contractArguments}],  with error: ${err}`);
             invokeStatus.SetStatusFail();
             invokeStatus.SetVerification(true);
             invokeStatus.SetResult('');
