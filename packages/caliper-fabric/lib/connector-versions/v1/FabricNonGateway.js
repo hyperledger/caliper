@@ -343,8 +343,8 @@ class V1Fabric extends ConnectorBase {
                     reject(new Error('TIMEOUT'));
                 }, this._getRemainingTimeout(startTime, timeout));
 
-                invokeStatus.Set('time_create', Date.now());
                 try {
+                    invokeStatus.SetTimeCreate(Date.now());
                     const result = await channel.queryByChaincode(proposalRequest);
                     clearTimeout(timeoutHandle);
                     resolve(result);
@@ -467,7 +467,7 @@ class V1Fabric extends ConnectorBase {
         try {
             try {
                 // account for the elapsed time up to this point
-                invokeStatus.Set('time_create', Date.now());
+                invokeStatus.SetTimeCreate(Date.now());
                 proposalResponseObject = await channel.sendTransactionProposal(proposalRequest,
                     this._getRemainingTimeout(startTime, timeout));
 

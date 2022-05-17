@@ -73,7 +73,6 @@ class TransactionStatisticsCollector {
      * @private
      */
     _updateStatistics(txResult) {
-        this.stats.txCounters.totalFinished +=1;
 
         // updating create time stats
         let createTime = txResult.GetTimeCreate();
@@ -398,15 +397,19 @@ class TransactionStatisticsCollector {
             return;
         }
 
+        // irrespective of when a result finished it should be recorded.
+        this.stats.txCounters.totalFinished = Array.isArray(results) ? this.stats.txCounters.totalFinished + results.length : this.stats.txCounters.totalFinished + 1;
+
+        // only process the results if the finished transaction was received on or after the round started
         if (Array.isArray(results)) {
-            let relevantResults = results.filter(r => r.GetTimeCreate() > this.getRoundStartTime());
+            let relevantResults = results.filter(r => r.GetTimeCreate() >= this.getRoundStartTime());
             for (let result of relevantResults) {
                 this._updateStatistics(result);
             }
             for (let subcollector of this.subCollectors) {
                 subcollector.txFinished(relevantResults);
             }
-        } else if (results.GetTimeCreate() > this.getRoundStartTime()) {
+        } else if (results.GetTimeCreate() >= this.getRoundStartTime()) {
             this._updateStatistics(results);
             for (let subcollector of this.subCollectors) {
                 subcollector.txFinished(results);
