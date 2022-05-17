@@ -22,7 +22,7 @@ This tutorial is based on resources available from the official [Hyperledger Fab
 
 ```bash
 # Pull down the 2.2.5 hyperledger fabric images/binaries and the fabric-samples checked out at tag v2.2.5
-curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.5 1.5.2
+curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/bootstrap.sh | bash -s -- 2.2.5 1.5.2
 cd fabric-samples
 # Switch to a release-2.2 git branch that has a fix for asset-transfer-basic chaincode
 git checkout c3a0e814f1609eda2b2f4403b38e33b8b4a16675
