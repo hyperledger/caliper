@@ -438,7 +438,9 @@ describe('A Fabric Peer Gateway sdk gateway', () => {
                     contractArguments: args,
                     invokerIdentity: 'admin',
                 };
-                Transaction.throwOnCall(new Error('submit-failure'));
+                const err = new Error('submit-failure');
+                err.details= [{address:'anaddress', message:'an error'},{},'something'];
+                Transaction.throwOnCall(err);
                 const txStatus = await peerGateway._sendSingleRequest(request);
                 txStatus.should.be.instanceOf(TxStatus);
                 txStatus.GetStatus().should.equal('failed');
@@ -503,7 +505,8 @@ describe('A Fabric Peer Gateway sdk gateway', () => {
                     invokerIdentity: 'admin',
                     readOnly: true
                 };
-                Transaction.throwOnCall(new Error('submit-failure'));
+                const err = new Error('submit-failure');
+                Transaction.throwOnCall(err);
                 const txStatus = await peerGateway._sendSingleRequest(request);
                 txStatus.should.be.instanceOf(TxStatus);
                 txStatus.GetStatus().should.equal('failed');
