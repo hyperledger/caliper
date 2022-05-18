@@ -1,6 +1,6 @@
 {
     "name": "@hyperledger/caliper-fisco-bcos",
-    "version": "0.5.0-unstable",
+    "version": "0.5.0",
     "description": "FISCO BCOS connector for Caliper, enabling the running of a performance benchmarks that interact with FISCO BCOS",
     "repository": {
         "type": "git",
@@ -22,7 +22,7 @@
         "npm": ">=6.14.16"
     },
     "dependencies": {
-        "@hyperledger/caliper-core": "0.5.0-unstable",
+        "@hyperledger/caliper-core": "0.5.0",
         "crypto-js": "^3.1.9-1",
         "ethereumjs-util": "6.1.0",
         "fs-extra": "8.1.0",

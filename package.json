@@ -1,7 +1,7 @@
 {
     "name": "caliper",
     "description": "Performance benchmarking for Hyperledger blockchain technologies.  You must install [Lerna](https://lernajs.io) to build this multi-package repository.",
-    "version": "0.5.0-unstable",
+    "version": "0.5.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/hyperledger/caliper"
