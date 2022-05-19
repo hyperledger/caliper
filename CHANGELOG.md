@@ -1,3 +1,92 @@
+## 0.5.0 (Wed May 18 2022)
+
+This release of caliper adds new capabilities and addresses lots of bugs. Note that Hyperledger Fabric 1.4 SUT binding is still available in this release however it now is _deprecated_.
+### Notable
+
+* [Feature] Official support for Node 14 and Node 16 for users and contributors
+* [Feature] Experimental release for a Declaritive Workload Module
+* [Feature] Support for the new Peer Gateway API introduced in Hyperledger Fabric 2.4
+* [Fix] Fix Caliper round hang with unfinished transactions never completing
+* [Fix] Corrections and Improvements to the documentation
+* [Breaking] Caliper no longer supports the 1.0 version of the Fabric Network Configuration format
+* [Breaking] Caliper no longer supports creating channels or deploying chaincode to Hyperledger Fabric
+* [Breaking] Caliper no longer supports Hyperledger Fabric 1.3 or older
+### Commits
+
+* [2fd8925](https://github.com/hyperledger/caliper/commit/2fd8925) Fixes caliper hang of unfinished transactions (#1342)
+* [df1b96c](https://github.com/hyperledger/caliper/commit/df1b96c) Peer Gateway txs error messsage: added output of the contents of the err details array (#1345)
+* [671ca2f](https://github.com/hyperledger/caliper/commit/671ca2f) explicitly bind grpc-js for fabric 2.4 connector (#1344)
+* [4bbb40c](https://github.com/hyperledger/caliper/commit/4bbb40c) changed all bit.ly links with a direct link (#1336)
+* [14467a4](https://github.com/hyperledger/caliper/commit/14467a4) upgraded node-sdk binding for fabric-v2-lts from 2.2.11 to 2.2.12 (#1335)
+* [b554467](https://github.com/hyperledger/caliper/commit/b554467) upgraded node-sdk binding for fabric-v1-lts from 1.4.19 to 1.4.20 (#1332)
+* [1a6639c](https://github.com/hyperledger/caliper/commit/1a6639c) add peers property support to fabric network config (#1329)
+* [ca58c47](https://github.com/hyperledger/caliper/commit/ca58c47) disable logging debug to file (#1331)
+* [35ae4ca](https://github.com/hyperledger/caliper/commit/35ae4ca) Ensure that connector errors finishes caliper transactions (#1328)
+* [d699171](https://github.com/hyperledger/caliper/commit/d699171) Fix cli and update dependabot security dependencies (#1324)
+* [da99385](https://github.com/hyperledger/caliper/commit/da99385) correct interval usage in fabric-tests (#1323)
+* [031267f](https://github.com/hyperledger/caliper/commit/031267f) fixed docker monitor to use dockerode only (#1319)
+* [af6440f](https://github.com/hyperledger/caliper/commit/af6440f) address worker cleanup when an error occurs (#1315)
+* [57d8d46](https://github.com/hyperledger/caliper/commit/57d8d46) Change monitor intervals from milliseconds to seconds (#1314)
+* [7f4d374](https://github.com/hyperledger/caliper/commit/7f4d374) fixed colors dependency to 1.4.0 (#1311)
+* [6fb76f2](https://github.com/hyperledger/caliper/commit/6fb76f2) add integration test for peer gateway connector + updated docker compose for fabric 2.4 (#1310)
+* [9e736c0](https://github.com/hyperledger/caliper/commit/9e736c0) edit defaul.yaml (updated comments and deleted sllep after option for fabric) + updated the fabric Channel operations for the v1 fabric connector (#1306)
+* [25f905d](https://github.com/hyperledger/caliper/commit/25f905d) added logic to pick new Peer Gateway connector in the connector selector in FabriConnectorFactory.js +  added 2.4 fabric SUT version with binding packages in .config.yaml +  added last fixes for the Peer Gateway connector implementation (#1298)
+* [7c33aca](https://github.com/hyperledger/caliper/commit/7c33aca) Update the usage examples to more appropriate versions (#1297)
+* [66e8386](https://github.com/hyperledger/caliper/commit/66e8386) remove latency values if no successful txns in final report (#1290)
+* [5f9aa29](https://github.com/hyperledger/caliper/commit/5f9aa29) fix RecordRate rate controller (#1292)
+* [a372f18](https://github.com/hyperledger/caliper/commit/a372f18) added main logic for the new peer-gateaway connector including unit tests (#1270)
+* [ada19c3](https://github.com/hyperledger/caliper/commit/ada19c3) Caliper terminates if prometheus is not available (#1288)
+* [6a76834](https://github.com/hyperledger/caliper/commit/6a76834) Remove CountQueryAsLoad Option (#1276)
+* [4f03fef](https://github.com/hyperledger/caliper/commit/4f03fef) rename certain terms in code base (#1280)
+* [4356663](https://github.com/hyperledger/caliper/commit/4356663) improve message to help when file not found (#1262)
+* [ba1ffcf](https://github.com/hyperledger/caliper/commit/ba1ffcf) Improve integration tests (#1259)
+* [a84cdd9](https://github.com/hyperledger/caliper/commit/a84cdd9) add changes to ConnectionProfileDefinition for new PeerGateway connector and add peer-gateway to nyc of caliper-fabric (#1253)
+* [5ee6aaa](https://github.com/hyperledger/caliper/commit/5ee6aaa) Remove the need for gateway-enabled when binding to a fabric 2.2 SUT (#1255)
+* [5380af7](https://github.com/hyperledger/caliper/commit/5380af7) add txid to proposal when doing a query (#1247)
+* [c72dc9f](https://github.com/hyperledger/caliper/commit/c72dc9f) ensure endorsetimeout is set on v2 fabric connector (#1246)
+* [71a5a87](https://github.com/hyperledger/caliper/commit/71a5a87) Update bindings to latest fabric sdks and remove old ones (#1244)
+* [9043fd0](https://github.com/hyperledger/caliper/commit/9043fd0) Remove the legacy fabric connectors (#1235)
+* [338212d](https://github.com/hyperledger/caliper/commit/338212d) Bump version to 0.5.0-unstable (#1239)
+* [cbacc35](https://github.com/hyperledger/caliper/commit/cbacc35) Correct timeout defaults (#1230)
+* [a8652a6](https://github.com/hyperledger/caliper/commit/a8652a6) Reference Discord instead of Rocket Chat (#1228)
+* [986c856](https://github.com/hyperledger/caliper/commit/986c856) Add support for node 16 (#1223)
+* [5922238](https://github.com/hyperledger/caliper/commit/5922238) add new folder peer-gateway containing new connector Wallet Facade and Wallet Facade Factory (#1227)
+* [24fcdf3](https://github.com/hyperledger/caliper/commit/24fcdf3) Node 14 support  (#1221)
+* [4a1860e](https://github.com/hyperledger/caliper/commit/4a1860e) enable support for node 14 - node engine >=14.19.0 (#1219)
+* [caad464](https://github.com/hyperledger/caliper/commit/caad464) Docker monitor metrics fixes - cpu and memory usage (#1214)
+* [7c2b3f7](https://github.com/hyperledger/caliper/commit/7c2b3f7) address fabric:1.4 sut binding not working in caliper container (#1211)
+* [f0553d1](https://github.com/hyperledger/caliper/commit/f0553d1) Declarative workload module base integration (#1194)
+* [a8e9ada](https://github.com/hyperledger/caliper/commit/a8e9ada) Add GitHub web forms-based issue templates (#1189)
+* [9e296ac](https://github.com/hyperledger/caliper/commit/9e296ac) Update CONTRIBUTING.md document (#1192)
+* [8701938](https://github.com/hyperledger/caliper/commit/8701938) Fix the unit of the interval of default-observer in the log (#1193)
+* [1fb6011](https://github.com/hyperledger/caliper/commit/1fb6011) Propose myself as a new caliper Maintainer (#1186)
+* [aa0b3db](https://github.com/hyperledger/caliper/commit/aa0b3db) Fix CompositeRateController class bug (#1181) (#1184)
+* [595942a](https://github.com/hyperledger/caliper/commit/595942a) Fix issue where init flow errors when not using mutual TLS (#1183)
+* [cc19cd6](https://github.com/hyperledger/caliper/commit/cc19cd6) Fix generator integration test (#1176)
+* [5a538e1](https://github.com/hyperledger/caliper/commit/5a538e1) Fix Ethereum integration test (#1175)
+* [c73f5a7](https://github.com/hyperledger/caliper/commit/c73f5a7) Fix Besu integration test (#1174)
+* [14bbbcb](https://github.com/hyperledger/caliper/commit/14bbbcb) Add ValueProviderFactory, ListElementValueProvider and FormattedStringValueProvider. (#1168)
+* [6d5f071](https://github.com/hyperledger/caliper/commit/6d5f071) Update branch name in Azure CI pipeline configuration (#1172)
+* [4bd51cf](https://github.com/hyperledger/caliper/commit/4bd51cf) Update link for security bug handling wiki page (#1171)
+* [4f98fa7](https://github.com/hyperledger/caliper/commit/4f98fa7) Open in Visual Studio Code badge added
+* [0053563](https://github.com/hyperledger/caliper/commit/0053563) Add base classes for declarative workload module and unit tests for the base classes.
+* [550fdb7](https://github.com/hyperledger/caliper/commit/550fdb7) comparison to ===
+* [61410f3](https://github.com/hyperledger/caliper/commit/61410f3) Resolve issue in which only first round would be docker-monitored
+* [5a34ad7](https://github.com/hyperledger/caliper/commit/5a34ad7) Make Mosquitto authentication and authorization explicit for v2
+* [b615b17](https://github.com/hyperledger/caliper/commit/b615b17) FIX: caliper bind command now compatible with Windows OS
+* [12a3e52](https://github.com/hyperledger/caliper/commit/12a3e52) Adding changes related to value parameter for payable function in Ethereum. (#1122)
+* [69eec09](https://github.com/hyperledger/caliper/commit/69eec09) use 0.21.1 axios (#1119)
+* [369d11e](https://github.com/hyperledger/caliper/commit/369d11e) use single publish script (#1118)
+* [c48f9ad](https://github.com/hyperledger/caliper/commit/c48f9ad) Publish containers (#1117)
+* [88a1568](https://github.com/hyperledger/caliper/commit/88a1568) prevent cascade skip (#1116)
+* [5b74a2c](https://github.com/hyperledger/caliper/commit/5b74a2c) Change build reason for publish (#1114)
+* [c3090ea](https://github.com/hyperledger/caliper/commit/c3090ea) update pipeline condition (#1113)
+* [6ced65a](https://github.com/hyperledger/caliper/commit/6ced65a) update conditionals (#1112)
+* [6fa9b12](https://github.com/hyperledger/caliper/commit/6fa9b12) publish to npm stage (#1110)
+* [730a884](https://github.com/hyperledger/caliper/commit/730a884) Update contributing guide (#1109)
+* [d6f0027](https://github.com/hyperledger/caliper/commit/d6f0027) Enable builds for PRs that target master branch (#1108)
+* [bc436e8](https://github.com/hyperledger/caliper/commit/bc436e8) Azure pipelines build (#1105)
+
 ## 0.4.2
   * [Feature] New Fabric connector (completed with [PR1095](https://github.com/hyperledger/caliper/pull/1095))
   * [Feature] New Fabric connector tutorial ([PR1091](https://github.com/hyperledger/caliper/pull/1091))
@@ -42,7 +131,7 @@
 * Core changes
   * Addition of unbind command to Caliper CLI ([PR864](https://github.com/hyperledger/caliper/pull/864))
   * Fix of MQTT messenger disposal process ([PR863](https://github.com/hyperledger/caliper/pull/863))
-  
+
 * Hyperledger Fabric adapter changes
   * Fix network validation in V2 gateway adaptor ([PR863](https://github.com/hyperledger/caliper/pull/863))
   * Aligned passage of private data in gateway transactions with the documented specification ([PR863](https://github.com/hyperledger/caliper/pull/863))
@@ -63,22 +152,22 @@
   * Relax constraints for monitor/observer combinations ([PR#761](https://github.com/hyperledger/caliper/pull/761))
   * Call the `end` function of workload modules sooner, so they can still access the adapter context ([PR#779](https://github.com/hyperledger/caliper/pull/779))
   * Improved error reporting in the worker processes ([PR#782](https://github.com/hyperledger/caliper/pull/782))
-  * Improve TX handling/waiting approach for worker processes, thus enabling long-term benchmarks ([PR#794](https://github.com/hyperledger/caliper/pull/794)) 
+  * Improve TX handling/waiting approach for worker processes, thus enabling long-term benchmarks ([PR#794](https://github.com/hyperledger/caliper/pull/794))
   * Improve core package management for the Docker image ([PR#795](https://github.com/hyperledger/caliper/pull/795))
   * Improve handling of benchmark errors upon monitoring data reporing ([PR#797](https://github.com/hyperledger/caliper/pull/797))
-  
+
 * Hyperledger Fabric adapter changes
-  * Fix orderer name check for Fabric v2 adapter ([PR#762](https://github.com/hyperledger/caliper/pull/762))  
+  * Fix orderer name check for Fabric v2 adapter ([PR#762](https://github.com/hyperledger/caliper/pull/762))
   * Add support for stable Fabric v2 SDK packages
 
 * Ethereum/Hyperledger Besu adapter changes
   * Improve connection/TX management to SUT ([PR#780](https://github.com/hyperledger/caliper/pull/780))
   * Update HL Besu versions ([PR#786](https://github.com/hyperledger/caliper/pull/786))
   * Make `contractDeployerAddress` available in the adapter context ([PR#808](https://github.com/hyperledger/caliper/pull/808))
-  
+
 * Hyperledger Sawtooth adapter changes
   * Refactored adapter to be more OO-like, and fixed non-existing variable reference bug ([PR#782](https://github.com/hyperledger/caliper/pull/782))
-  
+
 * Hyperledger Burrow adapter changes
   * Switch SDK package to `@hyperledger/burrow` ([PR#804](https://github.com/hyperledger/caliper/pull/804))
 
@@ -94,11 +183,11 @@
   * Added charting capabilities to the report generation ([PR#650](https://github.com/hyperledger/caliper/pull/650)).
   * __BREAKING:__ Configuration structure for Docker and process monitoring changed ([PR#650](https://github.com/hyperledger/caliper/pull/650)).
   * __BREAKING:__ Simplified (flattened) round settings in the benchmark configuration file, i.e., the YAML structure changed ([PR#639](https://github.com/hyperledger/caliper/pull/639)).
-  
+
 * CLI changes
   * Added new SDK bindings for Fabric ([PR#742](https://github.com/hyperledger/caliper/pull/742)).
   * __BREAKING:__ Changed the CLI commands. The binding command now accepts an external configuration file. The new launch commands can perform binding automatically ([PR#734](https://github.com/hyperledger/caliper/pull/734), [PR#742](https://github.com/hyperledger/caliper/pull/742)).
-  
+
 * Hyperledger Fabric adapter changes
   * Fixed channel initialization for the connection profiles ([PR#751](https://github.com/hyperledger/caliper/pull/751)).
   * Fixed error handling for TX broadcast errors ([PR#750](https://github.com/hyperledger/caliper/pull/750)).
