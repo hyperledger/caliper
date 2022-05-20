@@ -41,7 +41,6 @@ let results = yargs
 
 
 if (!results.thePromise) {
-    // console.log(results._[0]);
     Logger.error(`Command not recognised: '${results._[0]}'`);
     process.exit(1);
 }
