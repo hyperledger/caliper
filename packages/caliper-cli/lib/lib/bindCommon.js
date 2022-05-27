@@ -42,7 +42,7 @@ class BindCommon {
 
         let sutSpecParts = sutSpec.split(':');
         if (sutSpecParts.length < 1 || sutSpecParts.length > 2) {
-            let msg = `SUT specification is expected in the <SUT type>:<SDK version> format, not as "${sutSpec}"`;
+            let msg = `The expected SUT specification format is <SUT type>:<SDK version> format, not as "${sutSpec}"`;
             logger.error(msg);
             throw new Error(msg);
         }
@@ -50,7 +50,7 @@ class BindCommon {
         let sut = sutSpecParts[0];
         let sdk = sutSpecParts[1];
         if (!sdk) {
-            logger.warn('SUT SDK version is not specified, defaulting to "latest"');
+            logger.warn('SUT SDK version is not specified, defaulting to the "latest" version');
             sdk = 'latest';
         }
 
@@ -63,7 +63,7 @@ class BindCommon {
             // User has passed a configuration file to bind
             file = CaliperUtils.resolvePath(file);
             if (!fs.existsSync(file)) {
-                let msg = `Passed custom configuration file "${file}" does not exist`;
+                let msg = `The passed custom configuration file "${file}" does not exist`;
                 logger.error(msg);
                 throw new Error(msg);
             } else {
@@ -90,7 +90,7 @@ class BindCommon {
         }
 
         if (!cwd) {
-            logger.warn(`Working directory not specified. Using "${path.resolve('./')}"`);
+            logger.warn(`Working directory is not specified. Current path: "${path.resolve('./')}"`);
             cwd = path.resolve('./');
         } else {
             cwd = path.resolve(cwd);
@@ -106,14 +106,15 @@ class BindCommon {
         // select the first matching setting, if any
         if (extraSpec.settings) {
             let nodeVersion;
-            logger.info('Querying node version');
+            logger.info('Querying node version...');
             try {
                 nodeVersion = await CaliperUtils.getCommandOutput('node', ['-v']);
             } catch (e) {
+                logger.error(`Node version not found! Version queried: ${nodeVersion}`);
                 logger.error(e.message);
                 throw e;
             }
-            logger.info(`Detected node version ${nodeVersion}`);
+            logger.info(`Detected node version: ${nodeVersion}`);
 
             for (let setting of extraSpec.settings) {
                 let regex = new RegExp(setting.versionRegexp, 'g');
