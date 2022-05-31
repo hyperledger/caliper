@@ -119,10 +119,10 @@ class EthereumConnector extends ConnectorBase {
                 try {
                     if (privacy) {
                         contractInstance = await self.deployPrivateContract(contractData, privacy);
-                        logger.info('Deployed private contract ' + contractData.name + ' at ' + contractInstance.options.address);
+                        logger.info(`Deployed contract ${contractData.name} at ${contractInstance.options.address}`);
                     } else {
                         contractInstance = await self.deployContract(contractData);
-                        logger.info('Deployed contract ' + contractData.name + ' at ' + contractInstance.options.address);
+                        logger.info(`Deployed contract ${contractData.name} at ${contractInstance.options.address}`);
                     }
                 } catch (err) {
                     reject(err);
@@ -244,7 +244,7 @@ class EthereumConnector extends ConnectorBase {
 
         const onFailure = (err) => {
             status.SetStatusFail();
-            logger.error('Failed tx on ' + request.contract + ' calling method ' + request.verb + ' nonce ' + params.nonce);
+            logger.error(`Failed tx on ${request.contract}; calling method: ${request.verb}; nonce: ${params.nonce}`);
             logger.error(err);
         };
 
@@ -302,7 +302,7 @@ class EthereumConnector extends ConnectorBase {
 
         const onFailure = (err) => {
             status.SetStatusFail();
-            logger.error('Failed private tx on ' + request.contract + ' calling method ' + request.verb + ' private nonce ' + 0);
+            logger.error(`Failed private tx on ${request.contract}; calling method: ${request.verb}; private nonce: ${0}`);
             logger.error(err);
         };
 
@@ -402,8 +402,8 @@ class EthereumConnector extends ConnectorBase {
             if (txRcpt.status === '0x1') {
                 return new web3.eth.Contract(contractData.abi, txRcpt.contractAddress);
             } else {
-                logger.error('Failed private transaction hash ' + txHash);
-                throw new Error('Failed private transaction hash ' + txHash);
+                logger.error(`Failed private transaction hash ${txHash}`);
+                throw new Error(`Failed private transaction hash ${txHash}`);
             }
         } catch (err) {
             logger.error('Error deploying private contract: ', JSON.stringify(err));
@@ -441,7 +441,7 @@ class EthereumConnector extends ConnectorBase {
                     return el.type === 'LEGACY';
                 })[0].privacyGroupId;
             } else {
-                throw new Error('Multiple legacy privacy groups with same members. Can\'t resolve privacyGroupId.');
+                throw new Error('There are multiple legacy privacy groups with same members. Can\'t resolve privacyGroupId.');
             }
         }
         case 'pantheon':
