@@ -90,7 +90,7 @@ class CompositeRateController extends RateInterface{
 
         const nan = weights.find(w => isNaN(Number(w)));
         if (nan) {
-            let msg = `Not-a-number element among weights: ${nan}`;
+            let msg = `Not-a-number (NaN) element found among weights: ${nan}`;
             logger.error(msg);
             throw new Error(msg);
         }
@@ -102,7 +102,7 @@ class CompositeRateController extends RateInterface{
         // zero weights should be fine to allow easy temporary removal of controllers from the config file
         const negativeWeight = weights.find(w => w < 0);
         if (negativeWeight) {
-            let msg = `Negative element among weights: ${negativeWeight}`;
+            let msg = `Negative element found among weights: ${negativeWeight}`;
             logger.error(msg);
             throw new Error(msg);
         }

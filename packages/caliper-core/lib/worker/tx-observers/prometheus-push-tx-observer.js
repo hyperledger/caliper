@@ -113,7 +113,7 @@ class PrometheusPushTxObserver extends TxObserverInterface {
     async _sendUpdate() {
         this.prometheusPushGateway.pushAdd({jobName: 'workers'}, function(err, _resp, _body) {
             if (err) {
-                Logger.error(`Error sending update to Prometheus Push Gateway: ${err.stack}`);
+                Logger.error(`Error sending update to Prometheus Push Gateway, error: ${err.stack}`);
             }
         });
     }

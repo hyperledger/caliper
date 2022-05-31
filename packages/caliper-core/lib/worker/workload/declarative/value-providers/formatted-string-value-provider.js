@@ -30,18 +30,18 @@ class FormattedStringValueProvider extends ValueProviderInterface {
         super(options, variables, parameters, valueProviderFactory);
 
         if (this.options === undefined) {
-            throw new Error(`Incorrect options value: ${this.options}`);
+            throw new Error(`'options' are undefined. Incorrect options value: ${this.options}`);
         }
 
         if (this.valueProviderFactory === undefined) {
-            throw new Error(`Incorrect valueProviderFactory value: ${this.valueProviderFactory}`);
+            throw new Error(`'valueProviderFactory' is undefined. Incorrect valueProviderFactory value: ${this.valueProviderFactory}`);
         }
 
         if (
             this.options.format === undefined ||
             typeof this.options.format !== 'string'
         ) {
-            throw new Error(`Invalid format value: ${this.options.format}`);
+            throw new Error(`The format of options is invalid. Current format: ${this.options.format}`);
         }
 
         if (!Array.isArray(this.options.parts)) {

@@ -31,11 +31,11 @@ class ListElementValueProvider extends ValueProviderInterface {
         super(options, variables, parameters, valueProviderFactory);
 
         if(this.options === undefined) {
-            throw new Error(`Incorrect options value: ${this.options}`);
+            throw new Error(`'options' are undefined. Incorrect options value: ${this.options}`);
         }
 
         if(this.valueProviderFactory === undefined){
-            throw new Error('Missing factory for list element value provider');
+            throw new Error(`'valueProviderFactory' is undefined. Missing factory for list element value provider`);
         }
 
         if(this.options.list === undefined || !Array.isArray(this.options.list)) {

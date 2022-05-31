@@ -60,7 +60,7 @@ class ReplayRateController extends RateInterface {
             this.inputFormat = TEXT_FORMAT;
         } else if (supportedFormats.includes(this.options.inputFormat.toUpperCase())) {
             this.inputFormat = this.options.inputFormat.toUpperCase();
-            logger.debug(`Input format is set to "${this.inputFormat}" format in worker #${this.workerIndex} in round #${this.roundIndex}`);
+            logger.debug(`Input format is set to "${this.inputFormat}" format for worker #${this.workerIndex} in round #${this.roundIndex}`);
         } else {
             logger.warn(`Input format "${this.options.inputFormat}" is not supported. Defaulting to "${TEXT_FORMAT}" format`);
             this.inputFormat = TEXT_FORMAT;

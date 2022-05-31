@@ -53,7 +53,7 @@ class RecordRateController extends RateInterface {
         }
 
         if (typeof this.options.pathTemplate === 'undefined') {
-            throw new Error('The path to save the recording to is undefined');
+            throw new Error('The path to save the recording is undefined');
         }
 
         if (typeof this.options.rateController === 'undefined') {
@@ -66,7 +66,7 @@ class RecordRateController extends RateInterface {
             this.outputFormat = TEXT_FORMAT;
         } else if (supportedFormats.includes(this.options.outputFormat.toUpperCase())) {
             this.outputFormat = this.options.outputFormat.toUpperCase();
-            logger.debug(`Output format is set to "${this.outputFormat}" format in worker #${this.workerIndex} in round #${this.roundIndex}`);
+            logger.debug(`Output format is set to "${this.outputFormat}" format for worker #${this.workerIndex} in round #${this.roundIndex}`);
         } else {
             logger.warn(`Output format "${this.options.outputFormat}" is not supported. Defaulting to "${TEXT_FORMAT}" format`);
             this.outputFormat = TEXT_FORMAT;
