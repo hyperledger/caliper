@@ -58,7 +58,7 @@ class MonitorOrchestrator {
             } else if(monitorModule === NONE) {
                 continue;
             } else {
-                const msg = `Unsupported monitor type ${monitorModule}, must be one of ${VALID_MONITORS}`;
+                const msg = `Unsupported monitor type ${monitorModule}, must be one of the valid monitors: ${VALID_MONITORS}`;
                 logger.error(msg);
                 throw new Error(msg);
             }

@@ -65,7 +65,7 @@ class CaliperEngine {
                 try {
                     await CaliperUtils.execAsync(`cd ${this.workspace}; ${command}`);
                 } catch (err) {
-                    let msg = `An error occurred while executing the ${commandName} command: ${err}`;
+                    let msg = `An error occurred while executing the ${commandName} command, error: ${err}`;
                     logger.error(msg);
                     this.returnCode = errorStatusStart + 3;
                     throw new Error(msg);
@@ -89,7 +89,7 @@ class CaliperEngine {
         // Validate configObject (benchmark configuration file)
         BenchValidator.validateObject(this.benchmarkConfig);
 
-        logger.info('Starting benchmark flow');
+        logger.info('Starting benchmark flow...');
 
         try {
 
@@ -111,7 +111,7 @@ class CaliperEngine {
                 try {
                     await connector.init();
                 } catch (err) {
-                    let msg = `Error while performing "init" step: ${err}`;
+                    let msg = `Error while performing "init" step, error: ${err}`;
                     logger.error(msg);
                     this.returnCode = 4;
                     throw new Error(msg);
@@ -130,7 +130,7 @@ class CaliperEngine {
                 try {
                     await connector.installSmartContract();
                 } catch (err) {
-                    let msg = `Error while performing "install" step: ${err}`;
+                    let msg = `Error while performing "install" step, error: ${err}`;
                     logger.error(msg);
                     this.returnCode = 5;
                     throw new Error(msg);
@@ -156,7 +156,7 @@ class CaliperEngine {
             // this means that we haven't handled/logged this failure yet
             if (this.returnCode < 0) {
                 // log full stack
-                let msg = `Error while performing "test" step: ${err.stack}`;
+                let msg = `Error while performing "test" step, error: ${err.stack}`;
                 logger.error(msg);
                 this.returnCode = 6;
             }

@@ -169,9 +169,9 @@ class WorkerOrchestrator {
             await workersConnectedPromise;
             this.workersConnected = true;
 
-            logger.info(`${this.number} workers connected, progressing to worker assignment phase.`);
+            logger.info(`${this.number} workers connected, progressing to worker assignment phase...`);
         } else {
-            logger.info(`Existing ${Object.keys(this.workers).length} connected workers detected, progressing to worker assignment phase.`);
+            logger.info(`Existing ${Object.keys(this.workers).length} connected workers detected, progressing to worker assignment phase...`);
         }
 
         // Make sure the workers have been assigned an index
@@ -201,9 +201,9 @@ class WorkerOrchestrator {
             await workersAssignedPromise;
             this.workersAssigned = true;
 
-            logger.info(`${this.number} workers assigned, progressing to worker initialization phase.`);
+            logger.info(`${this.number} workers assigned, progressing to worker initialization phase...`);
         } else {
-            logger.info(`Existing ${Object.keys(this.workers).length} connected workers detected are assigned, progressing to worker initialization phase.`);
+            logger.info(`Existing ${Object.keys(this.workers).length} connected workers detected are assigned, progressing to worker initialization phase...`);
         }
 
         // Make sure the workers are ready
@@ -224,9 +224,9 @@ class WorkerOrchestrator {
             await workersReadyPromise;
             this.workersReady = true;
 
-            logger.info(`${this.number} workers ready, progressing to test preparation phase.`);
+            logger.info(`${this.number} workers ready, progressing to test preparation phase...`);
         } else {
-            logger.info(`Existing ${Object.keys(this.workers).length} prepared workers detected, progressing to test preparation phase.`);
+            logger.info(`Existing ${Object.keys(this.workers).length} prepared workers detected, progressing to test preparation phase...`);
         }
     }
 
@@ -394,7 +394,7 @@ class WorkerOrchestrator {
         }
 
         await Promise.all(preparePromises);
-        logger.info(`${this.number} workers prepared, progressing to test phase.`);
+        logger.info(`${this.number} workers prepared, progressing to test phase...`);
 
         // clear worker prepare promises so they can be reused
         for (let worker in this.workers) {

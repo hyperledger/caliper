@@ -357,7 +357,7 @@ class ReportBuilder {
             fs.writeFileSync(filePath, html, writeOptions);
             Logger.info(`Generated report with path ${filePath}`);
         } catch (err) {
-            Logger.error(`Failed to generate report, with error ${err}`);
+            Logger.error(`Failed to generate report, with error: ${err}`);
             throw err;
         }
     }

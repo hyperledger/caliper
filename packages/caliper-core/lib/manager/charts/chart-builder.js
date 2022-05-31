@@ -52,7 +52,7 @@ class ChartBuilder {
                 break;
             }
             default:
-                Logger.error(`Unknown chart type named "${chartType}" requested`);
+                Logger.error(`Unknown chart type "${chartType}" requested`);
             }
         }
 
@@ -70,13 +70,13 @@ class ChartBuilder {
     static retrieveIncludedMetrics(callingMonitor, chartType, includeMetrics, resourceStats) {
         // includeMetrics must exist!
         if (!includeMetrics) {
-            Logger.error(`Required "metrics" not provided for ${chartType} chart generation for monitor ${callingMonitor}`);
+            Logger.error(`Required "metrics" not provided for ${chartType} chart generation for monitor: ${callingMonitor}`);
             return [];
         }
 
         // Cannot have 'all' with other items
         if (includeMetrics.indexOf('all') !== -1 && includeMetrics.length > 1) {
-            Logger.error(`Cannot list "all" option with other metrics for ${chartType} chart generation for monitor ${callingMonitor}`);
+            Logger.error(`Cannot list "all" option with other metrics for ${chartType} chart generation for monitor: ${callingMonitor}`);
             return [];
         }
 
@@ -89,7 +89,7 @@ class ChartBuilder {
 
             // filter on all
             if (includeMetrics[0].toLowerCase().localeCompare('all') === 0) {
-                Logger.debug(`Detected "all" option for ${chartType} chart generation for monitor ${callingMonitor}: including metric ${metric}`);
+                Logger.debug(`Detected "all" option for ${chartType} chart generation for monitor: ${callingMonitor}, including metric: ${metric}`);
                 metrics.push(metric);
                 continue;
             }
@@ -98,7 +98,7 @@ class ChartBuilder {
             for (const include of includeMetrics) {
                 // beware of appended units to metric
                 if (metric.includes(include)) {
-                    Logger.debug(`Detected metric match on ${include} for ${chartType} chart generation for monitor ${callingMonitor}: including metric ${metric}`);
+                    Logger.debug(`Detected metric match on ${include} for ${chartType} chart generation for monitor: ${callingMonitor}, including metric: ${metric}`);
                     metrics.push(metric);
                     continue;
                 }

@@ -181,7 +181,7 @@ class MonitorDocker extends MonitorInterface {
                         break;
                     }
                     if (id !== this.containers[i].id) {
-                        Logger.warn('inconsistent id within statistics gathering');
+                        Logger.warn(`Inconsistent id within statistics gathering, id: ${id}`);
                         continue;
                     }
                     // get stats

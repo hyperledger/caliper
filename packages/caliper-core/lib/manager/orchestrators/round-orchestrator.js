@@ -195,7 +195,7 @@ class RoundOrchestrator {
                     await this.monitorOrchestrator.startAllMonitors();
                     logger.info('Monitors successfully started');
                 } catch (err) {
-                    logger.error(`Could not start monitors: ${err.stack || err}`);
+                    logger.error(`Could not start monitors. Error: ${err.stack || err}`);
                 }
                 // - Run main test
                 const {results, start, end} = await this.workerOrchestrator.startTest(roundConfig);
