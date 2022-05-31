@@ -91,7 +91,7 @@ class PrometheusQueryClient {
      * @async
      */
     async getByEncodedUrl(getString) {
-        Logger.debug('Performing get with url encoded string: ', getString);
+        Logger.debug('Performing get request with url encoded string: ', getString);
         const targetParams =  this.retrieveTargetParameters(NULL, getString);
         return await this.retrieveResponse(targetParams);
     }
@@ -109,7 +109,7 @@ class PrometheusQueryClient {
             if (response.status.localeCompare('success') === 0 ) {
                 return response;
             } else {
-                Logger.error(`Prometheus query to ${targetParams.requestParams.href} failed with: ${JSON.stringify(response)}`);
+                Logger.error(`Prometheus query to ${targetParams.requestParams.href} failed with error: ${JSON.stringify(response)}`);
                 return null;
             }
         } catch (error) {
@@ -152,7 +152,7 @@ class PrometheusQueryClient {
             });
 
             req.on('error', err => {
-                Logger.error(err);
+                Logger.error('Request failed with error: ',err);
                 reject(err);
             });
 

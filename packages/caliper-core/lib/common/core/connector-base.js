@@ -126,7 +126,7 @@ class ConnectorBase extends ConnectorInterface {
         this._onTxsFinished(actualResults);
 
         if (firstError) {
-            Logger.error(`Unexpected error while sending multiple requests, first error was: ${firstError.stack || firstError}`);
+            Logger.error(`Unexpected Error occurred while sending multiple requests, the first error was: ${firstError.stack || firstError}`);
 
             // re-throwing an error allows for the worker to exit doing further work
             // and move into waiting for tx's to finish. If any further errors occur

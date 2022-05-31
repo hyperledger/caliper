@@ -131,7 +131,7 @@ class PrometheusQueryHelper {
                         valuesMap.set(name, stat);
                     }
                 } catch (error) {
-                    Logger.warn(`Unable to perform Math operation, with error ${error}`);
+                    Logger.warn(`Unable to perform Math operation, with error: ${error}`);
                     valuesMap.set(name, '-');
                 }
             }

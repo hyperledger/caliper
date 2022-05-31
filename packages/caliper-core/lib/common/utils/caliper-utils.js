@@ -129,7 +129,7 @@ class CaliperUtils {
     static loadFunction(module, functionName, moduleName) {
         const func = module[functionName];
         if (!func || typeof func !== 'function') {
-            throw new Error(`Function "${functionName}" could not be loaded for module "${moduleName}"`);
+            throw new Error(`Function "${functionName}" could not be loaded for module: "${moduleName}"`);
         }
 
         return func;
@@ -182,7 +182,7 @@ class CaliperUtils {
             return true;
         } catch (err) {
 
-            if (err.message.includes(`Cannot find module '${moduleName}'`)) {
+            if (err.message.includes(`Cannot find module: '${moduleName}'`)) {
                 // If the expected module can not be found, it's not an error to throw
                 return false;
             }
@@ -268,7 +268,7 @@ class CaliperUtils {
             return yaml.safeLoad(fs.readFileSync(filenameOrFilePath),'utf8');
         }
         catch(err) {
-            throw new Error(`Failed to parse the ${filenameOrFilePath}: ${(err.message || err)}`);
+            throw new Error(`Failed to parse the file ${filenameOrFilePath} with error: ${(err.message || err)}`);
         }
     }
 
@@ -304,7 +304,7 @@ class CaliperUtils {
             return yaml.safeLoad(stringContent);
         }
         catch(err) {
-            throw new Error(`Failed to parse the YAML string: ${(err.message || err)}`);
+            throw new Error(`Failed to parse the YAML string, error: ${(err.message || err)}`);
         }
     }
 

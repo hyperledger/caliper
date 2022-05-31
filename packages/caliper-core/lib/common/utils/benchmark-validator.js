@@ -69,7 +69,7 @@ class BenchmarkValidator {
      * @param {String} property property missing from benchmark configuration file
      */
     static throwMissingPropertyBenchmarkError(property) {
-        throw new Error(`Benchmark configuration is missing required property '${property}'`);
+        throw new Error(`Benchmark configuration is missing required property: '${property}'`);
     }
 
     /**
@@ -78,7 +78,7 @@ class BenchmarkValidator {
      * @param {String} value the set value
      */
     static throwInvalidPropertyBenchmarkError(property, value) {
-        throw new Error(`Benchmark configuration has an invalid property '${property}' value of '${value}'`);
+        throw new Error(`Benchmark configuration has an invalid property '${property}' with value: '${value}'`);
     }
 
     /**

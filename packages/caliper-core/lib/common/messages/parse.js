@@ -39,7 +39,7 @@ function parse(rawMessage) {
     let msg = JSON.parse(rawMessage);
 
     if (!msg.type) {
-        throw new Error(`Missing message type: "${rawMessage}"`);
+        throw new Error(`The message type is missing, raw message entered: "${rawMessage}"`);
     }
 
     const from = msg.sender;
@@ -75,7 +75,7 @@ function parse(rawMessage) {
     case MessageTypes.Exit:
         return new ExitMessage(from, date, err);
     default:
-        throw new Error(`Unknown message type "${msg.type}"`);
+        throw new Error(`Unknown message type: "${msg.type}"`);
     }
 }
 

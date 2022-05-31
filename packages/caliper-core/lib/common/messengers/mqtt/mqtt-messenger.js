@@ -68,8 +68,8 @@ class MqttMessenger extends MessengerInterface {
             self.connected = true;
             const clientId = self.mqttClient.options.clientId;
 
-            Logger.debug(`Messenger connected to MQTT with ID "${clientId}"`);
-            Logger.debug(`MQTT messenger "${clientId}" subscribing to topic "${self.sourceTopic}"`);
+            Logger.debug(`Messenger connected to MQTT with ID: "${clientId}"`);
+            Logger.debug(`MQTT messenger "${clientId}" subscribing to topic: "${self.sourceTopic}"`);
 
             self.mqttClient.subscribe(self.sourceTopic);
             promiseFunctions.resolve();

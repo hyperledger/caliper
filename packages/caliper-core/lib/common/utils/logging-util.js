@@ -344,7 +344,7 @@ function _createConfiguredLogger() {
             break;
         }
         default:
-            throw new Error(`Unsupported target type "${targetSettings.target}" for the "${target}" logging target`);
+            throw new Error(`Unsupported target type "${targetSettings.target}" for the logging target: "${target}"`);
         }
     }
 
