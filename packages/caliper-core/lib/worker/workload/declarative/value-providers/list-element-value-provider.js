@@ -35,7 +35,7 @@ class ListElementValueProvider extends ValueProviderInterface {
         }
 
         if(this.valueProviderFactory === undefined){
-            throw new Error(`'valueProviderFactory' is undefined. Missing factory for list element value provider`);
+            throw new Error('valueProviderFactory is undefined. Missing factory for list element value provider');
         }
 
         if(this.options.list === undefined || !Array.isArray(this.options.list)) {
