@@ -20,16 +20,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Check correct usage of Caliper package names
       run: ./scripts/check-package-names.sh
-    - name: Attempt to use cached dependencies
-      uses: actions/cache@v2
-      id: cache-npm
-      with:
-        path: './node_modules'
-        key: ${{ runner.os }}-node-${{ matrix.node-version }}-cache-${{ hashFiles('package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-${{ matrix.node-version }}-cache-
     - name: Install project dependencies
-      if: steps.cache-npm.outputs.cache-hit != 'true'
       run: npm install
     - name: Bootstrap lerna
       run: npm run bootstrap
