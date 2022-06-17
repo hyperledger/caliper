@@ -119,7 +119,7 @@ class EthereumConnector extends ConnectorBase {
                 try {
                     if (privacy) {
                         contractInstance = await self.deployPrivateContract(contractData, privacy);
-                        logger.info(`Deployed contract ${contractData.name} at ${contractInstance.options.address}`);
+                        logger.info(`Deployed private contract ${contractData.name} at ${contractInstance.options.address}`);
                     } else {
                         contractInstance = await self.deployContract(contractData);
                         logger.info(`Deployed contract ${contractData.name} at ${contractInstance.options.address}`);
@@ -402,8 +402,9 @@ class EthereumConnector extends ConnectorBase {
             if (txRcpt.status === '0x1') {
                 return new web3.eth.Contract(contractData.abi, txRcpt.contractAddress);
             } else {
-                logger.error(`Failed private transaction hash ${txHash}`);
-                throw new Error(`Failed private transaction hash ${txHash}`);
+                var msg = `Failed private transaction hash ${txHash}`;
+                logger.error(msg);
+                throw new Error(msg);
             }
         } catch (err) {
             logger.error('Error deploying private contract: ', JSON.stringify(err));
