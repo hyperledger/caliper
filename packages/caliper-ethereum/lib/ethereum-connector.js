@@ -302,7 +302,7 @@ class EthereumConnector extends ConnectorBase {
 
         const onFailure = (err) => {
             status.SetStatusFail();
-            logger.error(`Failed private tx on ${request.contract}; calling method: ${request.verb}; private nonce: 0`);
+            logger.error(`Failed private tx on ${request.contract}; calling method: ${request.verb}; private nonce: ` + 0);
             logger.error(err);
         };
 
