@@ -2,6 +2,7 @@
 
 [![Build Status](https://dev.azure.com/Hyperledger/Caliper/_apis/build/status/Caliper?branchName=main)](https://dev.azure.com/Hyperledger/Caliper/_build/latest?definitionId=33&branchName=main)
 [![Unit Tests](https://github.com/hyperledger/caliper/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/hyperledger/caliper/actions/workflows/unit-tests.yml)
+[![Unit Tests](https://github.com/hyperledger/caliper/actions/workflows/integration-tests.yml/badge.svg)](https://github.com/hyperledger/caliper/actions/workflows/integration-tests.yml)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2381/badge)](https://bestpractices.coreinfrastructure.org/projects/2381)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/hyperledger/caliper/blob/main/LICENSE)
 [![node (scoped)](https://img.shields.io/node/v/@hyperledger/caliper-cli)](https://www.npmjs.com/package/@hyperledger/caliper-cli)
