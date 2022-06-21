@@ -12,6 +12,8 @@ architecture.pptx
 output.log
 lerna-debug.log
 
+**/package-lock.json
+
 .idea/
 **/node_modules/
 **/log/
