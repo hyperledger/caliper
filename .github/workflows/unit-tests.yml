@@ -1,0 +1,31 @@
+name: Unit Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Check correct usage of Caliper package names
+      run: ./scripts/check-package-names.sh
+    - name: Install project dependencies
+      run: npm install
+    - name: Bootstrap lerna
+      run: npm run bootstrap
+    - name: Check the version consistency of subpackages
+      run: ./packages/caliper-publish/publish.js version check
+    - name: Run unit tests
+      run: npm test

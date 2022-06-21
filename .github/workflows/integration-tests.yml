@@ -1,36 +1,14 @@
-name: Tests
+name: Integration Tests
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_run:
+    workflows: [ "Unit Tests" ]
+    types:
+      - completed
 
 jobs:
-  unit-tests:
-    name: Unit Tests
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Check correct usage of Caliper package names
-      run: ./scripts/check-package-names.sh
-    - name: Install project dependencies
-      run: npm install
-    - name: Bootstrap lerna
-      run: npm run bootstrap
-    - name: Check the version consistency of subpackages
-      run: ./packages/caliper-publish/publish.js version check
-    - name: Run unit tests
-      run: npm test
-
   fabric-integration-tests:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Fabric Integration Tests
     runs-on: ubuntu-latest
     needs: unit-tests
@@ -49,6 +27,7 @@ jobs:
         BENCHMARK: fabric
 
   ethereum-integration-tests:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Ethereum Integration Tests
     runs-on: ubuntu-latest
     needs: unit-tests
@@ -67,6 +46,7 @@ jobs:
         BENCHMARK: ethereum
 
   besu-integration-tests:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Besu Integration Tests
     runs-on: ubuntu-latest
     needs: unit-tests
@@ -85,6 +65,7 @@ jobs:
         BENCHMARK: besu
 
   fisco-bcos-integration-tests:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: FISCO BCOS Integration Tests
     runs-on: ubuntu-latest
     needs: unit-tests
@@ -103,6 +84,7 @@ jobs:
         BENCHMARK: fisco-bcos
 
   generator-integration-tests:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Generator Integration Tests
     runs-on: ubuntu-latest
     needs: unit-tests
