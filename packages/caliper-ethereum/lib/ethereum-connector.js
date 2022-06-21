@@ -402,7 +402,7 @@ class EthereumConnector extends ConnectorBase {
             if (txRcpt.status === '0x1') {
                 return new web3.eth.Contract(contractData.abi, txRcpt.contractAddress);
             } else {
-                let msg = `Failed private transaction hash ${txHash}`;
+                const msg = `Failed private transaction hash ${txHash}`;
                 logger.error(msg);
                 throw new Error(msg);
             }
