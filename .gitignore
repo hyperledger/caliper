@@ -12,7 +12,6 @@ architecture.pptx
 output.log
 lerna-debug.log
 
-# We prefer to not use lock files
 **/package-lock.json
 
 .idea/
