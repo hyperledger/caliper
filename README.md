@@ -1,8 +1,6 @@
 # ![Hyperledger Caliper](https://wiki.hyperledger.org/download/attachments/2392434/Hyperledger_Caliper_Logo_Color.svg?version=1&modificationDate=1548883186000&api=v2)
 
-[![Unit Tests](https://github.com/hyperledger/caliper/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/hyperledger/caliper/actions/workflows/unit-tests.yml)
-[![Integration Tests](https://github.com/hyperledger/caliper/actions/workflows/integration-tests.yml/badge.svg)](https://github.com/hyperledger/caliper/actions/workflows/integration-tests.yml)
-[![Release](https://github.com/hyperledger/caliper/actions/workflows/release.yml/badge.svg)](https://github.com/hyperledger/caliper/actions/workflows/release.yml)
+[![CI](https://github.com/hyperledger/caliper/actions/workflows/main.yml/badge.svg)](https://github.com/hyperledger/caliper/actions/workflows/main.yml)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2381/badge)](https://bestpractices.coreinfrastructure.org/projects/2381)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/hyperledger/caliper/blob/main/LICENSE)
 [![node (scoped)](https://img.shields.io/node/v/@hyperledger/caliper-cli)](https://www.npmjs.com/package/@hyperledger/caliper-cli)

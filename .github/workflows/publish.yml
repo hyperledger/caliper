@@ -1,15 +1,10 @@
 name: Publish
 
 on:
-  workflow_run:
-    workflows: [ "Unit Tests" ]
-    branch: main
-    types:
-      - completed
+  workflow_call:
 
 jobs:
   publish-caliper:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Publish Caliper
     runs-on: ubuntu-latest
     steps:
