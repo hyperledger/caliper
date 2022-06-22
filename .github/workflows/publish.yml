@@ -1,0 +1,21 @@
+name: Publish
+
+on:
+  workflow_call:
+
+jobs:
+  publish-caliper:
+    name: Publish Caliper
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+    - name: Publish Caliper
+      run: .build/publish-caliper.sh
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
+        DOCKER_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
