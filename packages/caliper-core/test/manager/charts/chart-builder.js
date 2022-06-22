@@ -82,7 +82,7 @@ describe('chart builder implementation', () => {
             // all should be empty
             all.length.should.equal(0);
             sinon.assert.called(FakeLogger.error);
-            sinon.assert.calledWith(FakeLogger.error, 'Required "metrics" not provided for bar chart generation for monitor CallingMonitor');
+            sinon.assert.calledWith(FakeLogger.error, 'Required "metrics" not provided for bar chart generation for monitor: CallingMonitor');
 
         });
 
@@ -93,7 +93,7 @@ describe('chart builder implementation', () => {
             // all should be empty
             all.length.should.equal(0);
             sinon.assert.called(FakeLogger.error);
-            sinon.assert.calledWith(FakeLogger.error, 'Cannot list "all" option with other metrics for bar chart generation for monitor CallingMonitor');
+            sinon.assert.calledWith(FakeLogger.error, 'Cannot list "all" option with other metrics for bar chart generation for monitor: CallingMonitor');
         });
 
         it('should provide all metrics if the `all` option is provided', () => {
@@ -186,7 +186,7 @@ describe('chart builder implementation', () => {
 
             output.length.should.equal(0);
             sinon.assert.called(FakeLogger.error);
-            sinon.assert.calledWith(FakeLogger.error, 'Unknown chart type named "unknown" requested');
+            sinon.assert.calledWith(FakeLogger.error, 'Unknown chart type "unknown" requested');
 
         });
 

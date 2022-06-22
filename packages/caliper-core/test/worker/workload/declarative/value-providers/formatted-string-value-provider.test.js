@@ -36,7 +36,7 @@ describe('Formatted String Value Provider', () => {
             };
 
             const wrapper = () => new FormattedStringValueProvider(options, {}, {}, {});
-            expect(wrapper).to.throw(Error, 'Invalid format value: undefined');
+            expect(wrapper).to.throw(Error, 'The format of options is invalid. Current format: undefined');
         });
 
         it('should throw an error for non-string format', () => {
@@ -46,7 +46,7 @@ describe('Formatted String Value Provider', () => {
             };
 
             const wrapper = () => new FormattedStringValueProvider(options, {}, {}, {});
-            expect(wrapper).to.throw(Error, 'Invalid format value: 1');
+            expect(wrapper).to.throw(Error, 'The format of options is invalid. Current format: non-string');
         });
 
         it('should throw an error for undefined parts', () => {
