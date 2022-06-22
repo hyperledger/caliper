@@ -1,4 +1,4 @@
-name: CI (main)
+name: CI (Publish)
 
 on:
   push:
@@ -9,7 +9,4 @@ jobs:
     uses: ./.github/workflows/unit-tests.yml
   publish-caliper:
     uses: ./.github/workflows/publish.yml
-    needs: unit-tests
-  integration-tests:
-    uses: ./.github/workflows/integration-tests.yml
     needs: unit-tests
