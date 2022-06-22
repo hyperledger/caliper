@@ -14,8 +14,8 @@ jobs:
       with:
         node-version: 16.x
     - name: Publish Caliper
-      run: .build/publish-caliper.sh
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
         DOCKER_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      run: .build/publish-caliper.sh
