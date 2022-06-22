@@ -16,11 +16,23 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Cache lerna
+      id: cache-lerna
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          packages/*/node_modules
+        key: ${{ matrix.node-version  }}-lerna-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          ${{ matrix.node-version }}-lerna-
     - name: Check correct usage of Caliper package names
       run: ./scripts/check-package-names.sh
     - name: Install project dependencies
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
       run: npm install
     - name: Bootstrap lerna
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
       run: npm run bootstrap
     - name: Check the version consistency of subpackages
       run: ./packages/caliper-publish/publish.js version check

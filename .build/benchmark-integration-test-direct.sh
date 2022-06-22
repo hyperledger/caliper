@@ -17,9 +17,6 @@
 set -e
 set -o pipefail
 
-# Bootstrap the project again
-npm i && npm run repoclean -- --yes && npm run bootstrap
-
 # Get the root directory of the caliper source
 ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 echo $ROOT_DIR

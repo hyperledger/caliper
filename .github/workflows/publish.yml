@@ -13,6 +13,14 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          packages/caliper-publish/node_modules
+        key: publish-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          publish-
     - name: Publish Caliper
       run: .build/publish-caliper.sh
       env:

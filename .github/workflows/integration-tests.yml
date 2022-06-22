@@ -16,6 +16,22 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Cache lerna
+      id: cache-lerna
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          packages/*/node_modules
+        key: ${{ matrix.node-version  }}-lerna-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          ${{ matrix.node-version }}-lerna-
+    - name: Install project dependencies
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
+      run: npm install
+    - name: Bootstrap lerna
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
+      run: npm run bootstrap
     - name: Fabric Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -33,6 +49,22 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Cache lerna
+      id: cache-lerna
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          packages/*/node_modules
+        key: ${{ matrix.node-version  }}-lerna-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          ${{ matrix.node-version }}-lerna-
+    - name: Install project dependencies
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
+      run: npm install
+    - name: Bootstrap lerna
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
+      run: npm run bootstrap
     - name: Ethereum Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -50,6 +82,22 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Cache lerna
+      id: cache-lerna
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          packages/*/node_modules
+        key: ${{ matrix.node-version  }}-lerna-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          ${{ matrix.node-version }}-lerna-
+    - name: Install project dependencies
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
+      run: npm install
+    - name: Bootstrap lerna
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
+      run: npm run bootstrap
     - name: Besu Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -67,6 +115,22 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Cache lerna
+      id: cache-lerna
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          packages/*/node_modules
+        key: ${{ matrix.node-version  }}-lerna-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          ${{ matrix.node-version }}-lerna-
+    - name: Install project dependencies
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
+      run: npm install
+    - name: Bootstrap lerna
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
+      run: npm run bootstrap
     - name: FISCO BCOS Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -84,6 +148,22 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Cache lerna
+      id: cache-lerna
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          packages/*/node_modules
+        key: ${{ matrix.node-version  }}-lerna-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          ${{ matrix.node-version }}-lerna-
+    - name: Install project dependencies
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
+      run: npm install
+    - name: Bootstrap lerna
+      if: steps.cache-lerna.outputs.cache-hit != 'true'
+      run: npm run bootstrap
     - name: Generator Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
