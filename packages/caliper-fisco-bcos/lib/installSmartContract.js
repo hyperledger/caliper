@@ -31,7 +31,7 @@ module.exports.run = async function (fiscoBcosSettings, workspaceRoot) {
     const smartContracts = fiscoBcosSettings.smartContracts;
 
     if (!isArray(smartContracts)) {
-        throw new Error('No available configuration for smart contracts');
+        throw new Error('No configuration available for smart contracts');
     }
 
     commLogger.info('Deploying smart contracts ...');
