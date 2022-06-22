@@ -302,11 +302,7 @@ class EthereumConnector extends ConnectorBase {
 
         const onFailure = (err) => {
             status.SetStatusFail();
-
-            
-
             logger.error(`Failed private tx on ${request.contract}; calling method: ${request.verb}; private nonce: ` + 0);
-
             logger.error(err);
         };
 
@@ -406,10 +402,7 @@ class EthereumConnector extends ConnectorBase {
             if (txRcpt.status === '0x1') {
                 return new web3.eth.Contract(contractData.abi, txRcpt.contractAddress);
             } else {
-
-
                 const msg = `Failed private transaction hash ${txHash}`;
-
                 logger.error(msg);
                 throw new Error(msg);
             }
