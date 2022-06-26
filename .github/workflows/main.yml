@@ -10,3 +10,4 @@ jobs:
   publish-caliper:
     uses: ./.github/workflows/publish.yml
     needs: unit-tests
+    secrets: inherit
