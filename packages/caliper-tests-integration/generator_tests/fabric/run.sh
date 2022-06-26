@@ -47,7 +47,7 @@ ${GENERATOR_METHOD} -- --workspace 'myWorkspace' --contractId 'mymarbles' --cont
 cd ../
 # bind the sdk into the packages directory as it will search for it there, this ensures it doesn't contaminate real node_modules dirs (2.2 will work with a 1.4 fabric)
 pushd $SUT_DIR
-${CALL_METHOD} bind --caliper-bind-sut fabric:2.2
+${CALL_METHOD} bind --caliper-bind-sut fabric:1.4
 popd
 ${CALL_METHOD} launch manager --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-skip-end
 rc=$?
