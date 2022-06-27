@@ -45,7 +45,7 @@ function toBuffer(data) {
         } else if (data.toArray) {
             data = Buffer.from(data.toArray());
         } else {
-            throw new Error('invalid type');
+            throw new Error('invalid data type');
         }
     }
     return data;
