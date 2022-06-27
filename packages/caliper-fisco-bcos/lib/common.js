@@ -37,7 +37,7 @@ module.exports.findContractAddress = function(workspaceRoot, smartContracts, con
     });
 
     if (smartContract === undefined) {
-        commLogger.error(`Smart contract ${contractID} undefined`);
+        commLogger.error(`Smart contract ${contractID} is undefined`);
         return null;
     }
 
