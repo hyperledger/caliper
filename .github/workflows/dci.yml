@@ -1,0 +1,18 @@
+# Taken from https://github.com/petermetz/gh-action-dci-lint
+name: DCI
+
+on:
+  workflow_call:
+
+jobs:
+  DCI-lint:
+    name: DCI-Lint
+    runs-on: ubuntu-latest
+    steps:
+    - name: Lint Git Repo
+      id: lint-git-repo
+      uses: petermetz/gh-action-dci-lint@v0.6.1
+      with:
+        lint-git-repo-request: '{"cloneUrl": "${{ github.server_url }}/${{ github.repository }}.git", "fetchArgs": ["--no-tags", "--prune", "--progress", "--no-recurse-submodules", "--depth=1", "origin" ,"+${{ github.sha }}:${{ github.ref }}"], "checkoutArgs": [ "${{ github.ref }}"], "targetPhrasePatterns": [], "configDefaultsUrl": "https://inclusivenaming.org/json/dci-lint-config-recommended-v1.json" }'
+    - name: Get the output response
+      run: echo "${{ steps.lint-git-repo.outputs.lint-git-repo-response }}"

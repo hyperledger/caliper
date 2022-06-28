@@ -5,6 +5,8 @@ on:
     branches: [ "main" ]
 
 jobs:
+  dci-lint:
+    uses: ./.github/workflows/dci.yml
   unit-tests:
     uses: ./.github/workflows/unit-tests.yml
   integration-tests:
