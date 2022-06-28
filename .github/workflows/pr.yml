@@ -9,6 +9,7 @@ jobs:
     uses: ./.github/workflows/dci.yml
   unit-tests:
     uses: ./.github/workflows/unit-tests.yml
+    needs: dci-lint
   integration-tests:
     uses: ./.github/workflows/integration-tests.yml
     needs: unit-tests
