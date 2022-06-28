@@ -84,7 +84,7 @@ This release of caliper adds new capabilities and addresses lots of bugs. Note t
 * [6ced65a](https://github.com/hyperledger/caliper/commit/6ced65a) update conditionals (#1112)
 * [6fa9b12](https://github.com/hyperledger/caliper/commit/6fa9b12) publish to npm stage (#1110)
 * [730a884](https://github.com/hyperledger/caliper/commit/730a884) Update contributing guide (#1109)
-* [d6f0027](https://github.com/hyperledger/caliper/commit/d6f0027) Enable builds for PRs that target master branch (#1108)
+* [d6f0027](https://github.com/hyperledger/caliper/commit/d6f0027) Enable builds for PRs that target main branch (#1108)
 * [bc436e8](https://github.com/hyperledger/caliper/commit/bc436e8) Azure pipelines build (#1105)
 
 ## 0.4.2
@@ -110,7 +110,7 @@ This release of caliper adds new capabilities and addresses lots of bugs. Note t
   * [Breaking] Alignment of rate controller configuration to be SUT centric ([PR959](https://github.com/hyperledger/caliper/pull/959))
   * [Breaking] Caliper API change for workload specification ([PR950](https://github.com/hyperledger/caliper/pull/950))
   * [Breaking] Caliper API change: removal of queryState ([PR931](https://github.com/hyperledger/caliper/pull/931))
-  * [Breaking] Caliper API change: master -> manager ([PR893](https://github.com/hyperledger/caliper/pull/893))
+  * [Breaking] Caliper API change: rename CLI subcommand to manager ([PR893](https://github.com/hyperledger/caliper/pull/893))
   * [Breaking] Caliper API change: chaincode -> contract ([PR891](https://github.com/hyperledger/caliper/pull/891))
   * [Breaking] Caliper API change: adaptor -> connector ([PR881](https://github.com/hyperledger/caliper/pull/881))
   * [Breaking] Caliper API change: callbacks converted to Workload module class ([PR856](https://github.com/hyperledger/caliper/pull/856))
@@ -178,7 +178,7 @@ This release of caliper adds new capabilities and addresses lots of bugs. Note t
   * Added statistic summation option to Prometheus queries ([PR#720](https://github.com/hyperledger/caliper/pull/720)).
   * Fixed monitor bugs resulting in extra empty columns/metrics ([PR#718](https://github.com/hyperledger/caliper/pull/718)).
   * __BREAKING:__ Simplified backlog rate controller configuration ([PR#704](https://github.com/hyperledger/caliper/pull/704)).
-  * Added MQTT-based communication between the master and worker processes for fully distributed operation ([PR#682](https://github.com/hyperledger/caliper/pull/682)).
+  * Added MQTT-based communication between the manager and worker processes for fully distributed operation ([PR#682](https://github.com/hyperledger/caliper/pull/682)).
   * Added Yeoman generator for the benchmark configuration and workload module files ([PR#671](https://github.com/hyperledger/caliper/pull/671)).
   * Added charting capabilities to the report generation ([PR#650](https://github.com/hyperledger/caliper/pull/650)).
   * __BREAKING:__ Configuration structure for Docker and process monitoring changed ([PR#650](https://github.com/hyperledger/caliper/pull/650)).
