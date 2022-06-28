@@ -217,7 +217,7 @@ describe('When using a PrometheusPushTxObserver', () => {
         await prometheusPushTxObserver.deactivate();
 
         // Values should be zero, or empty 
-        // Ref: https://github.com/siimon/prom-client/  file test/counterTest.js
+        // Ref: https://github.com/siimon/prom-client/blob/721829cc593bb7da28ae009985caeeacb4b59e05/test/counterTest.js
         const txSubmitted = await prometheusPushTxObserver.counterTxSubmitted.get();
         txSubmitted.values[0].value.should.equal(0);
 
