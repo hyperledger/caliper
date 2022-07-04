@@ -61,6 +61,13 @@
                 "eachLine": {
                     "prepend": "# "
                 }
+            },
+            "puml": {
+                "prepend": "'",
+                "append": "'",
+                "eachLine": {
+                    "prepend": "' "
+                }
             }
         }
     },
