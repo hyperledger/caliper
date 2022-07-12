@@ -1,0 +1,350 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/fabricNetwork",
+    "definitions": {
+        "fabricNetwork": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "description": "The name of the configuration file.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Specifies the YAML schema version that the Fabric SDK will use. Only the '2.0.0' string should be specified.",
+                    "type": "string"
+                },
+                "caliper": {
+                    "description": "Contains runtime information for Caliper. Can contain the following keys.",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "blockchain": {
+                            "description": "Only the fabric string is allowed for this adapter.",
+                            "type": "string"
+                        },
+                        "sutOptions": {
+                            "description": "These are sut specific options block, the following are specific to the Fabric implementation",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "mutualTls": {
+                                    "description": "Indicates whether to use client-side TLS in addition to server-side TLS. Cannot be set to true without using server-side TLS. Defaults to false.",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "mutualTls"
+                            ],
+                            "title": "SutOptions"
+                        },
+                        "command": {
+                            "type": "object",
+                            "description": "Specifies the start and end scripts.",
+                            "additionalProperties": false,
+                            "properties": {
+                                "start": {
+                                    "description": "Contains the command to execute at startup time. The current working directory for the commands is set to the workspace.",
+                                    "type": "string"
+                                },
+                                "end": {
+                                    "description": "Contains the command to execute at exit time. The current working directory for the commands is set to the workspace.",
+                                    "type": "null"
+                                }
+                            },
+                            "required": [
+                                "end",
+                                "start"
+                            ],
+                            "title": "Command"
+                        }
+                    },
+                    "required": [
+                        "blockchain"
+                    ],
+                    "title": "Caliper"
+                },
+                "info": {
+                    "type": "object",
+                    "description": "Specifies custom key-value pairs that will be included as-is in the generated report. The key-value pairs have no influence on the runtime behavior.",
+                    "additionalProperties": false,
+                    "properties": {
+                        "Version": {
+                            "type": "string"
+                        },
+                        "Size": {
+                            "type": "string"
+                        },
+                        "Orderer": {
+                            "type": "string"
+                        },
+                        "Distribution": {
+                            "type": "string"
+                        },
+                        "StateDB": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Distribution",
+                        "Orderer",
+                        "Size",
+                        "StateDB",
+                        "Version"
+                    ],
+                    "title": "Info"
+                },
+                "organizations": {
+                    "description": "Contains information about 1 or more organizations that will be used when running a workload. Even in a multi-organization Fabric network, workloads would usually only be run from a single organization so it would be common to only see 1 organization defined. However it does support defining multiple organizations for which a workload can explicitly declare which organization to use. The first Organization in the network configuration will be the default organization if no explicit organization is requested.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "mspid": {
+                                "description": "The unique MSP ID of the organization",
+                                "type": "string"
+                            },
+                            "identities": {
+                                "description": "Defines the location of 1 or more identities available for use. Currently only supports explicit identities by providing a certificate and private key as PEM or an SDK wallet that contains 1 or more identities on the file system. At least 1 identity must be provided via one of the child properties of identity.",
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "wallet": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "path": {
+                                                "description": "The path to the file system wallet",
+                                                "type": "string"
+                                            },
+                                            "adminNames": {
+                                                "type": "array",
+                                                "items": {
+                                                    "description": "1 or more names in the wallet that are identitied as organization administrators. This only needs to be provided if you plan to create channels and/or install and instantiate contracts (chaincode)",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "title": "Wallet"
+                                    },
+                                    "certificates": {
+                                        "description": "Defines 1 or more identities by providing the PEM information for the client certificate and client private key as either an embedded PEM, a base64 encoded string of the PEM file contents or a path to individual PEM files",
+                                        "type": "array",
+                                        "items": {
+                                            "description": "Specifies a name to associate with this identity. This name doesn't have to match anything within the certificate itself but must be unique",
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "name": {
+                                                    "description": "Specifies a name to associate with this identity. This name doesn't have to match anything within the certificate itself but must be unique",
+                                                    "type": "string"
+                                                },
+                                                "clientPrivateKey": {
+                                                "type": "object",
+                                                "description": "Specifies the identity's private key for the organization.",
+                                                "additionalProperties": false,
+                                                "properties": {
+                                                    "pem": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "pem",
+                                                    "clientPrivateKey"
+                                                ],
+                                                "title": "TLSCACerts"
+                                                },
+                                                "clientSignedCert": {
+                                                    "type": "object",
+                                                    "additionalProperties": false,
+                                                    "properties": {
+                                                        "pem": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "pem"
+                                                    ],
+                                                    "title": "TLSCACerts"
+                                                }
+                                            },
+                                            "required": [
+                                                "clientPrivateKey",
+                                                "clientSignedCert",
+                                                "name"
+                                            ],
+                                            "title": "Certificate"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "wallet"
+                                ],
+                                "title": "Identities"
+                            },
+                            "connectionProfile": {
+                                "type": "object",
+                                "description": "Required if peers not provided. Non-empty object. Reference to a Fabric network Common Connection Profile. These profiles are the same profiles that the Fabric SDKs would consume in order to interact with a Fabric network. A Common Connection Profile is organization specific so you need to ensure you point to a Common Connection Profile that is representive of the organization it is being included under. Connection Profiles also can be in 2 forms. A static connection profile will contain a complete description of the Fabric network, ie all the peers and orderers as well as all the channels that the organization is part of. A dynamic connection profile will contain a minimal amount of information usually just a list of 1 or more peers belonging to the organization (or is allowed to access) in order to discover the Fabric network nodes and channels",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "path": {
+                                        "description": "The path to the connection profile file",
+                                        "type": "string"
+                                    },
+                                    "discover": {
+                                        "description": "A value of true indicates that the connection profile is a dynamic connection profile and discovery should be used. If not specified then it defaults to false. For a Fabric 1.4 binding you can only set this value to true if you plan to use the gateway option",
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "path"
+                                ],
+                                "title": "ConnectionProfile"
+                            },
+                            "peers": {
+                                "type": "array",
+                                "items": {
+                                        "type": "object",
+                                        "description": "Required if connectionProfile not provided. Non-empty object. This option removes the need for connection profiles but the Fabric network must be set up correctly to allow the network to be discovered. These entries are the equivalent of a dynamic connection profile but in a more compact and easier form",
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "endpoint": {
+                                                "description": "the end point of the peer in the form of host:port (note that you do not specify a schema such as grpc:// or grpcs://, in fact these schemas are not real and were invented purely for connection profiles). Whether the end point is secured by tls or not is determined by the presence of the tlsCACerts property",
+                                                "type": "string"
+                                            },
+                                            "tlsCACerts": {
+                                            "type": "object",
+                                            "description": "Specifies the tls root certificate chain to verify a TLS connection with the peer by the client",
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "pem": {
+                                                    "description": "The path of the file containing the certificate chain.",
+                                                    "type": "string"
+                                                },
+                                                "path": {
+                                                    "description": "The content of the certificate file in exact PEM format (which must split into multiple lines for yaml or include escaped new lines for json).",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "title": "TLSCACerts"
+                                            },
+                                            "grpcOptions": {
+                                                "type": "object",
+                                                "description": "A set of grpc specific options when creating a grpc connection to a peer.",
+                                                "additionalProperties": false,
+                                                "properties": {
+                                                    "grpc.keepalive_timeout_ms": {
+                                                        "type": "integer"
+                                                    },
+                                                    "grpc.keepalive_time_ms": {
+                                                        "type": "integer"
+                                                    },
+                                                    "grpc.http2.min_time_between_pings_ms": {
+                                                        "type": "integer"
+                                                    },
+                                                    "grpc.http2.max_pings_without_data": {
+                                                        "type": "integer"
+                                                    },
+                                                    "grpc.keepalive_permit_without_calls": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "grpc.http2.max_pings_without_data",
+                                                    "grpc.http2.min_time_between_pings_ms",
+                                                    "grpc.keepalive_permit_without_calls",
+                                                    "grpc.keepalive_time_ms",
+                                                    "grpc.keepalive_timeout_ms"
+                                                ],
+                                                "title": "GrpcOptions"
+                                                    }
+                                                },
+                                                "title": "Peers"
+                                                }
+                            }
+                        },
+                        "oneOf": [
+                            {
+                                "required": [
+                                    "connectionProfile"
+                                ]
+                            },
+                            {
+                                "required": [
+                                    "peers"
+                                ]
+                            },
+                            {
+                                "anyOf": [
+                                    {
+                                        "required": [
+                                            "connectionProfile"
+                                        ]
+                                    },
+                                    {
+                                        "required": [
+                                            "identities"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "required": [
+                            "mspid",
+                            "identities"
+                        ],
+                        "title": "Organization"
+                    }
+                },
+                "channels": {
+                    "description": "Contains one or more unique channels with associated information about the chaincode (contracts section) that will be available on the channel",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "channelName": {
+                                "description": "The name of the channel",
+                                "type": "string"
+                            },
+                            "contracts": {
+                                "description": "Each array element contains information about a chaincode deployed to the channel",
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "contractID": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "id"
+                                    ],
+                                    "title": "Contract"
+                                }
+                            }
+                        },
+                        "required": [
+                            "channelName",
+                            "contracts"
+                        ],
+                        "title": "Channel"
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "version",
+                "caliper",
+                "channels",
+                "organizations"
+            ],
+            "title": "fabricNetwork"
+        }
+    }
+}
