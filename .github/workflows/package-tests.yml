@@ -1,0 +1,37 @@
+name: Test Published Package
+
+on:
+  workflow_call:
+
+jobs:
+  package-tests:
+    name: Test Published Package
+    runs-on: ubuntu-latest
+    services:
+      verdaccio:
+        image: verdaccio/verdaccio
+        ports:
+          - 4873:4873
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./packages/caliper-publish
+    - name: Initialize npm
+      run: |
+        npm install -g npm-cli-login
+        npm-cli-login
+      env:
+        NPM_USER: npm_user
+        NPM_PASS: npm_pass
+        NPM_EMAIL: npm_user@test.npm
+        NPM_REGISTRY: http://localhost:4873
+    - name: Publish Caliper
+      run: ./run-with-build.sh
+      working-directory: ./packages/caliper-tests-integration/fabric_docker_local_tests
+      env:
+        DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}

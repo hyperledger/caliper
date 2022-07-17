@@ -29,11 +29,8 @@ cd ${DIR}
 
 # Publish the packages locally and build a local test image
 cd ./../../caliper-publish/
-./publish.js verdaccio start
-sleep 5s
 ./publish.js npm --registry http://localhost:4873
 ./publish.js docker --registry http://localhost:4873 --image caliper --tag test
-./publish.js verdaccio stop
 
 # back to this dir
 cd ${DIR}
