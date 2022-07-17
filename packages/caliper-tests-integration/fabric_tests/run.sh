@@ -29,10 +29,13 @@ cd ${DIR}
 
 # bind during CI tests, using the package dir as CWD
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
+FABRIC_VERSION=1.4.20
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    pushd $SUT_DIR
-    ${CALL_METHOD} bind --caliper-bind-sut fabric:1.4
+    mkdir -p $SUT_DIR/v$FABRIC_VERSION
+    pushd $SUT_DIR/v$FABRIC_VERSION
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:$FABRIC_VERSION
     popd
+    NODE_PATH=$SUT_DIR/v$FABRIC_VERSION/node_modules
 fi
 
 # change default settings (add config paths too)
@@ -81,18 +84,14 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
-# UNBIND SDK, using the package dir as CWD
-# Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
-if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    pushd $SUT_DIR
-    ${CALL_METHOD} unbind --caliper-bind-sut fabric:1.4
-    popd
-fi
 # BIND with 2.2 SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
+FABRIC_VERSION=2.2.14
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    pushd $SUT_DIR
-    ${CALL_METHOD} bind --caliper-bind-sut fabric:2.2
+    mkdir -p $SUT_DIR/v$FABRIC_VERSION
+    NODE_PATH=$SUT_DIR/v$FABRIC_VERSION/node_modules
+    pushd $SUT_DIR/v$FABRIC_VERSION
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:$FABRIC_VERSION
     popd
 fi
 
@@ -105,19 +104,14 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
-# UNBIND SDK, using the package dir as CWD
-# Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
-if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    pushd $SUT_DIR
-    ${CALL_METHOD} unbind --caliper-bind-sut fabric:2.2
-    popd
-fi
-
 # BIND with 2.4 SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
+FABRIC_VERSION=2.4
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    pushd $SUT_DIR
-    ${CALL_METHOD} bind --caliper-bind-sut fabric:2.4
+    mkdir -p $SUT_DIR/v$FABRIC_VERSION
+    NODE_PATH=$SUT_DIR/v$FABRIC_VERSION/node_modules
+    pushd $SUT_DIR/v$FABRIC_VERSION
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:$FABRIC_VERSION
     popd
 fi
 

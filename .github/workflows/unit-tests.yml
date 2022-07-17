@@ -21,9 +21,20 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install higher version of NPM
       run: npm install -g npm@${{ env.NPM_VERSION }}
+    - name: Cache node modules
+      id: cache-npm
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          packages/*/node_modules
+        key: ${{ matrix.node-version }}-npm-cache-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          ${{ matrix.node-version }}-npm-cache-
     - name: Check correct usage of Caliper package names
       run: ./scripts/check-package-names.sh
     - name: Install project dependencies
+      if: steps.cache-npm.outputs.cache-hit != 'true'
       run: npm ci
     - name: Check the version consistency of subpackages
       run: ./packages/caliper-publish/publish.js version check

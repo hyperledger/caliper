@@ -26,7 +26,7 @@ npm i
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
     pushd $SUT_DIR
-    ${CALL_METHOD} bind --caliper-bind-sut besu:latest
+    ${CALL_METHOD} bind --caliper-bind-sut besu:1.4
     popd
 fi
 
