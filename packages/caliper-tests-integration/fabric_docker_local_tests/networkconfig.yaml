@@ -13,152 +13,42 @@
 #
 
 name: Fabric
-version: "1.0"
-mutual-tls: true
+version: "2.0.0"
 
 caliper:
     blockchain: fabric
-
-clients:
-    client0.org1.example.com:
-        client:
-            organization: Org1
-            credentialStore:
-                path: /tmp/hfc-kvs/org1
-                cryptoStore:
-                    path: /tmp/hfc-cvs/org1
-            clientPrivateKey:
-                path: ./config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/key.pem
-            clientSignedCert:
-                path: ./config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem
-
-    client0.org2.example.com:
-        client:
-            organization: Org2
-            credentialStore:
-                path: /tmp/hfc-kvs/org2
-                cryptoStore:
-                    path: /tmp/hfc-cvs/org2
-            clientPrivateKey:
-                path: ./config/crypto-config/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/keystore/key.pem
-            clientSignedCert:
-                path: ./config/crypto-config/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/signcerts/User1@org2.example.com-cert.pem
+    sutOptions :
+       mutualTls: false
 
 channels:
-    mychannel:
-        created: false
-        configBinary: ./config/mychannel.tx
-        orderers:
-        - orderer0.example.com
-        - orderer1.example.com
-        peers:
-            peer0.org1.example.com:
-                eventSource: true
-            peer0.org2.example.com:
-                eventSource: true
-
-        contracts:
-        - id: marbles
-          contractID: mymarbles
-          version: v0
-          language: node
-          path: src/marbles/node
-          metadataPath: src/marbles/node/metadata
-    yourchannel:
-        created: false
-        definition:
-            capabilities: []
-            consortium: 'SampleConsortium2'
-            msps: ['Org1MSP', 'Org2MSP']
-            version: 0
-        orderers:
-        - orderer0.example.com
-        - orderer1.example.com
-        peers:
-            peer0.org1.example.com:
-                eventSource: true
-            peer0.org2.example.com:
-                eventSource: true
-
-        contracts:
-        - id: marbles
-          contractID: yourmarbles
-          version: v0
-          language: golang
-          path: marbles/go
-          metadataPath: src/marbles/go/metadata
+  - channelName: mychannel
+    contracts:
+    - id: mymarbles
+  - channelName: yourchannel
+    contracts:
+    - id: yourmarbles
 
 organizations:
-    Org1:
-        mspid: Org1MSP
-        peers:
-        - peer0.org1.example.com
-        certificateAuthorities:
-        - ca.org1.example.com
-        adminPrivateKey:
-            path: ./config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem
-        signedCert:
-            path: ./config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem
+  - mspid: Org1MSP
+    identities:
+      certificates:
+      - name: 'client0.org1.example.com'
+        clientPrivateKey:
+          path: './fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/priv_sk'
+        clientSignedCert:
+          path: './fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem'
+    connectionProfile:
+      path: './ccp-org1.yaml'
+      discover: false
 
-    Org2:
-        mspid: Org2MSP
-        peers:
-        - peer0.org2.example.com
-        certificateAuthorities:
-        - ca.org2.example.com
-        adminPrivateKey:
-            path: ./config/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/key.pem
-        signedCert:
-            path: ./config/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem
-
-orderers:
-    orderer0.example.com:
-        url: grpcs://orderer0.example.com:7050
-        grpcOptions:
-            ssl-target-name-override: orderer0.example.com
-        tlsCACerts:
-            path: ./config/crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
-    orderer1.example.com:
-        url: grpcs://orderer1.example.com:7050
-        grpcOptions:
-            ssl-target-name-override: orderer1.example.com
-        tlsCACerts:
-            path: ./config/crypto-config/ordererOrganizations/example.com/orderers/orderer1.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
-
-peers:
-    peer0.org1.example.com:
-        url: grpcs://peer0.org1.example.com:7051
-        grpcOptions:
-            ssl-target-name-override: peer0.org1.example.com
-            grpc.keepalive_time_ms: 600000
-        tlsCACerts:
-            path: ./config/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/tlscacerts/tlsca.org1.example.com-cert.pem
-
-    peer0.org2.example.com:
-        url: grpcs://peer0.org2.example.com:7051
-        grpcOptions:
-            ssl-target-name-override: peer0.org2.example.com
-            grpc.keepalive_time_ms: 600000
-        tlsCACerts:
-            path: ./config/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp/tlscacerts/tlsca.org2.example.com-cert.pem
-
-certificateAuthorities:
-    ca.org1.example.com:
-        url: https://ca.org1.example.com:7054
-        httpOptions:
-            verify: false
-        tlsCACerts:
-            path: ./config/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
-        registrar:
-        - enrollId: admin
-          enrollSecret: adminpw
-
-    ca.org2.example.com:
-        url: https://ca.org2.example.com:7054
-        httpOptions:
-            verify: false
-        tlsCACerts:
-            path: ./config/crypto-config/peerOrganizations/org2.example.com/tlsca/tlsca.org2.example.com-cert.pem
-        registrar:
-        - enrollId: admin
-          enrollSecret: adminpw
+  - mspid: Org2MSP
+    identities:
+      certificates:
+      - name: 'client0.org2.example.com'
+        clientPrivateKey:
+          path: './fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/keystore/priv_sk'
+        clientSignedCert:
+          path: './fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/signcerts/User1@org2.example.com-cert.pem'
+    connectionProfile:
+      path: './ccp-org2.yaml'
+      discover: false

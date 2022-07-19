@@ -18,4 +18,4 @@ version: "2.0.0"
 caliper:
     blockchain: fabric
     command:
-        end: docker-compose -p caliper down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
+        end: docker-compose -p caliper down; rm -rf /tmp/hfc-*

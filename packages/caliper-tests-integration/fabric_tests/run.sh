@@ -20,9 +20,9 @@ set -v
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${DIR}"
 
-# generate the crypto materials
-cd ./config
-./generate.sh
+if [[ ! -d "fabric-samples" ]]; then
+  curl -sSL -k https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/bootstrap.sh | bash -s -- 2.4.3
+fi
 
 # back to this dir
 cd ${DIR}
@@ -43,7 +43,12 @@ dispose () {
     ${CALL_METHOD} launch manager --caliper-workspace phase8 --caliper-flow-only-end
 }
 
+TEST_NETWORK_DIR=${DIR}/fabric-samples/test-network
+
 # PHASE 1: just starting the network
+pushd ${TEST_NETWORK_DIR}
+./network.sh up -s couchdb
+popd
 ${CALL_METHOD} launch manager --caliper-workspace phase1 --caliper-flow-only-start
 rc=$?
 if [[ ${rc} != 0 ]]; then
@@ -54,6 +59,10 @@ fi
 
 # PHASE 2: just initialize the network
 # TODO: contracts shouldn't be required at this point
+pushd ${TEST_NETWORK_DIR}
+./network.sh createChannel -c mychannel
+./network.sh createChannel -c yourchannel
+popd
 ${CALL_METHOD} launch manager --caliper-workspace phase2 --caliper-flow-only-init
 rc=$?
 if [[ ${rc} != 0 ]]; then
@@ -63,6 +72,10 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # PHASE 3: just init network and install the contracts (channels marked as created)
+pushd ${TEST_NETWORK_DIR}
+./network.sh deployCC -ccn mymarbles -c mychannel -ccp ${DIR}/phase3/src/marbles/node -ccl javascript -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
+./network.sh deployCC -ccn yourmarbles -c yourchannel -ccp ${DIR}/phase3/src/marbles/node -ccl javascript -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
+popd
 ${CALL_METHOD} launch manager --caliper-workspace phase3 --caliper-flow-skip-start --caliper-flow-skip-end --caliper-flow-skip-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
@@ -154,3 +167,6 @@ if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 9";
     exit ${rc};
 fi
+pushd ${TEST_NETWORK_DIR}
+./network.sh down
+popd

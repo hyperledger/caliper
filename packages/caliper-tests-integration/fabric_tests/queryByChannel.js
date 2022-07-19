@@ -38,7 +38,7 @@ class MarblesQueryByChannelWorkload extends WorkloadModuleBase {
         let marbleOwner = this.owners[this.txIndex % this.owners.length];
 
         let args = {
-            contractId: 'marbles',
+            contractId: this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles',
             contractVersion: 'v0',
             channel: this.txIndex % 2 === 0 ? 'mychannel' : 'yourchannel',
             contractFunction: 'queryMarblesByOwner',
