@@ -18,23 +18,60 @@ test:
         number: 2
     rounds:
     - label: init1
-      txNumber: 100
-      rateControl: { type: 'fixed-rate', opts: { tps: 20 } }
+      txNumber: 50
+      rateControl: { type: 'fixed-rate', opts: { tps: 5 } }
       workload:
-        module: ./../init.js
-    - label: init2
-      txNumber: 200
-      rateControl: { type: 'fixed-feedback-rate', opts: { tps: 20, maximum_transaction_load: 5 } }
-      workload:
-        module: ./../init.js
-    - label: query
-      txNumber: 100
-      rateControl: { type: 'linear-rate', opts: { startingTps: 10, finishingTps: 20 } }
+          module: ./../init.js
+          arguments:
+              marblePrefix: marbles_phase_2
+    - label: query1
+      txNumber: 50
+      rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
       workload:
         module: ./../query.js
+    - label: init2
+      txNumber: 50
+      rateControl: { type: 'fixed-rate', opts: { tps: 5 } }
+      workload:
+          module: ./../initByChannel.js
+          arguments:
+              marblePrefix: marbles_phase_2
+    - label: query2
+      txNumber: 50
+      rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
+      workload:
+        module: ./../queryByChannel.js
+
 monitors:
-    resource:
-    - module: process
+    transaction:
+    - module: logging
       options:
-        interval: 3
-        processes: [{ command: 'node', arguments: 'caliper.js', multiOutput: 'avg' }]
+        loggerModuleName: txinfo
+        messageLevel: info
+    - module: prometheus-push
+      options:
+        pushInterval: 5000
+        pushUrl: "http://localhost:9091"
+    resource:
+    - module: prometheus
+      options:
+        url: "http://localhost:9090"
+        metrics:
+            include: [peer*, dev*]
+            queries:
+            - name: Endorse Time (s)
+              query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[1m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[1m])
+              step: 1
+              label: instance
+              statistic: avg
+            - name: Max Memory (MB)
+              query: sum(container_memory_rss{name=~".+"}) by (name)
+              step: 10
+              label: name
+              statistic: max
+              multiplier: 0.000001
+        charting:
+            polar:
+                metrics: [Max Memory (MB)]
+            bar:
+                metrics: [all]

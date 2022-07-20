@@ -16,7 +16,14 @@
 # Print all commands.
 set -v
 
-docker-compose -p caliper down
-(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq)
-(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q)
+# Grab the parent (fabric_tests) directory.
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+TEST_NETWORK_DIR=${DIR}/fabric-samples/test-network
 
+cd ${DIR}
+
+docker-compose -p caliper down
+
+pushd ${TEST_NETWORK_DIR}
+./network.sh down
+popd

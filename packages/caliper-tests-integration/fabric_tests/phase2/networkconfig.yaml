@@ -22,33 +22,21 @@ caliper:
 
 channels:
   - channelName: mychannel
-    create:
-      prebuiltTransaction: ../config/mychannel.tx
     contracts:
-    - id: marbles
-      contractID: mymarbles
-
+    - id: mymarbles
   - channelName: yourchannel
-    create:
-      buildTransaction:
-        capabilities: []
-        consortium: 'SampleConsortium2'
-        msps: ['Org1MSP', 'Org2MSP']
-        version: 0
     contracts:
-    - id: marbles
-      contractID: yourmarbles
+    - id: yourmarbles
 
 organizations:
   - mspid: Org1MSP
     identities:
       certificates:
-      - name: 'admin.org1.example.com'
-        admin: true
+      - name: 'client0.org1.example.com'
         clientPrivateKey:
-          path: ../config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem
+          path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/priv_sk'
         clientSignedCert:
-          path: ../config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem
+          path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem'
     connectionProfile:
       path: './ccp-org1.yaml'
       discover: false
@@ -56,13 +44,11 @@ organizations:
   - mspid: Org2MSP
     identities:
       certificates:
-      - name: 'admin.org2.example.com'
-        admin: true
+      - name: 'client0.org2.example.com'
         clientPrivateKey:
-          path: ../config/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/key.pem
+          path: '../fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/keystore/priv_sk'
         clientSignedCert:
-          path: ../config/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem
+          path: '../fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/signcerts/User1@org2.example.com-cert.pem'
     connectionProfile:
       path: './ccp-org2.yaml'
       discover: false
-
