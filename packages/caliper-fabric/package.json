@@ -27,7 +27,6 @@
         "semver": "7.1.1"
     },
     "devDependencies": {
-        "fabric-protos": "2.1.0",
         "chai": "^3.5.0",
         "chai-as-promised": "^7.1.1",
         "eslint": "^5.16.0",
@@ -88,8 +87,6 @@
             "lib/identity-management/IWallet*",
             "lib/connector-versions/v1/fabric-gateway.js",
             "lib/connector-versions/v1/fabric.js",
-            "lib/connector-versions/v1/FabricChaincodeOperations.js",
-            "lib/connector-versions/v1/FabricChannelOperations.js",
             "lib/connector-versions/v2/fabric-gateway.js",
             "lib/connector-versions/v2/registrarHelper.js"
         ],
