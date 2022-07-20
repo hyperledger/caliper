@@ -20,9 +20,9 @@ set -v
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${DIR}"
 
-# generate the crypto materials
-cd ./config
-./generate.sh
+if [[ ! -d "fabric-samples" ]]; then
+  curl -sSL -k https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/bootstrap.sh | bash -s -- 2.4.3
+fi
 
 # back to this dir
 cd ${DIR}
@@ -43,6 +43,17 @@ dispose () {
     ${CALL_METHOD} launch manager --caliper-workspace phase8 --caliper-flow-only-end
 }
 
+TEST_NETWORK_DIR=${DIR}/fabric-samples/test-network
+
+# Create Fabric network
+pushd ${TEST_NETWORK_DIR}
+./network.sh up -s couchdb
+./network.sh createChannel -c mychannel
+./network.sh createChannel -c yourchannel
+./network.sh deployCC -ccn mymarbles -c mychannel -ccp ${DIR}/src/marbles/node -ccl javascript -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
+./network.sh deployCC -ccn yourmarbles -c yourchannel -ccp ${DIR}/src/marbles/node -ccl javascript -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
+popd
+
 # PHASE 1: just starting the network
 ${CALL_METHOD} launch manager --caliper-workspace phase1 --caliper-flow-only-start
 rc=$?
@@ -52,9 +63,8 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
-# PHASE 2: just initialize the network
-# TODO: contracts shouldn't be required at this point
-${CALL_METHOD} launch manager --caliper-workspace phase2 --caliper-flow-only-init
+# PHASE 2: testing through the low-level API
+${CALL_METHOD} launch manager --caliper-workspace phase2 --caliper-flow-only-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 2";
@@ -62,38 +72,11 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
-# PHASE 3: just init network and install the contracts (channels marked as created)
-${CALL_METHOD} launch manager --caliper-workspace phase3 --caliper-flow-skip-start --caliper-flow-skip-end --caliper-flow-skip-test
+# PHASE 3: testing through the gateway API (v1 SDK)
+${CALL_METHOD} launch manager --caliper-workspace phase3 --caliper-flow-only-test --caliper-fabric-gateway-enabled
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 3";
-    dispose;
-    exit ${rc};
-fi
-
-# PHASE 3 again: deployed contracts should be detected
-${CALL_METHOD} launch manager --caliper-workspace phase3 --caliper-flow-skip-start --caliper-flow-skip-end --caliper-flow-skip-test
-rc=$?
-if [[ ${rc} != 0 ]]; then
-    echo "Failed CI step 4";
-    dispose;
-    exit ${rc};
-fi
-
-# PHASE 4: testing through the low-level API
-${CALL_METHOD} launch manager --caliper-workspace phase4 --caliper-flow-only-test
-rc=$?
-if [[ ${rc} != 0 ]]; then
-    echo "Failed CI step 5";
-    dispose;
-    exit ${rc};
-fi
-
-# PHASE 5: testing through the gateway API (v1 SDK)
-${CALL_METHOD} launch manager --caliper-workspace phase5 --caliper-flow-only-test --caliper-fabric-gateway-enabled
-rc=$?
-if [[ ${rc} != 0 ]]; then
-    echo "Failed CI step 6";
     dispose;
     exit ${rc};
 fi
@@ -113,11 +96,11 @@ if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
     popd
 fi
 
-# PHASE 6: testing through the gateway API (v2 SDK)
-${CALL_METHOD} launch manager --caliper-workspace phase6 --caliper-flow-only-test
+# PHASE 4: testing through the gateway API (v2 SDK)
+${CALL_METHOD} launch manager --caliper-workspace phase4 --caliper-flow-only-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
-    echo "Failed CI step 7";
+    echo "Failed CI step 4";
     dispose;
     exit ${rc};
 fi
@@ -138,19 +121,24 @@ if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
     popd
 fi
 
-# PHASE 7: testing through the peer gateway API (fabric-gateway SDK)
-${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-test
+# PHASE 5: testing through the peer gateway API (fabric-gateway SDK)
+${CALL_METHOD} launch manager --caliper-workspace phase5 --caliper-flow-only-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
-    echo "Failed CI step 8";
+    echo "Failed CI step 5";
     dispose;
     exit ${rc};
 fi
 
-# PHASE 8: just disposing of the network
-${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-end
+# PHASE 6: just disposing of the network
+${CALL_METHOD} launch manager --caliper-workspace phase6 --caliper-flow-only-end
 rc=$?
 if [[ ${rc} != 0 ]]; then
-    echo "Failed CI step 9";
+    echo "Failed CI step 6";
     exit ${rc};
 fi
+
+# Cleanup Fabric network
+pushd ${TEST_NETWORK_DIR}
+./network.sh down
+popd
