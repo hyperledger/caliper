@@ -18,8 +18,6 @@ const FabricConstants = require('fabric-client/lib/Constants');
 const {ConnectorBase, CaliperUtils, TxStatus, Version, ConfigUtil} = require('@hyperledger/caliper-core');
 const FabricConnectorContext = require('../../FabricConnectorContext');
 const ClientCreator = require('./ClientCreator');
-const FabricChannelOperations = require('./FabricChannelOperations');
-const FabricChaincodeOperations = require('./FabricChaincodeOperations');
 const logger = CaliperUtils.getLogger('connectors/v1/FabricNonGateway');
 
 /**
@@ -129,9 +127,6 @@ class V1Fabric extends ConnectorBase {
         const tlsInfo = this.connectorConfiguration.isMutualTLS() ? 'mutual'
             : ((await this.connectorConfiguration.getConnectionProfileDefinitionForOrganization(defaultOrganization)).isTLSEnabled() ? 'server' : 'none');
         logger.info(`Fabric SDK version: ${this.fabricNetworkVersion.toString()}; TLS based on ${defaultOrganization}: ${tlsInfo}`);
-
-        const fabricChannelOperations = new FabricChannelOperations(this.connectorConfiguration);
-        await fabricChannelOperations.createChannelsAndJoinPeers();
     }
 
     /**
@@ -139,8 +134,7 @@ class V1Fabric extends ConnectorBase {
      * @async
      */
     async installSmartContract() {
-        const fabricChaincodeOperations = new FabricChaincodeOperations(this.connectorConfiguration);
-        await fabricChaincodeOperations.installAndInstantiateChaincodes();
+        logger.warn(`Install smart contract not available with Fabric SDK version: ${this.fabricNetworkVersion.toString()}`);
     }
 
     /**
