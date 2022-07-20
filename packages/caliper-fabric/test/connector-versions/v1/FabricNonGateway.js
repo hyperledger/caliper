@@ -46,14 +46,6 @@ describe('A Node-SDK V1 Fabric Non Gateway', () => {
         mockery.registerMock('fabric-client', Client);
         mockery.registerMock('fabric-client/lib/Constants', Constants);
         mockery.registerMock('fabric-client/package', {version: '1.4.11'});
-        mockery.registerMock('./FabricChannelOperations', class {
-            /** */
-            async createChannelsAndJoinPeers() {}
-        });
-        mockery.registerMock('./FabricChaincodeOperations', class {
-            /** */
-            async installAndInstantiateChaincodes() {}
-        });
 
         FabricNonGateway = require('../../../lib/connector-versions/v1/FabricNonGateway');
         FabricConnectorContext = require('../../../lib/FabricConnectorContext');
