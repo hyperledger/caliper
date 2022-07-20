@@ -37,9 +37,13 @@ organizations:
           path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/priv_sk'
         clientSignedCert:
           path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem'
-    connectionProfile:
-      path: './ccp-org1.yaml'
-      discover: false
+    peers:
+      - endpoint: localhost:7051
+        grpcOptions:
+          ssl-target-name-override: peer0.org1.example.com
+          grpc.keepalive_time_ms: 600000
+        tlsCACerts:
+          path: ../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/tlscacerts/tlsca.org1.example.com-cert.pem
 
   - mspid: Org2MSP
     identities:
@@ -49,6 +53,10 @@ organizations:
           path: '../fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/keystore/priv_sk'
         clientSignedCert:
           path: '../fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/signcerts/User1@org2.example.com-cert.pem'
-    connectionProfile:
-      path: './ccp-org2.yaml'
-      discover: false
+    peers:
+      - endpoint: localhost:8051
+        grpcOptions:
+          ssl-target-name-override: peer0.org2.example.com
+          grpc.keepalive_time_ms: 600000
+        tlsCACerts:
+          path: ../fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp/tlscacerts/tlsca.org2.example.com-cert.pem

@@ -16,7 +16,7 @@ caliper:
     benchconfig: ./benchconfig.yaml
     networkconfig: ./networkconfig.yaml
     bind:
-        sut: fabric:1.4
+        sut: fabric:2.4
     report:
         path: ./report.html
     logging:

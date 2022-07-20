@@ -18,36 +18,31 @@ test:
         number: 2
     rounds:
     - label: init1
-      txNumber: 50
+      txNumber: 25
       rateControl: { type: 'fixed-rate', opts: { tps: 5 } }
       workload:
           module: ./../init.js
           arguments:
               marblePrefix: marbles_phase_4
     - label: query1
-      txNumber: 50
+      txNumber: 25
       rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
       workload:
         module: ./../query.js
     - label: init2
-      txNumber: 50
+      txNumber: 25
       rateControl: { type: 'fixed-rate', opts: { tps: 5 } }
       workload:
           module: ./../initByChannel.js
           arguments:
               marblePrefix: marbles_phase_4
     - label: query2
-      txNumber: 50
+      txNumber: 25
       rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
       workload:
         module: ./../queryByChannel.js
-
 monitors:
     transaction:
-    - module: logging
-      options:
-        loggerModuleName: txinfo
-        messageLevel: info
     - module: prometheus-push
       options:
         pushInterval: 5000
