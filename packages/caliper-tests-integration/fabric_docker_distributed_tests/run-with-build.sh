@@ -18,11 +18,21 @@ set -v
 
 # Grab the parent (fabric_tests) directory.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+TEST_NETWORK_DIR=${DIR}/fabric-samples/test-network
+
 cd "${DIR}"
 
-# generate the crypto materials
-cd ./config
-./generate.sh
+if [[ ! -d "fabric-samples" ]]; then
+  curl -sSL -k https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/bootstrap.sh | bash -s -- 2.4.3
+fi
+
+pushd ${TEST_NETWORK_DIR}
+./network.sh up -s couchdb
+./network.sh createChannel -c mychannel
+./network.sh createChannel -c yourchannel
+./network.sh deployCC -ccn mymarbles -c mychannel -ccp ${DIR}/src/marbles/node -ccl javascript -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
+./network.sh deployCC -ccn yourmarbles -c yourchannel -ccp ${DIR}/src/marbles/node -ccl javascript -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
+popd
 
 # back to this dir
 cd ${DIR}
@@ -39,5 +49,4 @@ sleep 5s
 cd ${DIR}
 
 npm i
-docker-compose -p caliper up -d
-
+docker-compose -p caliper up
