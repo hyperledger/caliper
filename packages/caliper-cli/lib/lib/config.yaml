@@ -31,18 +31,18 @@ sut:
     fabric:
         # The name/key of the SDK binding
         1.4.11:
-            packages: ['fabric-client@1.4.11', 'fabric-protos@2.1.0', 'fabric-network@1.4.11','fs-extra@8.1.0']
+            packages: ['fabric-client@1.4.11', 'fabric-network@1.4.11','fs-extra@8.1.0']
         1.4.14:
-            packages: ['fabric-client@1.4.14', 'fabric-protos@2.1.0', 'fabric-network@1.4.14','fs-extra@8.1.0']
+            packages: ['fabric-client@1.4.14', 'fabric-network@1.4.14','fs-extra@8.1.0']
         1.4.20: &fabric-v1-lts
-            packages: ['fabric-client@1.4.20', 'fabric-protos@2.1.0', 'fabric-network@1.4.20','fs-extra@8.1.0']
+            packages: ['fabric-client@1.4.20', 'fabric-network@1.4.20','fs-extra@8.1.0']
         1.4: *fabric-v1-lts
         2.2.3:
             packages: ['fabric-network@2.2.3']
-        2.2.13: &fabric-v2-lts
-            packages: ['fabric-network@2.2.13']
+        2.2.14: &fabric-v2-lts
+            packages: ['fabric-network@2.2.14']
         2.2: *fabric-v2-lts
-        2.4: 
+        2.4:
             packages: ['@hyperledger/fabric-gateway@1.1.0', '@grpc/grpc-js@1.6.7']
         latest: *fabric-v1-lts
         latest-v2-lts: *fabric-v2-lts
