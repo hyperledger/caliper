@@ -16,8 +16,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install latest NPM
-      run: npm install -g npm@latest
+    - name: Install higher version of NPM
+      run: npm install -g npm@8.15.0
     - name: Fabric Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -35,8 +35,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install latest NPM
-      run: npm install -g npm@latest
+    - name: Install higher version of NPM
+      run: npm install -g npm@8.15.0
     - name: Ethereum Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -54,8 +54,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install latest NPM
-      run: npm install -g npm@latest
+    - name: Install higher version of NPM
+      run: npm install -g npm@8.15.0
     - name: Besu Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -73,8 +73,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install latest NPM
-      run: npm install -g npm@latest
+    - name: Install higher version of NPM
+      run: npm install -g npm@8.15.0
     - name: FISCO BCOS Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -92,8 +92,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install latest NPM
-      run: npm install -g npm@latest
+    - name: Install higher version of NPM
+      run: npm install -g npm@8.15.0
     - name: Generator Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:

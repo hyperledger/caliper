@@ -16,8 +16,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install latest NPM
-      run: npm install -g npm@latest
+    - name: Install higher version of NPM
+      run: npm install -g npm@8.15.0
     - name: Check correct usage of Caliper package names
       run: ./scripts/check-package-names.sh
     - name: Install project dependencies
