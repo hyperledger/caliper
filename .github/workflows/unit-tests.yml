@@ -3,6 +3,9 @@ name: Unit Tests
 on:
   workflow_call:
 
+env:
+  NPM_VERSION: 8.15.0
+
 jobs:
   unit-tests:
     name: Unit Tests
@@ -17,7 +20,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install higher version of NPM
-      run: npm install -g npm@8.15.0
+      run: npm install -g npm@${{ env.NPM_VERSION }}
     - name: Check correct usage of Caliper package names
       run: ./scripts/check-package-names.sh
     - name: Install project dependencies

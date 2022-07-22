@@ -3,6 +3,9 @@ name: Integration Tests
 on:
   workflow_call:
 
+env:
+  NPM_VERSION: 8.15.0
+
 jobs:
   fabric-integration-tests:
     name: Fabric Integration Tests
@@ -17,7 +20,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install higher version of NPM
-      run: npm install -g npm@8.15.0
+      run: npm install -g npm@${{ env.NPM_VERSION }}
     - name: Fabric Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -36,7 +39,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install higher version of NPM
-      run: npm install -g npm@8.15.0
+      run: npm install -g npm@${{ env.NPM_VERSION }}
     - name: Ethereum Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -55,7 +58,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install higher version of NPM
-      run: npm install -g npm@8.15.0
+      run: npm install -g npm@${{ env.NPM_VERSION }}
     - name: Besu Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -74,7 +77,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install higher version of NPM
-      run: npm install -g npm@8.15.0
+      run: npm install -g npm@${{ env.NPM_VERSION }}
     - name: FISCO BCOS Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
@@ -93,7 +96,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install higher version of NPM
-      run: npm install -g npm@8.15.0
+      run: npm install -g npm@${{ env.NPM_VERSION }}
     - name: Generator Integration Test
       run: .build/benchmark-integration-test-direct.sh
       env:
