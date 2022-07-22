@@ -123,7 +123,6 @@ You can find the following main component types at the root of the repository:
     * [.build/](.build/)
     * [scripts/](scripts/)
     * [azure-pipelines.yml](azure-pipelines.yml)
-    * [lerna.json](lerna.json)
     * [package.json](package.json)
 * Main code-based components of Caliper in the [packages/](packages/) directory
 

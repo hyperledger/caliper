@@ -21,11 +21,11 @@ set -o pipefail
 ./scripts/check-package-names.sh
 
 # Bootstrap the project again
-npm i && npm run repoclean -- --yes && npm run bootstrap
+npm ci
 
 pushd ./packages/caliper-publish/
 ./publish.js version check
 popd
 
 # Run linting, license check and unit tests
-npm test
+npm run test --workspaces
