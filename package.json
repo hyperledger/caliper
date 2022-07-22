@@ -1,27 +1,24 @@
 {
     "name": "caliper",
-    "description": "Performance benchmarking for Hyperledger blockchain technologies.  You must install [Lerna](https://lernajs.io) to build this multi-package repository.",
+    "description": "Performance benchmarking for Hyperledger blockchain technologies.",
     "version": "0.5.1-unstable",
     "repository": {
         "type": "git",
         "url": "https://github.com/hyperledger/caliper"
     },
     "scripts": {
-        "repoclean": "lerna clean",
-        "bootstrap": "lerna bootstrap",
-        "pretest": "npm run licchk",
+        "pretest": "npm run licchk --workspaces",
         "licchk": "license-check-and-add",
-        "test": "lerna run test",
+        "test": "npm run test --workspaces",
         "version-fix": "node ./packages/caliper-publish/publish.js version fix",
         "force-clean": "./scripts/force-clean.sh"
     },
     "engines": {
         "node": ">=14.19.0",
-        "npm": ">=6.14.16"
+        "npm": ">=7.24.2"
     },
     "dependencies": {},
     "devDependencies": {
-        "lerna": "^3.18.3",
         "license-check-and-add": "2.3.6",
         "repolinter": "0.8.2"
     },
@@ -67,5 +64,17 @@
             }
         }
     },
-    "license": "Apache-2.0"
+    "license": "Apache-2.0",
+    "workspaces": [
+        "packages/caliper-core",
+        "packages/caliper-ethereum",
+        "packages/caliper-fabric",
+        "packages/caliper-fisco-bcos",
+        "packages/caliper-cli",
+        "packages/caliper-publish",
+        "packages/caliper-tests-integration",
+        "packages/caliper-gui-dashboard",
+        "packages/caliper-gui-server",
+        "packages/generator-caliper"
+    ]
 }
