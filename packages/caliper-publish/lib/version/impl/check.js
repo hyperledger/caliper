@@ -28,10 +28,10 @@ class Check {
      * @async
      */
     static async handler() {
-        const lernaJsonPath = path.join(repoRoot, 'lerna.json');
-        const lernaObject = require(lernaJsonPath);
-        const lernaVersion = lernaObject.version;
-        const packages = Array.from(lernaObject.packages);
+        const rootPackageJsonPath = path.join(repoRoot, 'package.json');
+        const rootPackageObject = require(rootPackageJsonPath);
+        const rootPackageVersion = rootPackageObject.version;
+        const packages = Array.from(rootPackageObject.workspaces);
         // add the root "package"
         packages.push('./');
 
@@ -42,21 +42,21 @@ class Check {
             const packageJsonPath = path.join(repoRoot, pkg, 'package.json');
             const packageObject = require(packageJsonPath);
 
-            if (packageObject.version !== lernaVersion) {
+            if (packageObject.version !== rootPackageVersion) {
                 mismatch = true;
-                console.log(`ERROR: package "${pkg}" version "${packageObject.version}" does not match lerna version "${lernaVersion}"`);
+                console.log(`ERROR: package "${pkg}" version "${packageObject.version}" does not match root package version "${rootPackageVersion}"`);
             }
 
             for (const dep of Object.keys(packageObject.dependencies)) {
-                if (dep.startsWith('@hyperledger/caliper-') && packageObject.dependencies[dep] !== lernaVersion) {
+                if (dep.startsWith('@hyperledger/caliper-') && packageObject.dependencies[dep] !== rootPackageVersion) {
                     mismatch = true;
-                    console.log(`ERROR: package "${pkg}" dependency "${dep}" does not match lerna version "${lernaVersion}"`);
+                    console.log(`ERROR: package "${pkg}" dependency "${dep}" does not match root package version "${rootPackageVersion}"`);
                 }
             }
         }
 
         if (mismatch) {
-            throw new Error(`Some package versions do not match the lerna version "${lernaVersion}"`);
+            throw new Error(`Some package versions do not match the root packageversion "${rootPackageVersion}"`);
         }
 
         console.log('Package versions are correct');

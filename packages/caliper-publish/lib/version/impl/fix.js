@@ -55,17 +55,17 @@ class Fix {
      * @async
      */
     static async handler() {
-        const lernaJsonPath = path.join(repoRoot, 'lerna.json');
-        const lernaObject = require(lernaJsonPath);
-        const lernaVersion = lernaObject.version;
-        const packages = Array.from(lernaObject.packages);
+        const rootPackageJsonPath = path.join(repoRoot, 'package.json');
+        const rootPackageObject = require(rootPackageJsonPath);
+        const rootPackageVersion = rootPackageObject.version;
+        const packages = Array.from(rootPackageObject.workspaces);
         // add the root "package"
         packages.push('./');
 
         console.log('Fixing package versions...');
 
         for (const pkg of packages) {
-            injectCustomVersion(path.join(repoRoot, pkg, 'package.json'), lernaVersion);
+            injectCustomVersion(path.join(repoRoot, pkg, 'package.json'), rootPackageVersion);
         }
     }
 }

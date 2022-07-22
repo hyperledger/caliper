@@ -24,6 +24,6 @@ cp ./README.md ./packages/caliper-fabric/README.md
 cp ./README.md ./packages/caliper-fisco-bcos/README.md
 
 cd ./packages/caliper-publish/
-npm i
+npm ci
 ./publish.js npm
 ./publish.js docker --publish
