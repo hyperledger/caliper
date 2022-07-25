@@ -16,30 +16,33 @@
 # Print all commands.
 set -v
 
-# Grab the parent (generator_tests) directory.
+# Grab the parent (generator_tests/fabric) directory.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${DIR}"
+
+if [[ ! -d "fabric-samples" ]]; then
+  curl -sSL -k https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/bootstrap.sh | bash -s -- 2.4.3
+fi
+
+TEST_NETWORK_DIR=${DIR}/fabric-samples/test-network
 
 # change default settings (add config paths too)
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 
 dispose () {
-    ${CALL_METHOD} launch manager --caliper-workspace 'fabric/myWorkspace' --caliper-flow-only-end
+    pushd ${TEST_NETWORK_DIR}
+    ./network.sh down
+    popd
+
+    cd ${DIR}
+    rm -r myWorkspace/benchmarks
 }
 
 # Install yo
 npm install --global yo@3.1.1
 
-# generate the crypto materials
-cd ./config
-./generate.sh
-
 # back to this dir
 cd ${DIR}
-
-# needed, since the peer looks for the latest, which is no longer on dockerhub
-docker pull hyperledger/fabric-ccenv:1.4.8
-docker image tag hyperledger/fabric-ccenv:1.4.8 hyperledger/fabric-ccenv:latest
 
 # Run benchmark generator using generator defaults (specify invalid values for options)
 ${GENERATOR_METHOD} -- --workspace 'myWorkspace' --contractId 'mymarbles' --contractVersion 'v0' --contractFunction 'queryMarblesByOwner' --contractArguments '["Alice"]' --workers 'marbles' --benchmarkName 'A name for the marbles benchmark' --benchmarkDescription 'A description for the marbles benchmark' --label 'A label for the round' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 'marbles'
@@ -47,16 +50,14 @@ ${GENERATOR_METHOD} -- --workspace 'myWorkspace' --contractId 'mymarbles' --cont
 cd ../
 # bind the sdk into the packages directory as it will search for it there, this ensures it doesn't contaminate real node_modules dirs (2.2 will work with a 1.4 fabric)
 pushd $SUT_DIR
-${CALL_METHOD} bind --caliper-bind-sut fabric:1.4
+${CALL_METHOD} bind --caliper-bind-sut fabric:2.2
 popd
-${CALL_METHOD} launch manager --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-skip-end
-rc=$?
-if [[ ${rc} != 0 ]]; then
-    echo "Failed start network";
-    rm -r fabric/myWorkspace/benchmarks
-    dispose;
-    exit ${rc};
-fi
+
+pushd ${TEST_NETWORK_DIR}
+./network.sh up -s couchdb
+./network.sh createChannel -c mychannel
+./network.sh deployCC -ccn mymarbles -c mychannel -ccp ${DIR}/src/marbles/node -ccl javascript -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
+popd
 
 cd ${DIR}
 # Run benchmark generator not using generator defaults
@@ -75,12 +76,4 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # dispose network
-${CALL_METHOD} launch manager --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-only-end
-rc=$?
-if [[ ${rc} != 0 ]]; then
-    echo "Failed end network";
-    rm -r fabric/myWorkspace/benchmarks
-    exit ${rc};
-fi
-cd ${DIR}
-rm -r myWorkspace/benchmarks
+dispose
