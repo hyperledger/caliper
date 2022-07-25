@@ -40,7 +40,7 @@ export CALIPER_PROJECTCONFIG=../caliper.yaml
 
 dispose () {
     docker ps -a
-    ${CALL_METHOD} launch manager --caliper-workspace phase8 --caliper-flow-only-end
+    ${CALL_METHOD} launch manager --caliper-workspace phase6 --caliper-flow-only-end
 }
 
 TEST_NETWORK_DIR=${DIR}/fabric-samples/test-network
