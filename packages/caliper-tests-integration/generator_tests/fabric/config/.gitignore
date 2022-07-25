@@ -1,5 +1,0 @@
-bin/*
-config/*
-crypto-config/*
-genesis.block
-mychannel.tx
