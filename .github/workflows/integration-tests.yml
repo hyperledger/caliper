@@ -44,7 +44,7 @@ jobs:
     - name: Install project dependencies
       if: steps.cache-npm.outputs.cache-hit != 'true'
       run: npm ci
-    - name: Create SUT binding
+    - name: Create directory to store SUT bindings
       if: steps.cache-sut.outputs.cache-hit != 'true'
       run: mkdir -p /tmp/sut
     - name: Run integration tests

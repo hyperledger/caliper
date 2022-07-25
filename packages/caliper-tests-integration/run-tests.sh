@@ -25,8 +25,6 @@ if [[ "${BENCHMARK}" = "" ]]; then
     exit 1
 fi
 
-mkdir -p $SUT_DIR
-
 TEST_DIR="${BENCHMARK}_tests"
 if [[ -d "${TEST_DIR}" ]]; then
     "${TEST_DIR}"/run.sh
