@@ -37,7 +37,7 @@ jobs:
       id: cache-sut
       uses: actions/cache@v2
       with:
-        path: /tmp/sut
+        path: /tmp/sut/cached
         key: ${{ format('{0}-sut-cache-{1}-{2}', matrix.node-version, matrix.adaptor, hashFiles(format('packages/caliper-tests-integration/{0}_tests/run.sh', matrix.adaptor))) }}
         restore-keys: |
           ${{ matrix.node-version }}-sut-cache-${{ matrix.adaptor }}-
@@ -56,4 +56,3 @@ jobs:
         BIND_IN_PACKAGE_DIR: "true"
         GENERATOR_METHOD: "yo ${{ github.workspace }}/packages/generator-caliper/generators/benchmark/index.js"
         SUT_DIR: "/tmp/sut"
-        NODE_PATH: "/tmp/sut/node_modules"

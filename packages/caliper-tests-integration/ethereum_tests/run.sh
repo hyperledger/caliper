@@ -22,9 +22,13 @@ cd "${DIR}"
 
 # bind during CI tests, using the package dir as CWD
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
+# Note: Ethereum 1.3 binding is cached in CI
+ETHEREUM_VERSION=1.3
+NODE_PATH="$SUT_DIR/cached/v$ETHEREUM_VERSION/node_modules"
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    pushd $SUT_DIR
-    ${CALL_METHOD} bind --caliper-bind-sut ethereum:1.3
+    mkdir -p $SUT_DIR/cached/v$ETHEREUM_VERSION
+    pushd $SUT_DIR/cached/v$ETHEREUM_VERSION
+    ${CALL_METHOD} bind --caliper-bind-sut ethereum:$ETHEREUM_VERSION
     popd
 fi
 

@@ -49,9 +49,15 @@ ${GENERATOR_METHOD} -- --workspace 'myWorkspace' --contractId 'mymarbles' --cont
 # start network and run benchmark test
 cd ../
 # bind the sdk into the packages directory as it will search for it there, this ensures it doesn't contaminate real node_modules dirs (2.2 will work with a 1.4 fabric)
-pushd $SUT_DIR
-${CALL_METHOD} bind --caliper-bind-sut fabric:2.2
-popd
+# Note: Fabric 2.2 binding is cached in CI
+export FABRIC_VERSION=2.2.14
+export NODE_PATH="$SUT_DIR/cached/v$FABRIC_VERSION/node_modules"
+if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
+    mkdir -p $SUT_DIR/cached/v$FABRIC_VERSION
+    pushd $SUT_DIR/cached/v$FABRIC_VERSION
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:$FABRIC_VERSION
+    popd
+fi
 
 pushd ${TEST_NETWORK_DIR}
 ./network.sh up -s couchdb

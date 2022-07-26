@@ -29,13 +29,14 @@ cd ${DIR}
 
 # bind during CI tests, using the package dir as CWD
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
-FABRIC_VERSION=1.4.20
+# Note: Fabric 1.4 binding is cached in CI
+export FABRIC_VERSION=1.4.20
+export NODE_PATH="$SUT_DIR/cached/v$FABRIC_VERSION/node_modules"
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    mkdir -p $SUT_DIR/v$FABRIC_VERSION
-    pushd $SUT_DIR/v$FABRIC_VERSION
+    mkdir -p $SUT_DIR/cached/v$FABRIC_VERSION
+    pushd $SUT_DIR/cached/v$FABRIC_VERSION
     ${CALL_METHOD} bind --caliper-bind-sut fabric:$FABRIC_VERSION
     popd
-    NODE_PATH=$SUT_DIR/v$FABRIC_VERSION/node_modules
 fi
 
 # change default settings (add config paths too)
@@ -86,11 +87,12 @@ fi
 
 # BIND with 2.2 SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
-FABRIC_VERSION=2.2.14
+# Note: Fabric 2.2 binding is cached in CI
+export FABRIC_VERSION=2.2.14
+export NODE_PATH="$SUT_DIR/cached/v$FABRIC_VERSION/node_modules"
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    mkdir -p $SUT_DIR/v$FABRIC_VERSION
-    NODE_PATH=$SUT_DIR/v$FABRIC_VERSION/node_modules
-    pushd $SUT_DIR/v$FABRIC_VERSION
+    mkdir -p $SUT_DIR/cached/v$FABRIC_VERSION
+    pushd $SUT_DIR/cached/v$FABRIC_VERSION
     ${CALL_METHOD} bind --caliper-bind-sut fabric:$FABRIC_VERSION
     popd
 fi
@@ -106,11 +108,12 @@ fi
 
 # BIND with 2.4 SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
-FABRIC_VERSION=2.4
+# Note: Fabric 2.4 binding is NOT cached in CI as it doesn't have the minor version in the cache key
+export FABRIC_VERSION=2.4
+export NODE_PATH="$SUT_DIR/uncached/v$FABRIC_VERSION/node_modules"
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    mkdir -p $SUT_DIR/v$FABRIC_VERSION
-    NODE_PATH=$SUT_DIR/v$FABRIC_VERSION/node_modules
-    pushd $SUT_DIR/v$FABRIC_VERSION
+    mkdir -p $SUT_DIR/uncached/v$FABRIC_VERSION
+    pushd $SUT_DIR/uncached/v$FABRIC_VERSION
     ${CALL_METHOD} bind --caliper-bind-sut fabric:$FABRIC_VERSION
     popd
 fi
