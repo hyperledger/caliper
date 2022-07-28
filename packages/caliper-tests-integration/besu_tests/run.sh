@@ -24,9 +24,13 @@ npm i
 
 # bind during CI tests, using the package dir as CWD
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
+# Note: Besu 1.4 binding is cached in CI
+export BESU_VERSION=1.4
+export NODE_PATH="$SUT_DIR/cached/v$BESU_VERSION/node_modules"
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    pushd $SUT_DIR
-    ${CALL_METHOD} bind --caliper-bind-sut besu:latest
+    mkdir -p $SUT_DIR/cached/v$BESU_VERSION
+    pushd $SUT_DIR/cached/v$BESU_VERSION
+    ${CALL_METHOD} bind --caliper-bind-sut besu:$BESU_VERSION
     popd
 fi
 
