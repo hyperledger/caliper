@@ -7,11 +7,13 @@ env:
   NPM_VERSION: 8.15.0
 
 jobs:
-  fabric-integration-tests:
-    name: Fabric Integration Tests
+  integration-tests:
+    name: Integration Tests
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
+        adaptor: [fabric, ethereum, besu, fisco-bcos, generator]
         node-version: [14.x, 16.x]
     steps:
     - uses: actions/checkout@v3
@@ -21,83 +23,36 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install higher version of NPM
       run: npm install -g npm@${{ env.NPM_VERSION }}
-    - name: Fabric Integration Test
-      run: .build/benchmark-integration-test-direct.sh
-      env:
-        BENCHMARK: fabric
-
-  ethereum-integration-tests:
-    name: Ethereum Integration Tests
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Cache node modules
+      id: cache-npm
+      uses: actions/cache@v2
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install higher version of NPM
-      run: npm install -g npm@${{ env.NPM_VERSION }}
-    - name: Ethereum Integration Test
-      run: .build/benchmark-integration-test-direct.sh
-      env:
-        BENCHMARK: ethereum
-
-  besu-integration-tests:
-    name: Besu Integration Tests
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+        path: |
+          node_modules
+          packages/*/node_modules
+        key: ${{ matrix.node-version }}-npm-cache-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          ${{ matrix.node-version }}-npm-cache-
+    - name: Cache SUT binding
+      id: cache-sut
+      uses: actions/cache@v2
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install higher version of NPM
-      run: npm install -g npm@${{ env.NPM_VERSION }}
-    - name: Besu Integration Test
-      run: .build/benchmark-integration-test-direct.sh
+        path: /tmp/sut/cached
+        key: ${{ format('{0}-sut-cache-{1}-{2}', matrix.node-version, matrix.adaptor, hashFiles(format('packages/caliper-tests-integration/{0}_tests/run.sh', matrix.adaptor))) }}
+        restore-keys: |
+          ${{ matrix.node-version }}-sut-cache-${{ matrix.adaptor }}-
+    - name: Install project dependencies
+      if: steps.cache-npm.outputs.cache-hit != 'true'
+      run: npm ci
+    - name: Create directory to store SUT bindings
+      if: steps.cache-sut.outputs.cache-hit != 'true'
+      run: mkdir -p /tmp/sut
+    - name: Run integration tests
+      run: ./run-tests.sh
+      working-directory: ./packages/caliper-tests-integration/
       env:
-        BENCHMARK: besu
-
-  fisco-bcos-integration-tests:
-    name: FISCO BCOS Integration Tests
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install higher version of NPM
-      run: npm install -g npm@${{ env.NPM_VERSION }}
-    - name: FISCO BCOS Integration Test
-      run: .build/benchmark-integration-test-direct.sh
-      env:
-        BENCHMARK: fisco-bcos
-
-  generator-integration-tests:
-    name: Generator Integration Tests
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install higher version of NPM
-      run: npm install -g npm@${{ env.NPM_VERSION }}
-    - name: Generator Integration Test
-      run: .build/benchmark-integration-test-direct.sh
-      env:
-        BENCHMARK: generator
+        BENCHMARK: ${{ matrix.adaptor }}
+        CALL_METHOD: "node ${{ github.workspace }}/packages/caliper-cli/caliper.js"
+        BIND_IN_PACKAGE_DIR: "true"
+        GENERATOR_METHOD: "yo ${{ github.workspace }}/packages/generator-caliper/generators/benchmark/index.js"
+        SUT_DIR: "/tmp/sut"
