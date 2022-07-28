@@ -22,11 +22,16 @@ cd "${DIR}"
 
 # bind during CI tests, using the package dir as CWD
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
+# Note: FISCO BCOS 2.0 binding is cached in CI
+export FISCO_BCOS_VERSION=2.0.0
+export NODE_PATH="$SUT_DIR/cached/v$FISCO_BCOS_VERSION/node_modules"
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    pushd $SUT_DIR
-    ${CALL_METHOD} bind --caliper-bind-sut fisco-bcos:latest
+    mkdir -p $SUT_DIR/cached/v$FISCO_BCOS_VERSION
+    pushd $SUT_DIR/cached/v$FISCO_BCOS_VERSION
+    ${CALL_METHOD} bind --caliper-bind-sut fisco-bcos:$FISCO_BCOS_VERSION
     popd
 fi
+ls -lah $NODE_PATH
 
 # change default settings (add config paths too)
 export CALIPER_PROJECTCONFIG=caliper.yaml
