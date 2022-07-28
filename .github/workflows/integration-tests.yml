@@ -33,6 +33,22 @@ jobs:
         key: ${{ matrix.node-version }}-npm-cache-${{ hashFiles('**/package.json') }}
         restore-keys: |
           ${{ matrix.node-version }}-npm-cache-
+    - name: Cache docker images
+      id: cache-docker
+      uses: actions/cache@v2
+      with:
+        path: images.tar
+        key: >-
+          ${{ format('docker-cache-abc-{0}-{1}-{2}-{3}',
+          matrix.adaptor,
+          hashFiles(format('packages/caliper-tests-integration/{0}_tests/run.sh', matrix.adaptor)),
+          hashFiles(format('packages/caliper-tests-integration/{0}_tests/**/docker-compose.*', matrix.adaptor)),
+          hashFiles(format('packages/caliper-tests-integration/{0}_tests/**/Dockerfile', matrix.adaptor))) }}
+        restore-keys: |
+          docker-cache-abc-${{ matrix.adaptor }}-
+    - name: Restore docker images
+      if: steps.cache-docker.outputs.cache-hit == 'true'
+      run: docker load -i images.tar
     - name: Cache SUT binding
       id: cache-sut
       uses: actions/cache@v2
@@ -56,3 +72,6 @@ jobs:
         BIND_IN_PACKAGE_DIR: "true"
         GENERATOR_METHOD: "yo ${{ github.workspace }}/packages/generator-caliper/generators/benchmark/index.js"
         SUT_DIR: "/tmp/sut"
+    - name: Save docker images
+      if: steps.cache-docker.outputs.cache-hit != 'true'
+      run: docker save -o images.tar $(docker images -a -q)
