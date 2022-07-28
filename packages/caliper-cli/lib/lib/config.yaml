@@ -28,8 +28,15 @@ settingProfiles:
 # Specifies the supported target platforms
 sut:
     # Specifies the available SDK bindings and their Node.js-specific install settings
-    # Note: The minor version for the SUT in integration tests need to be upgraded
-    #       if a new version is added here
+    # IMPORTANT:
+    # The Integration tests cache all the SUT bindings EXCEPT for the fabric:2.4 binding. Therefore
+    # for those bindings if you want to update a binding with new version dependencies you need to
+    # create a new version and update the integration tests explicitly to reference this new version.
+    # For example if the current version of the fabric 2.2 binding is 2.2.14 and you want to update
+    # the binding to include a new level of dependencies, you must create a 2.2.15 binding and update
+    # the integration tests to reference this.
+    # The exception is fabric:2.4 which isn't cached in the integration tests. This means you can modify
+    # the 2.4 key without creating a new version and the integration tests will automatically pick it up.
     fabric:
         # The name/key of the SDK binding
         1.4.11:
