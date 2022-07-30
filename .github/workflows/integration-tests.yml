@@ -7,13 +7,56 @@ env:
   NPM_VERSION: 8.15.0
 
 jobs:
+  changes:
+    name: Check for changes
+    runs-on: ubuntu-latest
+    outputs:
+      adaptor: ${{ steps.filter.outputs.changes }}
+    steps:
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          fabric:
+            - 'packages/caliper-cli/**'
+            - 'packages/caliper-core/**'
+            - 'packages/caliper-fabric/**'
+            - 'packages/caliper-publish/**'
+            - 'packages/caliper-tests-integration/fabric_tests/**'
+          ethereum:
+            - 'packages/caliper-cli/**'
+            - 'packages/caliper-core/**'
+            - 'packages/caliper-ethereum/**'
+            - 'packages/caliper-publish/**'
+            - 'packages/caliper-tests-integration/ethereum_tests/**'
+          besu:
+            - 'packages/caliper-cli/**'
+            - 'packages/caliper-core/**'
+            - 'packages/caliper-ethereum/**'
+            - 'packages/caliper-publish/**'
+            - 'packages/caliper-tests-integration/besu_tests/**'
+          fisco-bcos:
+            - 'packages/caliper-cli/**'
+            - 'packages/caliper-core/**'
+            - 'packages/caliper-fisco-bcos/**'
+            - 'packages/caliper-publish/**'
+            - 'packages/caliper-tests-integration/fisco-bcos_tests/**'
+          generator:
+            - 'packages/caliper-cli/**'
+            - 'packages/caliper-core/**'
+            - 'packages/caliper-fabric/**'
+            - 'packages/generator-caliper/**'
+            - 'packages/caliper-publish/**'
+            - 'packages/caliper-tests-integration/generator_tests/**'
+
   integration-tests:
+    needs: changes
     name: Integration Tests
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        adaptor: [fabric, ethereum, besu, fisco-bcos, generator]
+        adaptor: ${{ fromJSON(needs.changes.outputs.adaptor) }}
         node-version: [14.x, 16.x]
     steps:
     - uses: actions/checkout@v3
