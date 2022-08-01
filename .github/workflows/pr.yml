@@ -2,17 +2,21 @@ name: CI (PR)
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main"
+      - "gh-pages"
 
 jobs:
   dci-lint:
     uses: ./.github/workflows/dci.yml
   unit-tests:
+    if: ${{ github.base_ref == 'main' }}
     uses: ./.github/workflows/unit-tests.yml
     needs: dci-lint
   coverage:
     uses: ./.github/workflows/coverage.yml
     needs: unit-tests
   integration-tests:
+    if: ${{ github.base_ref == 'main' }}
     uses: ./.github/workflows/integration-tests.yml
     needs: unit-tests
