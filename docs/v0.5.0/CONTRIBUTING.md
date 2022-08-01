@@ -45,7 +45,7 @@ The workflow of modifying the Caliper code-base usually consists of the followin
 
 ### Bootstrapping the Caliper repository
 
-> __Note:__ If you are developing from the latest main branch, refer to the instructions in the [vNext contributing guide](https://hyperledger.github.io/caliper/vNext/contributing/). The following instructions apply only apply if you have checked out the v0.5.0 tag and are developing from there.
+> __Note:__ If you are developing from the latest main branch, refer to the instructions in the [vNext contributing guide](../vNext/CONTRIBUTING.md). The following instructions apply only apply if you have checked out the v0.5.0 tag and are developing from there.
 
 To install the basic dependencies of the repository, and to resolve the cross-references between the different packages in the repository, you must execute the following commands from the root of the repository directory:
 
