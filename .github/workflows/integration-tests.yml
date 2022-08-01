@@ -51,6 +51,7 @@ jobs:
 
   integration-tests:
     needs: changes
+    if: ${{ needs.changes.outputs.adaptor != '[]' && needs.changes.outputs.adaptor != '' }}
     name: Integration Tests
     runs-on: ubuntu-latest
     strategy:
