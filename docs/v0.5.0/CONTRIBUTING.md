@@ -45,6 +45,8 @@ The workflow of modifying the Caliper code-base usually consists of the followin
 
 ### Bootstrapping the Caliper repository
 
+> __Note:__ If you are developing from the latest main branch, refer to the instructions in the [vNext contributing guide](../vNext/CONTRIBUTING.md). The following instructions apply only apply if you have checked out the v0.5.0 tag and are developing from there.
+
 To install the basic dependencies of the repository, and to resolve the cross-references between the different packages in the repository, you must execute the following commands from the root of the repository directory:
 
 1. `npm i`: Installs development-time dependencies, such as [Lerna](https://github.com/lerna/lerna#readme) and the license checking package.
@@ -68,7 +70,7 @@ Unit tests can be run using `npm test` either in the root of the caliper source 
 To run the integration tests for a specific SUT, use the following script from the root directory of the repository, setting the `BENCHMARK` environment variable to the platform name:
 
 ```console
-user@ubuntu:~/caliper$ BENCHMARK=fabric ./.travis/benchmark-integration-test-direct.sh
+user@ubuntu:~/caliper$ BENCHMARK=fabric ./.build/benchmark-integration-test-direct.sh
 ```
 
 The following platform tests (i.e., valid `BENCHMARK` values) are available:
