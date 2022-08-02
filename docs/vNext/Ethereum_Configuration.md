@@ -124,7 +124,7 @@ The address to use while invoking all the methods of the benchmark. Its private 
 
 ## Benchmark address seed
 
-As an alternative to `fromAddress`, `fromAddressPrivateKey`, and `fromAddressPassword` the network configuration can use a fixed seed and derive needed addresses via [BIP-44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) key derivation.  Each caliper test worker will generate an address for use as `fromAddress` and `fromAddressPrivateKey` using the derivation path `m/44'/60'/<x>'/0/0`, where <x> is the `clientIdx` passed into `getContext`.
+As an alternative to `fromAddress`, `fromAddressPrivateKey`, and `fromAddressPassword` the network configuration can use a fixed seed and derive needed addresses via [BIP-44](https://github.com/bitcoin/bips/blob/43da5dec5eaf0d8194baa66ba3dd976f923f9d07/bip-0044.mediawiki) key derivation.  Each caliper test worker will generate an address for use as `fromAddress` and `fromAddressPrivateKey` using the derivation path `m/44'/60'/<x>'/0/0`, where <x> is the `clientIdx` passed into `getContext`.
 
 This configuration does not override `fromAddress`, but it takes priority over `fromAddressPrivateKey` and `fromAddressPassword`.
 

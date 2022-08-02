@@ -144,7 +144,7 @@ In the example above, there are four nodes in the topology of network, whose act
 ]
 ```
 
-In the example above, there are three smart contracts need to be deployed on the blockchain. The first two are implemented by Solidity and their source code can be found in `src/contract/fisco-bcos/` directory. The last one is a FISCO BCOS precompiled contract, its source code can be found [here](https://github.com/FISCO-BCOS/FISCO-BCOS/blob/master/libprecompiled/extension/DagTransferPrecompiled.cpp).
+In the example above, there are three smart contracts need to be deployed on the blockchain. The first two are implemented by Solidity and their source code can be found in `src/contract/fisco-bcos/` directory. The last one is a FISCO BCOS precompiled contract, its source code can be found [here](https://github.com/FISCO-BCOS/FISCO-BCOS/blob/release-2.9.0/libprecompiled/extension/DagTransferPrecompiled.cpp).
 
 #### info
 

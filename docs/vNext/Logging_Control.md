@@ -148,7 +148,7 @@ For example, to really highlight error-level logs: `--caliper-logging-formats-co
 
 ## Configuring logging targets
 
-The source and target(s) of log messages are decoupled, thanks to the [transport mechanism](https://github.com/winstonjs/winston/blob/master/docs/transports.md) of winston. This means that a log message can be easily logged to multiple places, like the console, or different log files. Moreover, this is completely transparent to the module generating the log message!
+The source and target(s) of log messages are decoupled, thanks to the [transport mechanism](https://github.com/winstonjs/winston/blob/3.2.1/docs/transports.md) of winston. This means that a log message can be easily logged to multiple places, like the console, or different log files. Moreover, this is completely transparent to the module generating the log message!
 
 The different targets are specified under the `caliper.logging.targets` property. The `caliper.logging.targets` section takes the following general form:
 
@@ -179,8 +179,8 @@ The following `target` values (i.e., transports) are supported. Click on the lin
 
 | Target | Available options |
 |:------:|:-----------------:|
-| `console` | [Console Transport](https://github.com/winstonjs/winston/blob/master/docs/transports.md#console-transport) |
-| `file` | [File Transport](https://github.com/winstonjs/winston/blob/master/docs/transports.md#file-transport) |
+| `console` | [Console Transport](https://github.com/winstonjs/winston/blob/3.2.1/docs/transports.md#console-transport) |
+| `file` | [File Transport](https://github.com/winstonjs/winston/blob/3.2.1/docs/transports.md#file-transport) |
 | `daily-rotate-file` | [Daily Rotating File Transport](https://github.com/winstonjs/winston-daily-rotate-file#options) |
 
 ### Disabling loggers
