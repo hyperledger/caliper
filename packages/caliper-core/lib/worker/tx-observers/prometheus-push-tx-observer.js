@@ -45,8 +45,6 @@ class PrometheusPushTxObserver extends TxObserverInterface {
 
         // automatically apply default internal and user supplied labels
         this.defaultLabels = (options && options.defaultLabels) ? options.defaultLabels : {};
-        this.defaultLabels.workerIndex = this.workerIndex;
-        this.defaultLabels.roundIndex = this.currentRound;
         this.defaultLabels.roundLabel = this.roundLabel;
         this.registry.setDefaultLabels(this.defaultLabels);
 
@@ -111,8 +109,9 @@ class PrometheusPushTxObserver extends TxObserverInterface {
      * @private
      */
     async _sendUpdate() {
-        this.prometheusPushGateway.pushAdd({jobName: 'workers', groupings: {
-            'workerIndex': this.workerIndex,
+        this.prometheusPushGateway.pushAdd({jobName: 'caliper-workers', groupings: {
+            workerIndex: this.workerIndex,
+            roundIndex: this.currentRound
         }}, function(err, _resp, _body) {
             if (err) {
                 Logger.error(`Error sending update to Prometheus Push Gateway: ${err.stack}`);
@@ -128,9 +127,7 @@ class PrometheusPushTxObserver extends TxObserverInterface {
     async activate(roundIndex, roundLabel) {
         await super.activate(roundIndex, roundLabel);
 
-        // update worker and round metadata
-        this.defaultLabels.workerIndex = this.workerIndex;
-        this.defaultLabels.roundIndex = this.currentRound;
+        // update round metadata
         this.defaultLabels.roundLabel = this.roundLabel;
         this.registry.setDefaultLabels(this.defaultLabels);
 
