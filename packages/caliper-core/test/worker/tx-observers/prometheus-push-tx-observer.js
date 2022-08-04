@@ -102,15 +102,11 @@ describe('When using a PrometheusPushTxObserver', () => {
         // Assert expected default options
         prometheusPushTxObserver.pushInterval.should.equal(10000);
         prometheusPushTxObserver.defaultLabels.should.deep.equal({
-            roundIndex: 0,
-            roundLabel: undefined,
-            workerIndex: 0
+            roundLabel: undefined
         });
         should.not.exist(prometheusPushTxObserver.processMetricCollectInterval);
         prometheusPushTxObserver.defaultLabels.should.deep.equal({
-            roundIndex: 0,
-            roundLabel: undefined,
-            workerIndex: 0
+            roundLabel: undefined
         });
     });
 
@@ -129,9 +125,7 @@ describe('When using a PrometheusPushTxObserver', () => {
         prometheusPushTxObserver.pushInterval.should.equal(1234);
         prometheusPushTxObserver.processMetricCollectInterval.should.equal(100);
         prometheusPushTxObserver.defaultLabels.should.deep.equal({
-            roundIndex: 0,
             roundLabel: undefined,
-            workerIndex: 0,
             anotherLabel: 'anotherLabel'
         });
     });
@@ -145,10 +139,28 @@ describe('When using a PrometheusPushTxObserver', () => {
         await prometheusPushTxObserver.activate(2, 'myTestRound');
 
         prometheusPushTxObserver.defaultLabels.should.deep.equal({
-            roundIndex: 2,
             roundLabel: 'myTestRound',
-            workerIndex: 0
         });
+    });
+
+    it('should pass on the appropriate groupings to the PushGateway API', async () => {
+        const options = {
+            pushUrl: 'http://my.url.com'
+        };
+        const prometheusPushTxObserver = PrometheusPushTxObserver.createTxObserver(options, undefined, 0);
+        await prometheusPushTxObserver.activate(2, 'myTestRound');
+
+        prometheusPushTxObserver.prometheusPushGateway.pushAdd = sinon.spy();
+
+        prometheusPushTxObserver._sendUpdate();
+
+        sinon.assert.calledWith(prometheusPushTxObserver.prometheusPushGateway.pushAdd, sinon.match({
+            jobName: 'caliper-workers',
+            groupings: sinon.match({
+                workerIndex: 0,
+                roundIndex: 2
+            })
+        }), sinon.match.func);
     });
 
     it('should update transaction statistics during use', async () => {
@@ -216,7 +228,7 @@ describe('When using a PrometheusPushTxObserver', () => {
 
         await prometheusPushTxObserver.deactivate();
 
-        // Values should be zero, or empty 
+        // Values should be zero, or empty
         // Ref: https://github.com/siimon/prom-client/blob/721829cc593bb7da28ae009985caeeacb4b59e05/test/counterTest.js
         const txSubmitted = await prometheusPushTxObserver.counterTxSubmitted.get();
         txSubmitted.values[0].value.should.equal(0);
