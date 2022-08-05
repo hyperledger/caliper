@@ -1,0 +1,24 @@
+name: Coverage Reports
+
+on:
+  workflow_call:
+
+jobs:
+  coverage:
+    name: Coverage Reports
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: [caliper-core, caliper-fabric, generator-caliper]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Download coverage reports artifact
+      uses: actions/download-artifact@v1
+      with:
+        name: coverage-reports
+        path: packages
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v3.1.0
+      with:
+        files: packages/${{ matrix.package }}/coverage/clover.xml
+        flags: ${{ matrix.package }}
