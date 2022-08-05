@@ -15,7 +15,7 @@
         "licchk": "license-check-and-add",
         "test": "npm run lint",
         "lint": "npx eslint .",
-        "nyc": "nyc mocha --recursive -t 10000"
+        "nyc": "nyc --reporter=text --reporter=clover mocha --recursive -t 10000"
     },
     "engines": {
         "node": ">=14.19.0",
