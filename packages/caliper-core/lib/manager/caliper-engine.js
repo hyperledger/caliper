@@ -18,6 +18,7 @@ const CaliperUtils = require('../common/utils/caliper-utils');
 const ConfigUtils = require('../common/config/config-util');
 const RoundOrchestrator = require('./orchestrators/round-orchestrator');
 const BenchValidator = require('../common/utils/benchmark-validator');
+const PrometheusScrapeTarget = require('./prometheus/prometheus-scrape-target');
 
 const logger = CaliperUtils.getLogger('caliper-engine');
 
@@ -38,6 +39,12 @@ class CaliperEngine {
         this.returnCode = -1;
 
         this.adapterFactory = adapterFactory;
+
+        const observerConfig = benchmarkConfig.monitors && benchmarkConfig.monitors.transaction ? benchmarkConfig.monitors.transaction : [];
+        this.hasPrometheusScrapeTarget = observerConfig.some((observer) => observer.module === 'prometheus');
+        if (this.hasPrometheusScrapeTarget) {
+            this.prometheusScrapeTarget = new PrometheusScrapeTarget(benchmarkConfig);
+        }
     }
 
     /**
@@ -144,6 +151,10 @@ class CaliperEngine {
             if (!flowOpts.performTest) {
                 logger.info('Skipping benchmark test phase due to benchmark flow conditioning');
             } else {
+                if (this.hasPrometheusScrapeTarget) {
+                    this.prometheusScrapeTarget.start();
+                }
+
                 let numberSet = this.benchmarkConfig.test && this.benchmarkConfig.test.workers && this.benchmarkConfig.test.workers.number;
                 let numberOfWorkers = numberSet ? this.benchmarkConfig.test.workers.number : 1;
                 connector = connector ? connector : await this.adapterFactory(-1);
@@ -161,6 +172,10 @@ class CaliperEngine {
                 this.returnCode = 6;
             }
         } finally {
+            if (this.hasPrometheusScrapeTarget) {
+                this.prometheusScrapeTarget.stop();
+            }
+
             // Conditional running of 'end' commands
             if (!flowOpts.performEnd) {
                 logger.info('Skipping end command due to benchmark flow conditioning');

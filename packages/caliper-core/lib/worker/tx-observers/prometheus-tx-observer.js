@@ -40,7 +40,7 @@ class PrometheusTxObserver extends TxObserverInterface {
         this.metricPath = (options && options.metricPath) ? options.metricPath : '/metrics';
         this.scrapePort = (options && options.scrapePort) ? Number(options.scrapePort) : ConfigUtil.get(ConfigUtil.keys.Observer.Prometheus.ScrapePort);
         if (CaliperUtils.isForkedProcess()) {
-            this.scrapePort += workerIndex;
+            this.scrapePort += workerIndex + 1;
         }
         this.processMetricCollectInterval =  (options && options.processMetricCollectInterval) ? options.processMetricCollectInterval : undefined;
         this.defaultLabels = (options && options.defaultLabels) ? options.defaultLabels : {};
@@ -91,6 +91,8 @@ class PrometheusTxObserver extends TxObserverInterface {
             buckets,
             registers: [this.registry]
         });
+
+        prometheusClient.AggregatorRegistry.setRegistries([this.registry]);
 
         // setting an interval enables the default metric collection
         if (this.processMetricCollectInterval) {

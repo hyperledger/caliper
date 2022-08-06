@@ -43,7 +43,7 @@ class ProcessMessenger extends MessengerInterface {
 
     /**
      * Configure the Messenger with the related processes.
-     * @param {Process[]} processes The process instances this process can communicate with.
+     * @param {cluster.Worker[]} processes The process instances this process can communicate with.
      */
     async configureProcessInstances(processes) {
         this.processes = processes;

@@ -15,7 +15,7 @@
 
 'use strict';
 
-const childProcess = require('child_process');
+const cluster = require('cluster');
 
 const CaliperUtils = require('../../common/utils/caliper-utils');
 const ConfigUtils = require('../../common/config/config-util');
@@ -548,10 +548,11 @@ class WorkerOrchestrator {
 
         const nodeArgs = workerCommands.concat(remainingArgs);
 
-        const worker = childProcess.fork(cliPath, nodeArgs, {
-            env: process.env,
-            cwd: process.cwd()
+        cluster.setupPrimary({
+            exec: cliPath,
+            args: nodeArgs,
         });
+        const worker = cluster.fork();
 
         // Collect the launched process so it can be killed later
         this.workerObjects.push(worker);
