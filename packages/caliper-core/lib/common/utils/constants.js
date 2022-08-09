@@ -26,6 +26,7 @@ module.exports = {
             Ready: 'ready',
             Prepare: 'prepare',
             Prepared: 'prepared',
+            PrometheusUpdate: 'prometheusUpdate',
             Test: 'test',
             TxReset: 'txReset',
             TxUpdate: 'txUpdate',

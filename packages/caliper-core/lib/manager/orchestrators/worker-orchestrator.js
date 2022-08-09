@@ -23,6 +23,7 @@ const Constants = require('./../../common/utils/constants');
 
 const MessageTypes = require('./../../common/utils/constants').Messages.Types;
 const TransactionStatisticsCollector = require('./../../common/core/transaction-statistics-collector');
+const PrometheusManagerScrapeTarget = require('../prometheus/prometheus-manager-scrape-target');
 
 const RegisterMessage = require('./../../common/messages/registerMessage');
 const AssignIdMessage = require('./../../common/messages/assignIdMessage');
@@ -79,6 +80,13 @@ class WorkerOrchestrator {
         this.brokerConnectedPromise = {};
         this.workersConnectedPromise = {};
         this.workersReadyPromise = {};
+
+        // Setup Prometheus scrape target
+        const observerConfig = benchmarkConfig.monitors && benchmarkConfig.monitors.transaction ? benchmarkConfig.monitors.transaction : [];
+        this.hasPrometheusManagerScrapeTarget = observerConfig.some((observer) => observer.module === 'prometheus-manager');
+        if (this.hasPrometheusManagerScrapeTarget) {
+            this.prometheusManagerScrapeTarget = new PrometheusManagerScrapeTarget(benchmarkConfig);
+        }
     }
 
     /**
@@ -107,6 +115,11 @@ class WorkerOrchestrator {
         this.messenger.on(MessageTypes.Prepared, async (message) => {
             logger.debug(`Dealing with prepared message ${JSON.stringify(message)}`);
             self.updateWorkerPhase(message.getSender(), message.getType(), message.getContent(), message.getError());
+        });
+
+        this.messenger.on(MessageTypes.PrometheusUpdate, async (message) => {
+            logger.debug(`Dealing with prometheus update message ${JSON.stringify(message)}`);
+            self.processPrometheusUpdate(message.getContent());
         });
 
         this.messenger.on(MessageTypes.TxUpdate, async (message) => {
@@ -228,6 +241,13 @@ class WorkerOrchestrator {
         } else {
             logger.info(`Existing ${Object.keys(this.workers).length} prepared workers detected, progressing to test preparation phase.`);
         }
+
+        if (this.hasPrometheusManagerScrapeTarget && !this.prometheusManagerScrapeTargetStarted) {
+            this.prometheusManagerScrapeTarget.start();
+            this.prometheusManagerScrapeTargetStarted = true;
+
+            logger.info('Prometheus scrape target started.');
+        }
     }
 
     /**
@@ -320,6 +340,14 @@ class WorkerOrchestrator {
         default:
             throw new Error(`updateWorkerPhase passed unknown phase ${phase} by worker ${workerId}`);
         }
+    }
+
+    /**
+     * Process update for the Prometheus scrape server
+     * @param {object} data The data object passed within the worker message
+     */
+    processPrometheusUpdate(data) {
+        this.prometheusManagerScrapeTarget.processUpdate(data);
     }
 
     /**
@@ -481,6 +509,12 @@ class WorkerOrchestrator {
         }
 
         await Promise.all(testPromises);
+
+        // reset Promethues scrape target
+        if (this.prometheusManagerScrapeTarget) {
+            this.prometheusManagerScrapeTarget.reset();
+        }
+
         // clear worker test promises so they can be reused
         for (let worker in this.workers) {
             this.workers[worker].phases[MessageTypes.TestResult] = {};
@@ -491,6 +525,11 @@ class WorkerOrchestrator {
      * Stop all test workers and disconnect from messenger
      */
     async stop() {
+        // Stop scrape server
+        if (this.hasPrometheusManagerScrapeTarget) {
+            this.prometheusManagerScrapeTarget.stop();
+        }
+
         logger.info('Sending exit message to connected workers');
         const msg = new ExitMessage(this.messenger.getUUID());
         this.messenger.send(msg);

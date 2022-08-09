@@ -21,6 +21,7 @@ const CaliperUtils = require('../../common/utils/caliper-utils');
 const builtInTxObservers = new Map([
     ['logging', path.join(__dirname, 'logging-tx-observer.js')],
     ['prometheus', path.join(__dirname, 'prometheus-tx-observer.js')],
+    ['prometheus-manager', path.join(__dirname, 'prometheus-manager-tx-observer.js')],
     ['prometheus-push', path.join(__dirname, 'prometheus-push-tx-observer.js')]
 ]);
 
@@ -46,7 +47,7 @@ class TxObserverDispatch extends TxObserverInterface {
         let observerConfigs = super.getDeclaredTxObservers();
         for (let observer of observerConfigs) {
             const factoryFunction = CaliperUtils.loadModuleFunction(builtInTxObservers, observer.module, 'createTxObserver');
-            this.txObservers.push(factoryFunction(observer.options, messenger, workerIndex));
+            this.txObservers.push(factoryFunction(observer.options, messenger, workerIndex, managerUuid));
         }
 
         // always load the internal TX observer

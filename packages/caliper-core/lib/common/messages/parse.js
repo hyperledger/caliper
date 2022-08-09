@@ -24,6 +24,7 @@ const InitializeMessage = require('./initializeMessage');
 const ReadyMessage = require('./readyMessage');
 const PrepareMessage = require('./prepareMessage');
 const PreparedMessage = require('./preparedMessage');
+const PrometheusUpdateMessage = require('./prometheusUpdateMessage');
 const TestMessage = require('./testMessage');
 const TxResetMessage = require('./txResetMessage');
 const TxUpdateMessage = require('./txUpdateMessage');
@@ -64,6 +65,8 @@ function parse(rawMessage) {
         return new PrepareMessage(from, to, msg.content, date, err);
     case MessageTypes.Prepared:
         return new PreparedMessage(from, to, date, err);
+    case MessageTypes.PrometheusUpdate:
+        return new PrometheusUpdateMessage(from, to, msg.content, date, err);
     case MessageTypes.Test:
         return new TestMessage(from, to, msg.content, date, err);
     case MessageTypes.TxReset:
