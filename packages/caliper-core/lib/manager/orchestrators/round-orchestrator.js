@@ -177,12 +177,6 @@ class RoundOrchestrator {
             logger.error(`Could not prepare worker connections: ${err.stack || err}`);
         }
 
-        process.on('SIGINT', async () => {
-            logger.info('SIGINT received, stopping workers');
-            await this._cleanup();
-            process.exit(0);
-        });
-
         let benchStartTime = Date.now();
 
         for (const [index, roundConfig] of roundConfigs.entries()) {
@@ -238,7 +232,7 @@ class RoundOrchestrator {
             logger.error(`Error while finalizing the report: ${err.stack || err}`);
         }
 
-        await this._cleanup();
+        await this.stop();
 
         let benchEndTime = Date.now();
         logger.info(`Benchmark finished in ${(benchEndTime - benchStartTime)/1000.0} seconds. Total rounds: ${success + failed}. Successful rounds: ${success}. Failed rounds: ${failed}.`);
@@ -247,7 +241,7 @@ class RoundOrchestrator {
     /**
      * Stops the benchmark.
      */
-    async _cleanup() {
+    async stop() {
         // clean up, with "silent" failure handling
         try {
             await this.monitorOrchestrator.stopAllMonitors();
