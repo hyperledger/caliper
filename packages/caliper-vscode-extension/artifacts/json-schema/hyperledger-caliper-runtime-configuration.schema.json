@@ -129,27 +129,27 @@
                         },
                         "projectconfig": {
                             "title": "Project Configuration",
-                            "description": "projectconfig: If you have a group of settings that are always overridden in your Caliper benchmark project, then it is recommended to define them as a project-level configuration file. This file will usually consist of a subset of settings defined in the default configuration file (and probably your custom settings associated with your custom user module). Here, mention the file path for the project-level configuration file. Can be relative to the workspace.",
+                            "description": "projectconfig:If you have a group of settings that are always overridden in your Caliper benchmark project, then it is recommended to define them as a project-level configuration file. This file will usually consist of a subset of settings defined in the default configuration file (and probably your custom settings associated with your custom user module). More information: https://hyperledger.github.io/caliper/v0.5.0/runtime-config/#project-level",
                             "type": "null"
                         },
                         "userconfig": {
                             "title": "User Configuration",
-                            "description": "userconfig: If you find yourself overriding the same settings for multiple Caliper benchmark projects, then it is recommended to extract the common settings into a user-level configuration file. Here, mention the file path for the user-level configuration file. Can be relative to the workspace.",
+                            "description": "userconfig: If you find yourself overriding the same settings for multiple Caliper benchmark projects, then it is recommended to extract the common settings into a user-level configuration file. More information: https://hyperledger.github.io/caliper/v0.5.0/runtime-config/#user-level",
                             "type": "null"
                         },
                         "machineconfig": {
                             "title": "Machine Configuration",
-                            "description": "machineconfig: If multiple users use the same workstation and want to share common settings across Caliper projects and users, then a machine-level configuration file can be included into the hierarchy by specifying its path. The file path for the machine-level configuration file. Can be relative to the workspace.",
+                            "description": "machineconfig: If multiple users use the same workstation and want to share common settings across Caliper projects and users, then a machine-level configuration file can be included into the hierarchy by specifying its path through the caliper-machineconfig settings key using one of the higher priority locations above. More information: https://hyperledger.github.io/caliper/v0.5.0/runtime-config/#machine-level",
                             "type": "null"
                         },
                         "benchconfig": {
                             "title": "Bench Configuration",
-                            "description": "Path to the benchmark workload file that describes the test workers(s), test rounds and monitor",
+                            "description": "Path to the benchmark configuration file that describes the test worker(s), test rounds and monitors",
                             "type": "null"
                         },
                         "networkconfig": {
                             "title": "Network Configuration",
-                            "description": "Path to the blockchain configuration file that contains information required to interact with the SUT",
+                            "description": "Path to the network configuration file that contains information required to interact with the SUT",
                             "type": "null"
                         },
                         "progress": {
@@ -198,7 +198,7 @@
                                     "additionalProperties": false,
                                     "properties": {
                                         "interval": {
-                                            "description": "Update interval (in sec)",
+                                            "description": "The integer interval at which observers fetch information from their targets, in seconds, is specified as an integer under the label observer.interval; this is a required property for local and prometheus observers",
                                             "type": "integer"
                                         }
                                     },
@@ -242,37 +242,47 @@
                                 "formats": {
                                     "type": "object",
                                     "additionalProperties": false,
+                                    "description": "The caliper.logging.formats hierarchy is special in a sense that every leaf property can be overridden one-by-one, even from the command line or from environment variables. As you will see later, this is not the case for the logging target settings. The logging subsystem relies on winston’s format mechanism to further modify the log messages. The corresponding settings are under the caliper.logging.formats property",
                                     "properties": {
                                         "timestamp": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "description": "Adds the timestamp to the message in the specified format. The format string must conform to the rules of the fecha package. For example: --caliper-logging-formats-timestamp='YYYY.MM.DD-HH:mm:ss.SSS'"
                                         },
                                         "label": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "description": "Adds a custom label to the message. This is useful for differentiating multiple Caliper instances (or the distributed client instances) after collecting their logs. For example: --caliper-logging-formats-label='caliper-test-1'"
                                         },
                                         "json": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "Outputs the messages as JSON strings. Useful for file-based logs that will be processed automatically by another tool. The format accepts a space sub-property as an options, which corresponds to the space parameter of the JSON.stringify function. For example: --caliper-logging-formats-json='{space:0}'"
                                         },
                                         "pad": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "Makes every log level string the same length, i.e., adds an extra space after 'info' and 'warn' make them the same length as 'error' and 'debug'. For example: --caliper-logging-formats-pad=true"
                                         },
                                         "align": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "Prepends the message part of the log with a tabulator ('\t') to align the messages of different logs in the same place. For example: --caliper-logging-formats-align=true"
                                         },
                                         "attributeformat": {
                                             "type": "object",
                                             "additionalProperties": false,
                                             "properties": {
                                                 "level": {
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "description": "add a space before the level"
                                                 },
                                                 "label": {
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "description": "put [] around the label and space before it"
                                                 },
                                                 "module": {
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "description": "put [] around the module name and space before/after it"
                                                 },
                                                 "metadata": {
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "description": "put () around the metadata and space before it"
                                                 }
                                             },
                                             "title": "Attributeformat"
@@ -280,12 +290,15 @@
                                         "colorize": {
                                             "type": "object",
                                             "additionalProperties": false,
+                                            "description": "Applies color coding for the different attributes of a message. Enabling/disabling coloring is specified on an attribute basis. The following sub-properties can be set to true/false to enable/disable coloring for the corresponding attribute",
                                             "properties": {
                                                 "level": {
-                                                    "type": "boolean"
+                                                    "type": "boolean",
+                                                    "description": "Apply it to levels"
                                                 },
                                                 "message": {
-                                                    "type": "boolean"
+                                                    "type": "boolean",
+                                                    "description": "Apply it to messages"
                                                 },
                                                 "colors": {
                                                     "type": "object",
@@ -315,20 +328,24 @@
                                 "targets": {
                                     "type": "object",
                                     "additionalProperties": false,
+                                    "description": "The source and target(s) of log messages are decoupled, thanks to the transport mechanism of winston. This means that a log message can be easily logged to multiple places, like the console, or different log files. Moreover, this is completely transparent to the module generating the log message. The different targets are specified under the caliper.logging.targets property.",
                                     "properties": {
                                         "console": {
                                             "type": "object",
                                             "additionalProperties": false,
                                             "properties": {
                                                 "target": {
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "description": "the identifier of a supported target (console, file, daily rotate file)"
                                                 },
                                                 "enabled": {
-                                                    "type": "boolean"
+                                                    "type": "boolean",
+                                                    "description": "indicates whether the target is enabled. Defaults to true if omitted."
                                                 },
                                                 "options": {
                                                     "type": "object",
                                                     "additionalProperties": false,
+                                                    "description": "this object will be given as-is to the specific winston transport as options. See the table below for the supported options of each transport",
                                                     "properties": {
                                                         "level": {
                                                             "type": "string"
@@ -347,7 +364,8 @@
                                             "additionalProperties": false,
                                             "properties": {
                                                 "target": {
-                                                    "type": "string"
+                                                    "type": "string",
+                                                    "description": ""
                                                 },
                                                 "enabled": {
                                                     "type": "boolean"
@@ -403,17 +421,21 @@
                             "additionalProperties": false,
                             "properties": {
                                 "remote": {
-                                    "type": "boolean"
+                                    "type": "boolean",
+                                    "description": "Indicates whether the workers operate in distributed mode"
                                 },
                                 "communication": {
                                     "type": "object",
                                     "additionalProperties": false,
+                                    "description": "Worker communication details",
                                     "properties": {
                                         "method": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "description": "Indicates the type of the communication between the manager and workers"
                                         },
                                         "address": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "description": "The address of the MQTT broker used for distributed worker management"
                                         }
                                     },
                                     "title": "Communication"
@@ -431,19 +453,24 @@
                                 "additionalProperties": false,
                                 "properties": {
                                     "start": {
-                                        "type": "boolean"
+                                        "type": "boolean",
+                                        "description": "Indicates whether to skip the start command script in the network configuration file, if provided"
                                     },
                                     "init": {
-                                        "type": "boolean"
+                                        "type": "boolean",
+                                        "description": "Indicates whether to skip the init phase of the benchmark"
                                     },
                                     "install": {
-                                        "type": "boolean"
+                                        "type": "boolean",
+                                        "description": "Indicates whether to skip the smart contract install phase of the benchmark"
                                     },
                                     "test": {
-                                        "type": "boolean"
+                                        "type": "boolean",
+                                        "description": "Indicates whether to skip the test phase of the benchmark"
                                     },
                                     "end": {
-                                        "type": "boolean"
+                                        "type": "boolean",
+                                        "description": "Indicates whether to skip the end command script in the network configuration file, if provided"
                                     }
                                 },
                                 "title": "Only"
@@ -451,21 +478,27 @@
                                 "only": {
                                     "type": "object",
                                     "additionalProperties": false,
+                                    "description": "Only options",
                                     "properties": {
                                         "start": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "Indicates whether to skip the start command script in the network configuration file, if provided"
                                         },
                                         "init": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "Indicates whether to skip the init phase of the benchmark"
                                         },
                                         "install": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "Indicates whether to skip the smart contract install phase of the benchmark"
                                         },
                                         "test": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "Indicates whether to skip the test phase of the benchmark"
                                         },
                                         "end": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "Indicates whether to skip the end command script in the network configuration file, if provided"
                                         }
                                     },
                                     "title": "Only"
@@ -482,12 +515,15 @@
                                 "verify": {
                                     "type": "object",
                                     "additionalProperties": false,
+                                    "description": "Enables extra verification steps during the transaction proposal phase for 1.4 SUT without gateway being enabled",
                                     "properties": {
                                         "proposalresponse": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "For 1.4 SUT without gateway enabled, Indicates whether to verify the identity of the endorsers and their signatures for each proposal response after endorsing a transaction. Note, that this is a CPU intensive step, use it with caution"
                                         },
                                         "readwritesets": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "For 1.4 SUT without gateway enabled, indicates whether to verify that the read-write sets returned by the endorsers match"
                                         }
                                     },
                                     "title": "Verify"
@@ -495,9 +531,11 @@
                                 "timeout": {
                                     "type": "object",
                                     "additionalProperties": false,
+                                    "description": "Contains worker-side timeouts",
                                     "properties": {
                                         "invokeorquery": {
-                                            "type": "integer"
+                                            "type": "integer",
+                                            "description": "The default timeout in seconds to use for invoking or querying transactions (applied for the entire life-cycle)"
                                         }
                                     },
                                     "required": [
@@ -506,26 +544,33 @@
                                     "title": "Timeout"
                                 },
                                 "loadbalancing": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "For 1.4 SUT without gateway enabled, determines how automatic load balancing is applied if the worker callback module doesn’t provide explicit targets. Use the value 'worker' to perform worker-based load balancing, meaning that each worker process will have fix target peers and target orderer. Use the value 'tx' to perform transaction-based load balancing, meaning that the peer and orderer targets change for every submitted transaction or query."
                                 },
                                 "latencythreshold": {
-                                    "type": "integer"
+                                    "type": "integer",
+                                    "description": "For 1.4 SUT without gateway enabled, determines the reported commit time of a transaction based on the given percentage of event sources"
                                 },
                                 "gateway": {
                                     "type": "object",
                                     "additionalProperties": false,
+                                    "description": "Settings for the 1.4 SUT with gateway enabled option and the 2.2 SUT (except the enabled option)Settings for the 1.4 SUT with gateway enabled option and the 2.2 SUT (except the enabled option)",
                                     "properties": {
                                         "enabled": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "For 1.4 SUT, Indicates whether to use the Fabric Gateway API. For 2.2 SUT it is always true and cannot be changed"
                                         },
                                         "localhost": {
-                                            "type": "boolean"
+                                            "type": "boolean",
+                                            "description": "Indicates whether to convert discovered endpoints to localhost. Ignored when if discover is set to false in network config"
                                         },
                                         "eventstrategy": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "description": "Which event strategy to use"
                                         },
                                         "querystrategy": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "description": "Which query strategy to use"
                                         }
                                     },
                                     "title": "Gateway"
