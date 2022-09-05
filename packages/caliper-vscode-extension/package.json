@@ -13,9 +13,71 @@
     "type": "git",
     "url": "https://github.com/eravatee/caliper/tree/vscode-extension"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onView:configFileExplorer"
+  ],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "configFile-explorer",
+					"title": "Explorer",
+          "icon": "resources/dark/document_dark.svg",
+          "contextualTitle": "Config File Explorer"
+        }
+      ]
+    },
+    "views": {
+      "configFile-explorer": [
+        {
+					"id": "configFileExplorer",
+					"name": "Config Files"
+				}
+      ]
+    },
+    "commands": [
+      {
+        "command": "configScripts.refreshEntry",
+        "title": "Refresh",
+        "icon": {
+          "light": "resources/light/refresh.svg",
+          "dark": "resources/dark/refresh.svg"
+        }
+      },
+      {
+        "command": "configScripts.openResource",
+        "title": "Open ConfigFile Resource"
+      },
+      {
+				"command": "configFileExplorer.refreshFile",
+				"title": "Refresh",
+				"icon": {
+					"light": "resources/light/refresh_light.svg",
+					"dark": "resources/dark/refresh.svg"
+				}
+			},
+			{
+				"command": "configFileExplorer.openFile",
+				"title": "Open File"
+			}
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "configScripts.refreshEntry",
+          "when": "view == configScripts",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+					"command": "configFileExplorer.refreshFile",
+					"when": "view == configFileExplorer && viewItem == file",
+					"group": "inline"
+				}
+      ]
+    },
     "yamlValidation": [
       {
         "fileMatch": "calrun.yaml",
@@ -46,5 +108,11 @@
   },
   "extensionDependencies": [
     "redhat.vscode-yaml"
-  ]
+  ],
+  "dependencies": {
+    "ftp": "^0.3.10",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2",
+    "walk": "^2.3.15"
+  }
 }
