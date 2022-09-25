@@ -15,8 +15,11 @@
 'use strict';
 
 const TxObserverInterface = require('./tx-observer-interface');
+const WorkerMetricsMessage = require('../../common/messages/workerMetricsMessage');
+const CaliperUtils = require('../../common/utils/caliper-utils');
+const ConfigUtil = require('../../common/config/config-util');
 
-const PrometheusUpdateMessage = require('../../common/messages/prometheusUpdateMessage');
+const Logger = CaliperUtils.getLogger('prometheus-tx-observer');
 
 /**
  * Prometheus Manager TX observer used to send updates to the Prometheus scrape server in the manager.
@@ -32,6 +35,30 @@ class PrometheusManagerTxObserver extends TxObserverInterface {
     constructor(options, messenger, workerIndex, managerUuid) {
         super(messenger, workerIndex);
 
+        this.method = (options && options.method) ? options.method : ConfigUtil.get(ConfigUtil.keys.Observer.PrometheusManager.Method);
+        if (this.method === 'periodic') {
+            this.updateInterval = (options && options.interval) ? options.interval : ConfigUtil.get(ConfigUtil.keys.Observer.PrometheusManager.Interval);
+            this.intervalObject = undefined;
+            if (this.updateInterval <= 0) {
+                Logger.error('Invalid update interval specified, using default value');
+                this.updateInterval = ConfigUtil.get(ConfigUtil.keys.Observer.PrometheusManager.Interval);
+            }
+            if (options && options.collationCount) {
+                Logger.warn('Collation count is ignored when using periodic method');
+            }
+        } else if (this.method === 'collate') {
+            this.collationCount = (options && options.collationCount) ? options.collationCount : ConfigUtil.get(ConfigUtil.keys.Observer.PrometheusManager.CollationCount);
+            if (this.collationCount <= 0) {
+                Logger.error('Invalid collation count specified, using default value');
+                this.collationCount = ConfigUtil.get(ConfigUtil.keys.Observer.PrometheusManager.CollationCount);
+            }
+            if (options && options.interval) {
+                Logger.warn('Update interval is ignored when using collate method');
+            }
+        }
+
+        this.pendingMessages = [];
+
         this.managerUuid = managerUuid;
     }
     /**
@@ -39,14 +66,14 @@ class PrometheusManagerTxObserver extends TxObserverInterface {
      * @param {number} count The number of submitted TXs. Can be greater than one for a batch of TXs.
      */
     txSubmitted(count) {
-        const message = new PrometheusUpdateMessage(this.messenger.getUUID(), [this.managerUuid], {
+        const message = new WorkerMetricsMessage(this.messenger.getUUID(), [this.managerUuid], {
             event: 'txSubmitted',
             workerIndex: this.workerIndex,
             roundIndex: this.currentRound,
             roundLabel: this.roundLabel,
             count: count
         });
-        this.messenger.send(message);
+        this._appendMessage(message);
     }
 
     /**
@@ -57,28 +84,78 @@ class PrometheusManagerTxObserver extends TxObserverInterface {
         if (Array.isArray(results)) {
             for (const result of results) {
                 // pass/fail status from result.GetStatus()
-                const message = new PrometheusUpdateMessage(this.messenger.getUUID(), [this.managerUuid], {
+                const message = new WorkerMetricsMessage(this.messenger.getUUID(), [this.managerUuid], {
                     event: 'txFinished',
                     workerIndex: this.workerIndex,
                     roundIndex: this.currentRound,
                     roundLabel: this.roundLabel,
                     status: result.GetStatus(),
-                    latency: result.GetTimeFinal() - result.GetTimeCreate()
+                    latency: (result.GetTimeFinal() - result.GetTimeCreate()) / 1000
                 });
-                this.messenger.send(message);
+                this._appendMessage(message);
             }
         } else {
             // pass/fail status from result.GetStatus()
-            const message = new PrometheusUpdateMessage(this.messenger.getUUID(), [this.managerUuid], {
+            const message = new WorkerMetricsMessage(this.messenger.getUUID(), [this.managerUuid], {
                 event: 'txFinished',
                 workerIndex: this.workerIndex,
                 roundIndex: this.currentRound,
                 roundLabel: this.roundLabel,
                 status: results.GetStatus(),
-                latency: (results.GetTimeFinal() - results.GetTimeCreate())/1000
+                latency: (results.GetTimeFinal() - results.GetTimeCreate()) / 1000
             });
+            this._appendMessage(message);
+        }
+    }
+
+    /**
+     * Adds message to the pending message queue
+     * @param {object} message Pending message
+     * @private
+     */
+    async _appendMessage(message) {
+        this.pendingMessages.push(message);
+
+        if (this.method === 'collate' && this.pendingMessages.length === this.collationCount) {
+            await this._sendUpdate();
+        }
+    }
+
+    /**
+     * Sends the current aggregated statistics to the manager node when triggered by "setInterval".
+     * @private
+     */
+    async _sendUpdate() {
+        for (const message of this.pendingMessages) {
             this.messenger.send(message);
         }
+        this.pendingMessages = [];
+    }
+
+    /**
+     * Activates the TX observer instance and starts the regular update scheduling.
+     * @param {number} roundIndex The 0-based index of the current round.
+     * @param {string} roundLabel The roundLabel name.
+     */
+    async activate(roundIndex, roundLabel) {
+        await super.activate(roundIndex, roundLabel);
+
+        if (this.method === 'periodic') {
+            this.intervalObject = setInterval(async () => { await this._sendUpdate(); }, this.updateInterval);
+        }
+    }
+
+    /**
+     * Deactivates the TX observer interface, and stops the regular update scheduling.
+     */
+    async deactivate() {
+        await super.deactivate();
+
+        if (this.intervalObject) {
+            clearInterval(this.intervalObject);
+            this.intervalObject = undefined;
+        }
+        await this._sendUpdate();
     }
 }
 

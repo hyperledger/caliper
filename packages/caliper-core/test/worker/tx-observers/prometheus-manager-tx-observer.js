@@ -19,6 +19,10 @@ const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 const mockery = require('mockery');
 const sinon = require('sinon');
+const expect = chai.expect;
+
+const warnLogger = sinon.stub();
+const errorLogger = sinon.stub();
 
 /**
  * simulate Util
@@ -35,7 +39,7 @@ class Utils {
 
     /**
      *
-     * @return {boolean} the fake path
+     * @return {boolean} if the process is a forked process
      */
     static isForkedProcess() {
         return false;
@@ -55,8 +59,8 @@ class Utils {
      */
     static getLogger() {
         return {
-            debug: sinon.stub(),
-            error: sinon.stub()
+            warn: warnLogger,
+            error: errorLogger
         };
     }
 
@@ -86,17 +90,93 @@ describe('When using a PrometheusManagerTxObserver', () => {
         mockery.disable();
     });
 
+    beforeEach(() => {
+        warnLogger.reset();
+        errorLogger.reset();
+    });
+
     it('should set managerUuid passed through constructor', () => {
         const observer = new PrometheusManagerTxObserver.createTxObserver(undefined, undefined, undefined, 'fakeUuid');
         observer.managerUuid.should.equal('fakeUuid');
     });
 
+    it ('should set the correct parameters when method is periodic', () => {
+        const options = {
+            method: 'periodic',
+            interval: 1000,
+        };
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
+        observer.method.should.equal('periodic');
+        expect(observer.updateInterval).to.equal(1000);
+        expect(observer.intervalObject).to.equal(undefined);
+    });
 
-    it('should send update message when TXs are submitted', () => {
+    it ('should set the correct parameters when method is collate', () => {
+        const options = {
+            method: 'collate',
+            collationCount: 10,
+        };
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
+        observer.method.should.equal('collate');
+        expect(observer.collationCount).to.equal(10);
+    });
+
+    it ('should set the default method when options are not provided', () => {
+        const observer = new PrometheusManagerTxObserver.createTxObserver(undefined, undefined, undefined, 'fakeUuid');
+        observer.method.should.equal('periodic');
+        expect(observer.updateInterval).to.equal(1000);
+        expect(observer.intervalObject).to.equal(undefined);
+    });
+
+    it ('should use default update interval and print error log when method is periodic and interval is invalid', () => {
+        const options = {
+            method: 'periodic',
+            interval: -1,
+        };
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
+        observer.method.should.equal('periodic');
+        expect(observer.updateInterval).to.equal(1000);
+        expect(observer.intervalObject).to.equal(undefined);
+        sinon.assert.calledOnce(errorLogger);
+    });
+
+    it ('should warn when collationCount is specified but method is periodic', () => {
+        const options = {
+            method: 'periodic',
+            collationCount: 10,
+        };
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
+        observer.method.should.equal('periodic');
+        sinon.assert.calledOnce(warnLogger);
+    });
+
+    it ('should use default collationCount and print error log when method is collate and collationCount is invalid', () => {
+        const options = {
+            method: 'collate',
+            collationCount: -1,
+        };
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
+        observer.method.should.equal('collate');
+        expect(observer.collationCount).to.equal(10);
+        sinon.assert.calledOnce(errorLogger);
+    });
+
+    it ('should warn when interval is specified but method is collate', () => {
+        const options = {
+            method: 'collate',
+            interval: 1000,
+        };
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
+        observer.method.should.equal('collate');
+        sinon.assert.calledOnce(warnLogger);
+    });
+
+
+    it('should update the pending messages array when TXs are submitted', async () => {
         const senderUuid = 'senderUuid';
         const messenger = {
             getUUID: sinon.stub().returns(senderUuid),
-            send: sinon.spy()
+            send: sinon.stub()
         };
         const workerIndex = 0;
         const roundIndex = 1;
@@ -109,25 +189,16 @@ describe('When using a PrometheusManagerTxObserver', () => {
         observer.currentRound = roundIndex;
         observer.roundLabel = roundLabel;
 
-        observer.txSubmitted(txCount);
+        await observer.txSubmitted(txCount);
 
-        sinon.assert.calledWith(messenger.send, sinon.match({
-            content: sinon.match({
-                event: 'txSubmitted',
-                roundIndex: roundIndex,
-                roundLabel: roundLabel,
-                count: txCount,
-            }),
-            sender: senderUuid,
-            recipients: sinon.match.array.contains([managerUuid])
-        }));
+        observer.pendingMessages.should.have.lengthOf(1);
     });
 
-    it('should send update message when single TX is finished', () => {
+    it('should update the pending messages array when single TX is finished', async () => {
         const senderUuid = 'senderUuid';
         const messenger = {
             getUUID: sinon.stub().returns(senderUuid),
-            send: sinon.spy()
+            send: sinon.stub()
         };
         const workerIndex = 0;
         const roundIndex = 1;
@@ -147,26 +218,16 @@ describe('When using a PrometheusManagerTxObserver', () => {
         observer.currentRound = roundIndex;
         observer.roundLabel = roundLabel;
 
-        observer.txFinished(result);
+        await observer.txFinished(result);
 
-        sinon.assert.calledWith(messenger.send, sinon.match({
-            content: sinon.match({
-                event: 'txFinished',
-                roundIndex: roundIndex,
-                roundLabel: roundLabel,
-                status: 'success',
-                latency: (timeFinal - timeCreate) / 1000,
-            }),
-            sender: senderUuid,
-            recipients: sinon.match.array.contains([managerUuid])
-        }));
+        observer.pendingMessages.should.have.lengthOf(1);
     });
 
-    it('should send update message when multiple TXs are finished', () => {
+    it('should update the pending messages array when multiple TXs are finished', async () => {
         const senderUuid = 'senderUuid';
         const messenger = {
             getUUID: sinon.stub().returns(senderUuid),
-            send: sinon.spy()
+            send: sinon.stub()
         };
         const workerIndex = 0;
         const roundIndex = 1;
@@ -186,29 +247,379 @@ describe('When using a PrometheusManagerTxObserver', () => {
         observer.currentRound = roundIndex;
         observer.roundLabel = roundLabel;
 
-        observer.txFinished([result, result]);
+        await observer.txFinished([result, result]);
 
-        sinon.assert.calledWith(messenger.send, sinon.match({
-            content: sinon.match({
-                event: 'txFinished',
-                roundIndex: roundIndex,
-                roundLabel: roundLabel,
-                status: 'success',
-                latency: (timeFinal - timeCreate),
-            }),
-            sender: senderUuid,
-            recipients: sinon.match.array.contains([managerUuid])
-        }));
-        sinon.assert.calledWith(messenger.send, sinon.match({
-            content: sinon.match({
-                event: 'txFinished',
-                roundIndex: roundIndex,
-                roundLabel: roundLabel,
-                status: 'success',
-                latency: (timeFinal - timeCreate),
-            }),
-            sender: senderUuid,
-            recipients: sinon.match.array.contains([managerUuid])
-        }));
+        observer.pendingMessages.should.have.lengthOf(2);
+    });
+
+    it('should trigger update when collationCount is crossed with the collate method', async () => {
+        const senderUuid = 'senderUuid';
+        const messenger = {
+            getUUID: sinon.stub().returns(senderUuid),
+            send: sinon.stub()
+        };
+        const workerIndex = 0;
+        const roundIndex = 1;
+        const roundLabel = 'roundLabel';
+        const managerUuid = 'managerUuid';
+        const timeFinal = 1000;
+        const timeCreate = 0;
+
+        const result = {
+            GetStatus: sinon.stub().returns('success'),
+            GetTimeFinal: sinon.stub().returns(timeFinal),
+            GetTimeCreate: sinon.stub().returns(timeCreate),
+        };
+
+        const options = {
+            method: 'collate',
+            collationCount: 2,
+        };
+
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, messenger, workerIndex, managerUuid);
+        observer.messenger = messenger;
+        observer.currentRound = roundIndex;
+        observer.roundLabel = roundLabel;
+
+        observer._sendUpdate = sinon.spy();
+
+        await observer.txFinished([result, result]);
+
+        observer._sendUpdate.should.have.been.calledOnce;
+    });
+
+    it('should not trigger update until collation count is reached with method collate', async () => {
+        const senderUuid = 'senderUuid';
+        const messenger = {
+            getUUID: sinon.stub().returns(senderUuid),
+            send: sinon.stub()
+        };
+        const workerIndex = 0;
+        const roundIndex = 1;
+        const roundLabel = 'roundLabel';
+        const managerUuid = 'managerUuid';
+        const timeFinal = 1000;
+        const timeCreate = 0;
+
+        const result = {
+            GetStatus: sinon.stub().returns('success'),
+            GetTimeFinal: sinon.stub().returns(timeFinal),
+            GetTimeCreate: sinon.stub().returns(timeCreate),
+        };
+
+        const options = {
+            method: 'collate',
+            collationCount: 2,
+        };
+
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, messenger, workerIndex, managerUuid);
+        observer.messenger = messenger;
+        observer.currentRound = roundIndex;
+        observer.roundLabel = roundLabel;
+
+        observer._sendUpdate = sinon.spy();
+
+        await observer.txFinished(result);
+
+        observer._sendUpdate.should.not.have.been.called;
+    });
+
+    it('should send pending messages when collation count is reached with method collate', async () => {
+        const senderUuid = 'senderUuid';
+        const messenger = {
+            getUUID: sinon.stub().returns(senderUuid),
+            send: sinon.spy()
+        };
+        const workerIndex = 0;
+        const roundIndex = 1;
+        const roundLabel = 'roundLabel';
+        const managerUuid = 'managerUuid';
+        const timeFinal = 1000;
+        const timeCreate = 0;
+
+        const result = {
+            GetStatus: sinon.stub().returns('success'),
+            GetTimeFinal: sinon.stub().returns(timeFinal),
+            GetTimeCreate: sinon.stub().returns(timeCreate),
+        };
+
+        const options = {
+            method: 'collate',
+            collationCount: 2,
+        };
+
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, messenger, workerIndex, managerUuid);
+        observer.messenger = messenger;
+        observer.currentRound = roundIndex;
+        observer.roundLabel = roundLabel;
+
+        await observer.txFinished([result, result]);
+
+        messenger.send.should.have.been.calledTwice;
+    });
+
+    it('should clear pending messages when collation count is reached with method collate', async () => {
+        const senderUuid = 'senderUuid';
+        const messenger = {
+            getUUID: sinon.stub().returns(senderUuid),
+            send: sinon.stub()
+        };
+        const workerIndex = 0;
+        const roundIndex = 1;
+        const roundLabel = 'roundLabel';
+        const managerUuid = 'managerUuid';
+        const timeFinal = 1000;
+        const timeCreate = 0;
+
+        const result = {
+            GetStatus: sinon.stub().returns('success'),
+            GetTimeFinal: sinon.stub().returns(timeFinal),
+            GetTimeCreate: sinon.stub().returns(timeCreate),
+        };
+
+        const options = {
+            method: 'collate',
+            collationCount: 2,
+        };
+
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, messenger, workerIndex, managerUuid);
+        observer.messenger = messenger;
+        observer.currentRound = roundIndex;
+        observer.roundLabel = roundLabel;
+
+        await observer.txFinished([result, result]);
+
+        observer.pendingMessages.should.have.lengthOf(0);
+    });
+
+    it('should setup interval timer with method periodic', async () => {
+        const senderUuid = 'senderUuid';
+        const messenger = {
+            getUUID: sinon.stub().returns(senderUuid),
+            send: sinon.stub()
+        };
+        const workerIndex = 0;
+        const roundIndex = 1;
+        const roundLabel = 'roundLabel';
+        const managerUuid = 'managerUuid';
+
+        const options = {
+            method: 'periodic',
+            interval: 1000,
+        };
+
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, messenger, workerIndex, managerUuid);
+        observer.messenger = messenger;
+        observer.currentRound = roundIndex;
+        observer.roundLabel = roundLabel;
+
+        await observer.activate(roundIndex, roundLabel);
+
+        expect(observer.intervalObject).to.not.be.undefined;
+    });
+
+    it('should trigger update when interval is exceeded with method periodic', async () => {
+        const clock = sinon.useFakeTimers();
+
+        const senderUuid = 'senderUuid';
+        const messenger = {
+            getUUID: sinon.stub().returns(senderUuid),
+            send: sinon.stub()
+        };
+        const workerIndex = 0;
+        const roundIndex = 1;
+        const roundLabel = 'roundLabel';
+        const managerUuid = 'managerUuid';
+        const timeFinal = 1000;
+        const timeCreate = 0;
+
+        const result = {
+            GetStatus: sinon.stub().returns('success'),
+            GetTimeFinal: sinon.stub().returns(timeFinal),
+            GetTimeCreate: sinon.stub().returns(timeCreate),
+        };
+
+        const options = {
+            method: 'periodic',
+            interval: 1000,
+        };
+
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, messenger, workerIndex, managerUuid);
+        observer.messenger = messenger;
+        observer.currentRound = roundIndex;
+        observer.roundLabel = roundLabel;
+
+        observer._sendUpdate = sinon.spy();
+
+        await observer.activate(roundIndex, roundLabel);
+        await observer.txFinished(result);
+
+        observer._sendUpdate.should.not.have.been.called;
+
+        clock.tick(1000);
+
+        observer._sendUpdate.should.have.been.calledOnce;
+
+        clock.restore();
+    });
+
+    it('should send pending messages when interval is exceeded with method periodic', async () => {
+        const clock = sinon.useFakeTimers();
+
+        const senderUuid = 'senderUuid';
+        const messenger = {
+            getUUID: sinon.stub().returns(senderUuid),
+            send: sinon.spy()
+        };
+        const workerIndex = 0;
+        const roundIndex = 1;
+        const roundLabel = 'roundLabel';
+        const managerUuid = 'managerUuid';
+        const timeFinal = 1000;
+        const timeCreate = 0;
+
+        const result = {
+            GetStatus: sinon.stub().returns('success'),
+            GetTimeFinal: sinon.stub().returns(timeFinal),
+            GetTimeCreate: sinon.stub().returns(timeCreate),
+        };
+
+        const options = {
+            method: 'periodic',
+            interval: 1000,
+        };
+
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, messenger, workerIndex, managerUuid);
+        observer.messenger = messenger;
+        observer.currentRound = roundIndex;
+        observer.roundLabel = roundLabel;
+
+        await observer.activate(roundIndex, roundLabel);
+        await observer.txFinished(result);
+
+        messenger.send.should.not.have.been.called;
+
+        clock.tick(1000);
+
+        messenger.send.should.have.been.calledOnce;
+
+        clock.restore();
+    });
+
+    it('should clear pending messages when interval is exceeded with method periodic', async () => {
+        const clock = sinon.useFakeTimers();
+
+        const senderUuid = 'senderUuid';
+        const messenger = {
+            getUUID: sinon.stub().returns(senderUuid),
+            send: sinon.stub()
+        };
+        const workerIndex = 0;
+        const roundIndex = 1;
+        const roundLabel = 'roundLabel';
+        const managerUuid = 'managerUuid';
+        const timeFinal = 1000;
+        const timeCreate = 0;
+
+        const result = {
+            GetStatus: sinon.stub().returns('success'),
+            GetTimeFinal: sinon.stub().returns(timeFinal),
+            GetTimeCreate: sinon.stub().returns(timeCreate),
+        };
+
+        const options = {
+            method: 'periodic',
+            interval: 1000,
+        };
+
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, messenger, workerIndex, managerUuid);
+        observer.messenger = messenger;
+        observer.currentRound = roundIndex;
+        observer.roundLabel = roundLabel;
+
+        await observer.activate(roundIndex, roundLabel);
+        await observer.txFinished(result);
+
+        observer.pendingMessages.should.have.lengthOf(1);
+
+        clock.tick(1000);
+
+        observer.pendingMessages.should.have.lengthOf(0);
+
+        clock.restore();
+    });
+
+    it('should clear interval timer when deactivated with method periodic', async () => {
+        const clock = sinon.useFakeTimers();
+
+        const senderUuid = 'senderUuid';
+        const messenger = {
+            getUUID: sinon.stub().returns(senderUuid),
+            send: sinon.stub()
+        };
+        const workerIndex = 0;
+        const roundIndex = 1;
+        const roundLabel = 'roundLabel';
+        const managerUuid = 'managerUuid';
+
+        const options = {
+            method: 'periodic',
+            interval: 1000,
+        };
+
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, messenger, workerIndex, managerUuid);
+        observer.messenger = messenger;
+        observer.currentRound = roundIndex;
+        observer.roundLabel = roundLabel;
+
+        await observer.activate(roundIndex, roundLabel);
+        await observer.deactivate();
+
+        expect(observer.intervalObject).to.be.undefined;
+
+        clock.restore();
+    });
+
+    it('should send pending messages when deactivated', async () => {
+        const clock = sinon.useFakeTimers();
+
+        const senderUuid = 'senderUuid';
+        const messenger = {
+            getUUID: sinon.stub().returns(senderUuid),
+            send: sinon.spy()
+        };
+        const workerIndex = 0;
+        const roundIndex = 1;
+        const roundLabel = 'roundLabel';
+        const managerUuid = 'managerUuid';
+        const timeFinal = 1000;
+        const timeCreate = 0;
+
+        const result = {
+            GetStatus: sinon.stub().returns('success'),
+            GetTimeFinal: sinon.stub().returns(timeFinal),
+            GetTimeCreate: sinon.stub().returns(timeCreate),
+        };
+
+        const options = {
+            method: 'periodic',
+            interval: 1000,
+        };
+
+        const observer = new PrometheusManagerTxObserver.createTxObserver(options, messenger, workerIndex, managerUuid);
+        observer.messenger = messenger;
+        observer.currentRound = roundIndex;
+        observer.roundLabel = roundLabel;
+
+        await observer.activate(roundIndex, roundLabel);
+        await observer.txFinished(result);
+
+        messenger.send.should.not.have.been.called;
+
+        await observer.deactivate();
+
+        messenger.send.should.have.been.calledOnce;
+
+        clock.restore();
     });
 });

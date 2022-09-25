@@ -65,6 +65,11 @@ const keys = {
         },
         PrometheusPush: {
             Interval: 'caliper-observer-prometheuspush-interval'
+        },
+        PrometheusManager: {
+            Method: 'caliper-observer-prometheusmanager-method',
+            Interval: 'caliper-observer-prometheusmanager-interval',
+            CollationCount: 'caliper-observer-prometheusmanager-collationcount'
         }
     },
     Workspace: 'caliper-workspace',

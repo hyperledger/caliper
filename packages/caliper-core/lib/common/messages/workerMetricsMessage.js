@@ -15,14 +15,14 @@
 'use strict';
 
 const Message = require('./message');
-const MessageTypes = require('./../utils/constants').Messages.Types;
+const MessageTypes = require('../utils/constants').Messages.Types;
 
 /**
- * Class for the "prometheusUpdate" message.
+ * Class for the "workerMetricsMessage" message.
  */
-class PrometheusUpdateMessage extends Message {
+class WorkerMetricsMessage extends Message {
     /**
-     * Constructor for a "prometheusUpdate" message instance.
+     * Constructor for a "workerMetricsMessage" message instance.
      * @param {string} sender The sender of the message.
      * @param {string[]} recipients The recipients of the message.
      * @param {object} content The content of the message.
@@ -30,8 +30,8 @@ class PrometheusUpdateMessage extends Message {
      * @param {string} error The potential error associated with the message.
      */
     constructor(sender, recipients, content, date = undefined, error = undefined) {
-        super(sender, recipients, MessageTypes.PrometheusUpdate, content, date, error);
+        super(sender, recipients, MessageTypes.WorkerMetricsMessage, content, date, error);
     }
 }
 
-module.exports = PrometheusUpdateMessage;
+module.exports = WorkerMetricsMessage;
