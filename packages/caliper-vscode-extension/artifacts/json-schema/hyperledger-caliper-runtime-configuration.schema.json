@@ -1,0 +1,588 @@
+{
+    "$schema": "https://json-schema.org/draft-06/schema",
+    "$ref": "#/definitions/ConfigurationHelper",
+    "definitions": {   
+        "ConfigurationHelper": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "caliper": {
+                    "type": "object",
+                    "properties": {
+                        "auth": {
+                            "type": "object",
+                            "description": "Define settings related to authorization for Prometheus and Prometheus push",
+                            "properties": {
+                                "prometheuspush": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "description": "Prometheus Push Gateway",
+                                    "properties": {
+                                        "username": {
+                                            "description": "Prometheus Push Gateway; username",
+                                            "type": "null"
+                                        },
+                                        "password": {
+                                            "description": "Prometheus Push Gateway; password",
+                                            "type": "null"
+                                        }
+                                    },
+                                    "title": "Prometheus Push"
+                                },
+                                "prometheus": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "description": "Prometheus",
+                                    "properties": {
+                                        "username": {
+                                            "description": "Prometheus; username",
+                                            "type": "null"
+                                        },
+                                        "password": {
+                                            "description": "Prometheus; password",
+                                            "type": "null"
+                                        }
+                                    },
+                                    "title": "Prometheus"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "title": "Authentication"
+                        },
+                        "bind": {
+                            "description": "We use the bind command to inform caliper which platform to target and which platform SDK version to use. Settings related to the binding command",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "sut": {
+                                    "description":"SUT/platform name and SDK version: The binding specification of the SUT in the <SUT type>:<SDK version> format",
+                                    "type": "null"
+                                },
+                                "cwd": {
+                                    "description": "The Current Working Directory to use for the binding (i.e., npm install) command",
+                                    "type": "null"
+                                },
+                                "args": {
+                                    "description": "The additional arguments to pass to the binding (i.e., npm install) command",
+                                    "type": "null"
+                                },
+                                "file": {
+                                    "description": "The file to use when binding (replace supported defaults)",
+                                    "type": "null"
+                                }
+                            },
+                            "title": "Bind"
+                        },
+                        "report": {
+                            "description": "Report file-related options", 
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "path": {
+                                    "description": "The absolute or workspace-relative path of the report file.",
+                                    "type": "string"
+                                },
+                                "options": {
+                                    "description": "The options to pass to fs.writeFile",
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "flag": {
+                                            "description": "The mode in which file will be opened in", 
+                                            "type": "string"
+                                        },
+                                        "mode": {
+                                            "description": "Access Permissions for file",
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "title": "report Options"
+                                },
+                                "precision": {
+                                    "description": "Precision (significant figures) for the report output",
+                                    "type": "integer"
+                                },
+                                "charting": {
+                                    "description": "Charting options",
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "hue": {
+                                            "type": "integer"
+                                        },
+                                        "scheme": {
+                                            "type": "string"
+                                        },
+                                        "transparency": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "title": "Charting"
+                                }
+                            },
+                            "title": "Report"
+                        },
+                        "workspace": {
+                            "title": "Workspace",
+                            "description": "Workspace directory that contains all configuration information",
+                            "type": "string"
+                        },
+                        "projectconfig": {
+                            "title": "Project Configuration",
+                            "description": "projectconfig:If you have a group of settings that are always overridden in your Caliper benchmark project, then it is recommended to define them as a project-level configuration file. This file will usually consist of a subset of settings defined in the default configuration file (and probably your custom settings associated with your custom user module). More information: https://hyperledger.github.io/caliper/v0.5.0/runtime-config/#project-level",
+                            "type": "null"
+                        },
+                        "userconfig": {
+                            "title": "User Configuration",
+                            "description": "userconfig: If you find yourself overriding the same settings for multiple Caliper benchmark projects, then it is recommended to extract the common settings into a user-level configuration file. More information: https://hyperledger.github.io/caliper/v0.5.0/runtime-config/#user-level",
+                            "type": "null"
+                        },
+                        "machineconfig": {
+                            "title": "Machine Configuration",
+                            "description": "machineconfig: If multiple users use the same workstation and want to share common settings across Caliper projects and users, then a machine-level configuration file can be included into the hierarchy by specifying its path through the caliper-machineconfig settings key using one of the higher priority locations above. More information: https://hyperledger.github.io/caliper/v0.5.0/runtime-config/#machine-level",
+                            "type": "null"
+                        },
+                        "benchconfig": {
+                            "title": "Bench Configuration",
+                            "description": "Path to the benchmark configuration file that describes the test worker(s), test rounds and monitors",
+                            "type": "null"
+                        },
+                        "networkconfig": {
+                            "title": "Network Configuration",
+                            "description": "Path to the network configuration file that contains information required to interact with the SUT",
+                            "type": "null"
+                        },
+                        "progress": {
+                            "description": "Configurations related to caliper test progress",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "reporting": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "enabled": {
+                                            "description": "Enable the reporting action",
+                                            "type": "boolean"
+                                        },
+                                        "interval": {
+                                            "description": "Reporting frequency",
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "title": "Reporting"
+                                }
+                            },
+                            "title": "Progress"
+                        },
+                        "monitor": {
+                            "description": "Each declared resource monitoring module is accompanied with options required to configure each of the named monitors. A common option for some modules is interval, which is used to configure the refresh interval at which point resource utilization is measured by the monitor. Heer, mention configurations related to caliper resource monitors",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "interval": {
+                                    "description": "Update interval",
+                                    "type": "integer"
+                                }
+                            },
+                            "title": "Monitor"
+                        },
+                        "observer": {
+                            "description": "Transaction monitors are used by Caliper workers to act on the completion of transactions. They are used internally to aggregate and dispatch transaction statistics to the manager process to enable transaction statistics aggregation for progress reporting via the default observer, and report generation. Here, configurations related to caliper transaction observers",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "internal": {
+                                    "description": "Internal transaction observer",
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "interval": {
+                                            "description": "The integer interval at which observers fetch information from their targets, in seconds, is specified as an integer under the label observer.interval; this is a required property for local and prometheus observers",
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "title": "Observer Internal"
+                                },
+                                "prometheuspush": {
+                                    "description": "Prometheus PushGateway transaction observer",
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "interval": {
+                                            "description": "Update interval",
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "title": "Observer Prometheus Push"
+                                },
+                                "prometheus": {
+                                    "description": "Prometheus transaction observer",
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "scrapeport": {
+                                            "description": "Default scrape port for prometheus transaction observer",
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "title": "Observer Prometheus"
+                                }
+                            },
+                            "title": "Observer"
+                        },
+                        "logging": {
+                            "description": "Specifies the message structure through placeholders",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "template": {
+                                    "type": "string"
+                                },
+                                "formats": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "description": "The caliper.logging.formats hierarchy is special in a sense that every leaf property can be overridden one-by-one, even from the command line or from environment variables. As you will see later, this is not the case for the logging target settings. The logging subsystem relies on winston’s format mechanism to further modify the log messages. The corresponding settings are under the caliper.logging.formats property",
+                                    "properties": {
+                                        "timestamp": {
+                                            "type": "string",
+                                            "description": "Adds the timestamp to the message in the specified format. The format string must conform to the rules of the fecha package. For example: --caliper-logging-formats-timestamp='YYYY.MM.DD-HH:mm:ss.SSS'"
+                                        },
+                                        "label": {
+                                            "type": "string",
+                                            "description": "Adds a custom label to the message. This is useful for differentiating multiple Caliper instances (or the distributed client instances) after collecting their logs. For example: --caliper-logging-formats-label='caliper-test-1'"
+                                        },
+                                        "json": {
+                                            "type": "boolean",
+                                            "description": "Outputs the messages as JSON strings. Useful for file-based logs that will be processed automatically by another tool. The format accepts a space sub-property as an options, which corresponds to the space parameter of the JSON.stringify function. For example: --caliper-logging-formats-json='{space:0}'"
+                                        },
+                                        "pad": {
+                                            "type": "boolean",
+                                            "description": "Makes every log level string the same length, i.e., adds an extra space after 'info' and 'warn' make them the same length as 'error' and 'debug'. For example: --caliper-logging-formats-pad=true"
+                                        },
+                                        "align": {
+                                            "type": "boolean",
+                                            "description": "Prepends the message part of the log with a tabulator ('\t') to align the messages of different logs in the same place. For example: --caliper-logging-formats-align=true"
+                                        },
+                                        "attributeformat": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "level": {
+                                                    "type": "string",
+                                                    "description": "add a space before the level"
+                                                },
+                                                "label": {
+                                                    "type": "string",
+                                                    "description": "put [] around the label and space before it"
+                                                },
+                                                "module": {
+                                                    "type": "string",
+                                                    "description": "put [] around the module name and space before/after it"
+                                                },
+                                                "metadata": {
+                                                    "type": "string",
+                                                    "description": "put () around the metadata and space before it"
+                                                }
+                                            },
+                                            "title": "Attributeformat"
+                                        },
+                                        "colorize": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "description": "Applies color coding for the different attributes of a message. Enabling/disabling coloring is specified on an attribute basis. The following sub-properties can be set to true/false to enable/disable coloring for the corresponding attribute",
+                                            "properties": {
+                                                "level": {
+                                                    "type": "boolean",
+                                                    "description": "Apply it to levels"
+                                                },
+                                                "message": {
+                                                    "type": "boolean",
+                                                    "description": "Apply it to messages"
+                                                },
+                                                "colors": {
+                                                    "type": "object",
+                                                    "additionalProperties": false,
+                                                    "properties": {
+                                                        "info": {
+                                                            "type": "string"
+                                                        },
+                                                        "error": {
+                                                            "type": "string"
+                                                        },
+                                                        "warn": {
+                                                            "type": "string"
+                                                        },
+                                                        "debug": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "title": "Colors"
+                                                }
+                                            },
+                                            "title": "Colorize"
+                                        }
+                                    },
+                                    "title": "Formats"
+                                },
+                                "targets": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "description": "The source and target(s) of log messages are decoupled, thanks to the transport mechanism of winston. This means that a log message can be easily logged to multiple places, like the console, or different log files. Moreover, this is completely transparent to the module generating the log message. The different targets are specified under the caliper.logging.targets property.",
+                                    "properties": {
+                                        "console": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "target": {
+                                                    "type": "string",
+                                                    "description": "the identifier of a supported target (console, file, daily rotate file)"
+                                                },
+                                                "enabled": {
+                                                    "type": "boolean",
+                                                    "description": "indicates whether the target is enabled. Defaults to true if omitted."
+                                                },
+                                                "options": {
+                                                    "type": "object",
+                                                    "additionalProperties": false,
+                                                    "description": "this object will be given as-is to the specific winston transport as options. See the table below for the supported options of each transport",
+                                                    "properties": {
+                                                        "level": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "level"
+                                                    ],
+                                                    "title": "Console Options"
+                                                }
+                                            },
+                                            "title": "Console"
+                                        },
+                                        "file": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "target": {
+                                                    "type": "string",
+                                                    "description": ""
+                                                },
+                                                "enabled": {
+                                                    "type": "boolean"
+                                                },
+                                                "options": {
+                                                    "type": "object",
+                                                    "additionalProperties": false,
+                                                    "properties": {
+                                                        "level": {
+                                                            "type": "string"
+                                                        },
+                                                        "filename": {
+                                                            "type": "string"
+                                                        },
+                                                        "maxSize": {
+                                                            "type": "string"
+                                                        },
+                                                        "zippedArchive": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "options": {
+                                                            "type": "object",
+                                                            "additionalProperties": false,
+                                                            "properties": {
+                                                                "flags": {
+                                                                    "type": "string"
+                                                                },
+                                                                "mode": {
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "flags",
+                                                                "mode"
+                                                            ],
+                                                            "title": "Options Options"
+                                                        }
+                                                    },
+                                                    "title": "File Options"
+                                                }
+                                            },
+                                            "title": "File"
+                                        }
+                                    },
+                                    "title": "Targets"
+                                }
+                            },
+                            "title": "Logging"
+                        },
+                        "worker": {
+                            "description": "Indicate if workers are in distributed mode",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "remote": {
+                                    "type": "boolean",
+                                    "description": "Indicates whether the workers operate in distributed mode"
+                                },
+                                "communication": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "description": "Worker communication details",
+                                    "properties": {
+                                        "method": {
+                                            "type": "string",
+                                            "description": "Indicates the type of the communication between the manager and workers"
+                                        },
+                                        "address": {
+                                            "type": "string",
+                                            "description": "The address of the MQTT broker used for distributed worker management"
+                                        }
+                                    },
+                                    "title": "Communication"
+                                }
+                            },
+                            "title": "Worker"
+                        },
+                        "flow": {
+                            "description": "Caliper flow options",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "skip": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "start": {
+                                        "type": "boolean",
+                                        "description": "Indicates whether to skip the start command script in the network configuration file, if provided"
+                                    },
+                                    "init": {
+                                        "type": "boolean",
+                                        "description": "Indicates whether to skip the init phase of the benchmark"
+                                    },
+                                    "install": {
+                                        "type": "boolean",
+                                        "description": "Indicates whether to skip the smart contract install phase of the benchmark"
+                                    },
+                                    "test": {
+                                        "type": "boolean",
+                                        "description": "Indicates whether to skip the test phase of the benchmark"
+                                    },
+                                    "end": {
+                                        "type": "boolean",
+                                        "description": "Indicates whether to skip the end command script in the network configuration file, if provided"
+                                    }
+                                },
+                                "title": "Only"
+                                },
+                                "only": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "description": "Only options",
+                                    "properties": {
+                                        "start": {
+                                            "type": "boolean",
+                                            "description": "Indicates whether to skip the start command script in the network configuration file, if provided"
+                                        },
+                                        "init": {
+                                            "type": "boolean",
+                                            "description": "Indicates whether to skip the init phase of the benchmark"
+                                        },
+                                        "install": {
+                                            "type": "boolean",
+                                            "description": "Indicates whether to skip the smart contract install phase of the benchmark"
+                                        },
+                                        "test": {
+                                            "type": "boolean",
+                                            "description": "Indicates whether to skip the test phase of the benchmark"
+                                        },
+                                        "end": {
+                                            "type": "boolean",
+                                            "description": "Indicates whether to skip the end command script in the network configuration file, if provided"
+                                        }
+                                    },
+                                    "title": "Only"
+                                }
+                            },
+
+                            "title": "Flow"
+                        },
+                        "fabric": {
+                            "description": "Configurations related to the Fabric Connector",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "verify": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "description": "Enables extra verification steps during the transaction proposal phase for 1.4 SUT without gateway being enabled",
+                                    "properties": {
+                                        "proposalresponse": {
+                                            "type": "boolean",
+                                            "description": "For 1.4 SUT without gateway enabled, Indicates whether to verify the identity of the endorsers and their signatures for each proposal response after endorsing a transaction. Note, that this is a CPU intensive step, use it with caution"
+                                        },
+                                        "readwritesets": {
+                                            "type": "boolean",
+                                            "description": "For 1.4 SUT without gateway enabled, indicates whether to verify that the read-write sets returned by the endorsers match"
+                                        }
+                                    },
+                                    "title": "Verify"
+                                },
+                                "timeout": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "description": "Contains worker-side timeouts",
+                                    "properties": {
+                                        "invokeorquery": {
+                                            "type": "integer",
+                                            "description": "The default timeout in seconds to use for invoking or querying transactions (applied for the entire life-cycle)"
+                                        }
+                                    },
+                                    "required": [
+                                        "invokeorquery"
+                                    ],
+                                    "title": "Timeout"
+                                },
+                                "loadbalancing": {
+                                    "type": "string",
+                                    "description": "For 1.4 SUT without gateway enabled, determines how automatic load balancing is applied if the worker callback module doesn’t provide explicit targets. Use the value 'worker' to perform worker-based load balancing, meaning that each worker process will have fix target peers and target orderer. Use the value 'tx' to perform transaction-based load balancing, meaning that the peer and orderer targets change for every submitted transaction or query."
+                                },
+                                "latencythreshold": {
+                                    "type": "integer",
+                                    "description": "For 1.4 SUT without gateway enabled, determines the reported commit time of a transaction based on the given percentage of event sources"
+                                },
+                                "gateway": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "description": "Settings for the 1.4 SUT with gateway enabled option and the 2.2 SUT (except the enabled option)Settings for the 1.4 SUT with gateway enabled option and the 2.2 SUT (except the enabled option)",
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean",
+                                            "description": "For 1.4 SUT, Indicates whether to use the Fabric Gateway API. For 2.2 SUT it is always true and cannot be changed"
+                                        },
+                                        "localhost": {
+                                            "type": "boolean",
+                                            "description": "Indicates whether to convert discovered endpoints to localhost. Ignored when if discover is set to false in network config"
+                                        },
+                                        "eventstrategy": {
+                                            "type": "string",
+                                            "description": "Which event strategy to use"
+                                        },
+                                        "querystrategy": {
+                                            "type": "string",
+                                            "description": "Which query strategy to use"
+                                        }
+                                    },
+                                    "title": "Gateway"
+                                }
+                            },
+                            "title": "Fabric"
+                        }
+                    },
+                    "title": "Caliper"
+                }
+            },
+            "title": "Configuration Helper"
+        }
+    }
+}
