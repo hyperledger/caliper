@@ -78,6 +78,8 @@
 				}
       ]
     },
+  "main": "./out/extension.js",
+  "contributes": {
     "yamlValidation": [
       {
         "fileMatch": "calrun.yaml",
@@ -115,4 +117,5 @@
     "rimraf": "^3.0.2",
     "walk": "^2.3.15"
   }
+  ]
 }
