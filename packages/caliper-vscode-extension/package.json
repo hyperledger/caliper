@@ -22,7 +22,7 @@
       "activitybar": [
         {
           "id": "configFile-explorer",
-					"title": "Explorer",
+          "title": "Explorer",
           "icon": "resources/dark/document_dark.svg",
           "contextualTitle": "Config File Explorer"
         }
@@ -31,9 +31,9 @@
     "views": {
       "configFile-explorer": [
         {
-					"id": "configFileExplorer",
-					"name": "Config Files"
-				}
+          "id": "configFileExplorer",
+          "name": "Config Files"
+        }
       ]
     },
     "commands": [
@@ -50,17 +50,17 @@
         "title": "Open ConfigFile Resource"
       },
       {
-				"command": "configFileExplorer.refreshFile",
-				"title": "Refresh",
-				"icon": {
-					"light": "resources/light/refresh_light.svg",
-					"dark": "resources/dark/refresh.svg"
-				}
-			},
-			{
-				"command": "configFileExplorer.openFile",
-				"title": "Open File"
-			}
+        "command": "configFileExplorer.refreshFile",
+        "title": "Refresh",
+        "icon": {
+          "light": "resources/light/refresh_light.svg",
+          "dark": "resources/dark/refresh.svg"
+        }
+      },
+      {
+        "command": "configFileExplorer.openFile",
+        "title": "Open File"
+      }
     ],
     "menus": {
       "view/title": [
@@ -72,10 +72,10 @@
       ],
       "view/item/context": [
         {
-					"command": "configFileExplorer.refreshFile",
-					"when": "view == configFileExplorer && viewItem == file",
-					"group": "inline"
-				}
+          "command": "configFileExplorer.refreshFile",
+          "when": "view == configFileExplorer && viewItem == file",
+          "group": "inline"
+        }
       ]
     },
     "yamlValidation": [
@@ -95,8 +95,10 @@
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
+    "@types/mkdirp": "^1.0.2",
     "@types/mocha": "^9.1.1",
     "@types/node": "16.x",
+    "@types/rimraf": "^3.0.2",
     "@types/vscode": "^1.68.0",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",

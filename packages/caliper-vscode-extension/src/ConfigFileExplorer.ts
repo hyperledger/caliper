@@ -98,7 +98,7 @@ namespace _ {
 
 	export function rmrf(path: string): Promise<void> {
 		return new Promise<void>((resolve, reject) => {
-			rimraf(path, error => handleResult(resolve, reject, error, void 0));
+			rimraf(path, (error: Error | null | undefined) => handleResult(resolve, reject, error, void 0));
 		});
 	}
 
