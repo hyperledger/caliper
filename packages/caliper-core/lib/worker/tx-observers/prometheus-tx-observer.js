@@ -165,12 +165,12 @@ class PrometheusTxObserver extends TxObserverInterface {
             for (const result of results) {
                 // pass/fail status from result.GetStatus()
                 this.counterTxFinished.labels(result.GetStatus()).inc();
-                this.histogramLatency.labels(result.GetStatus()).observe(result.GetTimeFinal() - result.GetTimeCreate());
+                this.histogramLatency.labels(result.GetStatus()).observe((result.GetTimeFinal() - result.GetTimeCreate()) / 1000);
             }
         } else {
             // pass/fail status from result.GetStatus()
             this.counterTxFinished.labels(results.GetStatus()).inc();
-            this.histogramLatency.labels(results.GetStatus()).observe((results.GetTimeFinal() - results.GetTimeCreate())/1000);
+            this.histogramLatency.labels(results.GetStatus()).observe((results.GetTimeFinal() - results.GetTimeCreate()) / 1000);
         }
     }
 }
