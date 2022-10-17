@@ -90,6 +90,13 @@ caliper:
         prometheus:
             # Default scrape port for prometheus tx observer
             scrapeport: 3000
+        prometheusmanager:
+            # Update method
+            method: periodic
+            # Default update interval for the periodic update method
+            interval: 1000
+            # Collation count for the collate update method
+            collationcount: 10
     # Configurations related to the logging mechanism
     logging:
         # Specifies the message structure through placeholders
