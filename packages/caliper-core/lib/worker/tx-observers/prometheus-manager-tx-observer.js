@@ -36,29 +36,42 @@ class PrometheusManagerTxObserver extends TxObserverInterface {
         super(messenger, workerIndex);
 
         this.method = (options && options.method) ? options.method : ConfigUtil.get(ConfigUtil.keys.Observer.PrometheusManager.Method);
-        if (this.method === 'periodic') {
+
+        switch (this.method) {
+        case 'periodic': {
             this.updateInterval = (options && options.interval) ? options.interval : ConfigUtil.get(ConfigUtil.keys.Observer.PrometheusManager.Interval);
             this.intervalObject = undefined;
             if (this.updateInterval <= 0) {
-                Logger.error('Invalid update interval specified, using default value');
                 this.updateInterval = ConfigUtil.get(ConfigUtil.keys.Observer.PrometheusManager.Interval);
+                Logger.warn(`Invalid update interval specified, using default value of ${this.updateInterval}`);
             }
             if (options && options.collationCount) {
                 Logger.warn('Collation count is ignored when using periodic method');
             }
-        } else if (this.method === 'collate') {
+            break;
+        }
+
+        case 'collate' : {
             this.collationCount = (options && options.collationCount) ? options.collationCount : ConfigUtil.get(ConfigUtil.keys.Observer.PrometheusManager.CollationCount);
             if (this.collationCount <= 0) {
-                Logger.error('Invalid collation count specified, using default value');
                 this.collationCount = ConfigUtil.get(ConfigUtil.keys.Observer.PrometheusManager.CollationCount);
+                Logger.warn(`Invalid collation count specified, using default value of ${this.collationCount}`);
             }
             if (options && options.interval) {
                 Logger.warn('Update interval is ignored when using collate method');
             }
+            break;
+        }
+
+        default: {
+            const msg = `Unrecognised method '${this.method}' specified for prometheus manager, must be either 'collate' or 'periodic' `;
+            Logger.error(msg);
+            throw new Error(msg);
+        }
+
         }
 
         this.pendingMessages = [];
-
         this.managerUuid = managerUuid;
     }
     /**
@@ -117,7 +130,7 @@ class PrometheusManagerTxObserver extends TxObserverInterface {
         this.pendingMessages.push(message);
 
         if (this.method === 'collate' && this.pendingMessages.length === this.collationCount) {
-            await this._sendUpdate();
+            this._sendUpdate();
         }
     }
 
@@ -125,7 +138,7 @@ class PrometheusManagerTxObserver extends TxObserverInterface {
      * Sends the current aggregated statistics to the manager node when triggered by "setInterval".
      * @private
      */
-    async _sendUpdate() {
+    _sendUpdate() {
         for (const message of this.pendingMessages) {
             this.messenger.send(message);
         }
@@ -141,7 +154,7 @@ class PrometheusManagerTxObserver extends TxObserverInterface {
         await super.activate(roundIndex, roundLabel);
 
         if (this.method === 'periodic') {
-            this.intervalObject = setInterval(async () => { await this._sendUpdate(); }, this.updateInterval);
+            this.intervalObject = setInterval(async () => { this._sendUpdate(); }, this.updateInterval);
         }
     }
 

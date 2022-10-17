@@ -97,77 +97,86 @@ describe('When using a PrometheusManagerTxObserver', () => {
 
     it('should set managerUuid passed through constructor', () => {
         const observer = new PrometheusManagerTxObserver.createTxObserver(undefined, undefined, undefined, 'fakeUuid');
-        observer.managerUuid.should.equal('fakeUuid');
+        expect(observer.managerUuid).to.equal('fakeUuid');
     });
 
-    it ('should set the correct parameters when method is periodic', () => {
+    it('should set the correct parameters when method is periodic', () => {
         const options = {
             method: 'periodic',
             interval: 1000,
         };
         const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
-        observer.method.should.equal('periodic');
+        expect(observer.method).to.equal('periodic');
         expect(observer.updateInterval).to.equal(1000);
         expect(observer.intervalObject).to.equal(undefined);
     });
 
-    it ('should set the correct parameters when method is collate', () => {
+    it('should set the correct parameters when method is collate', () => {
         const options = {
             method: 'collate',
             collationCount: 10,
         };
         const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
-        observer.method.should.equal('collate');
+        expect(observer.method).to.equal('collate');
         expect(observer.collationCount).to.equal(10);
     });
 
-    it ('should set the default method when options are not provided', () => {
+    it('should set the default method when options are not provided', () => {
         const observer = new PrometheusManagerTxObserver.createTxObserver(undefined, undefined, undefined, 'fakeUuid');
-        observer.method.should.equal('periodic');
+        expect(observer.method).to.equal('periodic');
         expect(observer.updateInterval).to.equal(1000);
         expect(observer.intervalObject).to.equal(undefined);
     });
 
-    it ('should use default update interval and print error log when method is periodic and interval is invalid', () => {
+    it('should throw an error if an unknown method is specified', () => {
+        const options = {
+            method: 'profjgd'
+        };
+        expect(() => {
+            new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
+        }).to.throw(/Unrecognised method 'profjgd' specified for prometheus manager, must be either 'collate' or 'periodic'/);
+    });
+
+    it('should use default update interval and print warning when method is periodic and interval is invalid', () => {
         const options = {
             method: 'periodic',
             interval: -1,
         };
         const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
-        observer.method.should.equal('periodic');
+        expect(observer.method).to.equal('periodic');
         expect(observer.updateInterval).to.equal(1000);
         expect(observer.intervalObject).to.equal(undefined);
-        sinon.assert.calledOnce(errorLogger);
+        sinon.assert.calledOnce(warnLogger);
     });
 
-    it ('should warn when collationCount is specified but method is periodic', () => {
+    it('should warn when collationCount is specified but method is periodic', () => {
         const options = {
             method: 'periodic',
             collationCount: 10,
         };
         const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
-        observer.method.should.equal('periodic');
+        expect(observer.method).to.equal('periodic');
         sinon.assert.calledOnce(warnLogger);
     });
 
-    it ('should use default collationCount and print error log when method is collate and collationCount is invalid', () => {
+    it('should use default collationCount and print warning when method is collate and collationCount is invalid', () => {
         const options = {
             method: 'collate',
             collationCount: -1,
         };
         const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
-        observer.method.should.equal('collate');
+        expect(observer.method).to.equal('collate');
         expect(observer.collationCount).to.equal(10);
-        sinon.assert.calledOnce(errorLogger);
+        sinon.assert.calledOnce(warnLogger);
     });
 
-    it ('should warn when interval is specified but method is collate', () => {
+    it('should warn when interval is specified but method is collate', () => {
         const options = {
             method: 'collate',
             interval: 1000,
         };
         const observer = new PrometheusManagerTxObserver.createTxObserver(options, undefined, undefined, 'fakeUuid');
-        observer.method.should.equal('collate');
+        expect(observer.method).to.equal('collate');
         sinon.assert.calledOnce(warnLogger);
     });
 
@@ -191,7 +200,7 @@ describe('When using a PrometheusManagerTxObserver', () => {
 
         await observer.txSubmitted(txCount);
 
-        observer.pendingMessages.should.have.lengthOf(1);
+        expect(observer.pendingMessages).to.have.lengthOf(1);
     });
 
     it('should update the pending messages array when single TX is finished', async () => {
@@ -220,7 +229,7 @@ describe('When using a PrometheusManagerTxObserver', () => {
 
         await observer.txFinished(result);
 
-        observer.pendingMessages.should.have.lengthOf(1);
+        expect(observer.pendingMessages).to.have.lengthOf(1);
     });
 
     it('should update the pending messages array when multiple TXs are finished', async () => {
@@ -249,7 +258,7 @@ describe('When using a PrometheusManagerTxObserver', () => {
 
         await observer.txFinished([result, result]);
 
-        observer.pendingMessages.should.have.lengthOf(2);
+        expect(observer.pendingMessages).to.have.lengthOf(2);
     });
 
     it('should trigger update when collationCount is crossed with the collate method', async () => {
@@ -285,7 +294,7 @@ describe('When using a PrometheusManagerTxObserver', () => {
 
         await observer.txFinished([result, result]);
 
-        observer._sendUpdate.should.have.been.calledOnce;
+        expect(observer._sendUpdate).to.have.been.calledOnce;
     });
 
     it('should not trigger update until collation count is reached with method collate', async () => {
@@ -321,7 +330,7 @@ describe('When using a PrometheusManagerTxObserver', () => {
 
         await observer.txFinished(result);
 
-        observer._sendUpdate.should.not.have.been.called;
+        expect(observer._sendUpdate).to.not.have.been.called;
     });
 
     it('should send pending messages when collation count is reached with method collate', async () => {
@@ -355,7 +364,7 @@ describe('When using a PrometheusManagerTxObserver', () => {
 
         await observer.txFinished([result, result]);
 
-        messenger.send.should.have.been.calledTwice;
+        expect(messenger.send).to.have.been.calledTwice;
     });
 
     it('should clear pending messages when collation count is reached with method collate', async () => {
@@ -389,7 +398,7 @@ describe('When using a PrometheusManagerTxObserver', () => {
 
         await observer.txFinished([result, result]);
 
-        observer.pendingMessages.should.have.lengthOf(0);
+        expect(observer.pendingMessages).to.have.lengthOf(0);
     });
 
     it('should setup interval timer with method periodic', async () => {
@@ -454,11 +463,11 @@ describe('When using a PrometheusManagerTxObserver', () => {
         await observer.activate(roundIndex, roundLabel);
         await observer.txFinished(result);
 
-        observer._sendUpdate.should.not.have.been.called;
+        expect(observer._sendUpdate).to.not.have.been.called;
 
         clock.tick(1000);
 
-        observer._sendUpdate.should.have.been.calledOnce;
+        expect(observer._sendUpdate).to.have.been.calledOnce;
 
         clock.restore();
     });
@@ -497,11 +506,11 @@ describe('When using a PrometheusManagerTxObserver', () => {
         await observer.activate(roundIndex, roundLabel);
         await observer.txFinished(result);
 
-        messenger.send.should.not.have.been.called;
+        expect(messenger.send).to.not.have.been.called;
 
         clock.tick(1000);
 
-        messenger.send.should.have.been.calledOnce;
+        expect(messenger.send).to.have.been.calledOnce;
 
         clock.restore();
     });
@@ -540,11 +549,11 @@ describe('When using a PrometheusManagerTxObserver', () => {
         await observer.activate(roundIndex, roundLabel);
         await observer.txFinished(result);
 
-        observer.pendingMessages.should.have.lengthOf(1);
+        expect(observer.pendingMessages).to.have.lengthOf(1);
 
         clock.tick(1000);
 
-        observer.pendingMessages.should.have.lengthOf(0);
+        expect(observer.pendingMessages).to.have.lengthOf(0);
 
         clock.restore();
     });
@@ -614,11 +623,11 @@ describe('When using a PrometheusManagerTxObserver', () => {
         await observer.activate(roundIndex, roundLabel);
         await observer.txFinished(result);
 
-        messenger.send.should.not.have.been.called;
+        expect(messenger.send).to.not.have.been.called;
 
         await observer.deactivate();
 
-        messenger.send.should.have.been.calledOnce;
+        expect(messenger.send).to.have.been.calledOnce;
 
         clock.restore();
     });
