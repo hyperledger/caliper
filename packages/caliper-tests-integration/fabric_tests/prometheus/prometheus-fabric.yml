@@ -5,9 +5,9 @@ scrape_configs:
   - job_name: 'prometheus'
     honor_labels: true # Retain labels, as within PushGateway use
     static_configs:
-    - targets: ['prometheus:9090', 'pushGateway:9091','peer0.org1.example.com:9000', 'peer0.org2.example.com:9000']
+    - targets: ['prometheus:9090', 'pushGateway:9091','org1peer-api.127-0-0-1.nip.io:8080', 'org2peer-api.127-0-0-1.nip.io:8080']
 
   - job_name: cadvisor
     scrape_interval: 1s
     static_configs:
-    - targets: ['cadvisor:8080']
+    - targets: ['cadvisor:8888']

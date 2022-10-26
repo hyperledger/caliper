@@ -1,4 +1,9 @@
 **/*.log
+*.tar.gz
+_cfg
+bin
+config
 report.html
 fabric-samples
 vendor
+microfab

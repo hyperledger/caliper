@@ -77,5 +77,5 @@ monitors:
     - module: docker
       options:
         interval: 4
-        containers: ['peer0.org1.example.com', 'peer0.org2.example.com', 'orderer0.example.com', 'orderer1.example.com']
+        containers: ['microfab']
 

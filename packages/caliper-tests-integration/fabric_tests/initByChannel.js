@@ -64,10 +64,10 @@ class MarblesInitByChannelWorkload extends WorkloadModuleBase {
             contractId: this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles',
             contractVersion: 'v0',
             contractFunction: 'initMarble',
-            invokerIdentity: 'client0.org1.example.com',
+            invokerIdentity: 'client0.org1.127-0-0-1.nip.io:8080',
             channel: this.txIndex % 2 === 0 ? 'mychannel' : 'yourchannel',
             contractArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
-            timeout: 5,
+            timeout: 10,
             readOnly: false
         };
 

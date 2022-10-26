@@ -1,1 +1,5 @@
 fabric-samples
+_cfg
+bin
+config
+*.tar.gz

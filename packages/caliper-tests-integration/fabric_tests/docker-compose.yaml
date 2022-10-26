@@ -51,7 +51,7 @@ services:
         - /sys:/sys:ro
         - /var/lib/docker/:/var/lib/docker:ro
         ports:
-        - 8080:8080
+        - 8888:8080
         restart: always
 
 ###############
@@ -68,8 +68,3 @@ services:
         - "9001:9001"
         volumes:
         - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
-
-networks:
-  default:
-    name: fabric_test
-    external: true
