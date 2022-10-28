@@ -79,7 +79,7 @@ jobs:
       run: npm install -g npm@${{ env.NPM_VERSION }}
     - name: Cache node modules
       id: cache-npm
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           node_modules
@@ -89,7 +89,7 @@ jobs:
           ${{ matrix.node-version }}-npm-cache-
     - name: Cache SUT binding
       id: cache-sut
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: /tmp/sut/cached
         key: ${{ format('{0}-sut-cache-{1}-{2}', matrix.node-version, matrix.adaptor, hashFiles(format('packages/caliper-tests-integration/{0}_tests/run.sh', matrix.adaptor))) }}
