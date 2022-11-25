@@ -36,7 +36,7 @@ class Utils {
 
     /**
      *
-     * @return {boolean} the fake path
+     * @return {boolean} if the process is a forked process
      */
     static isForkedProcess() {
         return false;

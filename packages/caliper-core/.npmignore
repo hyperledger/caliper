@@ -17,5 +17,8 @@
 .eslintignore
 .eslintrc.yml
 
+*.html
+!/lib/manager/report/template/report.html
+
 # test directory
 test

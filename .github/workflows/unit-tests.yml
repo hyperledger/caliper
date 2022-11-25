@@ -23,7 +23,7 @@ jobs:
       run: npm install -g npm@${{ env.NPM_VERSION }}
     - name: Cache node modules
       id: cache-npm
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           node_modules

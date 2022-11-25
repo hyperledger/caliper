@@ -7,7 +7,6 @@ The following are lists of the Caliper maintainers, Chat IDs are valid for [Disc
 | Name                      | GitHub           | Chat             |
 |---------------------------|------------------|------------------|
 | Attila Klenik             | aklenik          | Attila Klenik    |
-| Nick Lincoln              | nklincoln        |                  |
 | Dave Kelsey               | davidkel         | NorfolkAndChance |
 
 
@@ -17,7 +16,7 @@ The following are lists of the Caliper maintainers, Chat IDs are valid for [Disc
 |---------------------------|------------------|----------------|
 | FeihuJiang                | feihujiang       |                |
 | HaojunZhou                | haojun           |                |
-
+| Nick Lincoln              | nklincoln        |                |
 
 Contributors
 ===========
