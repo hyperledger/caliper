@@ -164,13 +164,20 @@ interface Entry {
 export class ConfigFileProvider implements vscode.TreeDataProvider<Entry>, vscode.FileSystemProvider {
 
 	private _onDidChangeFile: vscode.EventEmitter<vscode.FileChangeEvent[]>;
+	
+	// readonly onDidChangeFile: vscode.Event<any> = this._onDidChangeFile.event;
 
 	constructor() {
+
 		this._onDidChangeFile = new vscode.EventEmitter<vscode.FileChangeEvent[]>();
 	}
 
 	get onDidChangeFile(): vscode.Event<vscode.FileChangeEvent[]> {
 		return this._onDidChangeFile.event;
+	}
+
+	public refresh(): any {
+		this._onDidChangeFile.fire(undefined);
 	}
 
 	watch(uri: vscode.Uri, options: { recursive: boolean; excludes: string[]; }): vscode.Disposable {
@@ -297,10 +304,20 @@ export class ConfigFileProvider implements vscode.TreeDataProvider<Entry>, vscod
 	}
 
 	getTreeItem(element: Entry): vscode.TreeItem {
-		const treeItem = new vscode.TreeItem(element.uri, element.type === vscode.FileType.Directory ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None);
+		const treeItem = new vscode.TreeItem(
+			element.uri, 
+			element.type === vscode.FileType.Directory ? 
+			vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None
+		);
 		if (element.type === vscode.FileType.File) {
-			treeItem.command = { command: 'configFileExplorer.openFile', title: "Open File", arguments: [element.uri], };
+			treeItem.command = { 
+				command: 'configFileExplorer.openFile', 
+				title: "Open File", 
+				arguments: [element.uri]
+			};
 			treeItem.contextValue = 'file';
+			treeItem.tooltip = String(element.uri);
+			treeItem.description = String(element.uri);
 		}
 		return treeItem;
 	}
@@ -311,6 +328,7 @@ export class ConfigFileExplorer {
 		const configFileTreeDataProvider = new ConfigFileProvider();
 		context.subscriptions.push(vscode.window.registerTreeDataProvider('configFileExplorer', configFileTreeDataProvider));
 		vscode.commands.registerCommand('configFileExplorer.openFile', (resource) => this.openResource(resource));
+		vscode.commands.registerCommand('configFileExplorer.refresh', () => configFileTreeDataProvider.refresh());
 	}
 
 	private openResource(resource: vscode.Uri): void {

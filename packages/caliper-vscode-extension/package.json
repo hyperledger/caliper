@@ -23,7 +23,7 @@
         {
           "id": "configFile-explorer",
 					"title": "Explorer",
-          "icon": "resources/dark/document_dark.svg",
+          "icon": "resources/dark/caliper-dark.svg",
           "contextualTitle": "Config File Explorer"
         }
       ]
@@ -50,7 +50,7 @@
         "title": "Open ConfigFile Resource"
       },
       {
-				"command": "configFileExplorer.refreshFile",
+				"command": "configFileExplorer.refresh",
 				"title": "Refresh",
 				"icon": {
 					"light": "resources/light/refresh_light.svg",
@@ -65,17 +65,10 @@
     "menus": {
       "view/title": [
         {
-          "command": "configScripts.refreshEntry",
-          "when": "view == configScripts",
+          "command": "configFileExplorer.refresh",
+          "when": "view == configFileExplorer",
           "group": "navigation"
         }
-      ],
-      "view/item/context": [
-        {
-					"command": "configFileExplorer.refreshFile",
-					"when": "view == configFileExplorer && viewItem == file",
-					"group": "inline"
-				}
       ]
     },
     "yamlValidation": [
