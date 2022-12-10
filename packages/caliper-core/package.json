@@ -25,7 +25,7 @@
         "color-scheme": "^1.0.1",
         "compare-versions": "^3.4.0",
         "dockerode": "3.3.1",
-        "express": "4.17.1",
+        "express": "4.17.3",
         "js-yaml": "^3.13.1",
         "mustache": "^2.3.0",
         "mqtt": "3.0.0",
