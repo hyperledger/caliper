@@ -42,20 +42,24 @@ fi
 # change default settings (add config paths too)
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 
+TEST_NETWORK_DIR=${DIR}/fabric-samples/test-network
+
 dispose () {
     docker ps -a
     ${CALL_METHOD} launch manager --caliper-workspace phase6 --caliper-flow-only-end
-}
 
-TEST_NETWORK_DIR=${DIR}/fabric-samples/test-network
+    pushd ${TEST_NETWORK_DIR}
+    ./network.sh down
+    popd
+}
 
 # Create Fabric network
 pushd ${TEST_NETWORK_DIR}
 ./network.sh up -s couchdb
 ./network.sh createChannel -c mychannel
 ./network.sh createChannel -c yourchannel
-./network.sh deployCC -ccn mymarbles -c mychannel -ccp ${DIR}/src/marbles/node -ccl javascript -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
-./network.sh deployCC -ccn yourmarbles -c yourchannel -ccp ${DIR}/src/marbles/node -ccl javascript -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
+./network.sh deployCC -ccn mymarbles -c mychannel -ccp ${DIR}/src/marbles/go -ccl go -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
+./network.sh deployCC -ccn yourmarbles -c yourchannel -ccp ${DIR}/src/marbles/go -ccl go -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
 popd
 
 # PHASE 1: just starting the network

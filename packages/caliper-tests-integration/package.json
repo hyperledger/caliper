@@ -120,7 +120,9 @@
             ".address",
             ".proto",
             ".cfg",
-            ".conf"
+            ".conf",
+            ".mod",
+            ".sum"
         ],
         "insert_license": false,
         "license_formats": {
