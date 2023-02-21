@@ -62,7 +62,7 @@ fi
 pushd ${TEST_NETWORK_DIR}
 ./network.sh up -s couchdb
 ./network.sh createChannel -c mychannel
-./network.sh deployCC -ccn mymarbles -c mychannel -ccp ${DIR}/src/marbles/node -ccl javascript -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
+./network.sh deployCC -ccn mymarbles -c mychannel -ccp ${DIR}/src/marbles/go -ccl go -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
 popd
 
 cd ${DIR}

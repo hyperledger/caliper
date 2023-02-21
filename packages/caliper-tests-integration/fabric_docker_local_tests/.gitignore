@@ -3,3 +3,4 @@ report.html
 node_modules/*
 package-lock.json
 fabric-samples
+vendor
