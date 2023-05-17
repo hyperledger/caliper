@@ -72,7 +72,7 @@ class MonitorDocker extends MonitorInterface {
                     let remote = URL.parse(container, true);
                     if (remote.hostname === null || remote.port === null || remote.pathname === '/') {
                         Logger.warn('unrecognized host, ' + container);
-                    } else if (filterName.remote.hasOwnProperty(remote.hostname)) {
+                    } else if (filterName.hasOwnProperty(remote.hostname)) {
                         filterName[remote.hostname].containers.push(remote.pathname);
                     } else {
                         filterName[remote.hostname] = { port: remote.port, containers: [remote.pathname] };
