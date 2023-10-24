@@ -246,6 +246,8 @@ class EthereumConnector extends ConnectorBase {
             status.SetStatusFail();
             logger.error(`Failed tx on ${request.contract}; calling method: ${request.verb}; nonce: ${params.nonce}`);
             logger.error(err);
+            logger.error(`Resending the transaction with nonce: ${params.nonce}`);
+            this._sendSingleRequest(request);
         };
 
         const onSuccess = (rec) => {
