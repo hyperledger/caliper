@@ -36,8 +36,10 @@
             "scripts",
             ".git",
             ".gitignore",
+            ".npmrc",
             "packages",
-            "log"
+            "log",
+            "dev-docs/figures/.gitkeep"
         ],
         "file_type_method": "EXCLUDE",
         "file_types": [
