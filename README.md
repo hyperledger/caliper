@@ -18,7 +18,6 @@ Currently supported blockchain solutions:
 * [Hyperledger Besu](https://github.com/hyperledger/besu), utilizing the Ethereum adapter.
 * [Hyperledger Fabric v1.X, v2.X](https://github.com/hyperledger/fabric)
 * [Ethereum](https://github.com/ethereum/go-ethereum)
-* [FISCO BCOS](https://github.com/FISCO-BCOS/FISCO-BCOS)
 
 Currently supported performance indicators:
 * Success rate

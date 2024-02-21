@@ -21,7 +21,6 @@ cp ./README.md ./packages/caliper-cli/README.md
 cp ./README.md ./packages/caliper-core/README.md
 cp ./README.md ./packages/caliper-ethereum/README.md
 cp ./README.md ./packages/caliper-fabric/README.md
-cp ./README.md ./packages/caliper-fisco-bcos/README.md
 
 cd ./packages/caliper-publish/
 npm ci

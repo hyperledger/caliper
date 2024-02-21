@@ -2,7 +2,7 @@
 
 This guideline intends to make contribtuions to Caliper easier by:
 * presenting a simple development workflow for contributors to follow;
-* and providing a high-level description of the repository components. 
+* and providing a high-level description of the repository components.
 
 If you have further suggestions about improving the guideline, then you can follow the presented workflow to make your contribution.
 
@@ -61,7 +61,7 @@ The following workflow should make your contribution process clean and straighfo
 3. Add the upstream/original Caliper repository as a remote, using the name `upstream` (ideally done once). This will allow you to easily sync your fork with the original repository.
     *  `git remote add upstream https://github.com/hyperledger/caliper.git`
 
-> The following steps follow the "feature branch" development practice, and should be performed for each of your contribution: 
+> The following steps follow the "feature branch" development practice, and should be performed for each of your contribution:
 
 4. Checkout your `main` branch that will be the starting point/state of your contribution.
     * `git checkout main`
@@ -74,28 +74,27 @@ The following workflow should make your contribution process clean and straighfo
     * `git push`
 7. Create a new feature branch (named `my-bug-fix`) from the updated `main` branch:
     * `git checkout -b my-bug-fix`
-    * then `git push --set-upstream origin my-bug-fix` to push the new branch to your remote repository 
+    * then `git push --set-upstream origin my-bug-fix` to push the new branch to your remote repository
 8. Implement and test your contribution
     * The `.build/checks-and-unit-tests.sh` script runs the basic tests for the repository
     * The `BENCHMARK=<test_name> .build/benchmark-integration-test-direct.sh` script can run one of the CI integration tests, depending on the value of `<test_name>`:
         * `BESU`
         * `ETHEREUM`
         * `FABRIC`
-        * `FISCO-BCOS`
         * `GENERATOR`
     > Make sure that the tests pass locally before pushing your changes and opening a PR!
 9. Commit your changes to your local feature branch, **adding the DCO sign-off**:
     * `git commit -s -m "Commit message"`
     * or `git commit -s` (without the `-m` parameter) to make git open up the configured text editor where you can write a detailed, multi-line commit message:
         * The first line is a concise description of the commit (its purpose, what does it fix, etc).
-        * After a blank line, you can go into details about the changes of the commit.  
+        * After a blank line, you can go into details about the changes of the commit.
 10. Push your changes to your remote branch:
     * `git push`
 11. Open a PR using the GitHub webpage.
 
 ### Updating PRs
 
-It is possible that the maintainers/reviewers request some changes before your PR can be merged. In that case, just add your changes to your feature branch using a new signed commit (based on the above workflow), then push it to your remote branch. The PR will automatically pick up the new commit. 
+It is possible that the maintainers/reviewers request some changes before your PR can be merged. In that case, just add your changes to your feature branch using a new signed commit (based on the above workflow), then push it to your remote branch. The PR will automatically pick up the new commit.
 
 > The maintainers can/will squash commits before merging to keep a simpler commit history for the project.
 
@@ -133,7 +132,6 @@ The [packages/](packages/) directory contains the following public/published pac
 * [caliper-core](packages/caliper-core/): The core and common codebase of Caliper, used by the other packages.
 * [caliper-ethereum](packages/caliper-ethereum/): The Ethereum and Hyperledger Besu connector implementation.
 * [caliper-fabric](packages/caliper-fabric/): The Hyperledger Fabric connector implementation.
-* [caliper-fisco-bcos](packages/caliper-fisco-bcos/): The FISCO-BCOS connector implementation.
 * [generator-caliper](packages/generator-caliper/): The Yeaoman generator for Caliper configuration files.
 
 ### Internal packages

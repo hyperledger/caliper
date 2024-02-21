@@ -76,7 +76,6 @@
         "packages/caliper-core",
         "packages/caliper-ethereum",
         "packages/caliper-fabric",
-        "packages/caliper-fisco-bcos",
         "packages/caliper-cli",
         "packages/caliper-publish",
         "packages/caliper-tests-integration",
