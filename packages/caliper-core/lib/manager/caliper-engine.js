@@ -180,6 +180,15 @@ class CaliperEngine {
 
         return this.returnCode;
     }
+
+    /**
+     * Stops the benchmark run
+     */
+    async stop() {
+        if (this.roundOrchestrator) {
+            await this.roundOrchestrator.stop();
+        }
+    }
 }
 
 module.exports = CaliperEngine;
