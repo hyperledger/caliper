@@ -59,6 +59,25 @@ class LaunchManager {
                 sutType, Constants.Factories.Connector, require);
 
             const engine = new CaliperEngine(benchmarkConfig, networkConfig, connectorFactory);
+            process.on('SIGINT', async () => {
+                // support a force stop
+                if (!this.terminationAlreadyRequested) {
+                    this.terminationAlreadyRequested = true;
+                    logger.info('Request to terminate received, stopping workers');
+                    try {
+                        await engine.stop();
+                    } catch(error) {
+                        logger.error(`Failed to stop workers: ${error}`);
+                        process.exit(1);
+                    }
+                    logger.info('Workers terminated');
+                    process.exit(0);
+                } else {
+                    logger.info('Termination already requested, terminating immediately');
+                    process.exit(2);
+                }
+            });
+
             const response = await engine.run();
 
             if (response === 0) {
