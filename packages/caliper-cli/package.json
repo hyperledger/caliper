@@ -29,7 +29,6 @@
         "@hyperledger/caliper-core": "0.5.1-unstable",
         "@hyperledger/caliper-fabric": "0.5.1-unstable",
         "@hyperledger/caliper-ethereum": "0.5.1-unstable",
-        "@hyperledger/caliper-fisco-bcos": "0.5.1-unstable",
         "yargs": "15.3.1"
     },
     "devDependencies": {

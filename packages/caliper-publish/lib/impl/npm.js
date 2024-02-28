@@ -22,7 +22,6 @@ const packages = [
     'caliper-core',
     'caliper-ethereum',
     'caliper-fabric',
-    'caliper-fisco-bcos',
     'caliper-cli',
     'generator-caliper'
 ];

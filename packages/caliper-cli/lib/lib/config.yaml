@@ -57,11 +57,6 @@ sut:
         latest-v2-lts: *fabric-v2-lts
         latest-v2: *fabric-v2-lts
 
-    fisco-bcos:
-        2.0.0: &fisco-latest
-            packages: ['web3@0.20.7']
-        latest: *fisco-latest
-
     ethereum:
         1.2.1:
             packages: ['web3@1.2.2']

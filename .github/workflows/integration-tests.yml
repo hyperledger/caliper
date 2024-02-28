@@ -41,14 +41,6 @@ jobs:
             - 'packages/caliper-tests-integration/besu_tests/**'
             - '.github/workflows/integration-tests.yml'
             - 'package-lock.json'
-          fisco-bcos:
-            - 'packages/caliper-cli/**'
-            - 'packages/caliper-core/**'
-            - 'packages/caliper-fisco-bcos/**'
-            - 'packages/caliper-publish/**'
-            - 'packages/caliper-tests-integration/fisco-bcos_tests/**'
-            - '.github/workflows/integration-tests.yml'
-            - 'package-lock.json'
           generator:
             - 'packages/caliper-cli/**'
             - 'packages/caliper-core/**'
