@@ -36,7 +36,7 @@ check_npm_version() {
 }
 
 check_node_version() {
-    required_version="14.19.0"
+    required_version="18.19.0"
     installed_version=$(node --version | cut -c2-)
     versions="$required_version\n$installed_version"
     if echo -e $versions | sort -rV | head -n 1 | grep -q "$installed_version"; then

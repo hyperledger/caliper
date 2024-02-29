@@ -60,7 +60,7 @@ jobs:
       fail-fast: false
       matrix:
         adaptor: ${{ fromJSON(needs.changes.outputs.adaptor) }}
-        node-version: [14.x, 16.x]
+        node-version: [18.x, 20.x]
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}

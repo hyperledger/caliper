@@ -14,7 +14,7 @@
         "force-clean": "./scripts/force-clean.sh"
     },
     "engines": {
-        "node": ">=14.19.0",
+        "node": ">=18.19.0",
         "npm": ">=7.24.2"
     },
     "dependencies": {},
