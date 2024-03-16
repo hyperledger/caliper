@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [18.x, 20.x]
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -41,7 +41,7 @@ jobs:
     - name: Run unit tests
       run: npm test --workspaces
     - name: Upload coverage reports artifact
-      if: matrix.node-version == '16.x'
+      if: matrix.node-version == '18.x'
       uses: actions/upload-artifact@v3
       with:
         name: coverage-reports
