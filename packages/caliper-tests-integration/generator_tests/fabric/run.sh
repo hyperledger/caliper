@@ -50,7 +50,7 @@ ${GENERATOR_METHOD} -- --workspace 'myWorkspace' --contractId 'mymarbles' --cont
 cd ../
 # bind the sdk into the packages directory as it will search for it there, this ensures it doesn't contaminate real node_modules dirs (2.2 will work with a 1.4 fabric)
 # Note: Fabric 2.2 binding is cached in CI
-export FABRIC_VERSION=2.2.14
+export FABRIC_VERSION=2.2.20
 export NODE_PATH="$SUT_DIR/cached/v$FABRIC_VERSION/node_modules"
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
     mkdir -p $SUT_DIR/cached/v$FABRIC_VERSION

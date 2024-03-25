@@ -39,23 +39,18 @@ sut:
     # the 2.4 key without creating a new version and the integration tests will automatically pick it up.
     fabric:
         # The name/key of the SDK binding
-        1.4.11:
-            packages: ['fabric-client@1.4.11', 'fabric-network@1.4.11','fs-extra@8.1.0']
-        1.4.14:
-            packages: ['fabric-client@1.4.14', 'fabric-network@1.4.14','fs-extra@8.1.0']
-        1.4.20: &fabric-v1-lts
+        1.4: &fabric-sdk-v1
             packages: ['fabric-client@1.4.20', 'fabric-network@1.4.20','fs-extra@8.1.0']
-        1.4: *fabric-v1-lts
-        2.2.3:
-            packages: ['fabric-network@2.2.3']
-        2.2.14: &fabric-v2-lts
-            packages: ['fabric-network@2.2.14']
-        2.2: *fabric-v2-lts
-        2.4:
-            packages: ['@hyperledger/fabric-gateway@1.1.0', '@grpc/grpc-js@1.6.7']
-        latest: *fabric-v1-lts
-        latest-v2-lts: *fabric-v2-lts
-        latest-v2: *fabric-v2-lts
+        1.4.20: *fabric-sdk-v1
+        1: *fabric-sdk-v1
+        2.2: &fabric-sdk-v2
+            packages: ['fabric-network@2.2.20']
+        2.2.20: *fabric-sdk-v2
+        2.4: &fabric-gateway
+            packages: ['@hyperledger/fabric-gateway@1.5.0', '@grpc/grpc-js@1.10.3']
+        2.5: *fabric-gateway
+        3: *fabric-gateway
+        fabric-gateway: *fabric-gateway
 
     ethereum:
         1.2.1:
