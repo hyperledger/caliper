@@ -24,5 +24,7 @@ cp ./README.md ./packages/caliper-fabric/README.md
 
 cd ./packages/caliper-publish/
 npm ci
+# temporary workaround to downgrade npm in order to publish
+npm install -g npm@8.19.4
 ./publish.js npm
 ./publish.js docker --publish
