@@ -25,7 +25,7 @@ Currently supported performance indicators:
 * Transaction/Read latency (minimum, maximum, average)
 * Resource consumption (CPU, Memory, Network IO, ...)
 
-See the [PSWG white paper](https://www.hyperledger.org/resources/publications/blockchain-performance-metrics) to find out the definitions and corresponding measurement methods.
+See the [PSWG white paper](https://www.hyperledger.org/learn/publications/blockchain-performance-metrics) to find out the definitions and corresponding measurement methods.
 
 For more information on using Caliper, please consult the [documentation site](https://hyperledger.github.io/caliper/)
 
