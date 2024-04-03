@@ -92,7 +92,7 @@ fi
 # BIND with 2.2 SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
 # Note: Fabric 2.2 binding is cached in CI
-export FABRIC_VERSION=2.2.14
+export FABRIC_VERSION=2.2.20
 export NODE_PATH="$SUT_DIR/cached/v$FABRIC_VERSION/node_modules"
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
     mkdir -p $SUT_DIR/cached/v$FABRIC_VERSION
@@ -110,7 +110,7 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
-# BIND with 2.4 SDK, using the package dir as CWD
+# BIND with 2.4 SDK (which is the same as 2.5, 3, fabric-gateway), using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
 # Note: Fabric 2.4 binding is NOT cached in CI. This binding is lightweight so doesn't take much time and allows the 2.4 binding to be modified in the config.yaml binding file
 export FABRIC_VERSION=2.4
