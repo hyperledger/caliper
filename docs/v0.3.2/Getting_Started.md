@@ -32,7 +32,7 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 * Transaction/read latency (minimum, maximum, average, percentile)
 * Resource consumption (CPU, Memory, Network IO, ...)
 
-See the [PSWG white paper]( https://www.hyperledger.org/learn/publications/blockchain-performance-metrics) for the exact definitions and corresponding measurement methods.  
+See the [PSWG white paper](https://www.hyperledger.org/learn/publications/blockchain-performance-metrics) for the exact definitions and corresponding measurement methods.  
 
 ## Architecture
 
