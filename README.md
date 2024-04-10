@@ -15,7 +15,6 @@ Welcome to the Hyperledger Caliper project. Caliper is a blockchain performance 
 
 Currently supported blockchain solutions:
 
-* [Hyperledger Besu](https://github.com/hyperledger/besu), utilizing the Ethereum adapter.
 * [Hyperledger Fabric v1.X, v2.X](https://github.com/hyperledger/fabric)
 * [Ethereum](https://github.com/ethereum/go-ethereum)
 
