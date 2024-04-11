@@ -199,7 +199,6 @@ Contains all the Caliper core code.
 
 Each `caliper-<adapter>` is a separate package that contains a distinct adapter implementation to interact with different blockchain technologies. Current adapters include:
 
-- caliper-besu
 - caliper-ethereum
 - caliper-fabric
 - caliper-fisco-bcos
