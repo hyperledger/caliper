@@ -23,7 +23,7 @@ There is another configuration file, namely `./config/default.yaml`, containing 
 ### III. Testing a Blockchain Network
 
 **Q:** What kind of networks does Caliper support currently?
-**A:** Now you can use Caliper to test Besu, Ethereum, Fabric, and FISCO-SCOS networks.
+**A:** Now you can use Caliper to test Besu, Ethereum and Fabric.
 
 **Q:** How can I test a blockchain system that Caliper does not support currently？
 **A:** If you want to test the blockchain system that Caliper does not support now, you must write your own blockchain adapter that Caliper can use to inferface with the backend network. For details, you can refer to the [Writing Adapters](./Writing_Adapters.md) page. The Caliper-specific configurations remain unchanged. Take a look at the provided adapter implementations and example networks to gather some best-practices.
