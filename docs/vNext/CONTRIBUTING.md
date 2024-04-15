@@ -75,7 +75,6 @@ The following platform tests (i.e., valid `BENCHMARK` values) are available:
 * besu
 * ethereum
 * fabric
-* fisco-bcos
 
 A PR must pass all unit and integration tests.
 
@@ -201,7 +200,6 @@ Each `caliper-<adapter>` is a separate package that contains a distinct adapter 
 
 - caliper-ethereum
 - caliper-fabric
-- caliper-fisco-bcos
 
 Each adapter extends the `ConnectorBase` from the core package, as well as exports a `ConnectorFactory` function.
 

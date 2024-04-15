@@ -110,8 +110,6 @@ The following SUT name and SDK version combinations are supported:
 * **besu**: `1.3.2`, `1.3`, `1.4`
 * **ethereum**: `1.2.1`, `1.3`
 * **fabric**: `1.4`, `2.2`, `2.4`
-* **fisco-bcos**: `2.0.0`
-
 > __Note:__ Ensure that the SDK you are binding is compatible with the the SUT version that you intend to target.
 
 The `bind` command is useful when you plan to run multiple benchmarks against the same SUT version. Bind once, then run different benchmarks without the need to bind again. As you will see in the next sections, the launcher commands for the manager and worker processes can also perform the binding step if the required parameter is present.
