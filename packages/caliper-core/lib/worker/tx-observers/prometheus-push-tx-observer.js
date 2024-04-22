@@ -20,7 +20,6 @@ const ConfigUtil = require('../../common/config/config-util');
 const Constants = require('../../common/utils/constants');
 
 const prometheusClient = require('prom-client');
-const prometheusGcStats = require('prometheus-gc-stats');
 
 const Logger = CaliperUtils.getLogger('prometheus-push-tx-observer');
 
@@ -91,8 +90,6 @@ class PrometheusPushTxObserver extends TxObserverInterface {
                 timestamps: false,
                 timeout: this.processMetricCollectInterval
             });
-            const startGcStats = prometheusGcStats(this.registry);
-            startGcStats();
         }
 
         if (!(options && options.pushUrl)) {
