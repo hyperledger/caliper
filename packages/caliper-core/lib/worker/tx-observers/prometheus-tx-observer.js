@@ -21,7 +21,6 @@ const TxObserverInterface = require('./tx-observer-interface');
 const express = require('express');
 const appServer = express();
 const prometheusClient = require('prom-client');
-const prometheusGcStats = require('prometheus-gc-stats');
 
 const Logger = CaliperUtils.getLogger('prometheus-tx-observer');
 
@@ -99,8 +98,6 @@ class PrometheusTxObserver extends TxObserverInterface {
                 timestamps: false,
                 timeout: this.processMetricCollectInterval
             });
-            const startGcStats = prometheusGcStats(this.registry);
-            startGcStats();
         }
 
         // configure server for Prometheus scrapes:
