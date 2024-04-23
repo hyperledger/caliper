@@ -16,16 +16,24 @@ This tutorial takes you through performance testing a smart contract on a pre-ex
 
 To complete this tutorial you will need to have installed NodeJS. To do this, we recommend using [nvm](https://github.com/nvm-sh/nvm).
 
-This tutorial is based on resources available from the official [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-2.2/tutorials.html). A network comprised of two organizations and a solo orderer, with the javascript `asset-transfer-basic` smart contract, is assumed to be built and ready to performance test.
+This tutorial is based on resources available from the official [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/release-2.5/tutorials.html). A network comprised of two organizations and a solo orderer, with the javascript `asset-transfer-basic` smart contract (chaincode), is assumed to be built and ready to performance test.
 
 > The following command list is a minimalist quick step guide to get the required Fabric network up and running. __We use available Hyperledger Fabric resources at explicit levels. To understand and troubleshoot what occurs during the creation of the test network, please refer to the Fabric documentation linked above!__
 
+Ensure you have the following pre-reqs installed
+
+- docker engine or docker desktop
+- curl
+- jq
+- a supported node LTS version. a list current supported LTS versions can be found on the [node.js website](https://nodejs.org/) (to install node easily you can use the nvm tool found [here](https://github.com/nvm-sh/nvm))
+
 ```bash
-# Pull down the 2.2.5 hyperledger fabric images/binaries and the fabric-samples checked out at tag v2.2.5
-curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/bootstrap.sh | bash -s -- 2.2.5 1.5.2
+# Pull down the 2.5.7 hyperledger fabric and 1.5.10 hyperledger fabric ca images/binaries
+curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/bootstrap.sh | bash -s -- 2.5.7 1.5.10
 cd fabric-samples
-# Switch to a release-2.2 git branch that has a fix for asset-transfer-basic chaincode
-git checkout c3a0e814f1609eda2b2f4403b38e33b8b4a16675
+# As fabric-samples for hyperledger 2.5 is via the main branch, fix to a specific commit which we know works
+# to protect against potential breaking changes in main
+git checkout c691cf94a99372e0225927d7927b1bc367018029
 # Start up the test-network
 cd test-network/
 ./network.sh up createChannel
@@ -37,11 +45,11 @@ Create a folder named **caliper-workspace** at the same level as the **fabric-sa
 
 Caliper installation and use will be based on a local npm installation. Within the **caliper-workspace** directory, install caliper CLI using the following terminal command:
 
-`npm install --only=prod @hyperledger/caliper-cli@0.5.0`
+`npm install --only=prod @hyperledger/caliper-cli@0.5.1`
 
 Bind the SDK using the following terminal command:
 
-`npx caliper bind --caliper-bind-sut fabric:2.2`
+`npx caliper bind --caliper-bind-sut fabric:fabric-gateway`
 
 Further information relating to the installation and binding of Caliper may be found within the relevant [documentation pages](./Installing_Caliper.md).
 
@@ -119,7 +127,8 @@ organizations:
           path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem'
     connectionProfile:
       path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/connection-org1.yaml'
-      discover: true
+# Uncomment the next line only if you want to try this network configuration file binding to fabric:2.2, it's not required for fabric-gateway binding
+#      discover: true
 ```
 
 Note the `-` sign in front of `mspid` and `name` in the above example. These are important as organizations could contain more than 1 organization. certificates can also contain a list defining more than 1 identity.
@@ -165,7 +174,8 @@ organizations:
           path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem'
     connectionProfile:
       path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/connection-org1.yaml'
-      discover: true
+# Uncomment the next line only if you want to try this network configuration file binding to fabric:2.2, it's not required for fabric-gateway binding
+#      discover: true
 ```
 
 ## Step 3 - Build a Test Workload Module

@@ -35,24 +35,30 @@ You must bind Caliper to a specific Fabric SDK to target the corresponding (or c
 
 > * None of the Fabric bindings support administration actions. It it not possible to create/join channels nor deploy a chaincode. Consequently running caliper only facilitate operations using the  `--caliper-flow-only-test` flag
 
-### Binding with Fabric 1.4
+### Binding with Fabric 1.4 Client SDK
 
-It is confirmed that a 1.4 Fabric SDK is compatible with a Fabric 2.2 and later Fabric 2.x SUTs, therefore this binding can be used with later Fabric SUTs
+To bind with this client sdk, use `fabric:1.4`.
+
+It is confirmed that a 1.4 Fabric Client SDK is compatible with a Fabric 2.2 and later Fabric 2.x SUTs, therefore this binding can be used with later Fabric SUTs
 
 Note that when using the binding target for the Fabric SDK 1.4 there are capability restrictions:
 > * Currently setting `discover` to `true` in the network configuration file is not supported if you don't enable the `gateway` option (eg specifying --caliper-Fabric-gateway-enabled as a command line option)
 > * Detailed execution data for every transaction is only available if you don't enable the `gateway` option
 
-### Binding with Fabric 2.2
+### Binding with Fabric 2.2 Client SDK
+
+To bind with this client sdk, use `fabric:2.2`.
 
 It is confirmed that a 2.2 Fabric SDK is compatible with 2.2 and later Fabric SUTs, therefore this binding can be used with 2.2 and later Fabric SUTs
 
 > The following further restrictions exist for this binding
 > * Detailed execution data for every transaction is not available.
 
-### Binding with Fabric 2.4
+### Binding with Fabric Gateway Client SDK
 
-Only Fabric 2.4 and later with the Peer Gateway capability enabled (which is the default setting for a Fabric peer) can be used.
+To bind with this client sdk, use `fabric:fabric-gateway`. This is now the preferred SDK to use given that Fabric 2.2 and earlier is now not in LTS and as such the Fabric 1.4 and 2.2 SDKs are now deprecated.
+
+Only Fabric 2.4 and later with the Peer Gateway capability enabled (which is the default setting for a Fabric peer) can be used so for older versions of Hyperledger Fabric you cannot bind with this client SDK.
 
 > The following further restrictions exist for this binding
 > * Detailed execution data for every transaction is not available.
@@ -430,7 +436,7 @@ Each organization must have `mspid`,  `identities` and either `connectionProfle`
    *  <details><summary markdown="span">__discover__
       </summary>
       _Optional. Boolean._ <br>
-      A value of `true` indicates that the connection profile is a dynamic connection profile and discovery should be used. If not specified then it defaults to `false`. For a Fabric 1.4 binding you can only set this value to true if you plan to use the `gateway` option
+      This does not need to be provided when binding to the `fabric-gateway` and will be ignored if provided and is relevant only for the 1.4 and 2.2 fabric bindings. A value of `true` indicates that the connection profile is a dynamic connection profile and discovery should be used. If not specified then it defaults to `false`. For a Fabric 1.4 binding you can only set this value to true if you plan to use the `gateway` option.
 
       ```yaml
       organizations:
