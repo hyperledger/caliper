@@ -216,13 +216,13 @@ For developing Caliper, the minimum required version of npm is `7.24.2`. This is
 In case the npm version is not sufficient, the following error may be thrown when trying to install the dependencies:
 
 ```console
-user@ubuntu:~/caliper$ npm ci
+user@ubuntu:~/caliper$ npm install
 npm ERR! code ENOTSUP
-npm ERR! notsup Unsupported engine for caliper@0.5.1-unstable: wanted: {"node":">=14.19.0","npm":">=7.24.2"} (current: {"node":"14.19.3","npm":"6.14.17"})
+npm ERR! notsup Unsupported engine for caliper@0.5.1-unstable: wanted: {"node":">=18.19.0","npm":">=7.24.2"} (current: {"node":"14.21.3","npm":"6.14.18"})
 npm ERR! notsup Not compatible with your version of node/npm: caliper@0.5.1-unstable
 npm ERR! notsup Not compatible with your version of node/npm: caliper@0.5.1-unstable
-npm ERR! notsup Required: {"node":">=14.19.0","npm":">=7.24.2"}
-npm ERR! notsup Actual:   {"npm":"6.14.17","node":"14.19.3"}
+npm ERR! notsup Required: {"node":">=18.19.0","npm":">=7.24.2"}
+npm ERR! notsup Actual:   {"npm":"6.14.18","node":"14.21.3"}
 ```
 
 If the npm version is lower than `7.24.2`, you can update it to latest by running the following command:
