@@ -53,8 +53,10 @@ describe('AssignedMessage', () => {
             const date = 'Invalid date';
             const message = new AssignedMessage('John', ['Alice', 'Bob'], date);
 
-            chai.expect(message.date).to.be.an.instanceOf(Date);
-            chai.expect(message.date.toString()).to.equal('Invalid Date');
+            message.date.should.be.an.instanceOf(Date);
+            message.date
+                .toString()
+                .should.equal('Invalid Date');
         });
 
         it('should set the error correctly if passed', () => {
@@ -72,8 +74,8 @@ describe('AssignedMessage', () => {
         it('should create an AssignedMessage with undefined date and error if not provided', () => {
             const message = new AssignedMessage('John', ['Alice', 'Bob']);
 
-            chai.expect(message.date).to.be.undefined;
-            chai.expect(message.error).to.be.undefined;
+            message.date.should.be.undefined;
+            message.error.should.be.undefined;
         });
     });
 });
