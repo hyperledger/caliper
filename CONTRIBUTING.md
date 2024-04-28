@@ -139,8 +139,7 @@ The [packages/](packages/) directory contains the following public/published pac
 The [packages/](packages/) directory contains the following internal packages:
 * [caliper-publish](packages/caliper-publish/): Utility CLI for publishing Caliper to NPM and DockerHub.
 * [caliper-tests-integration](packages/caliper-tests-integration/): Collection of CI integration tests.
-* [caliper-gui-dashboard](packages/caliper-gui-dashboard/): Work in progress Caliper GUI (dashboard component).
-* [caliper-gui-server](packages/caliper-gui-server/): Work in progress Caliper GUI (server component).
+
 
 ## Creating New SUT Connectors
 
