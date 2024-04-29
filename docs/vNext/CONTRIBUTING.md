@@ -132,14 +132,14 @@ Once Verdaccio is running, you can run the following command to publish every Ca
 ```console
 user@ubuntu:~/caliper/packages/caliper-publish$ ./publish.js npm --registry "http://localhost:4873"
 ...
-+ @hyperledger/caliper-core@0.5.0-unstable-20220206065953
-[PUBLISH] Published package @hyperledger/caliper-core@0.5.0-unstable-20220206065953
++ @hyperledger/caliper-core@0.5.1-unstable-20240422122901
+[PUBLISH] Published package @hyperledger/caliper-core@0.5.1-unstable-20240422122901
 ...
-+ @hyperledger/caliper-fabric@0.5.0-unstable-20220206065953
-[PUBLISH] Published package @hyperledger/caliper-fabric@0.5.0-unstable-20220206065953
++ @hyperledger/caliper-fabric@0.5.1-unstable-20240422122901
+[PUBLISH] Published package @hyperledger/caliper-fabric@0.5.1-unstable-20240422122901
 ...
-+ @hyperledger/caliper-cli@0.5.0-unstable-20220206065953
-[PUBLISH] Published package @hyperledger/caliper-cli@0.5.0-unstable-20200206065953
++ @hyperledger/caliper-cli@0.5.1-unstable-20240422122901
+[PUBLISH] Published package @hyperledger/caliper-cli@0.5.1-unstable-20240422122901
 ```
 
 Take note of the dynamic version number you see in the logs, you will need it to install you modified Caliper version from Verdaccio (the `unstable` tag is also present on NPM, so Verdaccio would probably pull that version instead of your local one).
@@ -152,8 +152,8 @@ Once the packages are published to the local Verdaccio server, we can use the us
 
 ```console
 user@ubuntu:~/caliper-benchmarks$ npm install --registry=http://localhost:4873 --only=prod \
-    @hyperledger/caliper-cli@0.5.0-unstable-20220206065953
-user@ubuntu:~/caliper-benchmarks$ npx caliper bind --caliper-bind-sut fabric:2.2
+    @hyperledger/caliper-cli@0.5.1-unstable-20240422122901
+user@ubuntu:~/caliper-benchmarks$ npx caliper bind --caliper-bind-sut fabric:fabric-gateway
 user@ubuntu:~/caliper-benchmarks$ npx caliper launch manager \
     --caliper-workspace . \
     --caliper-benchconfig benchmarks/scenario/simple/config.yaml \

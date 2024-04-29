@@ -41,7 +41,7 @@ The throughput is calculated by `Succ/(last committing time - first submitting t
 **A:** You first need to deploy that chaincode to your Fabric network, then create your benchmark and workload files see the Caliper Fabric tutorial for further guidance.
 
 **Q:** How can I use TLS communication?
-**A:** Fabric supports secure communication between nodes and clients using TLS. TLS communication can use both one-way (server only) and two-way (server and client) authentication. You can refer to the [Fabric TLS configuration](https://hyperledger-fabric.readthedocs.io/en/release-2.2/enable_tls.html) page for server side settings. For Caliper-side settings, check the adapter documentation that details how to set the necessary credentials.
+**A:** Fabric supports secure communication between nodes and clients using TLS. TLS communication can use both one-way (server only) and two-way (server and client) authentication. You can refer to the [Fabric TLS configuration](https://hyperledger-fabric.readthedocs.io/en/release-2.5/enable_tls.html) page for server side settings. For Caliper-side settings, check the adapter documentation that details how to set the necessary credentials.
 
 **Q:** How can I monitor remote Docker containers?
 **A:** If you need to access the Docker daemon remotely, you need to explicitly enable remote access. Beware that the default setup provides unencrypted and unauthenticated direct access to the Docker daemon. For details, refer to the official [Docker documentation](https://success.docker.com/article/how-do-i-enable-the-remote-api-for-dockerd).
