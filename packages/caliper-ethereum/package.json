@@ -13,7 +13,7 @@
     "scripts": {
         "pretest": "npm run licchk",
         "licchk": "license-check-and-add",
-        "test": "npm run lint",
+        "test": "npm run lint && npm run nyc",
         "lint": "npx eslint .",
         "nyc": "nyc --reporter=text --reporter=clover mocha --recursive -t 10000"
     },
