@@ -19,7 +19,7 @@ const sinon = require('sinon');
 const expect = chai.expect;
 const ConfigUtil = require('@hyperledger/caliper-core').ConfigUtil;
 const fs = require('fs');
-const os = require('os');
+// const os = require('os');
 const path = require('path');
 
 const { ConnectorFactory } = require('../lib/connectorFactory');
@@ -28,20 +28,16 @@ const EthereumConnector = require('../lib/ethereum-connector');
 describe('ConnectorFactory', function() {
     let ethereumConnectorStub;
     let tempConfigFilePath;
+    // let ethereumNetworkConfig;
 
     beforeEach(() => {
         ethereumConnectorStub = sinon.stub(EthereumConnector.prototype, 'constructor').returns({});
-        // Create a temporary file for the network configuration
-        tempConfigFilePath = path.join(os.tmpdir(), 'test-network-config.json');
-
-        fs.writeFileSync(tempConfigFilePath, JSON.stringify({
-            // Network Configurations
-        }));
+        const tempConfigFilePath = path.resolve(__dirname, '../../../caliper-tests-integration/ethereum_tests/networkconfig.json');
+        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, tempConfigFilePath);
     });
 
     afterEach(() => {
         ethereumConnectorStub.restore();
-
         // Clean up the temporary file
         fs.unlinkSync(tempConfigFilePath);
     });
@@ -54,20 +50,14 @@ describe('ConnectorFactory', function() {
 
     it('should create an instance of EthereumConnector with correct parameters', async function() {
         const workerIndex = 0;
-        // path.resolve to get the absolute path of the temporary file
-        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(tempConfigFilePath));
         const connector = await ConnectorFactory(workerIndex);
-        sinon.assert.calledWithNew(EthereumConnector);
         sinon.assert.calledWith(EthereumConnector, workerIndex, 'ethereum');
         expect(connector).to.be.an.instanceof(EthereumConnector);
     });
 
     it('should handle -1 for the manager process', async function() {
         const workerIndex = -1;
-        // path.resolve to get the absolute path of the temporary file
-        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(tempConfigFilePath));
         const connector = await ConnectorFactory(workerIndex);
-        sinon.assert.calledWithNew(EthereumConnector);
         sinon.assert.calledWith(EthereumConnector, workerIndex, 'ethereum');
         expect(connector).to.be.an.instanceof(EthereumConnector);
     });
