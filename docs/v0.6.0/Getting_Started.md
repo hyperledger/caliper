@@ -1,8 +1,8 @@
 ---
-layout: vNext
+layout: v0.6.0
 title:  "Getting Started"
 categories: docs
-permalink: /vNext/getting-started/
+permalink: /v0.6.0/getting-started/
 order: 1
 ---
 
@@ -44,7 +44,7 @@ Sample benchmarks that may be used by Caliper are hosted on a companion [GitHub 
 
 Performance reports for the provided samples are hosted on the [documentation pages of the repository](https://hyperledger.github.io/caliper-benchmarks/).
 
-> **Important:** make sure that the version/tag of the benchmark repository matches the version of Caliper you are using! For example, if you are using Caliper v0.6.1, then `checkout` the `v0.6.1` tag after cloning the benchmark repository. The `main` branch of the benchmark repository corresponds to the latest `unstable` Caliper version.
+> **Important:** make sure that the version/tag of the benchmark repository matches the version of Caliper you are using! For example, if you are using Caliper v0.6.0, then `checkout` the `v0.6.0` tag after cloning the benchmark repository. The `main` branch of the benchmark repository corresponds to the latest `unstable` Caliper version.
 
 ## How to Contribute
 

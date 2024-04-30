@@ -1,8 +1,8 @@
 ---
-layout: vNext
+layout: v0.6.0
 title:  "Contributing"
 categories: general
-permalink: /vNext/contributing/
+permalink: /v0.6.0/contributing/
 ---
 
 ## Contributing to Hyperledger Caliper
