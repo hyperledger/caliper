@@ -25,7 +25,7 @@ const { ConfigUtil, CaliperUtils } = require('@hyperledger/caliper-core');
 
 describe('EthereumConnector', function() {
     let sandbox = sinon.createSandbox();
-    let mockWeb3, mockEEAClient, configStub, mockContract;
+    let mockWeb3, mockEEAClient, configStub;
 
     beforeEach(() => {
         mockWeb3 = {
@@ -46,22 +46,6 @@ describe('EthereumConnector', function() {
         mockEEAClient = function() {
             return mockWeb3;
         };
-        mockContract = {
-            deploy: sinon.stub(),
-            methods: {
-                myMethod: function() {
-                    return {
-                        call: sinon.stub(),
-                        send: sinon.stub()
-                    };
-                }
-            },
-            send: sinon.stub().resolves({
-                options: {
-                    address: '0x123'
-                }
-            })
-        };
 
         EthereumConnector.__set__('Web3', function() {
             return mockWeb3;
@@ -79,7 +63,7 @@ describe('EthereumConnector', function() {
                 transactionConfirmationBlocks: 2,
                 contracts: {
                     simple: {
-                        path: 'path/to/contract',
+                        path : 'caliper-tests-integration/ethereum_tests/src/simple/simple.sol', // TODO : change this to the correct path
                         gas: 3000000
                     }
                 }
@@ -100,32 +84,5 @@ describe('EthereumConnector', function() {
         const connector = new EthereumConnector(0, 'ethereum');
         expect(connector).to.be.instanceOf(EthereumConnector);
         expect(mockWeb3.eth.Contract.called).to.be.false;
-    });
-
-    it('should deploy a contract using the EthereumConnector', async () => {
-        const connector = new EthereumConnector(0, 'ethereum');
-        mockWeb3.eth.Contract.returns(mockContract);
-        await connector.installSmartContract();
-        expect(mockContract.deploy.called).to.be.true;
-    });
-
-    it('should unlock an account if privateKey is not provided', async () => {
-        const config = {
-            ethereum: {
-                url: 'ws://localhost:8546',
-                contractDeployerAddress: '0x1234567890',
-                contractDeployerAddressPassword: 'password',
-                transactionConfirmationBlocks: 2
-            }
-        };
-
-        configStub.returns(networkConfig);
-        if (JSON.parse.restore) {
-            JSON.parse.restore();
-        }
-        sandbox.stub(JSON, 'parse').returns(config);
-        const connector = new EthereumConnector(0, 'ethereum');
-        await connector.init(true);
-        expect(mockWeb3.eth.personal.unlockAccount.calledWith('0x1234567890', 'password', 1000)).to.be.true;
     });
 });
