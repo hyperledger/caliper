@@ -18,6 +18,7 @@ const chai = require('chai');
 const sinon = require('sinon');
 const expect = chai.expect;
 const rewire = require('rewire');
+const networkConfig = require('../../caliper-tests-integration/ethereum_tests/networkconfig.json');
 
 const EthereumConnector = rewire('../lib/ethereum-connector');
 const { ConfigUtil, CaliperUtils } = require('@hyperledger/caliper-core');
@@ -27,7 +28,6 @@ describe('EthereumConnector', function() {
     let mockWeb3, mockEEAClient, configStub, mockContract;
 
     beforeEach(() => {
-        // Mock dependencies and constructor internals
         mockWeb3 = {
             eth: {
                 Contract: sinon.stub(),
@@ -63,7 +63,6 @@ describe('EthereumConnector', function() {
             })
         };
 
-        // Rewire internal dependencies
         EthereumConnector.__set__('Web3', function() {
             return mockWeb3;
         });
@@ -71,7 +70,7 @@ describe('EthereumConnector', function() {
 
         // Stub configurations
         configStub = sandbox.stub(ConfigUtil, 'get');
-        configStub.withArgs(ConfigUtil.keys.NetworkConfig).returns('network/config/path');
+        configStub.withArgs(ConfigUtil.keys.NetworkConfig).returns(networkConfig);
         sandbox.stub(CaliperUtils, 'resolvePath').returnsArg(0);
         sandbox.stub(JSON, 'parse').returns({
             ethereum: {
@@ -100,7 +99,7 @@ describe('EthereumConnector', function() {
     it('should correctly initialize the EthereumConnector', async () => {
         const connector = new EthereumConnector(0, 'ethereum');
         expect(connector).to.be.instanceOf(EthereumConnector);
-        expect(mockWeb3.eth.Contract.called).to.be.false; // Ensure no contract was instantiated during init
+        expect(mockWeb3.eth.Contract.called).to.be.false;
     });
 
     it('should deploy a contract using the EthereumConnector', async () => {
@@ -120,7 +119,10 @@ describe('EthereumConnector', function() {
             }
         };
 
-        configStub.returns('network/config/path');
+        configStub.returns(networkConfig);
+        if (JSON.parse.restore) {
+            JSON.parse.restore();
+        }
         sandbox.stub(JSON, 'parse').returns(config);
         const connector = new EthereumConnector(0, 'ethereum');
         await connector.init(true);
