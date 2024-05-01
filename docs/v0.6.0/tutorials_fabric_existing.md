@@ -1,8 +1,8 @@
 ---
-layout: vNext
+layout: v0.6.0
 title:  "Setting up and Running a Performance Benchmark on an existing network"
 categories:
-permalink: /vNext/fabric-tutorial/tutorials-fabric-existing/
+permalink: /v0.6.0/fabric-tutorial/tutorials-fabric-existing/
 order:
 ---
 ## Table of Contents
@@ -45,7 +45,7 @@ Create a folder named **caliper-workspace** at the same level as the **fabric-sa
 
 Caliper installation and use will be based on a local npm installation. Within the **caliper-workspace** directory, install caliper CLI using the following terminal command:
 
-`npm install --only=prod @hyperledger/caliper-cli@0.6.1`
+`npm install --only=prod @hyperledger/caliper-cli@0.6.0`
 
 Bind the SDK using the following terminal command:
 
