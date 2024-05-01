@@ -14,34 +14,34 @@
 
 'use strict';
 
-const AssignedMessage = require('../../../../lib/common/messages/assignedMessage');
+const PreparedMessage = require('../../../../lib/common/messages/preparedMessage');
 const MessageTypes = require('../../../../lib/common/utils/constants').Messages.Types;
 
 const chai = require('chai');
 chai.should();
 
-describe('AssignedMessage', () => {
+describe('PreparedMessage', () => {
     describe('Constructor', () => {
-        it('should create an AssignedMessage instance with sender, recipients, and type', () => {
+        it('should create an PreparedMessage instance with sender, recipients, and type', () => {
             const sender = 'John';
             const recipients = ['Alice', 'Bob'];
-            const message = new AssignedMessage(sender, recipients);
+            const message = new PreparedMessage(sender, recipients);
 
-            message.should.be.an.instanceOf(AssignedMessage);
+            message.should.be.an.instanceOf(PreparedMessage);
             message.sender.should.equal(sender);
             message.recipients.should.deep.equal(recipients);
-            message.type.should.equal(MessageTypes.Assigned);
+            message.type.should.equal(MessageTypes.Prepared);
         });
 
         it('should set the content of the message as an empty object', () => {
-            const message = new AssignedMessage('John', ['Alice', 'Bob']);
+            const message = new PreparedMessage('John', ['Alice', 'Bob']);
 
             message.content.should.deep.equal({});
         });
 
-        it('should parse the date argument as a Date object for the AssignedMessage', () => {
+        it('should parse the date argument as a Date object for the PreparedMessage', () => {
             const date = '2024-04-25';
-            const message = new AssignedMessage('John', ['Alice', 'Bob'], date);
+            const message = new PreparedMessage('John', ['Alice', 'Bob'], date);
 
             message.date.should.be.an.instanceOf(Date);
             message.date
@@ -51,7 +51,7 @@ describe('AssignedMessage', () => {
 
         it('should set the error correctly if passed', () => {
             const error = 'Some error';
-            const message = new AssignedMessage(
+            const message = new PreparedMessage(
                 'John',
                 ['Alice', 'Bob'],
                 undefined,
@@ -61,9 +61,9 @@ describe('AssignedMessage', () => {
             message.error.should.equal(error);
         });
 
-        it('should create an AssignedMessage with undefined date and error if not provided', () => {
-            const message = new AssignedMessage('John', ['Alice', 'Bob']);
-            
+        it('should create an PreparedMessage with undefined date and error if not provided', () => {
+            const message = new PreparedMessage('John', ['Alice', 'Bob']);
+
             chai.expect(message.date).to.be.undefined;
             chai.expect(message.error).to.be.undefined;
         });
