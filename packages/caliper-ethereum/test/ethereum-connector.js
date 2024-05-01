@@ -45,7 +45,7 @@ describe('EthereumConnector', function() {
         it('should throw an error when the specified contract path does not exist', async () => {
             const ethereumConnector = new EthereumConnector(0, 'ethereum');
             const contractDetails = {
-                path: './nonexistent/contract.sol'
+                path: 'src/simple/nonexistent.sol'
             };
             try {
                 await ethereumConnector.installSmartContract(contractDetails);
@@ -59,7 +59,7 @@ describe('EthereumConnector', function() {
         it('should throw an error when the specified contract path does not exist', async () => {
             const ethereumConnector = new EthereumConnector(0, 'ethereum');
             const contractDetails = {
-                path: './nonexistent/contract.sol'
+                path: 'src/simple/nonexistent.sol'
             };
 
             try {
