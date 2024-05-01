@@ -1,7 +1,7 @@
 {
     "name": "caliper",
     "description": "Performance benchmarking for Hyperledger blockchain technologies.",
-    "version": "0.6.0",
+    "version": "0.6.1-unstable",
     "repository": {
         "type": "git",
         "url": "https://github.com/hyperledger/caliper"

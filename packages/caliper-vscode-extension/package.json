@@ -2,7 +2,7 @@
   "name": "hyperledger-caliper-extension",
   "displayName": "Hyperledger Caliper Integration",
   "description": "",
-  "version": "0.6.0",
+  "version": "0.6.1-unstable",
   "engines": {
     "vscode": "^1.68.0"
   },
