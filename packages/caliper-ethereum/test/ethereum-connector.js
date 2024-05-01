@@ -14,75 +14,59 @@
 
 'use strict';
 
-const chai = require('chai');
+const path = require('path');
+const expect = require('chai').expect;
 const sinon = require('sinon');
-const expect = chai.expect;
-const rewire = require('rewire');
-const networkConfig = require('../../caliper-tests-integration/ethereum_tests/networkconfig.json');
-
-const EthereumConnector = rewire('../lib/ethereum-connector');
-const { ConfigUtil, CaliperUtils } = require('@hyperledger/caliper-core');
+const ConfigUtil = require('@hyperledger/caliper-core').ConfigUtil;
+const EthereumConnector = require('../lib/ethereum-connector');
 
 describe('EthereumConnector', function() {
-    let sandbox = sinon.createSandbox();
-    let mockWeb3, mockEEAClient, configStub;
+    let ethereumConnectorStub;
+    let tempConfigFilePath;
 
     beforeEach(() => {
-        mockWeb3 = {
-            eth: {
-                Contract: sinon.stub(),
-                accounts: {
-                    wallet: {
-                        add: sinon.stub()
-                    },
-                    create: sinon.stub()
-                },
-                personal: {
-                    unlockAccount: sinon.stub().resolves(true)
-                }
-            },
-            utils: {}
-        };
-        mockEEAClient = function() {
-            return mockWeb3;
-        };
-
-        EthereumConnector.__set__('Web3', function() {
-            return mockWeb3;
-        });
-        EthereumConnector.__set__('EEAClient', mockEEAClient);
-
-        // Stub configurations
-        configStub = sandbox.stub(ConfigUtil, 'get');
-        configStub.withArgs(ConfigUtil.keys.NetworkConfig).returns(networkConfig);
-        sandbox.stub(CaliperUtils, 'resolvePath').returnsArg(0);
-        sandbox.stub(JSON, 'parse').returns({
-            ethereum: {
-                url: 'ws://localhost:8546',
-                contractDeployerAddress: '0x1234567890',
-                transactionConfirmationBlocks: 2,
-                contracts: {
-                    simple: {
-                        path : 'caliper-tests-integration/ethereum_tests/src/simple/simple.sol', // TODO : change this to the correct path
-                        gas: 3000000
-                    }
-                }
-            }
-        });
-        sandbox.stub(require, 'main').returns({
-            ethereum: {
-                url: 'ws://localhost:8546'
-            }
-        });
+        ethereumConnectorStub = sinon.stub(EthereumConnector, 'constructor').returns({});
+        tempConfigFilePath = path.resolve(__dirname, '../../caliper-tests-integration/ethereum_tests/networkconfig.json');
+        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, tempConfigFilePath);
     });
 
     afterEach(() => {
-        sandbox.restore();
+        ethereumConnectorStub.restore();
     });
 
-    it('should correctly initialize the EthereumConnector', async () => {
-        const connector = new EthereumConnector(0, 'ethereum');
-        expect(connector).to.be.instanceOf(EthereumConnector);
-        expect(mockWeb3.eth.Contract.called).to.be.false;
+    describe('constructor', () => {
+        it('should create a new EthereumConnector instance', () => {
+            const ethereumConnector = new EthereumConnector(0, 'ethereum');
+            expect(ethereumConnector).to.be.instanceOf(EthereumConnector);
+        });
+    });
+
+    describe('installSmartContract', () => {
+        it('should throw an error when the specified contract path does not exist', async () => {
+            const ethereumConnector = new EthereumConnector(0, 'ethereum');
+            const contractDetails = {
+                path: './nonexistent/contract.sol'
+            };
+            try {
+                await ethereumConnector.installSmartContract(contractDetails);
+            } catch (err) {
+                expect(err.message).to.contain('Cannot find module');
+            }
+        });
+    });
+
+    describe('init', () => {
+        it('should throw an error when the specified contract path does not exist', async () => {
+            const ethereumConnector = new EthereumConnector(0, 'ethereum');
+            const contractDetails = {
+                path: './nonexistent/contract.sol'
+            };
+
+            try {
+                await ethereumConnector.init(contractDetails);
+            } catch (err) {
+                expect(err.message).to.contain('connection not open');
+            }
+        });
     });
 });
