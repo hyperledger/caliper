@@ -15,7 +15,7 @@
 'use strict';
 
 const chai = require('chai');
-const sinon = require('sinon');
+// const sinon = require('sinon');
 const expect = chai.expect;
 const ConfigUtil = require('@hyperledger/caliper-core').ConfigUtil;
 const path = require('path');
@@ -24,23 +24,21 @@ const { ConnectorFactory } = require('../lib/connectorFactory');
 const EthereumConnector = require('../lib/ethereum-connector');
 
 describe('ConnectorFactory', function() {
-    let ethereumConnectorStub;
     let tempConfigFilePath;
 
     beforeEach(() => {
-        ethereumConnectorStub = sinon.stub(EthereumConnector, 'constructor').returns({});
-        tempConfigFilePath = path.resolve(__dirname, '../../caliper-tests-integration/ethereum_tests/networkconfig.json');
+        tempConfigFilePath = path.resolve(__dirname, './utils/networkconfig.json');
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, tempConfigFilePath);
     });
 
-    afterEach(() => {
-        ethereumConnectorStub.restore();
-    });
 
-    it('should create an instance of EthereumConnector with correct parameters', async function() {
-        const workerIndex = 0;
-        const connector = await ConnectorFactory(workerIndex);
-        expect(connector).to.be.an.instanceof(EthereumConnector);
+    const workerIndices = [0, -1, 1, 2];
+    workerIndices.forEach((workerIndex) => {
+        it(`should create an instance of EthereumConnector with workerIndex ${workerIndex}`, async function () {
+            const connector = await ConnectorFactory(workerIndex);
+            expect(connector).to.be.an.instanceof(EthereumConnector);
+            expect(connector.workerIndex).to.equal(workerIndex);
+        });
     });
 
     it('should handle -1 for the manager process', async function() {
