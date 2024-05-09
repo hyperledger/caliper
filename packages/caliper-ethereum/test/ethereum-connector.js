@@ -70,3 +70,20 @@ describe('EthereumConnector', function() {
         });
     });
 });
+
+describe('EthereumConnector', function () {
+    beforeEach(() => {
+        const invalidConfig = path.resolve(
+            __dirname,
+            './utils/invalidconfig.json'
+        );
+        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, invalidConfig);
+    });
+    it('should throw an error for an incorrect url path', function () {
+        const invalidConfig = path.resolve(
+            __dirname,
+            './utils/invalidUrlConfig.json'
+        );
+        expect(() => new EthereumConnector(invalidConfig)).to.throw();
+    });
+});

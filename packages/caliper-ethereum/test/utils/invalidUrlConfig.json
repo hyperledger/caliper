@@ -8,11 +8,11 @@
     },
     "ethereum": {
         "url": 123,
-        "contractDeployerAddress": "",
+        "contractDeployerAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2",
         "contractDeployerAddressPassword": "password",
         "fromAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2",
         "fromAddressPassword": "password",
-        "transactionConfirmationBlocks": "two",
+        "transactionConfirmationBlocks": 2,
         "contracts": {
             "simple": {
                 "path": "src/simple/simple.json"

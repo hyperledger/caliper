@@ -49,20 +49,3 @@ describe('ConnectorFactory', function () {
         expect(connector.workerIndex).to.equal(workerIndex);
     });
 });
-
-describe('ConnectorFactory', function () {
-    beforeEach(() => {
-        const invalidConfig = path.resolve(
-            __dirname,
-            './utils/invalidconfig.json'
-        );
-        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, invalidConfig);
-    });
-    it('should throw an error for an incorrect network configuration', function () {
-        const invalidConfig = path.resolve(
-            __dirname,
-            './utils/invalidconfig.json'
-        );
-        expect(() => new EthereumConnector(invalidConfig)).to.throw();
-    });
-});
