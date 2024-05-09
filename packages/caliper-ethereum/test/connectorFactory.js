@@ -15,7 +15,6 @@
 'use strict';
 
 const chai = require('chai');
-// const sinon = require('sinon');
 const expect = chai.expect;
 const ConfigUtil = require('@hyperledger/caliper-core').ConfigUtil;
 const path = require('path');
@@ -32,7 +31,7 @@ describe('ConnectorFactory', function() {
     });
 
 
-    const workerIndices = [0, -1, 1, 2];
+    const workerIndices = [0, 1, 2];
     workerIndices.forEach((workerIndex) => {
         it(`should create an instance of EthereumConnector with workerIndex ${workerIndex}`, async function () {
             const connector = await ConnectorFactory(workerIndex);
@@ -45,5 +44,12 @@ describe('ConnectorFactory', function() {
         const workerIndex = -1;
         const connector = await ConnectorFactory(workerIndex);
         expect(connector).to.be.an.instanceof(EthereumConnector);
+    });
+
+    it('should throw an error for an incorrect network configuration', function() {
+        const invalidConfigPath = './test/utils/invalidNetworkConfig.json';
+        const invalidConfig = JSON.parse(invalidConfigPath);
+
+        expect(() => new EthereumConnector(invalidConfig)).to.throw();
     });
 });
