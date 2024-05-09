@@ -22,14 +22,16 @@ const path = require('path');
 const { ConnectorFactory } = require('../lib/connectorFactory');
 const EthereumConnector = require('../lib/ethereum-connector');
 
-describe('ConnectorFactory', function() {
+describe('ConnectorFactory', function () {
     let tempConfigFilePath;
 
     beforeEach(() => {
-        tempConfigFilePath = path.resolve(__dirname, './utils/networkconfig.json');
+        tempConfigFilePath = path.resolve(
+            __dirname,
+            './utils/networkconfig.json'
+        );
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, tempConfigFilePath);
     });
-
 
     const workerIndices = [0, 1, 2];
     workerIndices.forEach((workerIndex) => {
@@ -40,16 +42,27 @@ describe('ConnectorFactory', function() {
         });
     });
 
-    it('should handle -1 for the manager process', async function() {
+    it('should handle -1 for the manager process', async function () {
         const workerIndex = -1;
         const connector = await ConnectorFactory(workerIndex);
         expect(connector).to.be.an.instanceof(EthereumConnector);
+        expect(connector.workerIndex).to.equal(workerIndex);
     });
+});
 
-    it('should throw an error for an incorrect network configuration', function() {
-        const invalidConfigPath = './test/utils/invalidNetworkConfig.json';
-        const invalidConfig = JSON.parse(invalidConfigPath);
-
+describe('ConnectorFactory', function () {
+    beforeEach(() => {
+        const invalidConfig = path.resolve(
+            __dirname,
+            './utils/invalidconfig.json'
+        );
+        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, invalidConfig);
+    });
+    it('should throw an error for an incorrect network configuration', function () {
+        const invalidConfig = path.resolve(
+            __dirname,
+            './utils/invalidconfig.json'
+        );
         expect(() => new EthereumConnector(invalidConfig)).to.throw();
     });
 });
