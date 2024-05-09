@@ -20,7 +20,7 @@ const AllMessageTarget = require('../../../../lib/common/utils/constants').Messa
 const chai = require('chai');
 chai.should();
 
-describe('Message', () => { 
+describe('Message', () => {
     const mockSender = 'Test User';
     const mockRecipients = ["recepient-id-1", "recepient-id-2", "recepient-id-3"];
     const mockType = 'Assigned';
@@ -32,7 +32,7 @@ describe('Message', () => {
         it("should create a Message instance with sender, recipients, type, content, date, and error", () => {
             const message = new Message(mockSender, mockRecipients, mockType, mockContent, mockDate, mockError);
 
-            message.should.be.an.instanceOf(Message);   
+            message.should.be.an.instanceOf(Message);
             message.sender.should.equal(mockSender);
             message.recipients.should.deep.equal(mockRecipients);
             message.type.should.equal(mockType);
@@ -48,7 +48,7 @@ describe('Message', () => {
             chai.expect(message.date).to.be.undefined;
         });
 
-        it("should set the date of the message as an invalid Date object if the date is invalid", () => { 
+        it("should set the date of the message as an invalid Date object if the date is invalid", () => {
             const message = new Message(mockSender, mockRecipients, mockType, mockContent, 'Invalid Date');
 
             message.date.should.be.an.instanceOf(Date);
@@ -56,7 +56,7 @@ describe('Message', () => {
         })
     })
 
-    describe("Getters", () => { 
+    describe("Getters", () => {
         beforeEach(() => {
             this.message = new Message(mockSender, mockRecipients, mockType, mockContent, mockDate, mockError);
         })
@@ -78,8 +78,8 @@ describe('Message', () => {
         });
     })
 
-    describe("hasError", () => { 
-        it("should return true if the message has an error", () => { 
+    describe("hasError", () => {
+        it("should return true if the message has an error", () => {
             const message = new Message(mockSender, mockRecipients, mockType, mockContent, mockDate, mockError);
             message.hasError().should.be.true;
         })
@@ -90,25 +90,31 @@ describe('Message', () => {
         })
     })
 
-    describe("forRecipient", () => { 
+    describe("forRecipient", () => {
         it("should return true if the message is for the recipient", () => {
             const message = new Message(mockSender, mockRecipients, mockType, mockContent, mockDate);
-            
+
             mockRecipients.forEach(recipient => {
                 message.forRecipient(recipient).should.be.true;
             })
         })
 
-        it("should return true for all people if the message if for all", () => { 
+        it("should return true for all people if the message if for all", () => {
             const message = new Message(mockSender, [AllMessageTarget], mockType, mockContent, mockDate);
 
             message.forRecipient(AllMessageTarget).should.be.true;
             message.forRecipient('random-id').should.be.true;
         })
+
+        it("should return false if the message is not for the recipient", () => {
+            const message = new Message(mockSender, mockRecipients, mockType, mockContent, mockDate);
+
+            message.forRecipient('random-id').should.be.false;
+        })
     })
 
-    describe("stringify", () => { 
-        it("should contain the date and the error if present", () => { 
+    describe("stringify", () => {
+        it("should contain the date and the error if present", () => {
             const message = new Message(mockSender, mockRecipients, mockType, mockContent, mockDate, mockError);
             const stringifiedMessage = message.stringify();
             const decodedMessage = JSON.parse(stringifiedMessage);
@@ -129,7 +135,7 @@ describe('Message', () => {
             chai.expect(decodedMessage.error).to.be.undefined;
         })
 
-        it("should set the current date if the date is not provided", () => { 
+        it("should set the current date if the date is not provided", () => {
             const message = new Message(mockSender, mockRecipients, mockType, mockContent);
             const stringifiedMessage = message.stringify();
             const decodedMessage = JSON.parse(stringifiedMessage);
