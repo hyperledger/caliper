@@ -190,14 +190,14 @@ describe('fixedRate controller implementation', () => {
         });
     
         it('should not sleep if totalSubmitted equals the required TPS', () => {
-            txnStats.stats.txCounters.totalSubmitted = 10; // Assuming TPS is set to 10
+            txnStats.stats.txCounters.totalSubmitted = 10; // Assuming TPS is set to 10.
             controller.sleepTime = 1;
             controller.applyRateControl();
             sinon.assert.notCalled(sleepStub);
         });
     
         it('should handle a high TPS rate', () => {
-            txnStats.stats.txCounters.totalSubmitted = 10000; // Assuming TPS is set to 10000
+            txnStats.stats.txCounters.totalSubmitted = 10000; // Assuming TPS is set to 10000.
             controller.sleepTime = 0.001;
             controller.applyRateControl();
             sinon.assert.calledOnce(sleepStub);
