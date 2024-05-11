@@ -16,23 +16,16 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const CompositeRateController = require('../../../lib/worker/rate-control/compositeRate.js');
+const { createRateController } = require('../../../lib/worker/rate-control/compositeRate.js');
 // const RateControl = require('../../../lib/worker/rate-control/rateControl.js');
-// const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
+const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 const TestMessage = require('../../../lib/common/messages/testMessage.js');
 
-/**
- * Encapsulates a controller and its scheduling information.
- *
- * @property {boolean} isLast Indicates whether the controller is the last in the round.
- * @property {RateControl} controller The controller instance.
- * @property {number} lastTxIndex The last TX index associated with the controller based on its weight. Only used in Tx number-based rounds.
- * @property {number} relFinishTime The finish time of the controller based on its weight, relative to the start time of the round. Only used in duration-based rounds.
- * @property {TransactionStatisticsCollector} txStatSubCollector The TX stat (sub-)collector associated with the sub-controller.
- */
 
 describe('CompositeRateController', () => {
     let testMessage;
+    let CompositeRateController;
+    let stats;
     beforeEach(() => {
         let msgContent = {
             label: 'query2',
@@ -48,19 +41,18 @@ describe('CompositeRateController', () => {
             totalWorkers: 2,
             weights: [1],
             rateControllers: ['composite-rate'],
+            workerArgs: 0,
+            numb: 0
         };
         testMessage = new TestMessage('test', [], msgContent);
+        stats = new TransactionStatisticsCollector(0, 0, 'query2');
+        CompositeRateController = createRateController(testMessage, stats, 0);
     });
 
-    describe('Initialization', () => {
+    describe('#constructor', () => {
         it('should correctly initialize with default settings', () => {
-            const testMessage = new TestMessage('test', [], {
-                weights: [1],
-                rateControllers: ['fixed-rate']
-            });
-            const controller = new CompositeRateController(testMessage, {}, 0);
-            expect(controller.activeControllerIndex).to.equal(0);
-            expect(controller.controllers.length).to.equal(1);
+            expect(CompositeRateController.activeControllerIndex).to.equal(0);
+            expect(CompositeRateController.controllers.length).to.equal(0);
         });
     });
 
@@ -75,7 +67,7 @@ describe('CompositeRateController', () => {
             testMessage.content.weights = 'not an array';
             testMessage.content.rateControllers = 'not an array';
             expect(() =>
-                CompositeRateController.createRateController(testMessage, {}, 0)
+                CompositeRateController.createRateController(testMessage, stats, 0)
             ).to.throw('Weight and controller definitions must be arrays.');
         });
 
@@ -83,7 +75,7 @@ describe('CompositeRateController', () => {
             testMessage.content.weights = [1, 2];
             testMessage.content.rateControllers = ['composite-rate'];
             expect(() =>
-                CompositeRateController.createRateController(testMessage, {}, 0)
+                CompositeRateController.createRateController(testMessage, stats, 0)
             ).to.throw(
                 'The number of weights and controllers must be the same.'
             );
@@ -93,7 +85,7 @@ describe('CompositeRateController', () => {
             testMessage.content.weights = [1, 'not a number'];
             testMessage.content.rateControllers = ['composite-rate', 'composite-rate'];
             expect(() =>
-                CompositeRateController.createRateController(testMessage, {}, 0)
+                CompositeRateController.createRateController(testMessage, stats, 0)
             ).to.throw('Not-a-number element among weights: not a number');
         });
 
@@ -101,7 +93,7 @@ describe('CompositeRateController', () => {
             testMessage.content.weights = [1, -2];
             testMessage.content.rateControllers = ['composite-rate', 'composite-rate'];
             expect(() =>
-                CompositeRateController.createRateController(testMessage, {}, 0)
+                CompositeRateController.createRateController(testMessage, stats, 0)
             ).to.throw('Negative element among weights: -2');
         });
 
@@ -109,7 +101,7 @@ describe('CompositeRateController', () => {
             testMessage.content.weights = [0, 0];
             testMessage.content.rateControllers = ['composite-rate', 'composite-rate'];
             expect(() =>
-                CompositeRateController.createRateController(testMessage, {}, 0)
+                CompositeRateController.createRateController(testMessage, stats, 0)
             ).to.throw('Every weight is zero.');
         });
     });
