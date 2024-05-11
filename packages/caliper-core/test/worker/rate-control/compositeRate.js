@@ -30,7 +30,7 @@ describe('CompositeRateController', () => {
         let msgContent = {
             label: 'query2',
             rateControl: {
-                type: 'fixed-rate',
+                type: 'composite-rate',
                 opts: {},
             },
             workload: {
@@ -40,7 +40,7 @@ describe('CompositeRateController', () => {
             txDuration: 250,
             totalWorkers: 2,
             weights: [1],
-            rateControllers: ['composite-rate'],
+            rateControllers: [{type: 'composite-rate', opts: {}}],
             workerArgs: 0,
             numb: 0
         };
