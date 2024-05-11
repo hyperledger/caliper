@@ -16,46 +16,38 @@
 
 const path = require('path');
 const expect = require('chai').expect;
-const sinon = require('sinon');
 const ConfigUtil = require('@hyperledger/caliper-core').ConfigUtil;
 const EthereumConnector = require('../lib/ethereum-connector');
 
 describe('EthereumConnector', function() {
-    let ethereumConnectorStub;
     let tempConfigFilePath;
 
     beforeEach(() => {
-        ethereumConnectorStub = sinon.stub(EthereumConnector, 'constructor').returns({});
-        tempConfigFilePath = path.resolve(__dirname, '../../caliper-tests-integration/ethereum_tests/networkconfig.json');
+        tempConfigFilePath = path.resolve(__dirname, './utils/networkconfig.json');
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, tempConfigFilePath);
     });
 
-    afterEach(() => {
-        ethereumConnectorStub.restore();
-    });
 
-    describe('constructor', () => {
-        it('should create a new EthereumConnector instance', () => {
-            const ethereumConnector = new EthereumConnector(0, 'ethereum');
-            expect(ethereumConnector).to.be.instanceOf(EthereumConnector);
-        });
-    });
-
-    describe('installSmartContract', () => {
+    describe('EthereumConnector.installSmartContract', () => {
         it('should throw an error when the specified contract path does not exist', async () => {
-            const ethereumConnector = new EthereumConnector(0, 'ethereum');
-            const contractDetails = {
-                path: 'src/simple/nonexistent.sol'
+            const invalidConfig = {
+                contracts: {
+                    nonexistent: {
+                        path:  'src/simple/simple.sol'
+                    }
+                }
             };
+            const ethereumConnector = new EthereumConnector(invalidConfig);
+
             try {
-                await ethereumConnector.installSmartContract(contractDetails);
+                await ethereumConnector.installSmartContract();
             } catch (err) {
                 expect(err.message).to.contain('Cannot find module');
             }
         });
     });
 
-    describe('init', () => {
+    describe('EthereumConnector.init', () => {
         it('should throw an error when the specified contract path does not exist', async () => {
             const ethereumConnector = new EthereumConnector(0, 'ethereum');
             const contractDetails = {
@@ -71,7 +63,7 @@ describe('EthereumConnector', function() {
     });
 });
 
-describe('EthereumConnector', function () {
+describe('EthereumConnector.checkConfig()', function () {
     beforeEach(() => {
         const invalidConfig = path.resolve(
             __dirname,
