@@ -206,6 +206,12 @@ The `prometheus` transaction module is used to expose current transaction statis
 - caliper_tx_finished (counter)
 - caliper_tx_e2e_latency (histogram)
 
+ Each of the above are tagged with the following default labels:
+
+  - roundLabel: the current test round label
+  - roundIndex: the current test round index
+  - workerIndex: the zero based worker index that is sending the information
+
 The following specifies the use of a `prometheus` transaction module that exposes metrics for collection on the default port (3000) and the default scrape URL (`/metrics`).
 
 ```yaml
@@ -281,22 +287,6 @@ It is possible to use a Prometheus Push Gateway that is secured via basic authen
 - caliper-auth-prometheuspush-password
 
 These will be used to augment the configuration file based URL prior to making a connection.
-
-### Grafana Visualization
-
-Grafana is an analytics platform that may be used to query and visualize metrics collected by Prometheus. Caliper clients make the following metrics available, either via a direct scrape or indirectly via a Prometheus Push Gateway:
-
-- caliper_tx_submitted (counter)
-- caliper_tx_finished (counter)
-- caliper_tx_e2e_latency (histogram)
-
- Each of the above are tagged with the following default labels:
-
-  - roundLabel: the current test round label
-  - roundIndex: the current test round index
-  - workerIndex: the zero based worker index that is sending the information
-
- We are currently working on a Grafana dashboard to give you immediate access to the metrics published above, but in the interim please feel free to create custom queries to view the above metrics that are accessible in real time.
 
 ## Resource Charting
 
