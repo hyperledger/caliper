@@ -1,8 +1,8 @@
 ---
-layout: v0.6.0
+layout: vNext
 title:  "Resource and Transaction Monitors"
 categories: reference
-permalink: /v0.6.0/caliper-monitors/
+permalink: /vNext/caliper-monitors/
 order: 6
 ---
 
