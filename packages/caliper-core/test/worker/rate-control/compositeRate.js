@@ -19,7 +19,6 @@ const expect = chai.expect;
 const {
     createRateController,
 } = require('../../../lib/worker/rate-control/compositeRate.js');
-// const RateControl = require('../../../lib/worker/rate-control/rateControl.js');
 const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 const TestMessage = require('../../../lib/common/messages/testMessage.js');
 
