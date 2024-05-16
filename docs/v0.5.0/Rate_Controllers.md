@@ -69,7 +69,7 @@ The fixed load rate controller is a controller for driving the tests at a target
 The fixed-load controller can be specified by setting the rate controller `type` to the `fixed-load` string.
 
 Controller options include:
-- `startingTps`: the initial rate at which transactions are cumulatively sent to the SUT by all workers
+- `startTps`: the initial rate at which transactions are cumulatively sent to the SUT by all workers
 - `transactionLoad`: the number of transactions being processed by the SUT that is to be maintained
 
 The fixed load controller, aiming to maintain a SUT transaction load of 5, with a starting TPS of 100, is specified through the following controller option:
