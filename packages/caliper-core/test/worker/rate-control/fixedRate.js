@@ -97,7 +97,7 @@ describe('fixedRate controller implementation', () => {
             controller = new FixedRate.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(100);
         });
-  
+
         it('should set a default sleep time when tps option is null', () => {
             testMessage.content.rateControl.opts = { tps: null };
             controller = new FixedRate.createRateController(testMessage, {}, 0);
@@ -126,7 +126,6 @@ describe('fixedRate controller implementation', () => {
             };
 
             clock = sinon.useFakeTimers();
-
             sleepStub = sinon.stub();
             FixedRate.__set__('Sleep', sleepStub);
 
@@ -223,7 +222,7 @@ describe('fixedRate controller implementation', () => {
             controller.applyRateControl().should.not.throw();
             getTotalSubmittedTxStub.restore();
         });
-        
+
         it('should not throw an error if getTotalSubmittedTx() throws an error', () => {
             const getTotalSubmittedTxStub = sinon.stub(txnStats, 'getTotalSubmittedTx').throws(new Error('Test error'));
             controller.applyRateControl().should.not.throw();
