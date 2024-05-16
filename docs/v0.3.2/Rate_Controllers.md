@@ -54,7 +54,7 @@ The PID rate controller, targeting a backlog of 5 transactions with a starting T
   "type": "fixed-backlog",
   "opts": {
     "unfinished_per_client": 5,
-    "startingTps": 100
+    "startTps": 100
   }
 }
 ```
@@ -128,14 +128,14 @@ The linear rate controller can be used in both duration-based and transaction nu
 {
   "type": "linear-rate",
   "opts": {
-    "startingTps": 25,
+    "startTps": 25,
     "finishingTps": 75
     }
 }
 ```
 
 The linear rate controller can be specified by setting the rate controller `type` to the `linear-rate` string. The available options (`opts` property) are the following:
-* `startingTps`: the TPS at the beginning of the round.
+* `startTps`: the TPS at the beginning of the round.
 * `finishingTps`: the TPS at the end of the round.
 
 **Note:** similarly to the [fixed rate controller](#fixed-rate), this controller also divides the workload between the available client, so the specified rates in the configuration are cumulative rates, and not the rates of individual clients. Using the above configuration with 5 clients results in clients that start at 5 TPS and finish at 15 TPS. Together they generate a [25-75] TPS load.
