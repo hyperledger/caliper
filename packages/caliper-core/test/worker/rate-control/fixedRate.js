@@ -72,7 +72,7 @@ describe('fixedRate controller implementation', () => {
             controller = new FixedRate.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(0);
         });
-        
+
         it('should set sleepTime to 0 when numberOfWorkers is negative', () => {
             testMessage.content.totalWorkers = -1;
             testMessage.content.rateControl.opts = { tps: 50 };
@@ -97,7 +97,7 @@ describe('fixedRate controller implementation', () => {
             controller = new FixedRate.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(100);
         });
-        
+
         it('should set a default sleep time when tps option is null', () => {
             testMessage.content.rateControl.opts = { tps: null };
             controller = new FixedRate.createRateController(testMessage, {}, 0);
@@ -109,7 +109,7 @@ describe('fixedRate controller implementation', () => {
     describe('#applyRateControl', () => {
 
         let controller, sleepStub, txnStats, clock;
-    
+
         beforeEach(() => {
             const msgContent = {
                 label: 'query2',
@@ -124,12 +124,11 @@ describe('fixedRate controller implementation', () => {
                 txDuration:250,
                 totalWorkers:2
             };
-    
+
             clock = sinon.useFakeTimers();
-    
             sleepStub = sinon.stub();
             FixedRate.__set__('Sleep', sleepStub);
-    
+
             const testMessage = new TestMessage('test', [], msgContent);
             txnStats = new TransactionStatisticsCollector();
             controller = new FixedRate.createRateController(testMessage, txnStats, 0);
@@ -160,42 +159,42 @@ describe('fixedRate controller implementation', () => {
             sinon.assert.calledOnce(sleepStub);
             sinon.assert.calledWith(sleepStub, 20000);
         });
-    
+
         it('should not sleep if the sleepTime is NaN', () => {
             controller.sleepTime = NaN;
             controller.applyRateControl();
             sinon.assert.notCalled(sleepStub);
         });
-    
+
         it('should not sleep if the sleepTime is negative', () => {
             controller.sleepTime = -100;
             controller.applyRateControl();
             sinon.assert.notCalled(sleepStub);
         });
-    
+
         it('should throw an error if totalSubmitted is not a number', () => {
             txnStats.stats.txCounters.totalSubmitted = 'not a number';
             (() => controller.applyRateControl()).should.throw(Error);
         });
-    
+
         it('should throw an error if totalSubmitted is negative', () => {
             txnStats.stats.txCounters.totalSubmitted = -1;
             (() => controller.applyRateControl()).should.throw(Error);
         });
-    
+
         it('should not sleep if totalSubmitted is zero', () => {
             txnStats.stats.txCounters.totalSubmitted = 0;
             controller.applyRateControl();
             sinon.assert.notCalled(sleepStub);
         });
-    
+
         it('should not sleep if totalSubmitted equals the required TPS', () => {
             txnStats.stats.txCounters.totalSubmitted = 10; // Assuming TPS is set to 10
             controller.sleepTime = 1;
             controller.applyRateControl();
             sinon.assert.notCalled(sleepStub);
         });
-    
+
         it('should handle a high TPS rate', () => {
             txnStats.stats.txCounters.totalSubmitted = 10000; // Assuming TPS is set to 10000
             controller.sleepTime = 0.001;
@@ -223,7 +222,7 @@ describe('fixedRate controller implementation', () => {
             controller.applyRateControl().should.not.throw();
             getTotalSubmittedTxStub.restore();
         });
-        
+
         it('should not throw an error if getTotalSubmittedTx() throws an error', () => {
             const getTotalSubmittedTxStub = sinon.stub(txnStats, 'getTotalSubmittedTx').throws(new Error('Test error'));
             controller.applyRateControl().should.not.throw();
