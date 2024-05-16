@@ -69,7 +69,7 @@ The fixed load rate controller is a controller for driving the tests at a target
 The fixed-load controller can be specified by setting the rate controller `type` to the `fixed-load` string.
 
 Controller options include:
-- `startTps`: the initial rate at which transactions are cumulatively sent to the SUT by all workers
+- `startingTps`: the initial rate at which transactions are cumulatively sent to the SUT by all workers
 - `transactionLoad`: the number of transactions being processed by the SUT that is to be maintained
 
 The fixed load controller, aiming to maintain a SUT transaction load of 5, with a starting TPS of 100, is specified through the following controller option:
@@ -126,7 +126,7 @@ The linear rate controller can be used in both duration-based and transaction nu
 The linear rate controller can be specified by setting the rate controller `type` to the `linear-rate` string.
 
 Controller options include:
-- `startTps`: the rate at which transactions are cumulatively sent to the SUT by all workers at the start of the round
+- `startingTps`: the rate at which transactions are cumulatively sent to the SUT by all workers at the start of the round
 - `finishingTps`: the rate at which transactions are cumulatively sent to the SUT by all workers at the end of the round
 
 The following example specifies a rate controller that gradually changes the transaction load from 25 TPS to 75 TPS during the benchmark round.
@@ -135,7 +135,7 @@ The following example specifies a rate controller that gradually changes the tra
 {
   "type": "linear-rate",
   "opts": {
-    "startTps": 25,
+    "startingTps": 25,
     "finishingTps": 75
     }
 }
