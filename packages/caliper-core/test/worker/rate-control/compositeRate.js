@@ -16,11 +16,12 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const { createRateController } = require('../../../lib/worker/rate-control/compositeRate.js');
+const {
+    createRateController,
+} = require('../../../lib/worker/rate-control/compositeRate.js');
 // const RateControl = require('../../../lib/worker/rate-control/rateControl.js');
 const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 const TestMessage = require('../../../lib/common/messages/testMessage.js');
-
 
 describe('CompositeRateController', () => {
     let testMessage;
@@ -30,7 +31,7 @@ describe('CompositeRateController', () => {
         let msgContent = {
             label: 'query2',
             rateControl: {
-                type: 'composite-rate',
+                type: 'fixed-rate',
                 opts: {},
             },
             workload: {
@@ -40,9 +41,9 @@ describe('CompositeRateController', () => {
             txDuration: 250,
             totalWorkers: 2,
             weights: [1],
-            rateControllers: [{type: 'composite-rate', opts: {}}],
+            rateControllers: [{ type: 'fixed-rate', opts: {} }],
             workerArgs: 0,
-            numb: 0
+            numb: 0,
         };
         testMessage = new TestMessage('test', [], msgContent);
         stats = new TransactionStatisticsCollector(0, 0, 'query2');
@@ -52,13 +53,15 @@ describe('CompositeRateController', () => {
     describe('#constructor', () => {
         it('should correctly initialize with default settings', () => {
             expect(CompositeRateController.activeControllerIndex).to.equal(0);
-            expect(CompositeRateController.controllers.length).to.equal(0);
+            expect(CompositeRateController.controllers.length).to.equal(1);
         });
     });
 
     describe('applyRateControl', () => {
         it('should apply rate control correctly', async () => {
-            expect(() => CompositeRateController.applyRateControl()).be.a('function');
+            expect(() => CompositeRateController.applyRateControl()).be.a(
+                'function'
+            );
         });
     });
 
@@ -66,43 +69,50 @@ describe('CompositeRateController', () => {
         it('should throw error when weights and rateControllers are not arrays', async () => {
             testMessage.content.weights = 'not an array';
             testMessage.content.rateControllers = 'not an array';
-            expect(() =>
-                CompositeRateController.createRateController(testMessage, stats, 0)
-            ).to.throw('Weight and controller definitions must be arrays.');
+            expect(() => createRateController(testMessage, stats, 0)).to.throw(
+                'Weight and controller definitions must be arrays.'
+            );
         });
 
         it('should throw error when weights and rateControllers lengths are not the same', async () => {
             testMessage.content.weights = [1, 2];
             testMessage.content.rateControllers = ['composite-rate'];
-            expect(() =>
-                CompositeRateController.createRateController(testMessage, stats, 0)
-            ).to.throw(
+            expect(() => createRateController(testMessage, stats, 0)).to.throw(
                 'The number of weights and controllers must be the same.'
             );
         });
 
         it('should throw error when weights contains non-numeric value', async () => {
             testMessage.content.weights = [1, 'not a number'];
-            testMessage.content.rateControllers = ['composite-rate', 'composite-rate'];
-            expect(() =>
-                CompositeRateController.createRateController(testMessage, stats, 0)
-            ).to.throw('Not-a-number element among weights: not a number');
+            testMessage.content.rateControllers = [
+                'composite-rate',
+                'composite-rate',
+            ];
+            expect(() => createRateController(testMessage, stats, 0)).to.throw(
+                'Not-a-number element among weights: not a number'
+            );
         });
 
         it('should throw error when weights contains negative number', async () => {
             testMessage.content.weights = [1, -2];
-            testMessage.content.rateControllers = ['composite-rate', 'composite-rate'];
-            expect(() =>
-                CompositeRateController.createRateController(testMessage, stats, 0)
-            ).to.throw('Negative element among weights: -2');
+            testMessage.content.rateControllers = [
+                'composite-rate',
+                'composite-rate',
+            ];
+            expect(() => createRateController(testMessage, stats, 0)).to.throw(
+                'Negative element among weights: -2'
+            );
         });
 
         it('should throw error when all weights are zero', async () => {
             testMessage.content.weights = [0, 0];
-            testMessage.content.rateControllers = ['composite-rate', 'composite-rate'];
-            expect(() =>
-                CompositeRateController.createRateController(testMessage, stats, 0)
-            ).to.throw('Every weight is zero.');
+            testMessage.content.rateControllers = [
+                'composite-rate',
+                'composite-rate',
+            ];
+            expect(() => createRateController(testMessage, stats, 0)).to.throw(
+                'Every weight is zero.'
+            );
         });
     });
 });

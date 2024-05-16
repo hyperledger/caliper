@@ -73,8 +73,10 @@ class CompositeRateController extends RateInterface{
      * @private
      */
     _prepareControllers() {
-        let weights = this.options.weights;
-        let rateControllers = this.options.rateControllers;
+        // let weights = this.options.weights;
+        // let rateControllers = this.options.rateControllers;
+        let weights = this.testMessage.content.weights;
+        let rateControllers = this.testMessage.content.rateControllers;
 
         if (!Array.isArray(weights) || !Array.isArray(rateControllers)) {
             let msg = 'Weight and controller definitions must be arrays.';
