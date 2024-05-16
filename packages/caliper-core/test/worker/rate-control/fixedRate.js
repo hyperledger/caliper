@@ -91,6 +91,7 @@ describe('fixedRate controller implementation', () => {
             controller = new FixedRate.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(0);
         });
+
         it('should set a default sleep time when tps option is undefined', () => {
             testMessage.content.rateControl.opts = {};
             controller = new FixedRate.createRateController(testMessage, {}, 0);
