@@ -72,7 +72,7 @@ describe('fixedRate controller implementation', () => {
             controller = new FixedRate.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(0);
         });
-
+        
         it('should set sleepTime to 0 when numberOfWorkers is negative', () => {
             testMessage.content.totalWorkers = -1;
             testMessage.content.rateControl.opts = { tps: 50 };
@@ -91,7 +91,6 @@ describe('fixedRate controller implementation', () => {
             controller = new FixedRate.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(0);
         });
-
         it('should set a default sleep time when tps option is undefined', () => {
             testMessage.content.rateControl.opts = {};
             controller = new FixedRate.createRateController(testMessage, {}, 0);
@@ -109,7 +108,7 @@ describe('fixedRate controller implementation', () => {
     describe('#applyRateControl', () => {
 
         let controller, sleepStub, txnStats, clock;
-
+    
         beforeEach(() => {
             const msgContent = {
                 label: 'query2',
@@ -124,12 +123,12 @@ describe('fixedRate controller implementation', () => {
                 txDuration:250,
                 totalWorkers:2
             };
-
+    
             clock = sinon.useFakeTimers();
-
+    
             sleepStub = sinon.stub();
             FixedRate.__set__('Sleep', sleepStub);
-
+    
             const testMessage = new TestMessage('test', [], msgContent);
             txnStats = new TransactionStatisticsCollector();
             controller = new FixedRate.createRateController(testMessage, txnStats, 0);
