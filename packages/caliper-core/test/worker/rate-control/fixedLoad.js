@@ -49,28 +49,28 @@ describe('fixedLoad controller implementation', () => {
             testMessage = new TestMessage('test', [], msgContent);
         });
 
-        it('should set the sleep time for a single worker if a single worker is specified and the startingTps is not specified', () => {
+        it('should set the sleep time for a single worker if a single worker is specified and the startTps is not specified', () => {
             testMessage.content.rateControl.opts = {};
             testMessage.content.totalWorkers = 1;
             controller = new FixedLoad.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(200);
         });
 
-        it('should set the sleep time for a single worker if no workers are specified and the startingTps is specified', () => {
+        it('should set the sleep time for a single worker if no workers are specified and the startTps is specified', () => {
             testMessage.content.rateControl.opts = { startTps: 50 };
             testMessage.content.totalWorkers = 1;
             controller = new FixedLoad.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(20);
         });
 
-        it('should set the sleep time for a multiple workers it the startingTps is not specified', () => {
+        it('should set the sleep time for a multiple workers it the startTps is not specified', () => {
             testMessage.content.rateControl.opts = {};
             testMessage.content.totalWorkers = 2;
             controller = new FixedLoad.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(400);
         });
 
-        it('should set the sleep time for a multiple workers if the startingTps is specified', () => {
+        it('should set the sleep time for a multiple workers if the startTps is specified', () => {
             testMessage.content.rateControl.opts = { startTps: 50 };
             testMessage.content.totalWorkers = 2;
             controller = new FixedLoad.createRateController(testMessage, {}, 0);

@@ -132,7 +132,7 @@ describe('maxRate controller implementation', () => {
                 label: 'query2',
                 rateControl: {
                     type: 'maximum-rate',
-                    opts: { startingTps: 20, finishingTps: 80 }
+                    opts: {}
                 },
                 workload: {
                     module:'./../queryByChannel.js'
@@ -271,7 +271,7 @@ describe('maxRate controller implementation', () => {
                 label: 'query2',
                 rateControl: {
                     type: 'maximum-rate',
-                    opts: { startingTps: 20, finishingTps: 80 }
+                    opts: {}
                 },
                 workload: {
                     module:'./../queryByChannel.js'
@@ -319,7 +319,7 @@ describe('maxRate controller implementation', () => {
                 label: 'query2',
                 rateControl: {
                     type: 'maximum-rate',
-                    opts: { startingTps: 20, finishingTps: 80 }
+                    opts: {}
                 },
                 workload: {
                     module:'./../queryByChannel.js'
@@ -361,7 +361,7 @@ describe('maxRate controller implementation', () => {
                 label: 'query2',
                 rateControl: {
                     type: 'maximum-rate',
-                    opts: { startingTps: 20, finishingTps: 80 }
+                    opts: {}
                 },
                 workload: {
                     module:'./../queryByChannel.js'
