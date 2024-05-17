@@ -156,12 +156,10 @@ describe('fixedLoad controller implementation', () => {
         });
 
         it('should log the backlog error as a debug message', async () => {
-
             const FakeLogger = {
                 debug : () => {},
                 error: () => {}
             };
-
             let debugStub = sinon.stub(FakeLogger, 'debug');
             FixedLoad.__set__('Logger', FakeLogger);
 
