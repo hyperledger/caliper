@@ -15,10 +15,9 @@
 'use strict';
 
 const chai = require('chai');
+const sinon = require('sinon');
 const expect = chai.expect;
-const {
-    createRateController,
-} = require('../../../lib/worker/rate-control/compositeRate.js');
+const {createRateController} = require('../../../lib/worker/rate-control/compositeRate.js');
 const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 const TestMessage = require('../../../lib/common/messages/testMessage.js');
 
@@ -26,6 +25,7 @@ describe('CompositeRateController', () => {
     let testMessage;
     let CompositeRateController;
     let stats;
+    let clock;
     beforeEach(() => {
         let msgContent = {
             label: 'query2',
@@ -113,6 +113,37 @@ describe('CompositeRateController', () => {
             expect(() => createRateController(testMessage, stats, 0)).to.throw(
                 'Every weight is zero.'
             );
+        });
+    });
+
+    describe('#_controllerSwitchForDuration', () => {
+        beforeEach(() => {
+            CompositeRateController.controllers = [
+                { isLast: false, relFinishTime: 100, txStatSubCollector: { deactivate: () => {}, activate: () => {} }, controller: { end: async () => {} } },
+                { isLast: true, relFinishTime: 200, txStatSubCollector: { deactivate: () => {}, activate: () => {} }, controller: { end: async () => {} } }
+            ];
+            CompositeRateController.activeControllerIndex = 0;
+            CompositeRateController.stats = {
+                getRoundStartTime: () => 1000,
+                getTotalSubmittedTx: () => 10,
+            };
+            stats = new TransactionStatisticsCollector(0, 0, 'query2');
+            clock = sinon.useFakeTimers();
+        });
+
+        afterEach(() => {
+            clock.restore();
+        });
+        it('should not switch if current controller is last', async () => {
+            CompositeRateController.activeControllerIndex = 1;
+            await CompositeRateController._controllerSwitchForDuration();
+            expect(CompositeRateController.activeControllerIndex).to.equal(1);
+        });
+
+        it('should not switch if it is not time yet', async () => {
+            global.Date.now = () => 100;
+            await CompositeRateController._controllerSwitchForDuration();
+            expect(CompositeRateController.activeControllerIndex).to.equal(0);
         });
     });
 });
