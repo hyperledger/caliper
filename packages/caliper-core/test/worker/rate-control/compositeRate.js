@@ -1,16 +1,16 @@
 /*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 'use strict';
 
@@ -30,8 +30,11 @@ describe('CompositeRateController', () => {
         let msgContent = {
             label: 'query2',
             rateControl: {
-                type: 'fixed-rate',
-                opts: {},
+                type: 'composite-rate',
+                opts: {
+                    weights: [1],
+                    rateControllers: [{ type: 'fixed-rate', opts: {} }]
+                },
             },
             workload: {
                 module: './../queryByChannel.js',
@@ -39,8 +42,6 @@ describe('CompositeRateController', () => {
             testRound: 0,
             txDuration: 250,
             totalWorkers: 2,
-            weights: [1],
-            rateControllers: [{ type: 'fixed-rate', opts: {} }],
             workerArgs: 0,
             numb: 0,
         };
@@ -66,24 +67,24 @@ describe('CompositeRateController', () => {
 
     describe('#_prepareControllers', () => {
         it('should throw error when weights and rateControllers are not arrays', async () => {
-            testMessage.content.weights = 'not an array';
-            testMessage.content.rateControllers = 'not an array';
+            testMessage.content.rateControl.opts.weights = 'not an array';
+            testMessage.content.rateControl.opts.rateControllers = 'not an array';
             expect(() => createRateController(testMessage, stats, 0)).to.throw(
                 'Weight and controller definitions must be arrays.'
             );
         });
 
         it('should throw error when weights and rateControllers lengths are not the same', async () => {
-            testMessage.content.weights = [1, 2];
-            testMessage.content.rateControllers = ['composite-rate'];
+            testMessage.content.rateControl.opts.weights = [1, 2];
+            testMessage.content.rateControl.opts.rateControllers = ['composite-rate'];
             expect(() => createRateController(testMessage, stats, 0)).to.throw(
                 'The number of weights and controllers must be the same.'
             );
         });
 
         it('should throw error when weights contains non-numeric value', async () => {
-            testMessage.content.weights = [1, 'not a number'];
-            testMessage.content.rateControllers = [
+            testMessage.content.rateControl.opts.weights = [1, 'not a number'];
+            testMessage.content.rateControl.opts.rateControllers = [
                 'composite-rate',
                 'composite-rate',
             ];
@@ -93,8 +94,8 @@ describe('CompositeRateController', () => {
         });
 
         it('should throw error when weights contains negative number', async () => {
-            testMessage.content.weights = [1, -2];
-            testMessage.content.rateControllers = [
+            testMessage.content.rateControl.opts.weights = [1, -2];
+            testMessage.content.rateControl.opts.rateControllers = [
                 'composite-rate',
                 'composite-rate',
             ];
@@ -104,8 +105,8 @@ describe('CompositeRateController', () => {
         });
 
         it('should throw error when all weights are zero', async () => {
-            testMessage.content.weights = [0, 0];
-            testMessage.content.rateControllers = [
+            testMessage.content.rateControl.opts.weights = [0, 0];
+            testMessage.content.rateControl.opts.rateControllers = [
                 'composite-rate',
                 'composite-rate',
             ];
