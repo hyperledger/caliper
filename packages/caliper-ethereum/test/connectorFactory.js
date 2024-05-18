@@ -28,7 +28,7 @@ describe('ConnectorFactory', function () {
     beforeEach(() => {
         tempConfigFilePath = path.resolve(
             __dirname,
-            './utils/networkconfig.json'
+            './sample-configs/networkconfig.json'
         );
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, tempConfigFilePath);
     });

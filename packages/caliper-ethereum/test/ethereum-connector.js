@@ -23,7 +23,7 @@ describe('EthereumConnector', function() {
     let tempConfigFilePath;
 
     beforeEach(() => {
-        tempConfigFilePath = path.resolve(__dirname, './utils/networkconfig.json');
+        tempConfigFilePath = path.resolve(__dirname, './sample-configs/networkconfig.json');
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, tempConfigFilePath);
     });
 
@@ -67,14 +67,14 @@ describe('EthereumConnector.checkConfig()', function () {
     beforeEach(() => {
         const invalidConfig = path.resolve(
             __dirname,
-            './utils/invalidconfig.json'
+            './sample-configs/invalidconfig.json'
         );
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, invalidConfig);
     });
     it('should throw an error for an incorrect url path', function () {
         const invalidConfig = path.resolve(
             __dirname,
-            './utils/invalidUrlConfig.json'
+            './sample-configs/invalidUrlConfig.json'
         );
         expect(() => new EthereumConnector(invalidConfig)).to.throw();
     });
