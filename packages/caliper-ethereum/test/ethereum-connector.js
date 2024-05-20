@@ -15,67 +15,61 @@
 'use strict';
 
 const path = require('path');
+const sinon = require('sinon');
 const expect = require('chai').expect;
 const ConfigUtil = require('@hyperledger/caliper-core').ConfigUtil;
 const EthereumConnector = require('../lib/ethereum-connector');
-
-describe('EthereumConnector', function() {
+describe('EthereumConnector', function () {
     let tempConfigFilePath;
 
     beforeEach(() => {
-        tempConfigFilePath = path.resolve(__dirname, './sample-configs/networkconfig.json');
+        tempConfigFilePath = path.resolve(
+            __dirname,
+            './sample-configs/networkconfig.json'
+        );
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, tempConfigFilePath);
     });
 
-
     describe('EthereumConnector.installSmartContract', () => {
-        it('should throw an error when the specified contract path does not exist', async () => {
-            const invalidConfig = {
-                contracts: {
-                    nonexistent: {
-                        path:  'src/simple/simple.sol'
-                    }
-                }
-            };
-            const ethereumConnector = new EthereumConnector(invalidConfig);
-
-            try {
-                await ethereumConnector.installSmartContract();
-            } catch (err) {
-                expect(err.message).to.contain('Cannot find module');
-            }
+        it('should deploy all contracts successfully when no privacy settings are used', async () => {
+            const workerIndex = 0;
+            const bcType = 'ethereum';
+            const ethereumConnector = new EthereumConnector(workerIndex, bcType);
+            const deployContractStub = sinon.stub(ethereumConnector, 'deployContract').resolves({
+                options: { address: '0x123' },
+            });
+            await ethereumConnector.installSmartContract();
+            sinon.assert.called(deployContractStub);
+            deployContractStub.restore();
         });
     });
 
-    describe('EthereumConnector.init', () => {
-        it('should throw an error when the specified contract path does not exist', async () => {
-            const ethereumConnector = new EthereumConnector(0, 'ethereum');
-            const contractDetails = {
-                path: 'src/simple/nonexistent.sol'
-            };
+    describe('EthereumConnector.init', () => {});
 
-            try {
-                await ethereumConnector.init(contractDetails);
-            } catch (err) {
-                expect(err.message).to.contain('connection not open');
-            }
+    describe('EthereumConnector.checkConfig()', function () {
+        it('should throw an error for an incorrect url path', function () {
+            const invalidConfig = path.resolve(
+                __dirname,
+                './sample-configs/invalidUrlConfig.json'
+            );
+            ConfigUtil.set(ConfigUtil.keys.NetworkConfig, invalidConfig);
+            expect(() => new EthereumConnector(invalidConfig)).to.throw(
+                'Ethereum benchmarks must not use http(s) RPC connections, as there is no way to guarantee the ' +
+                    'order of submitted transactions when using other transports. For more information, please see ' +
+                    'https://github.com/hyperledger/caliper/issues/776#issuecomment-624771622'
+            );
         });
-    });
-});
 
-describe('EthereumConnector.checkConfig()', function () {
-    beforeEach(() => {
-        const invalidConfig = path.resolve(
-            __dirname,
-            './sample-configs/invalidconfig.json'
-        );
-        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, invalidConfig);
-    });
-    it('should throw an error for an incorrect url path', function () {
-        const invalidConfig = path.resolve(
-            __dirname,
-            './sample-configs/invalidUrlConfig.json'
-        );
-        expect(() => new EthereumConnector(invalidConfig)).to.throw();
+        it('should throw an error for absent url path', function () {
+            const invalidConfig = path.resolve(
+                __dirname,
+                './sample-configs/noUrlConfig.json'
+            );
+            ConfigUtil.set(ConfigUtil.keys.NetworkConfig, invalidConfig);
+            expect(() => new EthereumConnector(invalidConfig)).to.throw(
+                'No URL given to access the Ethereum SUT. Please check your network configuration. ' +
+                    'Please see https://hyperledger.github.io/caliper/v0.3/ethereum-config/ for more info.'
+            );
+        });
     });
 });
