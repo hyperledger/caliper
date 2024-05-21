@@ -30,7 +30,7 @@ describe('EthereumConnector', function () {
         ConfigUtil.set(ConfigUtil.keys.NetworkConfig, tempConfigFilePath);
     });
 
-    describe('EthereumConnector.installSmartContract', () => {
+    describe('While installing a Smart Contract, it', () => {
         it('should deploy all contracts successfully when no privacy settings are used', async () => {
             const workerIndex = 0;
             const bcType = 'ethereum';
@@ -44,10 +44,9 @@ describe('EthereumConnector', function () {
         });
     });
 
-    describe('EthereumConnector.init', () => {});
 
-    describe('EthereumConnector.checkConfig()', function () {
-        it('should throw an error for an incorrect url path', function () {
+    describe('When constructed with an invalid url path', function () {
+        it('should throw an error', function () {
             const invalidConfig = path.resolve(
                 __dirname,
                 './sample-configs/invalidUrlConfig.json'
@@ -59,8 +58,10 @@ describe('EthereumConnector', function () {
                     'https://github.com/hyperledger/caliper/issues/776#issuecomment-624771622'
             );
         });
+    });
 
-        it('should throw an error for absent url path', function () {
+    describe('When constructed with absent url path', function () {
+        it('should throw an error', function () {
             const invalidConfig = path.resolve(
                 __dirname,
                 './sample-configs/noUrlConfig.json'
