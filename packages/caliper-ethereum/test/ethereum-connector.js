@@ -62,10 +62,7 @@ describe('EthereumConnector', function () {
 
     describe('When constructed with absent url path', function () {
         it('should throw an error', function () {
-            const invalidConfig = path.resolve(
-                __dirname,
-                './sample-configs/noUrlConfig.json'
-            );
+            const invalidConfig = path.resolve(__dirname,'./sample-configs/noUrlConfig.json');
             ConfigUtil.set(ConfigUtil.keys.NetworkConfig, invalidConfig);
             expect(() => new EthereumConnector(invalidConfig)).to.throw(
                 'No URL given to access the Ethereum SUT. Please check your network configuration. ' +
