@@ -15,7 +15,7 @@
         "transactionConfirmationBlocks": 2,
         "contracts": {
             "simple": {
-                "path": "src/simple/simple.json"
+                "path": "test/src/simple/simple.json"
             }
         }
     }

@@ -20,14 +20,14 @@ const expect = require('chai').expect;
 const ConfigUtil = require('@hyperledger/caliper-core').ConfigUtil;
 const EthereumConnector = require('../lib/ethereum-connector');
 describe('EthereumConnector', function () {
-    let tempConfigFilePath;
+    let ConfigFilePath;
 
     beforeEach(() => {
-        tempConfigFilePath = path.resolve(
+        ConfigFilePath = path.resolve(
             __dirname,
             './sample-configs/networkconfig.json'
         );
-        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, tempConfigFilePath);
+        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, ConfigFilePath);
     });
 
     describe('While installing a Smart Contract, it', () => {
