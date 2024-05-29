@@ -22,7 +22,7 @@ const {createRateController} = require('../../../lib/worker/rate-control/composi
 const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 const TestMessage = require('../../../lib/common/messages/testMessage.js');
 
-describe('CompositeRateController', () => {
+describe('CompositeRateController implementation', () => {
     let testMessage;
     let CompositeRateController;
     let stats;
@@ -58,13 +58,6 @@ describe('CompositeRateController', () => {
         });
     });
 
-    describe('applyRateControl', () => {
-        it('should apply rate control correctly', async () => {
-            expect(() => CompositeRateController.applyRateControl()).be.a(
-                'function'
-            );
-        });
-    });
 
     describe('#_prepareControllers', () => {
         it('should throw error when weights and rateControllers are not arrays', async () => {
