@@ -17,6 +17,7 @@
 const chai = require('chai');
 const sinon = require('sinon');
 const expect = chai.expect;
+// const CompositeRate = rewire('../../../lib/worker/rate-control/compositeRate.js');
 const {createRateController} = require('../../../lib/worker/rate-control/compositeRate.js');
 const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 const TestMessage = require('../../../lib/common/messages/testMessage.js');
@@ -47,11 +48,11 @@ describe('CompositeRateController', () => {
         };
         testMessage = new TestMessage('test', [], msgContent);
         stats = new TransactionStatisticsCollector(0, 0, 'query2');
-        CompositeRateController = createRateController(testMessage, stats, 0);
     });
 
     describe('#constructor', () => {
         it('should correctly initialize with default settings', () => {
+            CompositeRateController = createRateController(testMessage, stats, 0);
             expect(CompositeRateController.activeControllerIndex).to.equal(0);
             expect(CompositeRateController.controllers.length).to.equal(1);
         });
