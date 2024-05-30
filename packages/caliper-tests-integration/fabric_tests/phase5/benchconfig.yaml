@@ -19,7 +19,7 @@ test:
     rounds:
     - label: init1
       txNumber: 100
-      rateControl: { type: 'fixed-load',   opts: { "transactionLoad": 5, "startingTps": 100 }}
+      rateControl: { type: 'fixed-load',   opts: { "transactionLoad": 5, "startTps": 100 }}
       workload:
           module: ./../init.js
           arguments:
