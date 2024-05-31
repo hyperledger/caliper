@@ -114,24 +114,31 @@ class EthereumConnector extends ConnectorBase {
             }
 
             this.ethereumConfig.contracts[key].abi = contractData.abi;
-            promises.push(new Promise(async function(resolve, reject) {
-                let contractInstance;
-                try {
-                    if (privacy) {
-                        contractInstance = await self.deployPrivateContract(contractData, privacy);
-                        logger.info(`Deployed private contract ${contractData.name} at ${contractInstance.options.address}`);
-                    } else {
-                        contractInstance = await self.deployContract(contractData);
-                        logger.info(`Deployed contract ${contractData.name} at ${contractInstance.options.address}`);
-                    }
-                } catch (err) {
-                    reject(err);
-                }
-                self.ethereumConfig.contracts[key].address = contractInstance.options.address;
+            if (contractData.address) {
+                logger.info(`Using pre-deployed contract ${contractData.name} at ${contractData.address}`);
+                self.ethereumConfig.contracts[key].address = contractData.address;
                 self.ethereumConfig.contracts[key].gas = contractGas;
                 self.ethereumConfig.contracts[key].estimateGas = estimateGas;
-                resolve(contractInstance);
-            }));
+            } else {
+                promises.push(new Promise(async function(resolve, reject) {
+                    let contractInstance;
+                    try {
+                        if (privacy) {
+                            contractInstance = await self.deployPrivateContract(contractData, privacy);
+                            logger.info(`Deployed private contract ${contractData.name} at ${contractInstance.options.address}`);
+                        } else {
+                            contractInstance = await self.deployContract(contractData);
+                            logger.info(`Deployed contract ${contractData.name} at ${contractInstance.options.address}`);
+                        }
+                    } catch (err) {
+                        reject(err);
+                    }
+                    self.ethereumConfig.contracts[key].address = contractInstance.options.address;
+                    self.ethereumConfig.contracts[key].gas = contractGas;
+                    self.ethereumConfig.contracts[key].estimateGas = estimateGas;
+                    resolve(contractInstance);
+                }));
+            }
         }
         return Promise.all(promises);
     }
