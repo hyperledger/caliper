@@ -321,7 +321,7 @@ describe('A Fabric Peer Gateway sdk gateway', () => {
                 await peerGateway._sendSingleRequest(request).should.be.rejectedWith(/Could not find details for contract ID not-a-valid-contract-id/);
             });
 
-            it('when tergetPeers is specified', async () => {
+            it('when targetPeers is specified', async () => {
                 const request = {
                     channel: 'mychannel',
                     contractId: 'marbles',
@@ -329,18 +329,7 @@ describe('A Fabric Peer Gateway sdk gateway', () => {
                     invokerIdentity: 'admin',
                     targetPeers: 'peer0.org2.example.com'
                 };
-                await peerGateway._sendSingleRequest(request).should.be.rejectedWith(/targetPeers or targetOrganizations options are not supported by the Peer Gateway connector/);
-            });
-
-            it('when targetOrganizations is specified', async () => {
-                const request = {
-                    channel: 'mychannel',
-                    contractId: 'marbles',
-                    contractFunction: 'myFunction',
-                    invokerIdentity: 'admin',
-                    targetOrganizations: 'Org2MSP'
-                };
-                await peerGateway._sendSingleRequest(request).should.be.rejectedWith(/targetPeers or targetOrganizations options are not supported by the Peer Gateway connector/);
+                await peerGateway._sendSingleRequest(request).should.be.rejectedWith(/targetPeers option is not supported by the Peer Gateway connector, use targetOrganizations instead/);
             });
         });
 
@@ -364,6 +353,8 @@ describe('A Fabric Peer Gateway sdk gateway', () => {
                 Transaction.submit.should.be.true;
                 Transaction.submitArgs.should.deep.equal(args);
                 Transaction.constructorArgs.should.equal('myFunction');
+                chai.expect(Transaction.endorsingOrgs).to.be.null;
+                chai.expect(Transaction.transient).to.be.null;
 
                 Transaction.reset();
 
@@ -411,6 +402,51 @@ describe('A Fabric Peer Gateway sdk gateway', () => {
                     'param1': Buffer.from('value1'),
                     'param2': Buffer.from('value2')
                 });
+                Transaction.constructorArgs.should.equal('myFunction');
+            });
+
+            it('should set the endorsing organisations if targetOrganizations is specified', async () => {
+                const request = {
+                    channel: 'mychannel',
+                    contractId: 'marbles',
+                    contractFunction: 'myFunction',
+                    targetOrganizations: ['myOrg1', 'myOrg2', 'myOrg3'],
+                    invokerIdentity: 'admin'
+                };
+                await peerGateway._sendSingleRequest(request);
+                Transaction.submit.should.be.true;
+                Transaction.submitArgs.should.deep.equal([]);
+                Transaction.endorsingOrgs.should.deep.equal(['myOrg1', 'myOrg2', 'myOrg3']);
+                Transaction.constructorArgs.should.equal('myFunction');
+            });
+
+            it('should not set endorsing organisations if it is not an array', async () => {
+                const request = {
+                    channel: 'mychannel',
+                    contractId: 'marbles',
+                    contractFunction: 'myFunction',
+                    targetOrganizations: 'myOrg1',
+                    invokerIdentity: 'admin'
+                };
+                await peerGateway._sendSingleRequest(request);
+                Transaction.submit.should.be.true;
+                Transaction.submitArgs.should.deep.equal([]);
+                chai.expect(Transaction.endorsingOrgs).to.be.null;
+                Transaction.constructorArgs.should.equal('myFunction');
+            });
+
+            it('should not set endorsing organisations if it is an empty array', async () => {
+                const request = {
+                    channel: 'mychannel',
+                    contractId: 'marbles',
+                    contractFunction: 'myFunction',
+                    targetOrganizations: [],
+                    invokerIdentity: 'admin'
+                };
+                await peerGateway._sendSingleRequest(request);
+                Transaction.submit.should.be.true;
+                Transaction.submitArgs.should.deep.equal([]);
+                chai.expect(Transaction.endorsingOrgs).to.be.null;
                 Transaction.constructorArgs.should.equal('myFunction');
             });
 
