@@ -33,7 +33,7 @@ The adapter exposes many SDK features directly to the user callback modules, mak
 
 You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](./Installing_Caliper.md#the-bind-command) for details. When you bind to an SUT, you are in fact selecting a specific Fabric SDK to use which could be used with different versions of Fabric SUTs.
 
-> * None of the Fabric bindings support administration actions. It it not possible to create/join channels nor deploy a chaincode. Consequently running caliper only facilitate operations using the  `--caliper-flow-only-test` flag
+> * None of the Fabric bindings support administration actions. It it not possible to create/join channels nor deploy a chaincode, therefore the init and install flows do nothing and can be skipped using `--caliper-flow-skip-init` and `--caliper-flow-skip-install`. If you don't use the `start` and `end` flows you can just use `--caliper-flow-only-test`.
 
 ### Binding with Fabric 1.4 Client SDK
 
@@ -63,7 +63,7 @@ Only Fabric 2.4 and later with the Peer Gateway capability enabled (which is the
 > The following further restrictions exist for this binding
 > * Detailed execution data for every transaction is not available.
 > * mutual TLS is not supported
-> * peer and organization targeting is not supported so the options `targetPeers` and `targetOrganizations` in a request will throw an error.
+> * peer targeting is not supported so the option `targetPeers` in a request will throw an error.
 
 ## Connection Profiles
 
@@ -149,8 +149,8 @@ The settings object has the following structure:
 * `transientMap`: _Map<string, byte[]>. Optional._ The transient map to pass to the contract.
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If not provided a user will be selected from the organization defined by `invokerMspId` or the first organization in the network configuration file if that property is not provided
 * `invokerMspId`: _string. Optional._ The mspid of the user organization who should invoke the contract. Defaults to the first organization in the network configuration file.
-* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will be chosen for you and if discovery is used then the node sdk uses discovery to determine the correct peers.
-* `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and targetOrganizations are specified then targetPeers will take precedence
+* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will be chosen for you and if discovery is used then the node sdk uses discovery to determine the correct peers. This is not supported with the Peer Gateway binding
+* `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. For the non Peer Gateway bindings, if both targetPeers and targetOrganizations are specified then targetPeers will take precedence. For the Peer Gateway binding this is the only supported option for targeting.
 * `channel`: _string. Optional._ The name of the channel on which the contract to call resides.
 * `timeout`: _number. Optional._ [**Only applies to 1.4 binding when not enabling gateway use**] The timeout in seconds to use for this request.
 * `orderer`: _string. Optional._ [**Only applies to 1.4 binding when not enabling gateway use**] The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be automatically selected.
