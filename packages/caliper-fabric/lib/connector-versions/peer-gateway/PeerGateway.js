@@ -43,6 +43,8 @@ const logger = CaliperUtils.getLogger('connectors/peer-gateway/PeerGateway');
  * @property {string} invokerIdentity Required. The identity name of the invoker
  * @property {boolean} [readOnly] Optional. Indicates whether the request is a submit or evaluation.
  *           contract. If an admin is needed, use the organization name prefixed with a _ symbol.
+ * @property {string[]} [targetOrganizations] Optional. An array of endorsing  organizations as the
+ *           targets of the invoke.
  */
 
 /////////////////////////////
@@ -152,8 +154,8 @@ class PeerGateway extends ConnectorBase {
             request.contractArguments = [];
         }
 
-        if (request.targetPeers || request.targetOrganizations) {
-            throw new Error('targetPeers or targetOrganizations options are not supported by the Peer Gateway connector');
+        if (request.targetPeers) {
+            throw new Error('targetPeers option is not supported by the Peer Gateway connector, use targetOrganizations instead');
         }
         return await this._submitOrEvaluateTransaction(request, request.readOnly === undefined || !request.readOnly);
     }
@@ -292,6 +294,7 @@ class PeerGateway extends ConnectorBase {
         const proposalOptions = {};
         // add contract arguments to proposal Options
         proposalOptions.arguments = invokeSettings.contractArguments;
+
         // Add transient data if present
         if (invokeSettings.transientMap) {
             const transientData = {};
@@ -301,6 +304,15 @@ class PeerGateway extends ConnectorBase {
             });
             proposalOptions.transientData = transientData;
         }
+
+        if (invokeSettings.targetOrganizations) {
+            if (Array.isArray(invokeSettings.targetOrganizations) && invokeSettings.targetOrganizations.length > 0) {
+                proposalOptions.endorsingOrganizations = invokeSettings.targetOrganizations;
+            } else {
+                logger.warn(`${invokeSettings.targetOrganizations} is not a populated array, no orgs targeted`);
+            }
+        }
+
         // set transaction invocation result to return
         try {
             const proposal = smartContract.newProposal(invokeSettings.contractFunction, proposalOptions);
