@@ -272,6 +272,10 @@ module.exports = class extends Generator {
             answersObject.opts = 'tps: 100, unfinished_per_client: 100';
             this._configWrite();
             break;
+        case 'fixed-load':
+            answersObject.opts = 'startTps:10, transactionLoad:20';
+            this._configWrite();
+            break;
         }
     }
 
