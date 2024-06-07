@@ -153,6 +153,18 @@ describe ('benchmark configuration generator', () => {
         fileContains.should.equal(true);
     });
 
+    it ('should use the fixed-load controller in config.yaml if user answered "Fixed Load" for rate controller prompt', async () => {
+        options.txDuration = 30;
+        options.rateController = 'fixed-load';
+        await runGenerator();
+
+        const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
+        const configStr = JSON.stringify(config);
+        const fileContains = configStr.includes('"type":"fixed-load"');
+
+        fileContains.should.equal(true);
+    });
+
     it ('should ask for the txDuration if user answered "txDuration" for tyType prompt', async () => {
         options.txType = 'txDuration';
         options.txDuration = 30;
