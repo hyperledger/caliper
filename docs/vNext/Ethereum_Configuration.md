@@ -12,8 +12,6 @@ This page introduces the Ethereum adapter suitable for all the Ethereum clients 
 
 > Hyperledger Besu and Geth are the current tested clients. The tests are driven via standard Ethereum JSON-RPC APIs so other clients should be compatible once docker configurations exist.
 
-> Hyperledger Besu does not provide wallet services, so the `contractDeployerPassword` and `fromAddressPassword` options are not supported and the private key variants must be used.
-
 > Some highlights of the provided features:
 > * configurable confirmation blocks threshold
 
@@ -25,7 +23,7 @@ The page covers the following aspects of using the Ethereum adapter:
 
 # Assembling the Network Configuration File
 
-The JSON network configuration file of the adapter essentially defines which contract are expected to be on the network and which account the adapter should use to deploy the pointed contracts and which account use to invoke them. Contract necessary for the benchmark are automatically deployed at benchmark startup while the special `registry` contract needs to be already deployed on the network. ABI and bytecode of the registry contract are reported in the src/contract/ethereum/registry/registry.json.
+The JSON network configuration file of the adapter essentially defines which contracts are expected to be on the network and which account the adapter should use to deploy the pointed contracts and which account use to invoke them. 
 
 ## Connection profile example
 We will provide an example of the configuration and then we'll in deep key by key
@@ -66,14 +64,14 @@ Furthermore, it also contains two optional commands: a `start` command to execut
 
 These are the keys to provide inside the configuration file under the `ethereum` one:
 * [URL](#url) of the RPC endpoint to connect to. Only websocket is currently supported.
-* [Deployer address](#deployer-address) with which deploy required contracts
-* [Deployer address private key](#deployer-address-private-key) the private key of the deployer address
-* [Deployer address password](#deployer-address-password) to unlock the deployer address
-* [Address](#benchmark-address) from which invoke methods of the benchmark
-* [Private Key](#benchmark-address-private-key) the private key of the benchmark address
-* [Password](#benchmark-address-password) to unlock the benchmark address
-* Number of [confirmation blocks](#confirmation-blocks) to wait to consider a transaction as successfully accepted in the chain
-* [Contracts configuration](#contract-configuration)
+* [Deployer Address](#deployer-address), which will deploy the required contracts.
+* [Deployer Address Private Key](#deployer-address-private-key), the private key of the deployer address.
+* [Deployer Address Password](#deployer-address-password) to unlock the deployer address.
+* [Benchmark Address](#benchmark-address), from which the methods of the benchmark will be invoked.
+* [Benchmark Address Private Key](#benchmark-address-private-key), the private key of the benchmark address.
+* [Benchmark Address Password](#benchmark-address-password) to unlock the benchmark address.
+* Number of [Confirmation Blocks](#confirmation-blocks) to wait to consider a transaction as successfully accepted in the chain.
+* [Contract Configurations](#contract-configuration) for pre-deployed contracts or for contracts to deploy and use in the benchmark.
 
 The following sections detail each part separately. For a complete example, please refer to the [example section](#connection-profile-example) or one of the example files in the `network/ethereum` directories
 
@@ -90,7 +88,7 @@ Unfortunately, HTTP connections are explicitly disallowed, as
 1. there is no efficient way to guarantee the order of transactions submitted over http, which leads to nonce errors, and
 2. this adapter relies on web3.js, and this library has deprecated its support for RPC over HTTP.
 
-## Deployer address
+## Deployer Address
 
 The address to use to deploy contracts of the network. Without particular or specific needs it can be set to be equal to the [benchmark address](#benchmark-address). Its private key must be hold by the node connected with [URL](#url) and it must be provided in the checksum form (the one with both lowercase and uppercase letters).
 
@@ -98,7 +96,7 @@ The address to use to deploy contracts of the network. Without particular or spe
 "contractDeployerAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2"
 ```
 
-## Deployer address private key
+## Deployer Address Private Key
 
 The private key for the [deployer address](#deployer-address). If present then transactions are signed inside caliper and sent "raw" to the ethereum node.
 
@@ -106,7 +104,7 @@ The private key for the [deployer address](#deployer-address). If present then t
 "contractDeployerAddressPrivateKey": "0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8"
 ```
 
-## Deployer address password
+## Deployer Address Password
 
 The password to use to unlock [deployer address](#deployer-address). If there isn't an unlock password, this key must be present as empty string. If the deployer address private key is present this is not used.
 
@@ -114,7 +112,9 @@ The password to use to unlock [deployer address](#deployer-address). If there is
 "contractDeployerAddressPassword": "gottacatchemall"
 ```
 
-## Benchmark address
+> Hyperledger Besu does not provide wallet services, so the `contractDeployerPassword` is not supported and the private key variant must be used.
+
+## Benchmark Address
 
 The address to use while invoking all the methods of the benchmark. Its private key must be hold by the node connected with [URL](#url) and it must be provided in the checksum form (the one with both lowercase and uppercase letters).
 
@@ -122,7 +122,7 @@ The address to use while invoking all the methods of the benchmark. Its private 
 "fromAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2"
 ```
 
-## Benchmark address seed
+## Benchmark Address Seed
 
 As an alternative to `fromAddress`, `fromAddressPrivateKey`, and `fromAddressPassword` the network configuration can use a fixed seed and derive needed addresses via [BIP-44](https://github.com/bitcoin/bips/blob/43da5dec5eaf0d8194baa66ba3dd976f923f9d07/bip-0044.mediawiki) key derivation.  Each caliper test worker will generate an address for use as `fromAddress` and `fromAddressPrivateKey` using the derivation path `m/44'/60'/<x>'/0/0`, where <x> is the `clientIdx` passed into `getContext`.
 
@@ -132,7 +132,9 @@ This configuration does not override `fromAddress`, but it takes priority over `
 "fromAddressSeed": "0x3f841bf589fdf83a521e55d51afddc34fa65351161eead24f064855fc29c9580"
 ```
 
-## Benchmark address private key
+> The use of `fromAddressSeed` is **mandatory** if you want to use more than 1 worker in your benchmark. This is because each worker independently fetches the current transaction nonce for the address it is using. If they all use the same address, they will all get the same nonces, causing known transaction errors. By using a seed, each worker will generate a unique address and private key.
+
+## Benchmark Address Private Key
 
 The private key for the [benchmark address](#benchmark-address). If present then transactions are signed inside caliper and sent "raw" to the ethereum node.
 
@@ -142,7 +144,7 @@ This configuration takes priority over `fromAddressPassword`.
 "fromAddressPrivateKey": "0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8"
 ```
 
-## Benchmark address password
+## Benchmark Address Password
 
 The password to use to unlock [benchmark address](#benchmark-address). If there isn't an unlock password, this key must be present as empty string. If the benchmark address private key is present this is not used.
 
@@ -150,7 +152,9 @@ The password to use to unlock [benchmark address](#benchmark-address). If there 
 "fromAddressPassword": "gottacatchemall"
 ```
 
-## Confirmation blocks
+> Hyperledger Besu does not provide wallet services, so the `fromAddressPassword` option is not supported and the private key variant must be used.
+
+## Confirmation Blocks
 
 It is the number of blocks the adapter will wait before warn Caliper that a transaction has been successfully executed on the network. You can freely tune it from 1 to the desired confirmations. Keep in mind that in the Ethereum main net (PoW), 12 to 20 confirmations can be required to consider a transaction as accepted in the blockchain. If you're using different consensus algorith (like clique in the example network provided) it can be safely brought to a lower value. In any case it is up to you.
 
@@ -158,14 +162,37 @@ It is the number of blocks the adapter will wait before warn Caliper that a tran
 "transactionConfirmationBlocks": 12
 ```
 
-## Contract configuration
-It is the list, provided as a json object, of contracts to deploy on the network before running the benchmark. You should provide a json entry for each contract; the key will represent the contract identifier to invoke methods on that contract.
+## Contract Configuration
+It is the list, provided as a JSON object, of pre-deployed contracts or contracts to deploy on the network before running the benchmark. You should provide a JSON entry for each contract. The key will represent the contract identifier to invoke methods on that contract.
 
-For each key you must provide a JSON object with the `path` field pointing to the [contract definition file](#contract-definition-file).
+Depending on whether you plan to use pre-deployed contracts or deploy them during the benchmark, the configuration will differ slightly. 
 
-It is also strongly recommended to specify a `gas` field, which is an object with one field per contract function that you will call in your test. The value of these fields should be set to the amount of gas that will be required to execute your transaction. There is no need for this number to be an exact match, as it's used to set the gas limit for the transaction, so if your transaction might have a variable gas cost, just set this value to the highest gas usage that you would expect to see for your transaction.
+> Defining configurations simultaneously for both pre-deployed contracts and contracts to be deployed by Caliper is currently **not supported** and may result in unexpected errors. This is because opting for pre-deployed contracts means the contract installation phase will be skipped.
+
+In both cases, it strongly recommended to specify a `gas` field, which is an object with one field per contract function that you will call in your test. The value of these fields should be set to the amount of gas that will be required to execute your transaction. There is no need for this number to be an exact match, as it's used to set the gas limit for the transaction, so if your transaction might have a variable gas cost, just set this value to the highest gas usage that you would expect to see for your transaction.
 
 **Note**: If you do not specify the gas for your contract functions, web3 will automatically call out to your node to estimate the gas requirement before submitting the transaction. This causes three problems. First, it means that your transaction will effectively execute twice, doubling the load on the node serving as your RPC endpoint. Second, the extra call will add significant additional latency to every transaction. Third, your transactions may be reordered, causing transaction failures due to out of order nonces.
+
+### Pre-deployed contracts
+To use pre-deployed contracts, you must launch caliper using the `--caliper-flow-skip-install` option, which skips the smart contract installation phase.
+For each key you must provide a JSON object containing the contract address and the contract ABI. The ABI is required to invoke methods on the contract.
+
+```json
+"contracts": {
+    "simple": {
+        "address": "0xc24f4561B8F1159E8D8661B282A2974cD48058C2",
+        "gas": {
+            "open": 45000,
+            "query": 100000,
+            "transfer": 70000
+        },
+        "abi": [...]
+    }
+}
+```
+
+### Contracts to Deploy
+Contracts to be deployed by Caliper require the specification of a [contract definition file](#contract-definition-file) for each. In the contract configuration you must include a `path` field pointing to each contract definition file. It's in this new file that you will define the contract's ABI and bytecode, as well as the gas required to deploy it.
 
 ```json
 "contracts": {
@@ -186,11 +213,11 @@ It is also strongly recommended to specify a `gas` field, which is an object wit
 }
 ```
 
-## Contract definition file
+## Contract Definition File
 Contract definition file is a simple JSON file containing basic information to deploy and use an Ethereum contract. Four keys are required:
 * [Name](#name)
 * [ABI](#abi)
-* [Byetcode](#bytecode)
+* [Bytecode](#bytecode)
 * [Gas](#gas)
 
 Here is an example:
@@ -251,9 +278,10 @@ The settings object has the following structure:
 ```js
 let requestsSettings = [{
     contract: 'simple',
-    verb: 'open',
+    verb: 'query',
+    readOnly: true,
     value: 1000000000000000000000,
-    args: ['sfogliatella', 1000]
+    args: ['sfogliatella']
 },{
     contract: 'simple',
     verb: 'open',
@@ -272,14 +300,16 @@ To query a state on a contract state, set the `readOnly` attribute to `true`. Th
 
 # Transaction Data Gathered by the Adapter
 
-The previously discussed  `invokeSmartContract` and `queryState` functions return an array whose elements correspond to the result of the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
+The previously discussed  `sendRequests` function returns an array whose elements correspond to the result of the submitted request(s), with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/common/core/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
 
 The standard information provided by the type are the following:
-* `GetID():string` returns the transaction ID for `invokeSmartContract`, `null` for `queryState` and `querySmartContract`.
+* `GetID():string` returns the transaction ID for the request.
 * `GetStatus():string` returns the final status of the transaction, either `success` or `failed`.
 * `GetTimeCreate():number` returns the epoch when the transaction was submitted.
 * `GetTimeFinal():number` return the epoch when the transaction was finished.
+* `IsCommitted():boolean` indicates whether the transaction has been committed successfully.
 * `IsVerified():boolean` indicates whether we are sure about the final status of the transaction. Always true for successful transactions. False in all other cases.
+* `GetResult():any` returns the result of the transaction. Only requests with `readOnly` set to true will return the actual result of the call. Write operations, because they are asynchronous, will return the transaction hash. 
 
 ## License
 The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
