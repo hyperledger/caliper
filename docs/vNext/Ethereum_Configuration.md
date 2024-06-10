@@ -23,7 +23,7 @@ The page covers the following aspects of using the Ethereum adapter:
 
 # Assembling the Network Configuration File
 
-The JSON network configuration file of the adapter essentially defines which contract are expected to be on the network and which account the adapter should use to deploy the pointed contracts and which account use to invoke them. 
+The JSON network configuration file of the adapter essentially defines which contracts are expected to be on the network and which account the adapter should use to deploy the pointed contracts and which account use to invoke them. 
 
 ## Connection profile example
 We will provide an example of the configuration and then we'll in deep key by key
@@ -112,7 +112,7 @@ The password to use to unlock [deployer address](#deployer-address). If there is
 "contractDeployerAddressPassword": "gottacatchemall"
 ```
 
-> Hyperledger Besu does not provide wallet services, so the `contractDeployerPassword` is nor supported and the private key variant must be used.
+> Hyperledger Besu does not provide wallet services, so the `contractDeployerPassword` is not supported and the private key variant must be used.
 
 ## Benchmark Address
 
@@ -192,7 +192,7 @@ For each key you must provide a JSON object containing the contract address and 
 ```
 
 ### Contracts to Deploy
-Contracts to be deployed by Caliper require the specification of a [contract definition file](#contract-definition-file) for each. In the contract configuration you shall include a `path` field pointing to each contract definition file. It's in this new file that you will define the contract's ABI and bytecode, as well as the gas required to deploy it.
+Contracts to be deployed by Caliper require the specification of a [contract definition file](#contract-definition-file) for each. In the contract configuration you must include a `path` field pointing to each contract definition file. It's in this new file that you will define the contract's ABI and bytecode, as well as the gas required to deploy it.
 
 ```json
 "contracts": {
