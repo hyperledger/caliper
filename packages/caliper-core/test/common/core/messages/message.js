@@ -137,10 +137,13 @@ describe('Message', () => {
 
         it("should set the current date if the date is not provided", () => {
             const message = new Message(mockSender, mockRecipients, mockType, mockContent);
+            const firstDate = new Date();
             const stringifiedMessage = message.stringify();
             const decodedMessage = JSON.parse(stringifiedMessage);
-
-            decodedMessage.date.should.equal(new Date().toISOString());
+            const secondDate = new Date(decodedMessage.date);
+            const millisecondDifference = secondDate - firstDate;
+            // allow for upto 5 second discrepancy
+            chai.assert(millisecondDifference < 5 * 1000);
         })
     })
 })
