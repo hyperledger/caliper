@@ -76,8 +76,8 @@ describe('noRate controller implementation', () => {
             msgContent = {
                 label: 'query2',
                 rateControl: {
-                    type: 'linear-feedback-rate',
-                    opts: { startingTps: 20, finishingTps: 80 }
+                    type: 'dummy',
+                    opts: { }
                 },
                 workload: {
                     module:'./../queryByChannel.js'
