@@ -104,7 +104,7 @@ module.exports = class extends Generator {
                     {name: 'Fixed Backlog', value: 'fixed-backlog'},
                     {name: 'Linear Rate', value: 'linear-rate'},
                     {name: 'Fixed Feedback Rate', value: 'fixed-feedback-rate'},
-                    {name: 'Fixed Load', value: "fixed-load"}
+                    {name: 'Fixed Load', value: 'fixed-load'}
                 ],
                 when: () => !this.options.rateController
             }, {
