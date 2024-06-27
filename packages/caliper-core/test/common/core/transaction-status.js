@@ -17,7 +17,7 @@
 const chai = require('chai');
 chai.should();
 
-const TxStatus = require('../../lib/common/core/transaction-status');
+const TxStatus = require('../../../lib/common/core/transaction-status');
 
 describe('the transaction status', () => {
     it('should create a default time creation', () => {

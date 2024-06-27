@@ -14,8 +14,8 @@
 
 'use strict';
 
-const PreparedMessage = require('../../../../lib/common/messages/preparedMessage');
-const MessageTypes = require('../../../../lib/common/utils/constants').Messages.Types;
+const PreparedMessage = require('../../../lib/common/messages/preparedMessage');
+const MessageTypes = require('../../../lib/common/utils/constants').Messages.Types;
 
 const chai = require('chai');
 chai.should();
