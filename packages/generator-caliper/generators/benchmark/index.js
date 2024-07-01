@@ -103,7 +103,8 @@ module.exports = class extends Generator {
                     {name: 'Fixed Rate', value: 'fixed-rate'},
                     {name: 'Fixed Backlog', value: 'fixed-backlog'},
                     {name: 'Linear Rate', value: 'linear-rate'},
-                    {name: 'Fixed Feedback Rate', value: 'fixed-feedback-rate'}
+                    {name: 'Fixed Feedback Rate', value: 'fixed-feedback-rate'},
+                    {name: 'Fixed Load', value: 'fixed-load'}
                 ],
                 when: () => !this.options.rateController
             }, {
@@ -270,6 +271,10 @@ module.exports = class extends Generator {
             break;
         case 'fixed-feedback-rate':
             answersObject.opts = 'tps: 100, unfinished_per_client: 100';
+            this._configWrite();
+            break;
+        case 'fixed-load':
+            answersObject.opts = 'startTps: 10, transactionLoad: 20';
             this._configWrite();
             break;
         }
