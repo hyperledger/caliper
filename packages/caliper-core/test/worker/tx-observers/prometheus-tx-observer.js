@@ -127,7 +127,7 @@ describe('When using a PrometheusTxObserver', () => {
         });
     });
 
-    it('should update transaction statistics during use', async () => {
+    it.only('should update transaction statistics during use', async () => {
         const prometheusTxObserver = PrometheusTxObserver.createTxObserver(undefined, undefined, 0);
         await prometheusTxObserver.activate(2, 'myTestRound');
         prometheusTxObserver.txSubmitted(100);
