@@ -1,0 +1,118 @@
+site_name: Hyperledger Caliper
+repo_name: hyperledger/caliper
+repo_url: https://github.com/hyperledger/caliper
+docs_dir: source
+site_dir: build
+theme:
+  name: material
+  custom_dir: overrides
+  logo: _static/caliper.svg
+  favicon: _static/caliper.svg
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+  # Palette toggle for light mode
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)"
+    # Palette toggle for dark mode
+    scheme: slate
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
+  features:
+  - content.code.copy
+  - content.tabs.link
+  - navigation.expand
+  - navigation.footer
+  - navigation.instant
+  - navigation.tabs
+  - navigation.tabs.sticky
+  - navigation.top
+  - navigation.tracking
+  - toc.follow
+  - toc.integrate
+markdown_extensions:
+- abbr
+- admonition
+- attr_list
+- def_list
+- footnotes
+- md_in_html
+- toc:
+    permalink: true
+    toc_depth: 3
+- pymdownx.arithmatex:
+    generic: true
+- pymdownx.betterem:
+    smart_enable: all
+- pymdownx.caret
+- pymdownx.details
+- pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+- pymdownx.highlight:
+    anchor_linenums: true
+- pymdownx.inlinehilite
+- pymdownx.keys
+- pymdownx.magiclink:
+    repo_url_shorthand: true
+    user: squidfunk
+    repo: mkdocs-material
+- pymdownx.mark
+- pymdownx.smartsymbols
+- pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+      format: !!python/name:pymdownx.superfences.fence_code_format
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.tasklist:
+    custom_checkbox: true
+- pymdownx.tilde
+- pymdownx.snippets:
+    base_path:
+    - '..'
+    - '.'
+plugins:
+  - search
+  - mike:
+      version_selector: true
+extra:
+  # analytics:
+  #   provider: google
+  #   property: !ENV GOOGLE_ANALYTICS_KEY
+  version:
+    provider: mike
+nav:
+- Introduction: index.md
+- Overview:
+  - Getting Started: overview/getting-started.md
+  - Installing and Running Caliper: overview/installing-caliper.md
+  - Benchmark Configuration: overview/bench-config.md
+  - Workload Configuration: overview/workload-module.md
+  - Architecture: overview/architecture.md
+- Connector Configuration:
+  - Ethereum: connector-configuration/ethereum-config.md
+  - Fabric: connector-configuration/fabric-config.md
+  - FISCO BCOS: connector-configuration/fisco-config.md
+- Tutorials:
+  - Fabric Tutorials: fabric-tutorial/index.md
+  - Existing Fabric Tutorials: fabric-tutorial/tutorials-fabric-existing.md
+- Reference:
+  - Writing Connectors: references/writing-connectors.md
+  - Runtime Configuration: references/runtime-config.md
+  - Declarative Workloads: references/declarative-workload-module.md
+  - Rate Controllers: references/rate-controllers.md
+  - Resource and Transaction Monitors: references/caliper-monitors.md
+  - Messengers: references/caliper-messengers.md
+  - Benchmark Generators: references/benchmark-generators.md
+  - Logging Control: references/logging-control.md
+- General:
+  - Contributing: general/contributing.md
+  - Caliper FAQ: general/faq.md
+  - License: general/license.md
