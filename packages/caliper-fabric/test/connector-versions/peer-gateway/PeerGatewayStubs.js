@@ -75,7 +75,12 @@ class Transaction {
     constructor(name, args) {
         Transaction.constructorArgs = name;
         this.args = args;
-        this.setTransient(this.args.transientData);
+        if (this.args.transientData !== undefined) {
+            this.setTransient(this.args.transientData);
+        }
+        if (this.args.endorsingOrganizations !== undefined) {
+            this.setEndorsingOrgs(this.args.endorsingOrganizations);
+        }
     }
 
     async endorse(){
@@ -104,6 +109,10 @@ class Transaction {
         Transaction.transient = contents;
     }
 
+    setEndorsingOrgs(contents) {
+        Transaction.endorsingOrgs = contents;
+    }
+
     getTransactionId() {
         return '1';
     }
@@ -121,7 +130,8 @@ class Transaction {
         Transaction.submitArgs = null;
         Transaction.evaluate = false;
         Transaction.evaluateArgs = null;
-        Transaction.transient = undefined;
+        Transaction.transient = null;
+        Transaction.endorsingOrgs = null;
         Transaction.err = undefined;
         Transaction.fails = false;
     }
