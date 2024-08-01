@@ -47,7 +47,7 @@ describe('noRate controller implementation', () => {
         });
 
 
-        it ('should throw an error if a value for the number of transactions is set', async () => {
+        it('should throw an error if a value for the number of transactions is set', async () => {
             try {
                 testMessage.content.numb = 6;
                 controller = new NoRate.createRateController(testMessage, {}, 0);
@@ -60,7 +60,7 @@ describe('noRate controller implementation', () => {
             }
         });
 
-        it ('should set the sleep time based on the length of the round in seconds', () => {
+        it('should set the sleep time based on the length of the round in seconds', () => {
             testMessage.content.txDuration = 6;
             controller = new NoRate.createRateController(testMessage, {}, 0);
 

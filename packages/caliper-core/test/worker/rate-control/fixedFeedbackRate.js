@@ -144,5 +144,29 @@ describe('fixedFeedbackRate controller implementation', () => {
             sinon.assert.calledOnce(sleepStub);
             sinon.assert.calledWith(sleepStub, 20000);
         });
+
+        it('should sleep when no successful transactions have occurred', async () => {
+            txnStats.stats.txCounters.totalSubmitted = 5;
+            txnStats.stats.txCounters.totalFinished = 2;
+            txnStats.stats.txCounters.totalSuccessful = 0;
+            controller.generalSleepTime = 1;
+
+            await controller.applyRateControl();
+
+            sinon.assert.calledOnce(sleepStub);
+            sinon.assert.calledWith(sleepStub, 1 * controller.backOffTime);
+        });
+
+        it('should sleep when unfinished transactions are above the threshold', async () => {
+            txnStats.stats.txCounters.totalSubmitted = 44;
+            txnStats.stats.txCounters.totalFinished = 40;
+            controller.unfinishedPerWorker = 1;
+            controller.backOffTime = 100;
+
+            await controller.applyRateControl();
+
+            sinon.assert.calledOnce(sleepStub);
+            sinon.assert.calledWith(sleepStub, 88 * controller.backOffTime);
+        });
     });
 });

@@ -55,6 +55,7 @@ class RateControl extends RateInterface {
         }
 
         this.controller = factoryFunction(testMessage, stats, workerIndex);
+
     }
 
     /**
