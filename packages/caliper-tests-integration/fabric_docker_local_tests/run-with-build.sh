@@ -49,4 +49,4 @@ sleep 5s
 cd ${DIR}
 
 npm i
-docker-compose -p caliper up
+docker compose -p caliper up
