@@ -207,8 +207,8 @@ The following `target` values (i.e., transports) are supported. Click on the lin
 
 | Target             | Available options              |
 |--------------------|--------------------------------|
-| console            | [Console Transport](https://github.com/winstonjs/winston/blob/master/docs/transports.md#console-transport)              |
-| file               | [File Transport](https://github.com/winstonjs/winston/blob/master/docs/transports.md#file-transport)                 |
+| console            | [Console Transport](https://github.com/winstonjs/winston/tree/v3.13.1/docs/transports.md#console-transport)              |
+| file               | [File Transport](https://github.com/winstonjs/winston/tree/v3.13.1/docs/transports.md#file-transport)                 |
 | daily-rotate-file  | [Daily Rotating File Transport](https://github.com/winstonjs/winston-daily-rotate-file#options)  |
 
 
