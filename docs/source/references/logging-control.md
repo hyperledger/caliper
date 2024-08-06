@@ -175,7 +175,7 @@ For example, to really highlight error-level logs: `--caliper-logging-formats-co
 
 ## Configuring logging targets
 
-The source and target(s) of log messages are decoupled, thanks to the [transport mechanism](https://github.com/winstonjs/winston/blob/master/docs/transports.md) of winston. This means that a log message can be easily logged to multiple places, like the console, or different log files. Moreover, this is completely transparent to the module generating the log message!
+The source and target(s) of log messages are decoupled, thanks to the [transport mechanism](https://github.com/winstonjs/winston/tree/v3.13.1/docs/transports.md) of winston. This means that a log message can be easily logged to multiple places, like the console, or different log files. Moreover, this is completely transparent to the module generating the log message!
 
 The different targets are specified under the `caliper.logging.targets` property. The `caliper.logging.targets` section takes the following general form:
 
