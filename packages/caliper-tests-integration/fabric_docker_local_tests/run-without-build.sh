@@ -23,7 +23,7 @@ TEST_NETWORK_DIR=${DIR}/fabric-samples/test-network
 cd "${DIR}"
 
 if [[ ! -d "fabric-samples" ]]; then
-  curl -sSL -k https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/bootstrap.sh | bash -s -- 2.4.3
+  curl -sSL -k https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/bootstrap.sh | bash -s -- 2.5.9
 fi
 
 pushd ${TEST_NETWORK_DIR}
