@@ -2,8 +2,8 @@
     "caliper": {
         "blockchain": "ethereum",
         "command" : {
-            "start": "docker-compose -f ../config/docker-compose.yml up -d && sleep 30",
-            "end" : "docker-compose -f ../config/docker-compose.yml down"
+            "start": "docker compose -f ../config/docker-compose.yml up -d && sleep 30",
+            "end" : "docker compose -f ../config/docker-compose.yml down"
           }
     },
     "ethereum": {
@@ -42,7 +42,7 @@
             "gas": {
                 "update": 30000
             },
-            "private": "group1" 
+            "private": "group1"
         }
     }
     }

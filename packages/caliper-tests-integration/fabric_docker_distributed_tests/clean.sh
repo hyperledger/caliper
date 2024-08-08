@@ -22,7 +22,7 @@ TEST_NETWORK_DIR=${DIR}/fabric-samples/test-network
 
 cd ${DIR}
 
-docker-compose -p caliper down
+docker compose -p caliper down
 
 pushd ${TEST_NETWORK_DIR}
 ./network.sh down

@@ -60,6 +60,10 @@ class Utils {
             error: sinon.stub()
         };
     }
+
+    static stubAppServer(sandbox, appServer) {
+        sandbox.stub(appServer, 'listen').returns({close: sinon.stub()})
+    }
 }
 
 mockery.enable({
@@ -73,10 +77,16 @@ describe('When using a PrometheusTxObserver', () => {
 
     // Require here to enable mocks to be established
     const PrometheusTxObserver = require('../../../lib/worker/tx-observers/prometheus-tx-observer');
+    let sandbox;
+
+    before(() => {
+        sandbox = sinon.createSandbox();
+    })
 
     after(()=> {
         mockery.deregisterAll();
         mockery.disable();
+        sandbox.restore();
     });
 
     it('should build from default values if no options are passed', async () => {
@@ -118,6 +128,7 @@ describe('When using a PrometheusTxObserver', () => {
 
     it('should update labels on activate to ensure statistics are scraped correctly', async () => {
         const prometheusTxObserver = PrometheusTxObserver.createTxObserver(undefined, undefined, 0);
+        Utils.stubAppServer(sandbox, prometheusTxObserver.appServer);
         await prometheusTxObserver.activate(2, 'myTestRound');
 
         prometheusTxObserver.defaultLabels.should.deep.equal({
@@ -129,6 +140,7 @@ describe('When using a PrometheusTxObserver', () => {
 
     it('should update transaction statistics during use', async () => {
         const prometheusTxObserver = PrometheusTxObserver.createTxObserver(undefined, undefined, 0);
+        Utils.stubAppServer(sandbox, prometheusTxObserver.appServer);
         await prometheusTxObserver.activate(2, 'myTestRound');
         prometheusTxObserver.txSubmitted(100);
         prometheusTxObserver.txFinished({
@@ -148,10 +160,13 @@ describe('When using a PrometheusTxObserver', () => {
                 value: 1
             }
         });
+
+        await prometheusTxObserver.deactivate();
     });
 
     it('should reset all counters on deactivate so that statistics do not bleed into other rounds', async () => {
         const prometheusTxObserver = PrometheusTxObserver.createTxObserver(undefined, undefined, 0);
+        Utils.stubAppServer(sandbox, prometheusTxObserver.appServer);
         await prometheusTxObserver.activate(2, 'myTestRound');
         prometheusTxObserver.txSubmitted(100);
         prometheusTxObserver.txFinished(

@@ -19,7 +19,6 @@ const ConfigUtil = require('../../common/config/config-util');
 const TxObserverInterface = require('./tx-observer-interface');
 
 const express = require('express');
-const appServer = express();
 const prometheusClient = require('prom-client');
 
 const Logger = CaliperUtils.getLogger('prometheus-tx-observer');
@@ -100,8 +99,10 @@ class PrometheusTxObserver extends TxObserverInterface {
             });
         }
 
+        this.appServer = express();
+
         // configure server for Prometheus scrapes:
-        appServer.get(`${this.metricPath}`, async (req, res) => {
+        this.appServer.get(`${this.metricPath}`, async (req, res) => {
             try {
                 res.set('Content-Type', this.registry.contentType);
                 res.end(await this.registry.metrics());
@@ -127,7 +128,7 @@ class PrometheusTxObserver extends TxObserverInterface {
         this.registry.setDefaultLabels(this.defaultLabels);
 
         // Enable server
-        this.server = appServer.listen(this.scrapePort);
+        this.server = this.appServer.listen(this.scrapePort);
         Logger.debug(`Enabled Prometheus scrape server on ${this.scrapePort}, with metrics exposed on ${this.metricPath} endpoint`);
     }
 
