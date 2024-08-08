@@ -60,6 +60,8 @@ if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
 fi
 
 pushd ${TEST_NETWORK_DIR}
+# patch network.sh to workaround bug in fabric-samples script.
+sed -i "s|\[\[ \$len -lt 4 \]\]|\[\[ \$len -lt 3 \]\]|g" network.sh
 ./network.sh up -s couchdb
 ./network.sh createChannel -c mychannel
 ./network.sh deployCC -ccn mymarbles -c mychannel -ccp ${DIR}/src/marbles/go -ccl go -ccv v0 -ccep "OR('Org1MSP.member','Org2MSP.member')"
