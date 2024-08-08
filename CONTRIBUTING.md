@@ -148,11 +148,17 @@ The [packages/](packages/) directory contains the following internal packages:
 * [caliper-publish](packages/caliper-publish/): Utility CLI for publishing Caliper to NPM and DockerHub.
 * [caliper-tests-integration](packages/caliper-tests-integration/): Collection of CI integration tests.
 
-### Testing Methodologies
+## Testing Methodologies
 
-This section provides important information about testing this project. It includes dependencies used for testing and detailed instructions on how to add conforming tests.
+This section outlines the testing methodologies that this project follows, including both unit-level and integration-level testing.
 
-#### Testing Dependencies and Their Use
+### Unit Level Testing
+
+Unit testing focuses on testing individual packages in isolation. The tests are typically located within a test folder at the same level as the corresponding lib folder, mirroring the structure of the lib folder for easy navigation. This setup ensures that each component of the code is verified independently, confirming that it behaves as expected without interference from other parts of the system.
+
+#### Unit Testing Dependencies and Their Use
+
+The following are the recommended testing modules for this project. While these tools are commonly used in the current codebase, other appropriate tools may be used as long as they facilitate effective testing.
 
 * [mockery](https://www.npmjs.com/package/mockery): Mockery is a simple module for mocking Node.js modules during testing. It allows you to replace real modules with mocks or stubs.
   
@@ -166,121 +172,31 @@ This section provides important information about testing this project. It inclu
 
 * [nyc](https://www.npmjs.com/package/nyc): NYC is a command-line utility for generating code coverage reports. It is often used with Mocha to ensure that tests cover as much code as possible.
 
-#### Example Test Case and Points to Note for Adding a Conforming Test
+#### Mandatory Tools in the Testing Pipeline
 
-Below is an example of a test suite. It highlights the use of various testing libraries and includes some key points for writing your own tests.
+In addition to the testing frameworks, the following tools are mandatory for all testing pipelines:
 
-```javascript
-/*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+* [eslint](https://eslint.org/): ESLint is a static code analysis tool for identifying problematic patterns in JavaScript code. It is essential for maintaining code quality.
+* [license-check-and-add](https://www.npmjs.com/package/license-check-and-add): This tool ensures that all files in the codebase contain the required license headers. It is mandatory for all code submissions.
 
-'use strict';
+#### Points to Note for Adding a Conforming Unit Test
 
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
-chai.use(chaiAsPromised);
-chai.should();
+When writing unit tests, the following structure and practices are mandatory:
 
-const ConnectorConfigurationFactory = require('../../lib/connector-configuration/ConnectorConfigurationFactory');
-const ConnectorConfiguration = require('../../lib/connector-configuration/ConnectorConfiguration');
-const GenerateWallet = require('../utils/GenerateWallet');
+1. **License Header**: All test files must include the project's license header.
+2. **'use strict' Directive**: Ensure strict mode is enabled in all test files.
+3. **Test Organization**:
+    * Use `describe` blocks to group related test cases.
+    * Use `it` statements for individual test cases.
+    * Nested `describe` blocks are encouraged for organizing complex test scenarios.
+4. **Consistent Test Naming**: Test descriptions should flow naturally, making it clear what behavior is being tested (e.g., 'should return the correct value when input is valid').
+5. **Mocking Guidance**: Be cautious with mocks that persist across tests. Always clean up after each test to avoid unexpected behavior.
+6. **Test Patterns**: Refer to the Fabric Unit tests for examples of recommended patterns and best practices.
+7. **Final Checks**: Always run all unit tests before submitting a PR and ensure no `.only` is left in the code, which would skip other tests.
 
-describe('A Connector Configuration Factory', () => {
-    const {walletFacadeFactory} = new GenerateWallet().createStandardTestWalletSetup();
+### Integration Level Testing
 
-    it('should accept a valid YAML file', async () => {
-        const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
-        connectorConfiguration.should.be.instanceOf(ConnectorConfiguration);
-    });
-});
-```
-
-**Breakdown of the Example Test Case:**
-
-1. **Header and License:**
-
-   ```javascript
-   /*
-   * Licensed under the Apache License, Version 2.0 (the "License");
-   * you may not use this file except in compliance with the License.
-   * You may obtain a copy of the License at
-   *
-   * http://www.apache.org/licenses/LICENSE-2.0
-   *
-   * Unless required by applicable law or agreed to in writing, software
-   * distributed under the License is distributed on an "AS IS" BASIS,
-   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   * See the License for the specific language governing permissions and
-   * limitations under the License.
-   */
-   ```
-
-   * This block provides licensing information. Make sure it is present in all test files.
-
-2. **Strict Mode:**
-
-   ```javascript
-   'use strict';
-   ```
-
-   * Enforces stricter parsing and error handling in the code.
-
-3. **Importing Required Libraries:**
-
-   ```javascript
-   const chai = require('chai');
-   const chaiAsPromised = require('chai-as-promised');
-   chai.use(chaiAsPromised);
-   chai.should();
-   ```
-
-   * Import necessary libraries (`chai` and `chai-as-promised`).
-   * Enable the `chai-as-promised` plugin for better assertion handling with promises.
-   * Use the `should` style assertion from Chai.
-
-4. **Importing Project Modules:**
-
-   ```javascript
-   const ConnectorConfigurationFactory = require('../../lib/connector-configuration/ConnectorConfigurationFactory');
-   const ConnectorConfiguration = require('../../lib/connector-configuration/ConnectorConfiguration');
-   const GenerateWallet = require('../utils/GenerateWallet');
-   ```
-
-   * Import relevant project modules to be tested.
-
-5. **Describing the Test Suite:**
-
-   ```javascript
-   describe('A Connector Configuration Factory', () => {
-       const {walletFacadeFactory} = new GenerateWallet().createStandardTestWalletSetup();
-
-       // ... rest of the 
-   })
-   ```
-
-   * Define the test suite using Mocha's `describe` function.
-   * Setup necessary test environment (e.g., `walletFacadeFactory`).
-
-6. **Individual Test Cases:**
-   * Each test case begins with an `it` block defining what the test should verify.
-
-   ```javascript
-   it('should accept a valid YAML file', async () => {
-       const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
-       connectorConfiguration.should.be.instanceOf(ConnectorConfiguration);
-   });
-   ```
+Integration testing ensures that Caliper integrates correctly with various packages, effectively testing the functionality of the package itself. These tests are organized within the caliper-tests-integration folder, with each test suite dedicated to a specific package or module.
 
 ## Creating New SUT Connectors
 
