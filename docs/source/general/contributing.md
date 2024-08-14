@@ -62,11 +62,7 @@ To run the integration tests for a specific SUT, use the following script from t
 user@ubuntu:~/caliper$ BENCHMARK=fabric ./.build/benchmark-integration-test-direct.sh
 ```
 
-The following platform tests (i.e., valid `BENCHMARK` values) are available:
-- besu
-- ethereum
-- fabric
-- fisco-bcos
+The following platform tests (i.e., valid BENCHMARK values) are available: besu, ethereum, fabric.
 
 A PR must pass all unit and integration tests.
 

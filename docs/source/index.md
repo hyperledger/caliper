@@ -9,7 +9,6 @@ Currently supported blockchain solutions:
 - [Hyperledger Besu](https://github.com/hyperledger/besu)
 - [Ethereum](https://github.com/ethereum/)
 - [Hyperledger Fabric](https://github.com/hyperledger/fabric)
-- [FISCO BCOS](https://github.com/FISCO-BCOS/FISCO-BCOS)
 
 ## Supported Performance Metrics
 

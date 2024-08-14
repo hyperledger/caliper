@@ -98,6 +98,7 @@ The binding step technically consists of an extra `npm install` call with the ap
 - **User arguments**: additional arguments to pass to `npm install`, e.g., `--save`
 
 The following SUT name and SDK version combinations are supported:
+
 - **besu**: `1.3.2`, `1.3`, `1.4`
 - **ethereum**: `1.2.1`, `1.3`
 - **fabric**: `1.4`, `2.2`, `fabric-gateway`

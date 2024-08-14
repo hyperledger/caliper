@@ -117,7 +117,7 @@ The interface is detailed in the next subsection, but for now, keep the followin
 `prepareWorkerArguments`
 
 - **Description** This method is called by the manager process, and ensures that the connector instance in the manager process can distribute data to the connector instances in the worker processes. This method is the perfect place to return, for example, newly created digital identities to the manager process, which in turn will distribute them to the worker process instances for further use.
-- **Return type** *Promise<object[]>*
+- **Return type** *Promise<object[]\>*
 - **Returns** The promise of connector-specific objects for each worker that will resolve upon method completion.
 
 `getContext`
@@ -126,7 +126,7 @@ The interface is detailed in the next subsection, but for now, keep the followin
 - **Parameters:**
   - *roundIndex (number)*: The zero-based index of the imminent round.
   - *args (object)*: The object assembled for this worker instance in the `prepareWorkerArguments` method of the manager instance.
-- **Return type:** *Promise<object>*
+- **Return type:** *Promise<object\>*
 - **Returns:** The promise of a connector-specific object that will resolve upon method completion.
 
 `releaseContext`
