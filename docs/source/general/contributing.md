@@ -258,6 +258,46 @@ Please adhere to the inclusive language guidelines that the project has adopted 
 - We believe that we all have a role to play to improve our world, and even if writing inclusive documentation might not look like a huge improvement, it’s a first step in the right direction.
 - We suggest to refer to [Microsoft bias free writing guidelines](https://docs.microsoft.com/en-us/style-guide/bias-free-communication) and [Google inclusive doc writing guide](https://developers.google.com/style/inclusive-documentation) as starting points.
 
+## Building the documentation
+
+### Requirements
+
+- Python
+- Pip (Python package installer)
+
+### Installation
+
+1. **Clone the Repository**:
+   ```sh
+   git clone https://github.com/hyperledger/caliper.git
+   cd caliper
+
+2. **Go to the documentation folder**:
+    ```sh
+    cd docs
+    ```
+
+3. **Install Dependencies**:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4. **Building the Documentation**:
+    To build the documentation, run:
+    ```sh
+    mkdocs build
+    ```
+    
+    This command generates static files in the site directory.
+
+5. **Previewing Locally**:
+    To preview your documentation locally, use:
+    ```sh
+    mkdocs serve
+    ```
+
+    This starts a local development server at [http://127.0.0.1:8000/](http://127.0.0.1:8000/) where you can view your changes in real-time.
+
 ## License
 
 The Caliper codebase is released under the Apache 2.0 license. Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
