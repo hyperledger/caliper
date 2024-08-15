@@ -271,6 +271,7 @@ Please adhere to the inclusive language guidelines that the project has adopted 
    ```sh
    git clone https://github.com/hyperledger/caliper.git
    cd caliper
+   ```
 
 2. **Go to the documentation folder**:
     ```sh
