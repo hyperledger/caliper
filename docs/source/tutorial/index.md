@@ -16,7 +16,7 @@ These tutorials are specifically aimed at using Caliper to performance test Hype
 
 </style>
 
-<a href="https://hyperledger.github.io/caliper/v0.6.0/fabric-tutorial/tutorials-fabric-existing/" class="clickable-rectangle">
+<a href="https://hyperledger.github.io/caliper/v0.6.0/tutorial/fabric/" class="clickable-rectangle">
     Running Caliper on an existing Fabric network<br>
     Click here for this tutorial which takes you through performance testing a smart contract on a pre-existing Fabric network using Caliper.
 </a>
