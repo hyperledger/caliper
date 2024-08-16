@@ -139,7 +139,7 @@ nav:
   - Fabric Configuration: connector-configuration/fabric-config.md
   - Tutorials:
     - Fabric Tutorials: tutorial/index.md
-    - Existing Fabric Tutorials: tutorial/fabric.md
+    - Basic Fabric Tutorials: tutorial/fabric.md
   - Reference:
     - Writing Connectors: references/writing-connectors.md
     - Runtime Configuration: references/runtime-config.md
