@@ -17,6 +17,7 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
+chai.use(require('sinon-chai'));
 const mockery = require('mockery');
 const sinon = require('sinon');
 const expect = chai.expect;

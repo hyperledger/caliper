@@ -1,6 +1,7 @@
 # Contributing to Hyperledger Caliper
 
 This guideline intends to make contribtuions to Caliper easier by:
+
 * presenting a simple development workflow for contributors to follow;
 * and providing a high-level description of the repository components.
 
@@ -13,6 +14,7 @@ The project uses GitHub to manage [issues](https://github.com/hyperledger/calipe
 > For general queries and discussion, please use the [#caliper](https://discord.com/channels/905194001349627914/941417677778473031) channel on the Hyperledger Discord Server (Discord Id required) or the Caliper [mailing list](https://lists.hyperledger.org/g/caliper) (LFID recommended).
 
 The contribution process boils down to two major steps: opening an issue and submitting a pull request (PR). Opening issues before PRs serves the following purposes:
+
 * Documenting bugs, related error logs, potential fixes, and/or workarounds that users can find using their favorite search engine.
 * Providing a forum for discussions where both contributors and users can weigh in about new features and their potential design.
 * Enabling easy traceability of contributions through the "Commit &rarr; PR &rarr; Issue" reference chain.
@@ -22,6 +24,7 @@ Opening issues can be omitted only in the case of trivial and small fixes (e.g.,
 ## Opening Issues
 
 Before opening an issue, make sure that:
+
 1. You read the documentation carefully, so the observed error does not stem from incorrect Caliper configuration or usage.
 2. You searched older issues (or other forums) for your question, maybe it is already answered/fixed.
 3. It is worth to ask around on Discord, maybe other users already encountered your issue/task, and managed to solve it.
@@ -33,6 +36,7 @@ Choose the **issue template** that suits your intent (bug report or feature requ
 If you find the available issue templates too constraining, then you can still use the "blank" issue template for now (it will be deprecated in the future), and also let us know how we can improve the issue templates.
 
 The details of the blank template should be filled according to the following guideline:
+
 1. **Issue title**: Should be a concise sentence summarising the details below, including which component or part of the benchmarking process is affected. For example: `Fabric contract deployment silently fails in generator CI test`
 2. **Context**: A detailed description of the context of the issue. Should include information about, for example, how you encountered the issue, what were you trying to achieve, why you consider this a bug, and how it affected your work with Caliper?
 3. **Expected Behavior**: What was your expected outcome/behavior of the Caliper run?
@@ -50,6 +54,7 @@ The details of the blank template should be filled according to the following gu
 ## Submitting Pull Requests
 
 ### Basic workflow
+
 The following workflow should make your contribution process clean and straighforward (some deviations might be neccessary in exceptional cases):
 
 > The following list assumes that you use the `git` command line tool. IDEs and graphical git tools should also expose the same commands if you prefer those.
@@ -59,7 +64,7 @@ The following workflow should make your contribution process clean and straighfo
     * Using the `HTTPS` method: `git clone https://github.com/<username>/caliper.git`
     * or using the `SSH` method: `git clone git@github.com:<username>/caliper.git`
 3. Add the upstream/original Caliper repository as a remote, using the name `upstream` (ideally done once). This will allow you to easily sync your fork with the original repository.
-    *  `git remote add upstream https://github.com/hyperledger/caliper.git`
+    * `git remote add upstream https://github.com/hyperledger/caliper.git`
 
 > The following steps follow the "feature branch" development practice, and should be performed for each of your contribution:
 
@@ -105,29 +110,31 @@ The project is maintained as a Node.js monorepository. Accordingly, it can seem 
 ### Root layout
 
 You can find the following main component types at the root of the repository:
+
 * Project-related documentation files
-    * [CHANGELOG.md](CHANGELOG.md)
-    * [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-    * [CONTRIBUTING.md](CONTRIBUTING.md)
-    * [ISSUE_TEMPLATE.md](ISSUE_TEMPLATE.md)
-    * [LICENSE](LICENSE)
-    * [MAINTAINERS.md](MAINTAINERS.md)
-    * [PULL_REQUEST_TEMPLATE.md](PULL_REQUEST_TEMPLATE.md)
-    * [SECURITY.md](SECURITY.md)
+  * [CHANGELOG.md](CHANGELOG.md)
+  * [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+  * [CONTRIBUTING.md](CONTRIBUTING.md)
+  * [ISSUE_TEMPLATE.md](ISSUE_TEMPLATE.md)
+  * [LICENSE](LICENSE)
+  * [MAINTAINERS.md](MAINTAINERS.md)
+  * [PULL_REQUEST_TEMPLATE.md](PULL_REQUEST_TEMPLATE.md)
+  * [SECURITY.md](SECURITY.md)
 * Linting- and formatting-related files
-    * [.editorconfig](.editorconfig)
-    * [.eslintignore](.eslintignore)
-    * [repolint.json](repolint.json)
+  * [.editorconfig](.editorconfig)
+  * [.eslintignore](.eslintignore)
+  * [repolint.json](repolint.json)
 * Dependency- and build-related files/directories
-    * [.build/](.build/)
-    * [scripts/](scripts/)
-    * [azure-pipelines.yml](azure-pipelines.yml)
-    * [package.json](package.json)
+  * [.build/](.build/)
+  * [scripts/](scripts/)
+  * [azure-pipelines.yml](azure-pipelines.yml)
+  * [package.json](package.json)
 * Main code-based components of Caliper in the [packages/](packages/) directory
 
 ### Public/published packages
 
 The [packages/](packages/) directory contains the following public/published packages:
+
 * [caliper-cli](packages/caliper-cli/): The command line interface (CLI) of Caliper.
 * [caliper-core](packages/caliper-core/): The core and common codebase of Caliper, used by the other packages.
 * [caliper-ethereum](packages/caliper-ethereum/): The Ethereum and Hyperledger Besu connector implementation.
@@ -137,9 +144,59 @@ The [packages/](packages/) directory contains the following public/published pac
 ### Internal packages
 
 The [packages/](packages/) directory contains the following internal packages:
+
 * [caliper-publish](packages/caliper-publish/): Utility CLI for publishing Caliper to NPM and DockerHub.
 * [caliper-tests-integration](packages/caliper-tests-integration/): Collection of CI integration tests.
 
+## Testing Methodologies
+
+This section outlines the testing methodologies that this project follows, including both unit-level and integration-level testing.
+
+### Unit Level Testing
+
+Unit testing focuses on testing individual packages in isolation. The tests are typically located within a test folder at the same level as the corresponding lib folder, mirroring the structure of the lib folder for easy navigation. This setup ensures that each component of the code is verified independently, confirming that it behaves as expected without interference from other parts of the system.
+
+#### Unit Testing Dependencies and Their Use
+
+The following are the recommended testing modules for this project. While these tools are commonly used in the current codebase, other appropriate tools may be used as long as they facilitate effective testing.
+
+* [mockery](https://www.npmjs.com/package/mockery): Mockery is a simple module for mocking Node.js modules during testing. It allows you to replace real modules with mocks or stubs.
+  
+* [mocha](https://mochajs.org/): Mocha is a feature-rich JavaScript test framework that runs on Node.js and in the browser. It facilitates asynchronous testing, making it easy to write simple and flexible tests.
+
+* [chai](https://www.npmjs.com/package/chai): Chai is a BDD/TDD assertion library for Node.js and the browser. It can be paired with any JavaScript testing framework. We use it to create readable and expressive assertions.
+
+* [sinon](https://sinonjs.org/releases/v18/): Sinon is a standalone test spies, stubs, and mocks for JavaScript. It works with any test framework and integrates well with Mocha and Chai. We utilize Sinon for checking how functions are called during testing.
+
+* [sinon-chai](https://www.npmjs.com/package/sinon-chai): This library provides a set of custom assertions for using Sinon with Chai. It allows you to write more readable assertions for Sinon spies, stubs, and mocks.
+
+* [nyc](https://www.npmjs.com/package/nyc): NYC is a command-line utility for generating code coverage reports. It is often used with Mocha to ensure that tests cover as much code as possible.
+
+#### Mandatory Tools in the Testing Pipeline
+
+In addition to the testing frameworks, the following tools are mandatory for all testing pipelines:
+
+* [eslint](https://eslint.org/): ESLint is a static code analysis tool for identifying problematic patterns in JavaScript code. It is essential for maintaining code quality.
+* [license-check-and-add](https://www.npmjs.com/package/license-check-and-add): This tool ensures that all files in the codebase contain the required license headers. It is mandatory for all code submissions.
+
+#### Points to Note for Adding a Conforming Unit Test
+
+When writing unit tests, the following structure and practices are mandatory:
+
+1. **License Header**: All test files must include the project's license header.
+2. **'use strict' Directive**: Ensure strict mode is enabled in all test files.
+3. **Test Organization**:
+    * Use `describe` blocks to group related test cases.
+    * Use `it` statements for individual test cases.
+    * Nested `describe` blocks are encouraged for organizing complex test scenarios.
+4. **Consistent Test Naming**: Test descriptions should flow naturally, making it clear what behavior is being tested (e.g., 'should return the correct value when input is valid').
+5. **Mocking Guidance**: Be cautious with mocks that persist across tests. Always clean up after each test to avoid unexpected behavior.
+6. **Test Patterns**: Refer to the Fabric Unit tests for examples of recommended patterns and best practices.
+7. **Final Checks**: Always run all unit tests before submitting a PR and ensure no `.only` is left in the code, which would skip other tests.
+
+### Integration Level Testing
+
+Integration testing ensures that Caliper integrates correctly with various packages, effectively testing the functionality of the package itself. These tests are organized within the caliper-tests-integration folder, with each test suite dedicated to a specific package or module.
 
 ## Creating New SUT Connectors
 
@@ -148,4 +205,5 @@ Connectors are relatively heavy components in Caliper. Before you attempt to cre
 > More importantly, make sure that you are overly familiar with the documentation page about [implementing new connectors](https://hyperledger.github.io/caliper/vNext/writing-connectors/).
 
 ## License
-Hyperledger Project source code files are made available under the Apache License, Version 2.0 (Apache-2.0), located in the [LICENSE](LICENSE) file. Hyperledger Project documentation files are made available under the Creative Commons Attribution 4.0 International License (CC-BY-4.0), available at http://creativecommons.org/licenses/by/4.0/.
+
+Hyperledger Project source code files are made available under the Apache License, Version 2.0 (Apache-2.0), located in the [LICENSE](LICENSE) file. Hyperledger Project documentation files are made available under the Creative Commons Attribution 4.0 International License (CC-BY-4.0), available at <http://creativecommons.org/licenses/by/4.0/>.
