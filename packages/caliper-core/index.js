@@ -30,4 +30,3 @@ module.exports.RoundOrchestrator = require('./lib/manager/orchestrators/round-or
 module.exports.WorkerOrchestrator = require('./lib/manager/orchestrators/worker-orchestrator');
 module.exports.WorkloadModuleInterface = require('./lib/worker/workload/workloadModuleInterface');
 module.exports.WorkloadModuleBase = require('./lib/worker/workload/workloadModuleBase');
-module.exports.DeclarativeWorkloadModuleBase = require('./lib/worker/workload/declarative/declarative-workload-module-base');
