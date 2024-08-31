@@ -280,7 +280,7 @@ Please adhere to the inclusive language guidelines that the project has adopted 
 
 3. **Install Dependencies**:
     ```sh
-    pip install -r requirements.txt
+    pip install -r pip-requirements.txt
     ```
 
 4. **Building the Documentation**:
