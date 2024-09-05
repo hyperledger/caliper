@@ -18,4 +18,4 @@ version: "2.0.0"
 caliper:
     blockchain: fabric
     command:
-        start: docker-compose -p caliper up -d; sleep 5s
+        start: docker compose -p caliper up -d; sleep 5s

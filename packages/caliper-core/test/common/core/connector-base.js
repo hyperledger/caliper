@@ -21,8 +21,8 @@ chai.use(chaiAsPromised);
 const sinon = require('sinon');
 
 const loggerSandbox = sinon.createSandbox();
-const CaliperUtils = require('../../lib/common/utils/caliper-utils');
-loggerSandbox.replace(CaliperUtils, "getLogger", () => {
+const CaliperUtils = require('../../../lib/common/utils/caliper-utils');
+loggerSandbox.replace(CaliperUtils, 'getLogger', () => {
     return {
         debug: sinon.stub(),
         error: sinon.stub(),
@@ -31,8 +31,8 @@ loggerSandbox.replace(CaliperUtils, "getLogger", () => {
     };
 });
 
-const { ConnectorBase, TxStatus } = require('../..');
-const Events = require('../../lib/common/utils/constants').Events.Connector;
+const { ConnectorBase, TxStatus } = require('../../..');
+const Events = require('../../../lib/common/utils/constants').Events.Connector;
 
 class MockConnector extends ConnectorBase {
     async _sendSingleRequest(request) {
@@ -57,7 +57,7 @@ describe('the base connector implementation', () => {
         beforeEach(() => {
             mockConnector = new MockConnector(1, 'mock');
             emitSpy = sinon.spy(mockConnector, 'emit');
-        })
+        });
 
         it('should process a single request that returns a transaction status result', async() => {
             const result = await mockConnector.sendRequests(txStatus);

@@ -17,8 +17,8 @@
 const chai = require('chai');
 chai.should();
 
-const TransactionStatisticsCollector = require('../../lib/common/core/transaction-statistics-collector');
-const TxStatus = require('../../lib/common/core/transaction-status');
+const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
+const TxStatus = require('../../../lib/common/core/transaction-status');
 
 describe('the transaction statistics collector', () => {
     const createSuccessfulTxStatus = (creationTimeAfterRoundStart) => {

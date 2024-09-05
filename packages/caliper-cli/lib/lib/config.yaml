@@ -47,7 +47,7 @@ sut:
             packages: ['fabric-network@2.2.20']
         2.2.20: *fabric-sdk-v2
         2.4: &fabric-gateway
-            packages: ['@hyperledger/fabric-gateway@1.5.0', '@grpc/grpc-js@1.10.3']
+            packages: ['@hyperledger/fabric-gateway@1.5.1', '@grpc/grpc-js@1.11.1']
         2.5: *fabric-gateway
         3: *fabric-gateway
         fabric-gateway: *fabric-gateway

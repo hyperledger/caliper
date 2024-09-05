@@ -14,8 +14,8 @@
 
 'use strict';
 
-const Message = require('../../../../lib/common/messages/message');
-const AllMessageTarget = require('../../../../lib/common/utils/constants').Messages.Targets.All
+const Message = require('../../../lib/common/messages/message');
+const AllMessageTarget = require('../../../lib/common/utils/constants').Messages.Targets.All
 
 const chai = require('chai');
 chai.should();
