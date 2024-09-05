@@ -129,27 +129,27 @@ not_in_nav: |
 
 # Page tree
 nav:
-  - Introduction: index.md
-  - Overview:
-    - Installing and Running Caliper: overview/installing-caliper.md
-    - Benchmark Configuration: overview/bench-config.md
-    - Workload Configuration: overview/workload-module.md
-    - Architecture: overview/architecture.md
-  - Ethereum Configuration: connector-configuration/ethereum-config.md
-  - Fabric Configuration: connector-configuration/fabric-config.md
+  - Getting Started:
+    - Introduction: index.md
+    - Installing and Running Caliper: getting-started/installing-caliper.md
+    - Architecture: getting-started/architecture.md
+    - Contributing: getting-started/contributing.md
+    - FAQ: getting-started/faq.md
+    - License: getting-started/license.md
+  - Concepts:
+    - Benchmark Configuration: concepts/bench-config.md
+    - Workload Configuration: concepts/workload-module.md
+    - Rate Controllers: concepts/rate-controllers.md
+    - Resource and Transaction Monitors: concepts/caliper-monitors.md
+    - Messengers: concepts/caliper-messengers.md
+    - Runtime Configuration: concepts/runtime-config.md
+    - Logging Control: concepts/logging-control.md
+    - Benchmark Generators: concepts/benchmark-generators.md
+    - Declarative Workloads: concepts/declarative-workload-module.md
+  - Connectors:
+    - Fabric: connectors/fabric-config.md
+    - Ethereum: connectors/ethereum-config.md
+    - Writing Connectors: connectors/writing-connectors.md
   - Tutorials:
     - Fabric Tutorials: tutorial/index.md
     - Basic Fabric Tutorials: tutorial/fabric.md
-  - Reference:
-    - Writing Connectors: references/writing-connectors.md
-    - Runtime Configuration: references/runtime-config.md
-    - Declarative Workloads: references/declarative-workload-module.md
-    - Rate Controllers: references/rate-controllers.md
-    - Resource and Transaction Monitors: references/caliper-monitors.md
-    - Messengers: references/caliper-messengers.md
-    - Benchmark Generators: references/benchmark-generators.md
-    - Logging Control: references/logging-control.md
-  - General:
-    - Contributing: general/contributing.md
-    - Caliper FAQ: general/faq.md
-    - License: general/license.md

@@ -20,12 +20,12 @@ See [PSWG](https://www.hyperledger.org/learn/publications/blockchain-performance
 
 ## Architecture
 
-It helps to have a basic understanding of how Caliper works before diving into the examples. Have a look at the [Architecture](overview/architecture.md) page!
+It helps to have a basic understanding of how Caliper works before diving into the examples. Have a look at the [Architecture](getting-started/architecture.md) page!
 
 
 ## Installing Caliper
 
-Head to the [Install & Usage page](overview/installing-caliper.md) if you want to try Caliper right now. It’s as simple as downloading an NPM package or starting a Docker container!
+Head to the [Install & Usage page](getting-started/installing-caliper.md) if you want to try Caliper right now. It’s as simple as downloading an NPM package or starting a Docker container!
 
 ## Sample Networks
 Sample benchmarks that may be used by Caliper are hosted on a companion [GitHub repository](https://github.com/hyperledger/caliper-benchmarks).
