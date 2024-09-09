@@ -20,6 +20,8 @@ const TxResetMessage = require('../../common/messages/txResetMessage');
 const CaliperUtils = require('../../common/utils/caliper-utils');
 const ConfigUtil = require('../../common/config/config-util');
 
+const logger = CaliperUtils.getLogger('InternalTxObserver');
+
 /**
  * Internal TX observer used by the worker process to driver TX scheduling and report round statistics
  * It is always instantiated.
@@ -34,6 +36,12 @@ class InternalTxObserver extends TxObserverInterface {
     constructor(messenger, managerUuid, workerIndex) {
         super(messenger, workerIndex);
         this.updateInterval = ConfigUtil.get(ConfigUtil.keys.Observer.Internal.Interval);
+        // Check if the updateInterval is not a valid number, and use a default value if needed
+        if (typeof this.updateInterval !== 'number' || isNaN(this.updateInterval) || this.updateInterval < 0) {
+            logger.warn(`Invalid update interval (${this.updateInterval}), using default value of 1000ms`);
+            this.updateInterval = 1000;
+        }
+
         this.intervalObject = undefined;
         this.messengerUUID = messenger.getUUID();
         this.managerUuid = managerUuid;
@@ -62,18 +70,24 @@ class InternalTxObserver extends TxObserverInterface {
      * Deactivates the TX observer interface, and stops the regular update scheduling.
      */
     async deactivate() {
-        await super.deactivate();
+        try {
+            await super.deactivate();
 
-        if (this.intervalObject) {
-            clearInterval(this.intervalObject);
+            if (this.intervalObject) {
+                clearInterval(this.intervalObject);
+                this.intervalObject = null; // Explicitly set it to null after clearing
 
-            await this._sendUpdate();
-            await CaliperUtils.sleep(this.updateInterval);
+                await this._sendUpdate();
+                await CaliperUtils.sleep(this.updateInterval);
 
-            // TODO: the txResult message should be enough
-            // or the round-end message should include the final stats
-            let txResetMessage = new TxResetMessage(this.messengerUUID, [this.managerUuid]);
-            await this.messenger.send(txResetMessage);
+                // TODO: the txResult message should be enough
+                // or the round-end message should include the final stats
+                let txResetMessage = new TxResetMessage(this.messengerUUID, [this.managerUuid]);
+                await this.messenger.send(txResetMessage);
+            }
+        }catch(error) {
+            logger.error(`Error during deactivation: ${error.message}`);
+            throw error;
         }
     }
 }

@@ -102,33 +102,24 @@ class TxObserverDispatch extends TxObserverInterface {
             return;
         }
 
+        const metadata = {
+            workerIndex: this.workerIndex,
+            roundIndex: this.currentRound,
+        };
+        const resultWithMetadata = Array.isArray(results)
+            ? results.map(result => ({
+                ...result,
+                ...metadata,
+            }))
+            : {
+                ...results,
+                ...metadata
+            };
+
         for (let observer of this.txObservers) {
-            observer.txFinished(results);
+            observer.txFinished(resultWithMetadata);
         }
     }
 }
 
 module.exports = TxObserverDispatch;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

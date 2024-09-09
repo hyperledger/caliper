@@ -49,18 +49,10 @@ class LoggingTxObserver extends TxObserverInterface{
         // TODO: appending metadata should be done by the dispatch
         if (Array.isArray(results)) {
             for (let result of results) {
-                // add extra metadata
-                result.workerIndex = this.workerIndex;
-                result.roundIndex = this.roundIndex;
-
                 // TODO: use fast-json-stringify
                 this.logFunction(JSON.stringify(result));
             }
         } else {
-            // add extra metadata
-            results.workerIndex = this.workerIndex;
-            results.roundIndex = this.roundIndex;
-
             // TODO: use fast-json-stringify
             this.logFunction(JSON.stringify(results));
         }
