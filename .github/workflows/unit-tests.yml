@@ -42,7 +42,7 @@ jobs:
       run: npm test --workspaces
     - name: Upload coverage reports artifact
       if: matrix.node-version == '18.x'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4.4.0
       with:
         name: coverage-reports
         path: packages/*/coverage/clover.xml
