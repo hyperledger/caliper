@@ -46,3 +46,6 @@ data/
 
 # Ignore temp test files
 temp/
+
+# Build files of doc
+docs/build/
