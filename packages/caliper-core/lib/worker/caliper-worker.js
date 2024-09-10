@@ -161,7 +161,7 @@ class CaliperWorker {
             await this.workloadModule.initializeWorkloadModule(this.workerIndex, prepareTestMessage.getWorkersNumber(), roundIndex, prepareTestMessage.getWorkloadSpec().arguments, this.connector, context);
             await CaliperUtils.sleep(this.txUpdateTime);
         } catch (err) {
-            Logger.info(`Worker [${this.workerIndex}] encountered an error during prepare test phase for round ${roundIndex}: ${(err.stack ? err.stack : err)}`);
+            Logger.warn(`Worker [${this.workerIndex}] encountered an error during prepare test phase for round ${roundIndex}: ${(err.stack ? err.stack : err)}`);
             throw err;
         } finally {
             await this.connector.releaseContext(context);

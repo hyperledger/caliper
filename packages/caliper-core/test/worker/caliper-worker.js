@@ -84,7 +84,7 @@ mockery.registerMock('./tx-observers/tx-observer-dispatch', MockTxObserverDispat
 
 const loggerSandbox = sinon.createSandbox();
 const CaliperUtils = require('../../lib/common/utils/caliper-utils');
-loggerSandbox.replace(CaliperUtils, "getLogger", MockCaliperUtils.getLogger);
+loggerSandbox.replace(CaliperUtils, 'getLogger', MockCaliperUtils.getLogger);
 
 const CaliperWorker = require('../../lib/worker/caliper-worker');
 
@@ -119,7 +119,7 @@ describe('Caliper worker', () => {
 
         afterEach(() => {
             sandbox.restore();
-        })
+        });
 
         const validateCallsAndWarnings = (warnings) => {
             sinon.assert.calledOnce(mockWorkload.submitTransaction);
@@ -160,6 +160,92 @@ describe('Caliper worker', () => {
 
             await worker.executeRound(mockTestMessage);
             validateCallsAndWarnings(4);
+        });
+
+        it('should complete all transactions', async () => {
+            const worker = new CaliperWorker(mockConnector, 1, mockMessenger, 'uuid');
+            const mockRoundStats = {
+                getTotalFinishedTx: sinon.stub(),
+                getTotalSubmittedTx: sinon.stub()
+            };
+            mockRoundStats.getTotalFinishedTx.onCall(0).returns(0);
+            mockRoundStats.getTotalFinishedTx.onCall(1).returns(1);
+            mockRoundStats.getTotalSubmittedTx.returns(1);
+
+            const rateController = {
+                applyRateControl: sinon.stub().resolves()
+            };
+
+            worker.internalTxObserver.getCurrentStatistics = () => mockRoundStats;
+            mockWorkload.submitTransaction.resolves();
+
+            await worker.runFixedNumber(mockWorkload, 1, rateController);
+
+            sinon.assert.calledTwice(mockRoundStats.getTotalFinishedTx);
+        });
+
+        it('should execute the round for a specified duration', async function() {
+            this.timeout(5000); // Increase the timeout for this test
+            const worker = new CaliperWorker(mockConnector, 1, mockMessenger, 'uuid');
+            await worker.prepareTest(mockTestMessage);
+            mockWorkload.submitTransaction.resolves();
+            mockTestMessage.getRoundDuration.returns(1); // duration in seconds
+
+            await worker.executeRound(mockTestMessage);
+
+            sinon.assert.calledOnce(deactivateMethod);
+            sinon.assert.calledOnce(mockRate.end);
+            sinon.assert.calledOnce(mockWorkload.cleanupWorkloadModule);
+            sinon.assert.called(mockConnector.releaseContext);
+        });
+
+        it('should handle error during transaction submission in runDuration', async () => {
+            const worker = new CaliperWorker(mockConnector, 1, mockMessenger, 'uuid');
+            await worker.prepareTest(mockTestMessage);
+            mockWorkload.submitTransaction.rejects(new Error('transaction error'));
+            mockTestMessage.getRoundDuration.returns(Date.now() * 100); // duration in seconds
+            const getCurrentStatisticsStub = sinon.stub(worker.internalTxObserver, 'getCurrentStatistics');
+            getCurrentStatisticsStub.returns({
+                getRoundStartTime: sandbox.stub().returns(2)
+            });
+
+            await worker.executeRound(mockTestMessage).should.be.rejectedWith(/transaction error/);
+
+            sinon.assert.calledOnce(deactivateMethod);
+            sinon.assert.calledOnce(mockRate.end);
+            sinon.assert.calledOnce(mockWorkload.cleanupWorkloadModule);
+            sinon.assert.called(mockConnector.releaseContext);
+
+            getCurrentStatisticsStub.restore();
+        });
+
+        it('should handle errors during the prepareTest phase', async () => {
+            const worker = new CaliperWorker(mockConnector, 1, mockMessenger, 'uuid');
+            const errorMessage = 'Initialization error';
+            mockConnector.getContext.rejects(new Error(errorMessage));
+            mockTestMessage.getRoundIndex.returns(1);
+            mockTestMessage.getWorkloadSpec.returns({ module: 'test/workload' });
+            mockTestMessage.getWorkerArguments.returns([]);
+
+            await worker.prepareTest(mockTestMessage).should.be.rejectedWith(errorMessage);
+
+            sinon.assert.calledOnce(mockConnector.getContext);
+            sinon.assert.calledOnce(logwarningMethod);
+        });
+
+        it('should execute multiple iterations of the while loop in runDuration', async function() {
+            this.timeout(5000); // Increase the timeout for this test
+            const worker = new CaliperWorker(mockConnector, 1, mockMessenger, 'uuid');
+            await worker.prepareTest(mockTestMessage);
+            mockWorkload.submitTransaction.resolves();
+            mockTestMessage.getRoundDuration.returns(2); // duration in seconds
+
+            await worker.executeRound(mockTestMessage);
+
+            sinon.assert.calledOnce(deactivateMethod);
+            sinon.assert.calledOnce(mockRate.end);
+            sinon.assert.calledOnce(mockWorkload.cleanupWorkloadModule);
+            sinon.assert.called(mockConnector.releaseContext);
         });
     });
 });
