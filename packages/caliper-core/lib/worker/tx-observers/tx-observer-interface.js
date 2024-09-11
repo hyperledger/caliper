@@ -73,7 +73,10 @@ class TxObserverInterface {
      * Deactivates the TX observer interface, and in turn, the current TX statistics collector.     */
     async deactivate() {
         this.active = false;
-        this.roundStatistics[this.currentRound].deactivate();
+        const roundStat = this.roundStatistics[this.currentRound];
+        if(roundStat){
+            roundStat.deactivate();
+        }
     }
 
     /**
@@ -81,7 +84,10 @@ class TxObserverInterface {
      * @param {number} count The number of submitted TXs. Can be greater than one for a batch of TXs.
      */
     txSubmitted(count) {
-        this.roundStatistics[this.currentRound].txSubmitted(count);
+        const roundStat = this.roundStatistics[this.currentRound];
+        if(roundStat){
+            roundStat.txSubmitted(count);
+        }
     }
 
     /**
@@ -89,7 +95,10 @@ class TxObserverInterface {
      * @param {TxStatus | TxStatus[]} results The result information of the finished TXs. Can be a collection of results for a batch of TXs.
      */
     txFinished(results) {
-        this.roundStatistics[this.currentRound].txFinished(results);
+        const roundStat = this.roundStatistics[this.currentRound];
+        if(roundStat){
+            roundStat.txFinished(results);
+        }
     }
 
     /**
