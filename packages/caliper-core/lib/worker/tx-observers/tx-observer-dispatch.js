@@ -102,22 +102,18 @@ class TxObserverDispatch extends TxObserverInterface {
             return;
         }
 
-        const metadata = {
-            workerIndex: this.workerIndex,
-            roundIndex: this.currentRound,
-        };
-        const resultWithMetadata = Array.isArray(results)
-            ? results.map(result => ({
-                ...result,
-                ...metadata,
-            }))
-            : {
-                ...results,
-                ...metadata
-            };
+        if (Array.isArray(results)) {
+            for (let result of results) {
+                result.workerIndex = this.workerIndex;
+                result.roundIndex = this.currentRound;
+            }
+        }else {
+            results.workerIndex = this.workerIndex;
+            results.roundIndex = this.currentRound;
+        }
 
         for (let observer of this.txObservers) {
-            observer.txFinished(resultWithMetadata);
+            observer.txFinished(results);
         }
     }
 }
