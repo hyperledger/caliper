@@ -47,8 +47,9 @@ class RecordRateController extends RateInterface {
 
         this.records = [];
         // if we know the number of transactions beforehand, pre-allocate the array
-        if (testMessage.getNumberOfTxs()) {
-            this.records = new Array(testMessage.getNumberOfTxs());
+        const numTx = testMessage.getNumberOfTxs();
+        if (numTx) {
+            this.records = new Array(numTx + 1);
             this.records.fill(0);
         }
 
@@ -89,7 +90,10 @@ class RecordRateController extends RateInterface {
      */
     _exportToText() {
         fs.writeFileSync(this.pathTemplate, '', 'utf-8');
-        this.records.forEach(submitTime => fs.appendFileSync(this.pathTemplate, `${submitTime}\n`));
+        for (let i = 0; i < this.records.length; i++) {
+            const time = this.records[i] !== undefined ? this.records[i] : 0;
+            fs.appendFileSync(this.pathTemplate, `${time}\n`);
+        }
     }
 
     /**
@@ -103,7 +107,8 @@ class RecordRateController extends RateInterface {
         offset = buffer.writeUInt32LE(this.records.length, offset);
 
         for (let i = 0; i < this.records.length; i++) {
-            offset = buffer.writeUInt32LE(this.records[i], offset);
+            const time = this.records[i] !== undefined ? this.records[i] : 0;
+            offset = buffer.writeUInt32LE(time, offset);
         }
 
         fs.writeFileSync(this.pathTemplate, buffer, 'binary');
@@ -120,7 +125,8 @@ class RecordRateController extends RateInterface {
         offset = buffer.writeUInt32BE(this.records.length, offset);
 
         for (let i = 0; i < this.records.length; i++) {
-            offset = buffer.writeUInt32BE(this.records[i], offset);
+            const time = this.records[i] !== undefined ? this.records[i] : 0;
+            offset = buffer.writeUInt32BE(time, offset);
         }
 
         fs.writeFileSync(this.pathTemplate, buffer, 'binary');
