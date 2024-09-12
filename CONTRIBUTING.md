@@ -7,6 +7,8 @@ This guideline intends to make contribtuions to Caliper easier by:
 
 If you have further suggestions about improving the guideline, then you can follow the presented workflow to make your contribution.
 
+Jump to [Contributing documentation](./docs/Contributing.md) to get started on your journey.
+
 ## Overview
 
 The project uses GitHub to manage [issues](https://github.com/hyperledger/caliper/issues) (bug reports and feature requests) and [contributions](https://github.com/hyperledger/caliper/pulls) (in the form of pull requests).
