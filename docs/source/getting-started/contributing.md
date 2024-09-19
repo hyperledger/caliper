@@ -119,37 +119,13 @@ All PRs must be signed before be merged, be sure to use `git commit -s` to commi
 
 If a PR is reviewed and changes are requested then please do not force push the changes, push the changes into a new commit, this makes it easier to see the changes between the previously reviewed code and the new changes.
 
-We use Azure pipelines to test the build - please test on your local branch before raising a PR.
+We use Github Actions to test the build - please test on your local branch before raising a PR.
 
 There is also [Discord](https://discord.com/channels/905194001349627914/941417677778473031) with a Caliper channel for communication, anybody is welcome to join.
 
 ## Caliper Components
 
 The project is maintained as a Node.js monorepository. Accordingly, it can seem overwhelming at first to navigate its content. The following sections list and introduce the main components of the repository.
-
-### Root layout
-
-You can find the following main component types at the root of the repository:
-
-* Project-related documentation files
-  * [CHANGELOG.md](CHANGELOG.md)
-  * [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-  * [CONTRIBUTING.md](CONTRIBUTING.md)
-  * [ISSUE_TEMPLATE.md](ISSUE_TEMPLATE.md)
-  * [LICENSE](LICENSE)
-  * [MAINTAINERS.md](MAINTAINERS.md)
-  * [PULL_REQUEST_TEMPLATE.md](PULL_REQUEST_TEMPLATE.md)
-  * [SECURITY.md](SECURITY.md)
-* Linting- and formatting-related files
-  * [.editorconfig](.editorconfig)
-  * [.eslintignore](.eslintignore)
-  * [repolint.json](repolint.json)
-* Dependency- and build-related files/directories
-  * [.build/](.build/)
-  * [scripts/](scripts/)
-  * [azure-pipelines.yml](azure-pipelines.yml)
-  * [package.json](package.json)
-* Main code-based components of Caliper in the [packages/](packages/) directory
 
 ## Installing the Caliper code base
 
@@ -159,10 +135,10 @@ You can find the following main component types at the root of the repository:
 
 The workflow of modifying the Caliper code-base usually consists of the following steps:
 
-1. [Bootstrapping the repository](https://hyperledger.github.io/caliper/vNext/general/contributing/#bootstrapping-the-caliper-repository)
-2. [Modifying and testing the code](https://hyperledger.github.io/caliper/vNext/general/contributing/#testing-the-code)
-3. [Publishing package changes locally](https://hyperledger.github.io/caliper/vNext/general/contributing/#publishing-to-local-npm-repository)
-4. [Building the Docker image](https://hyperledger.github.io/caliper/vNext/general/contributing/#building-the-docker-image)
+1. [Bootstrapping the repository](https://hyperledger.github.io/caliper/v0.6.0/getting-started/contributing/#bootstrapping-the-caliper-repository)
+2. [Modifying and testing the code](https://hyperledger.github.io/caliper/v0.6.0/getting-started/contributing/#testing-the-code)
+3. [Publishing package changes locally](https://hyperledger.github.io/caliper/v0.6.0/getting-started/contributing/#publishing-to-local-npm-repository)
+4. [Building the Docker image](https://hyperledger.github.io/caliper/v0.6.0/getting-started/contributing/#building-the-docker-image)
 
 ### Bootstrapping the Caliper repository
 
@@ -183,20 +159,20 @@ user@ubuntu:~/caliper$ ./.build/check-prerequisites.sh && npm ci
 
 ### Public/published packages
 
-The [packages/](packages/) directory contains the following public/published packages:
+The [https://github.com/hyperledger/caliper/tree/main/packages/](packages/) directory contains the following public/published packages:
 
-* [caliper-cli](packages/caliper-cli/): The command line interface (CLI) of Caliper.
-* [caliper-core](packages/caliper-core/): The core and common codebase of Caliper, used by the other packages.
-* [caliper-ethereum](packages/caliper-ethereum/): The Ethereum and Hyperledger Besu connector implementation.
-* [caliper-fabric](packages/caliper-fabric/): The Hyperledger Fabric connector implementation.
-* [generator-caliper](packages/generator-caliper/): The Yeaoman generator for Caliper configuration files.
+* [caliper-cli](https://github.com/hyperledger/caliper/tree/main/packages/caliper-cli/): The command line interface (CLI) of Caliper.
+* [caliper-core](https://github.com/hyperledger/caliper/tree/main/packages/caliper-core/): The core and common codebase of Caliper, used by the other packages.
+* [caliper-ethereum](https://github.com/hyperledger/caliper/tree/main/packages/caliper-ethereum/): The Ethereum and Hyperledger Besu connector implementation.
+* [caliper-fabric](https://github.com/hyperledger/caliper/tree/main/packages/caliper-fabric/): The Hyperledger Fabric connector implementation.
+* [generator-caliper](https://github.com/hyperledger/caliper/tree/main/packages/generator-caliper/): The Yeaoman generator for Caliper configuration files.
 
 ### Internal packages
 
-The [packages/](packages/) directory contains the following internal packages:
+The [https://github.com/hyperledger/caliper/tree/main/packages/](packages/) directory contains the following internal packages:
 
-* [caliper-publish](packages/caliper-publish/): Utility CLI for publishing Caliper to NPM and DockerHub.
-* [caliper-tests-integration](packages/caliper-tests-integration/): Collection of CI integration tests.
+* [caliper-publish](https://github.com/hyperledger/caliper/tree/main/packages/caliper-publish/): Utility CLI for publishing Caliper to NPM and DockerHub.
+* [caliper-tests-integration](https://github.com/hyperledger/caliper/tree/main/packages/caliper-tests-integration/): Collection of CI integration tests.
 
 ## Testing Methodologies
 
@@ -277,7 +253,7 @@ user@ubuntu:~/caliper$ node ./packages/caliper-cli/caliper.js launch manager \
 
 Connectors are relatively heavy components in Caliper. Before you attempt to create a new connector for a new SUT type, consult with the Caliper maintainers (on Discord, or in the form of a feature request).
 
-> More importantly, make sure that you are overly familiar with the documentation page about [implementing new connectors](https://hyperledger.github.io/caliper/vNext/writing-connectors/).
+> More importantly, make sure that you are overly familiar with the documentation page about [implementing new connectors](https://hyperledger.github.io/caliper/v0.6.0/connectors/writing-connectors/).
 
 ### Publishing to local NPM repository
 
@@ -484,7 +460,7 @@ Please adhere to the inclusive language guidelines that the project has adopted 
 
 3. **Install Dependencies**:
     ```sh
-    pip install -r requirements.txt
+    pip install -r pip-requirements.txt
     ```
 
 4. **Building the Documentation**:
