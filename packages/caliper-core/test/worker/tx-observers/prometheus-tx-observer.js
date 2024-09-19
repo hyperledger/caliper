@@ -16,6 +16,7 @@
 
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
+const prometheusClient = require('prom-client');
 chai.use(chaiAsPromised);
 const should = chai.should();
 const mockery = require('mockery');
@@ -61,8 +62,14 @@ class Utils {
         };
     }
 
+    /**
+     * Stubs the 'listen' method of the appServer and returns an object with a stubbed 'close' method.
+     *
+     * @param {sinon.SinonSandbox} sandbox - The Sinon sandbox used to stub methods.
+     * @param {Object} appServer - The app server instance whose 'listen' method will be stubbed.
+    */
     static stubAppServer(sandbox, appServer) {
-        sandbox.stub(appServer, 'listen').returns({close: sinon.stub()})
+        sandbox.stub(appServer, 'listen').returns({close: sinon.stub()});
     }
 }
 
@@ -73,7 +80,7 @@ mockery.enable({
 mockery.registerMock('../../common/utils/caliper-utils', Utils);
 
 
-describe('When using a PrometheusTxObserver', () => {
+describe('When using a Prometheus Transaction Observer', () => {
 
     // Require here to enable mocks to be established
     const PrometheusTxObserver = require('../../../lib/worker/tx-observers/prometheus-tx-observer');
@@ -81,7 +88,7 @@ describe('When using a PrometheusTxObserver', () => {
 
     before(() => {
         sandbox = sinon.createSandbox();
-    })
+    });
 
     after(()=> {
         mockery.deregisterAll();
@@ -205,4 +212,68 @@ describe('When using a PrometheusTxObserver', () => {
         txFinished.values.should.deep.equal([]);
     });
 
+    it('should adjust scrapePort if process is forked', () => {
+        sinon.stub(Utils, 'isForkedProcess').returns(true);
+        const prometheusTxObserver = PrometheusTxObserver.createTxObserver({ scrapePort: 3000 }, undefined, 1);
+
+        // The scrapePort should be adjusted by the workerIndex (1)
+        prometheusTxObserver.scrapePort.should.equal(3001);
+
+        Utils.isForkedProcess.restore();
+    });
+
+    it('should configure explicit histogram buckets', () => {
+        const options = {
+            histogramBuckets: {
+                explicit: [0.1, 0.5, 1, 2, 5]
+            }
+        };
+        const prometheusTxObserver = PrometheusTxObserver.createTxObserver(options, undefined, 0);
+        prometheusTxObserver.histogramLatency.upperBounds.should.deep.equal([0.1, 0.5, 1, 2, 5]);
+    });
+
+    it('should configure linear histogram buckets', () => {
+        const options = {
+            histogramBuckets: {
+                linear: {
+                    start: 0.5,
+                    width: 0.5,
+                    count: 5
+                }
+            }
+        };
+        const prometheusTxObserver = PrometheusTxObserver.createTxObserver(options, undefined, 0);
+        prometheusTxObserver.histogramLatency.upperBounds.should.deep.equal([0.5, 1, 1.5, 2, 2.5]);
+    });
+
+    it('should configure exponential histogram buckets', () => {
+        const options = {
+            histogramBuckets: {
+                exponential: {
+                    start: 0.5,
+                    factor: 2,
+                    count: 5
+                }
+            }
+        };
+        const prometheusTxObserver = PrometheusTxObserver.createTxObserver(options, undefined, 0);
+        prometheusTxObserver.histogramLatency.upperBounds.should.deep.equal([0.5, 1, 2, 4, 8]);
+    });
+
+    it('should enable process metric collection if processMetricCollectInterval is set', () => {
+        sinon.spy(prometheusClient, 'collectDefaultMetrics');
+        const options = {
+            processMetricCollectInterval: 1000
+        };
+        const prometheusTxObserver = PrometheusTxObserver.createTxObserver(options, undefined, 0);
+
+        // Ensure process metric collection is enabled
+        prometheusClient.collectDefaultMetrics.calledOnceWith({
+            register: prometheusTxObserver.registry,
+            timestamps: false,
+            timeout: 1000
+        }).should.be.true;
+
+        prometheusClient.collectDefaultMetrics.restore();
+    });
 });
