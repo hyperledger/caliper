@@ -2,7 +2,7 @@
 
 ## Overview
 
-Caliper is published as the [@hyperledger/caliper-cli](https://www.npmjs.com/package/@hyperledger/caliper-cli) NPM package and the [hyperledger/caliper](https://hub.docker.com/r/hyperledger/caliper) Docker image, both containing the CLI binary. Refer to the [Installing from NPM](https://hyperledger.github.io/caliper/v0.6.0/overview/installing-caliper/#installing-from-npm) and [Using the Docker image](https://hyperledger.github.io/caliper/v0.6.0/overview/installing-caliper/#using-the-docker-image) sections for the available versions and their intricacies.
+Caliper is published as the [@hyperledger/caliper-cli](https://www.npmjs.com/package/@hyperledger/caliper-cli) NPM package and the [hyperledger/caliper](https://hub.docker.com/r/hyperledger/caliper) Docker image, both containing the CLI binary. Refer to the [Installing from NPM](#installing-from-npm) and [Using the Docker image](#using-the-docker-image) sections for the available versions and their intricacies.
 
 Installing and running Caliper consists of the following steps, thoroughly detailed by the remaining sections:
 
@@ -34,7 +34,7 @@ Unless you are embedding the Caliper packages in your own application, you will 
 
 !!! note
 
-    *The following examples assume a locally installed CLI in the `~/caliper-benchmarks` directory, hence the `npx` call before the `caliper` binary. Refer to the [Local NPM install](https://hyperledger.github.io/caliper/v0.6.0/overview/installing-caliper/#local-npm-install) section for the specifics.*
+    *The following examples assume a locally installed CLI in the `~/caliper-benchmarks` directory, hence the `npx` call before the `caliper` binary. Refer to the [Local NPM install](#local-npm-install) section for the specifics.*
 
 The entry point of the CLI is the `caliper` binary. You can confirm whether the CLI is installed correctly by checking its version:
 
@@ -71,7 +71,7 @@ You can also request the help page of a specific command, as demonstrated by the
 
 !!! note
 
-    *the command options can be set either through the command line, or from various other sources supported by the [configuration mechanism](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/) of Caliper. This flexibility makes it easy to embed the CLI in different environments.*
+    *the command options can be set either through the command line, or from various other sources supported by the [configuration mechanism](../concepts/runtime-config.md) of Caliper. This flexibility makes it easy to embed the CLI in different environments.*
 
 ### The bind command
 
@@ -110,7 +110,7 @@ The following SUT name and SDK version combinations are supported:
 The `bind` command is useful when you plan to run multiple benchmarks against the same SUT version. Bind once, then run different benchmarks without the need to bind again. As you will see in the next sections, the launcher commands for the manager and worker processes can also perform the binding step if the required parameter is present.
 
 #### Custom bindings
-The built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/main/packages/caliper-cli/lib/lib/config.yaml), documented [here](https://hyperledger.github.io/caliper/v0.6.0/reference/writing-connectors#binding-configuration). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. **This also means that we cannot provide help for such SDK versions!**
+The built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/main/packages/caliper-cli/lib/lib/config.yaml), documented [here](../connectors/writing-connectors.md#binding-configuration). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. **This also means that we cannot provide help for such SDK versions!**
 
 
 ### The unbind command
@@ -205,7 +205,7 @@ Options:
 As you can see, you can configure the worker processes the same way as the manager process. Including the optional binding step, but also the three mandatory parameters mentioned in the previous section.
 
 #### Caliper test phase control
-Caliper commands are capable of passing all [runtime configuration settings](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/). A subset of these commands are for flow control that provide direct control over the following Caliper phases:
+Caliper commands are capable of passing all [runtime configuration settings](../concepts/runtime-config.md). A subset of these commands are for flow control that provide direct control over the following Caliper phases:
 
 - start
 - init
@@ -345,7 +345,7 @@ Parts of starting a Caliper container (following the recommendations above):
 
 !!! note
 
-    *the **latest** tag is **not supported**, i.e, you explicitly have to specify the image version you want: hyperledger/caliper:0.6.0, similar to the recommended approach for the [NPM packages](https://hyperledger.github.io/caliper/v0.6.0/overview/installing-caliper/#versioning-semantics).*
+    *the **latest** tag is **not supported**, i.e, you explicitly have to specify the image version you want: hyperledger/caliper:0.6.0, similar to the recommended approach for the [NPM packages](#versioning-semantics).*
 
 Putting it all together, split into multiple lines for clarity, and naming the container `caliper`:
 
@@ -390,4 +390,4 @@ docker-compose up
 
 ## License
 
-The Caliper codebase is released under the [Apache 2.0 license](https://hyperledger.github.io/caliper/v0.6.0/general/license/). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).

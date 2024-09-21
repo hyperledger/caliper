@@ -4,9 +4,9 @@ Connectors are probably the most important modules in Caliper. They provide an a
 
 !!! note
 
-    *To get a sense of how a connector fits into the Caliper architecture, see the corresponding architecture documentation sections about [multi-platform support](https://hyperledger.github.io/caliper/v0.6.0/overview/architecture/#multi-platform-support), [the manager process](https://hyperledger.github.io/caliper/v0.6.0/overview/architecture/#the-manager-process) and [the worker processes](https://hyperledger.github.io/caliper/v0.6.0/overview/architecture/#the-worker-process).*
+    *To get a sense of how a connector fits into the Caliper architecture, see the corresponding architecture documentation sections about [multi-platform support](../getting-started/architecture.md/#multi-platform-support), [the manager process](../getting-started/architecture.md/#the-manager-process) and [the worker processes](../getting-started/architecture.md/#the-worker-process).*
 
-Caliper ships with some [predefined/built-in connectors](https://hyperledger.github.io/caliper/v0.6.0/overview/getting-started/#supported-blockchain-solutions), but in general, connectors are treated as pluggable components (just like resource and TX monitors, workload modules, etc.). So nothing stops you from implementing and using your 3rd party connector! However, we strongly recommend that you absorb every part of this guide before implementing a new connector.
+Caliper ships with some [predefined/built-in connectors](../index.md#supported-blockchain-solutions), but in general, connectors are treated as pluggable components (just like resource and TX monitors, workload modules, etc.). So nothing stops you from implementing and using your 3rd party connector! However, we strongly recommend that you absorb every part of this guide before implementing a new connector.
 
 ## Requirements for quality connectors
 
@@ -51,7 +51,7 @@ Regardless of the used API technology, there’s probably a mature client librar
 
 ## Implementing the connector
 
-You should treat a connector implementation process as a full-fledged Node.js project. Refer to the [Caliper integration](https://hyperledger.github.io/caliper/v0.6.0/reference/writing-connectors/#integration-with-caliper) section for the suggested project structure. Putting the project structure aside, you have four implementation-related tasks:
+You should treat a connector implementation process as a full-fledged Node.js project. Refer to the [Caliper integration](#integration-with-caliper) section for the suggested project structure. Putting the project structure aside, you have four implementation-related tasks:
 
 1. Implement the connector interface (optionally using the available utility base class).
 2. Implement a factory method for instantiating the connector.
@@ -79,7 +79,7 @@ module.exports = ConnectorInterface;
 
 The interface is detailed in the next subsection, but for now, keep the following things in mind:
 
-1. The connector is used in two [different environments](https://hyperledger.github.io/caliper/v0.6.0/architecture/#caliper-processes): in the manager and worker processes. The corresponding environment of the methods will be discussed in the interface reference subsection.
+1. The connector is used in two [different environments](../getting-started/architecture.md#caliper-processes): in the manager and worker processes. The corresponding environment of the methods will be discussed in the interface reference subsection.
 2. The connector must expose certain [events](https://nodejs.org/docs/latest-v10.x/api/events.html) about the requests, otherwise it’s not observable by the Caliper workers, which breaks the scheduling mechanism of Caliper.
 3. `sendRequests` is the hot path for the interface, implement it carefully and efficiently!
 4. The behavior of the connector (and the methods to really implement) largely depends on the capabilities of the network configuration schema. The more flexibility you allow on the Caliper-side of the network, the more features you will have to provide. A flexible connector makes it easier to setup benchmark scenarios, resulting in happy users.
@@ -211,7 +211,7 @@ The following is a possible implementation of a factory method for our `fast-led
 
 ### The network configuration file
 
-The [network configuration file](https://hyperledger.github.io/caliper/v0.6.0/overview/architecture/#network-configuration-file) can contain whatever information your connector requires to communicate with the SUT and fulfill the connector [quality requirements](https://hyperledger.github.io/caliper/v0.6.0/reference/writing-connectors/#requirements-for-quality-connectors). The configuration file can be either a JSON or YAML file. YAML is preferred for its readability and comment support.
+The [network configuration file](../getting-started/architecture.md#network-configuration-file) can contain whatever information your connector requires to communicate with the SUT and fulfill the connector [quality requirements](#requirements-for-quality-connectors). The configuration file can be either a JSON or YAML file. YAML is preferred for its readability and comment support.
 
 The network configuration schema must contain a mandatory top-level field with the following structure:
 
@@ -226,11 +226,11 @@ caliper:
     end: stopLedger.sh
 ```
 
-The `caliper.blockchain` attribute tells Caliper which connector to load for the test. The value of the attribute depends on how you want to [integrate the connector with Caliper](https://hyperledger.github.io/caliper/v0.6.0/reference/writing-connectors/#integration-with-caliper).
+The `caliper.blockchain` attribute tells Caliper which connector to load for the test. The value of the attribute depends on how you want to [integrate the connector with Caliper](#integration-with-caliper).
 
 ## Binding configuration
 
-The [binding](https://hyperledger.github.io/caliper/v0.6.0/overview/installing-caliper/#the-bind-command) command of Caliper allows you to specify major connector dependencies to be installed during runtime (instead of packaged with the connector during development time). SUT SDKs and other client libraries usually fall into this category (i.e., libraries that facilitate interactions with the SUT). If the APIs of such libraries are consistent across different versions, then your single connector implementation can possibly target multiple SUT versions.
+The [binding](../getting-started/installing-caliper.md/#the-bind-command) command of Caliper allows you to specify major connector dependencies to be installed during runtime (instead of packaged with the connector during development time). SUT SDKs and other client libraries usually fall into this category (i.e., libraries that facilitate interactions with the SUT). If the APIs of such libraries are consistent across different versions, then your single connector implementation can possibly target multiple SUT versions.
 
 In that case, users should be able to select a specific SDK version that will target the corresponding SUT version. You can achieve this by providing a binding configuration file (JSON or YAML) for your connector.
 
@@ -287,7 +287,7 @@ Your connector can use such advanced specification to provide support for a wide
 
 ## Documenting the connector
 
-Providing proper user manual for your connector is just as important as a quality implementation. Otherwise, users will have a hard time interacting with your connector. We will take the [Fabric connector documentation](https://hyperledger.github.io/caliper/v0.6.0/reference/writing-connectors/Fabric_Configuration.md) as an example, section by section.
+Providing proper user manual for your connector is just as important as a quality implementation. Otherwise, users will have a hard time interacting with your connector. We will take the [Fabric connector documentation](fabric-config.md) as an example, section by section.
 
 ### Overview
 
@@ -306,13 +306,13 @@ However, it can happen that not every SUT feature is supported by every binding.
 
 ### Runtime settings
 
-The network configuration file only describes the SUT topology and related artifacts. SUT-agnostic design choices can still arise during the development of a connector. Instead of deciding yourself, you should delegate such choices to the end users utilizing the [runtime configuration mechanism](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/) of Caliper where possible/meaningful.
+The network configuration file only describes the SUT topology and related artifacts. SUT-agnostic design choices can still arise during the development of a connector. Instead of deciding yourself, you should delegate such choices to the end users utilizing the [runtime configuration mechanism](../concepts/runtime-config.md) of Caliper where possible/meaningful.
 
 Such settings typically affect the operating mode of the connector, but don’t change the overall semantics of the SUT interactions. Be sure to document every available runtime setting for your connector! Also, don’t forget to provide sensible defaults to these settings where possible.
 
 ### Request API
 
-The main users of your connector will be workload module developers. They will interact with your connector mainly through the `[sendRequests](https://hyperledger.github.io/caliper/v0.6.0/reference/writing-connectors/#interface-reference)` method. The method accepts either a single, or multiple settings object relating to the requests the user wants to send. You have to precisely specify what kind of settings are available for a request. These will typically include:
+The main users of your connector will be workload module developers. They will interact with your connector mainly through the `[sendRequests](#interface-reference)` method. The method accepts either a single, or multiple settings object relating to the requests the user wants to send. You have to precisely specify what kind of settings are available for a request. These will typically include:
 
 - The operation to execute on the SUT.
 - The arguments of the operation.
@@ -393,4 +393,4 @@ const BuiltinConnectors = new Map([
 
 ## License
 
-The Caliper codebase is released under the [Apache 2.0 license](https://hyperledger.github.io/caliper/v0.6.0/general/license/). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).

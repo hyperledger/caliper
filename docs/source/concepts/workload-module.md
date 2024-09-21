@@ -21,7 +21,7 @@ function createWorkloadModule() {
 module.exports.createWorkloadModule = createWorkloadModule;
 ```
 
-The factory function must return an instance that implements the `[WorkloadModuleInterface](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/worker/workload/workloadModuleInterface.js)` class. See the [example](https://hyperledger.github.io/caliper/v0.6.0/overview/workload-module/#example) for a complete implementation.
+The factory function must return an instance that implements the `[WorkloadModuleInterface](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/worker/workload/workloadModuleInterface.js)` class. See the [example](#example) for a complete implementation.
 
 The interface contains the following three **asynchronous** functions:
 
@@ -35,7 +35,7 @@ The `initializeWorkloadModule` function is called by the worker processes before
 5. `sutAdapter (BlockchainConnector)`: The connector of the underlying SUT (System Under Test).
 6. `sutContext (Object)`: The custom context object provided by the SUT connector.
 
-This function is a good place to validate your workload module arguments provided by the [benchmark configuration file](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/). It’s also a good practice to perform here any preprocessing needed to ensure the fast assembling of TX contents later in the `submitTransaction` function.
+This function is a good place to validate your workload module arguments provided by the [benchmark configuration file](bench-config.md). It’s also a good practice to perform here any preprocessing needed to ensure the fast assembling of TX contents later in the `submitTransaction` function.
 
 #### submitTransaction
 The `submitTransaction` function is the backbone of the workload generation. The worker process calls this function every time the rate controller enables the next TX. So it is vital to keep this function implementation as efficient as possible in order to be able to keep up with high frequency scheduling settings.
@@ -130,7 +130,7 @@ module.exports.createWorkloadModule = createWorkloadModule;
 ```
 
 ## Configuring the workload module
-To use your workload module for a given round, you only need to reference it in the [benchmark configuration](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/#benchmark-test-settings) file:
+To use your workload module for a given round, you only need to reference it in the [benchmark configuration](bench-config.md/#benchmark-test-settings) file:
 
 1. Set the `test.rounds[i].workload.module` attribute to the path of your workload module file. The path can be either an absolute path, or a relative path to the configured workspace path. You can also set the attribute to the package name of your published workload module, but in that case you need to install it beforehand.
 2. If your module supports different settings, set the `test.rounds[i].workload.arguments` attribute object accordingly. It will be passed to your module upon initialization.
@@ -141,9 +141,9 @@ The following advices might help you to improve your workload module implementat
 
 1. You can use (`require`) any Node.JS module in your code (including the core Caliper module). Modularization is important for keeping your implementation clean and manageable.
 2. If you use third-party modules, then it is your responsibility to make them available to your workload module. This usually requires an `npm install` call in your module directory before you start Caliper.
-3. Caliper provides some core utilities that might make your life easier, such as [logging](https://hyperledger.github.io/caliper/v0.6.0/reference/logging/) and [runtime configuration](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/). Use them, don’t reinvent the wheel!
+3. Caliper provides some core utilities that might make your life easier, such as [logging](logging-control.md) and [runtime configuration](runtime-config.md). Use them, don’t reinvent the wheel!
 4. The `submitTransaction` function is on the **hot path** of the worker workload generation loop. Do computation-intensive tasks with care, it might hurt the scheduling precision of TXs! You can perform expensive pre-processing tasks in the `initializeWorkloadModule` function instead.
 
 ## License
 
-The Caliper codebase is released under the [Apache 2.0 license](https://hyperledger.github.io/caliper/v0.6.0/general/license/). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).

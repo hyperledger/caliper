@@ -20,15 +20,15 @@ You can consider this file as the “flow orchestrator” of the benchmark. For 
 
 !!! note
 
-    *For a more technical introduction to the benchmark configuration file, see the [corresponding page](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/).*
+    *For a more technical introduction to the benchmark configuration file, see the [corresponding page](../concepts/bench-config.md).*
 
 ### Network configuration file
 The content of the network configuration file is SUT-specific. The file usually describes the topology of the SUT, where its nodes are (their endpoint addresses), what identities/clients are present in the network, and what smart contracts Caliper should deploy or interact with.
 
 For the exact structure of the network configuration files, refer to the corresponding SUT connector documentations (we will discuss connectors a bit later on this page):
 
-- [Hyperledger Besu & Ethereum](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/)
-- [Hyperledger Fabric](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/fabric-config.md)
+- [Hyperledger Besu & Ethereum](../connectors/ethereum-config.md)
+- [Hyperledger Fabric](../connectors/fabric-config.md)
 
 ### Workload modules
 
@@ -38,14 +38,14 @@ Workload modules are simply Node.JS modules that must export a given factory fun
 
 !!! note
 
-    *For a more technical introduction to the benchmark configuration file, see the [corresponding page](https://hyperledger.github.io/caliper/v0.6.0/overview/workload-module/).*
+    *For a more technical introduction to the benchmark configuration file, see the [corresponding page](../concepts/workload-module.md).*
 
 ### Benchmark artifacts
 There might be additional artifacts necessary to run a benchmark that can vary between different benchmarks and runs. These usually include the followings:
 
 - Crypto materials necessary to interact with the SUT.
 - Smart contract source code for Caliper to deploy (if the SUT connector supports such operation).
-- [Runtime configuration](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/) files.
+- [Runtime configuration](../concepts/runtime-config.md) files.
 - Pre-installed third party packages for your workload modules.
 
 Refer to the SUT connector configuration pages for the additional necessary artifacts.
@@ -61,7 +61,7 @@ A SUT connector provides a simplified interface towards internal Caliper modules
 
 !!! note
 
-    *For the technical details of how to implement a connector, refer to the [corresponding page](https://hyperledger.github.io/caliper/v0.6.0/reference/writing-connectors/).*
+    *For the technical details of how to implement a connector, refer to the [corresponding page](../connectors/writing-connectors.md).*
 
 ## Caliper processes
 Caliper considers scalability one of its most important goals (besides extensibility/flexibility). Workload generation from a single machine can quickly reach the resource limitations of the machine. If we want the workload rate to match the scalability and performance characteristics of the evaluated SUT then we need a distributed approach!
@@ -94,9 +94,9 @@ The Caliper manager process is the orchestrator of the entire benchmark run. It 
 4. In the fourth stage Caliper schedules and executes the configured rounds through the worker processes. This is the stage where the workload generation happens (through the workers!).
 5. In the last stage, after executing the rounds and generating the report, Caliper executes the cleanup script (if present) from the network configuration file. This step is mainly useful for local Caliper and SUT deployments as it provides a convenient way to tear down the network and any temporary artifacts.
 
-If your SUT is already deployed an initialized, then you only need Caliper to execute the rounds and nothing else. Luckily, you can configure every stage one-by-one whether it should be executed or not. See the [flow control settings](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/#benchmark-phase-settings) for details.
+If your SUT is already deployed an initialized, then you only need Caliper to execute the rounds and nothing else. Luckily, you can configure every stage one-by-one whether it should be executed or not. See the [flow control settings](../concepts/runtime-config.md#benchmark-phase-settings) for details.
 
-The above figure only shows the high-level steps of executing a benchmark. Some components are omitted for the sake of simplicity, like the resource and transaction monitor components. To learn more about the purpose and configuration of these components, refer to the [Resource and Transaction Monitors](https://hyperledger.github.io/caliper/v0.6.0/reference/caliper-monitors/) documentation page.
+The above figure only shows the high-level steps of executing a benchmark. Some components are omitted for the sake of simplicity, like the resource and transaction monitor components. To learn more about the purpose and configuration of these components, refer to the [Resource and Transaction Monitors](../concepts/caliper-monitors.md) documentation page.
 
 ### The worker process
 The interesting things (from a user perspective) happen inside the worker processes. A worker process starts its noteworthy tasks when the manager process sends a message to it about executing the next round (the 4th step in the previous section). The important components of a worker process are shown in the figure below.
@@ -108,14 +108,14 @@ The worker process spends most of its time in the workload generation loop. The 
 1. Waiting for the rate controller to enable the next TX. Think of the rate controller as a delay circuit. Based on what kind of rate controller is used, it delays/halts the execution of the worker (in an asynchronous manner) before enabling the next TX. For example, if a fixed 50 TXs per second (TPS) rate is configured, the rate controller will halt for 20ms between each TX.
 
 !!!note
-    *The rate controllers of each round can be configured in the [benchmark configuration file](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/). For the available rate controllers, see the [Rate Controllers](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/) page.*
+    *The rate controllers of each round can be configured in the [benchmark configuration file](../concepts/bench-config.md). For the available rate controllers, see the [Rate Controllers](../concepts/rate-controllers.md) page.*
 
 2. Once the rate controller enables the next TX, the worker gives control to the workload module. The workload module assembles the parameters of the TX (specific to the SUT and smart contract API) and calls the simple API of the SUT connector that will, in turn, send the TX request to the SUT (probably using the SDK of the SUT).
 
 !!!note
-    *The workload modules of each round can be configured in the [benchmark configuration file](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/). For the technical details of workload modules, see the [Workload Modules](https://hyperledger.github.io/caliper/v0.6.0/reference/workload-module/) page.*
+    *The workload modules of each round can be configured in the [benchmark configuration file](../concepts/bench-config.md). For the technical details of workload modules, see the [Workload Modules](../concepts/workload-module.md) page.*
 
-During the workload loop, the worker process sends progress updates to the manager process. Progress reporting on the manager side can be enabled and configured with the `caliper-progress-reporting-enabled and caliper-progress-reporting-interval` setting keys. For details, see the [Basic Runtime Settings](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/#basic-settings).
+During the workload loop, the worker process sends progress updates to the manager process. Progress reporting on the manager side can be enabled and configured with the `caliper-progress-reporting-enabled and caliper-progress-reporting-interval` setting keys. For details, see the [Basic Runtime Settings](../concepts/runtime-config.md/#basic-settings).
 
 ## Process distribution models
 The last part of the architecture discussion is demystifying the worker process management. Based on how worker processes are started and what messaging method is used between the manager and worker processes, we can distinguish the following distribution/deployment models:
@@ -150,10 +150,10 @@ The following table summarizes the different models and how to select them:
 
 !!! note
 
-    *For the technical details on configuration the messaging transport, see the [Messengers](https://hyperledger.github.io/caliper/v0.6.0/reference/caliper-messengers/) page.*
+    *For the technical details on configuration the messaging transport, see the [Messengers](../concepts//caliper-messengers.md) page.*
 
 ### Interprocess communication
-The examples on the [Install & Usage](https://hyperledger.github.io/caliper/v0.6.0/overview/installing-caliper/) page all use the IPC approach since it is the default behavior. The setup is illustrated in the figure below.
+The examples on the [Install & Usage](../getting-started/installing-caliper.md) page all use the IPC approach since it is the default behavior. The setup is illustrated in the figure below.
 
 The `caliper launch manager` CLI command starts the manager process, which in turn will automatically spawn the configured number of worker processes (using the `caliper launch worker` CLI command). The communication between the processes is IPC, utilizing the built-in Node.JS method available for the parent-children process relationships.
 
@@ -177,7 +177,7 @@ When you take the management of the worker processes into your own hands, that�
 
 ![Remote MQTT](../_static/arch_remote_mqtt.png)
 
-The fully distributed deployment enables the horizontal scaling of the worker processes, greatly increasing the achievable workload rate. To ease the management of the many Caliper processes, you will probably utilize some automatic deployment/management solution, like Docker Swarm or Kubernetes. Luckily, the flexibility of the [Caliper Docker image](https://hyperledger.github.io/caliper/v0.6.0/overview/installing-caliper/#using-the-docker-image) makes such integration painless.
+The fully distributed deployment enables the horizontal scaling of the worker processes, greatly increasing the achievable workload rate. To ease the management of the many Caliper processes, you will probably utilize some automatic deployment/management solution, like Docker Swarm or Kubernetes. Luckily, the flexibility of the [Caliper Docker image](../getting-started/installing-caliper.md#using-the-docker-image) makes such integration painless.
 
 However, there are some caveats you have to keep in mind:
 
@@ -187,4 +187,4 @@ However, there are some caveats you have to keep in mind:
 
 ## License
 
-The Caliper codebase is released under the [Apache 2.0 license](https://hyperledger.github.io/caliper/v0.6.0/general/license/). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).

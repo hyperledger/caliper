@@ -16,10 +16,10 @@ This page introduces the Ethereum adapter suitable for all the Ethereum clients 
 
 The page covers the following aspects of using the Ethereum adapter:
 
-- how to assemble a [connection profile file](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#assembling-the-network-configuration-file), a.k.a., the blockchain network configuration file;
-- how to use the [adapter interface](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#using-the-adapter-interface) from the user callback module;
-- [transaction data gathered](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#transaction-data-gathered-by-the-adapter) by the adapter;
-- and a [complete example](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#connection-profile-example) of a connection profile.
+- how to assemble a [connection profile file](../connectors/ethereum-config.md/#assembling-the-network-configuration-file), a.k.a., the blockchain network configuration file;
+- how to use the [adapter interface](../connectors/ethereum-config.md/#using-the-adapter-interface) from the user callback module;
+- [transaction data gathered](../connectors/ethereum-config.md/#transaction-data-gathered-by-the-adapter) by the adapter;
+- and a [complete example]../connectors/ethereum-config.md/#connection-profile-example) of a connection profile.
 
 ## Assembling the Network Configuration File
 
@@ -64,17 +64,17 @@ Furthermore, it also contains two optional commands: a `start` command to execut
 
 These are the keys to provide inside the configuration file under the `ethereum` one:
 
-- [URL](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#url) of the node to connect to. Only http is currently supported.
-- [Deployer address](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#deployer-address) with which to deploy required contracts.
-- [Deployer address private key](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#deployer-address-private-key): the private key of the deployer address.
-- [Deployer address password](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#deployer-address-password): to unlock the deployer address.
-- [Address](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#benchmark-address) from which to invoke methods of the benchmark.
-- [Private Key](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#benchmark-address-private-key): the private key of the benchmark address.
-- [Password](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#benchmark-address-password): to unlock the benchmark address.
-- Number of [confirmation blocks](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#confirmation-blocks) to wait to consider a transaction as successfully accepted in the chain.
-- [Contracts configuration](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#contract-configuration).
+- [URL](../connectors/ethereum-config.md/#url) of the node to connect to. Only http is currently supported.
+- [Deployer address](../connectors/ethereum-config.md/#deployer-address) with which to deploy required contracts.
+- [Deployer address private key](../connectors/ethereum-config.md/#deployer-address-private-key): the private key of the deployer address.
+- [Deployer address password](../connectors/ethereum-config.md/#deployer-address-password): to unlock the deployer address.
+- [Address](../connectors/ethereum-config.md/#benchmark-address) from which to invoke methods of the benchmark.
+- [Private Key](../connectors/ethereum-config.md/#benchmark-address-private-key): the private key of the benchmark address.
+- [Password](../connectors/ethereum-config.md/#benchmark-address-password): to unlock the benchmark address.
+- Number of [confirmation blocks](../connectors/ethereum-config.md/#confirmation-blocks) to wait to consider a transaction as successfully accepted in the chain.
+- [Contracts configuration](../connectors/ethereum-config.md/#contract-configuration).
 
-The following sections detail each part separately. For a complete example, please refer to the [example section](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#connection-profile-example) or one of the example files in the `network/ethereum` directories
+The following sections detail each part separately. For a complete example, please refer to the [example section](../connectors/ethereum-config.md/#connection-profile-example) or one of the example files in the `network/ethereum` directories
 
 #### URL
 The URL of the node to connect to. Any host and port can be used if it is reachable. Currently only websocket is supported.
@@ -90,7 +90,7 @@ Unfortunately, HTTP connections are explicitly disallowed, as
 
 #### Deployer Address
 
-The address to use to deploy contracts of the network. Without particular or specific needs it can be set to be equal to the [benchmark address](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#benchmark-address). Its private key must be hold by the node connected with [URL](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#url) and it must be provided in the checksum form (the one with both lowercase and uppercase letters).
+The address to use to deploy contracts of the network. Without particular or specific needs it can be set to be equal to the [benchmark address](../connectors/ethereum-config.md/#benchmark-address). Its private key must be hold by the node connected with [URL](../connectors/ethereum-config.md/#url) and it must be provided in the checksum form (the one with both lowercase and uppercase letters).
 
 ```sh
 "contractDeployerAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2"
@@ -98,7 +98,7 @@ The address to use to deploy contracts of the network. Without particular or spe
 
 #### Deployer Address Private Key
 
-The private key for the [deployer address](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#deployer-address). If present then transactions are signed inside caliper and sent “raw” to the ethereum node.
+The private key for the [deployer address](../connectors/ethereum-config.md/#deployer-address). If present then transactions are signed inside caliper and sent “raw” to the ethereum node.
 
 ```sh
 "contractDeployerAddressPrivateKey": "0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8"
@@ -106,7 +106,7 @@ The private key for the [deployer address](https://hyperledger.github.io/caliper
 
 #### Deployer Address Password
 
-The password to use to unlock [deployer address](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#deployer-address). If there isn’t an unlock password, this key must be present as empty string. If the deployer address private key is present this is not used.
+The password to use to unlock [deployer address](../connectors/ethereum-config.md/#deployer-address). If there isn’t an unlock password, this key must be present as empty string. If the deployer address private key is present this is not used.
 
 ```sh
 "contractDeployerAddressPassword": "gottacatchemall"
@@ -118,7 +118,7 @@ The password to use to unlock [deployer address](https://hyperledger.github.io/c
 
 #### Benchmark Address
 
-The address to use while invoking all the methods of the benchmark. Its private key must be hold by the node connected with [URL](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#url) and it must be provided in the checksum form (the one with both lowercase and uppercase letters).
+The address to use while invoking all the methods of the benchmark. Its private key must be hold by the node connected with [URL](../connectors/ethereum-config.md/#url) and it must be provided in the checksum form (the one with both lowercase and uppercase letters).
 
 ```sh
 "fromAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2"
@@ -140,7 +140,7 @@ This configuration does not override fromAddress, but it takes priority over `fr
 
 #### Benchmark Address Private Key
 
-The private key for the [benchmark address](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#benchmark-address). If present then transactions are signed inside caliper and sent “raw” to the ethereum node.
+The private key for the [benchmark address](../connectors/ethereum-config.md/#benchmark-address). If present then transactions are signed inside caliper and sent “raw” to the ethereum node.
 
 This configuration takes priority over `fromAddressPassword`.
 
@@ -150,7 +150,7 @@ This configuration takes priority over `fromAddressPassword`.
 
 #### Benchmark Address Password
 
-The password to use to unlock [benchmark address](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#benchmark-address). If there isn’t an unlock password, this key must be present as empty string. If the benchmark address private key is present this is not used.
+The password to use to unlock [benchmark address](../connectors/ethereum-config.md/#benchmark-address). If there isn’t an unlock password, this key must be present as empty string. If the benchmark address private key is present this is not used.
 
 ```sh
 "fromAddressPassword": "gottacatchemall"
@@ -200,7 +200,7 @@ To use pre-deployed contracts, you must launch caliper using the `--caliper-flow
 ```
 #### Contracts to Deploy
 
-Contracts to be deployed by Caliper require the specification of a [contract definition file](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#contract-definition-file) for each. In the contract configuration you must include a path field pointing to each contract definition file. It’s in this new file that you will define the contract’s ABI and bytecode, as well as the gas required to deploy it.
+Contracts to be deployed by Caliper require the specification of a [contract definition file](../connectors/ethereum-config.md/#contract-definition-file) for each. In the contract configuration you must include a path field pointing to each contract definition file. It’s in this new file that you will define the contract’s ABI and bytecode, as well as the gas required to deploy it.
 
 ```sh
 "contracts": {
@@ -225,10 +225,10 @@ Contracts to be deployed by Caliper require the specification of a [contract def
 
 Contract definition file is a simple JSON file containing basic information to deploy and use an Ethereum contract. Four keys are required:
 
-- [Name](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#name)
-- [ABI](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#abi)
-- [Bytecode](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#bytecode)
-- [Gas](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#gas)
+- [Name](../connectors/ethereum-config.md/#name)
+- [ABI](../connectors/ethereum-config.md/#abi)
+- [Bytecode](../connectors/ethereum-config.md/#bytecode)
+- [Gas](../connectors/ethereum-config.md/#gas)
 
 Here is an example:
 ```sh
@@ -253,11 +253,11 @@ It is the gas required to deploy the contract. It can be easily calculated with 
 
 ### Using the Adapter Interface
 
-The [workload modules](https://hyperledger.github.io/caliper/v0.6.0/overview/workload-module/) interact with the adapter at two phases of the tests: during the initialization of the workload module (the `initializeWorkloadModule` function), and when submitting invoke or query transactions (the `submitTransaction` function).
+The [workload modules](../concepts/workload-module.md) interact with the adapter at two phases of the tests: during the initialization of the workload module (the `initializeWorkloadModule` function), and when submitting invoke or query transactions (the `submitTransaction` function).
 
 #### The *initializeWorkloadModule* function
 
-See the [corresponding documentation](https://hyperledger.github.io/caliper/v0.6.0/overview/workload-module/#initializeworkloadmodule) of the function for the description of its parameters.
+See the [corresponding documentation](../concepts/workload-module.md/#initializeworkloadmodule) of the function for the description of its parameters.
 
 The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain’s connector. The context object provided by this connector is the following:
 
@@ -268,7 +268,7 @@ The last argument of the function is a `sutContext` object, which is a platform-
 }
 ```
 
-The `fromAddress` property is the [benchmark address](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#benchmark-address) while web3 is the configured instance of the Web3js client.
+The `fromAddress` property is the [benchmark address](../connectors/ethereum-config.md/#benchmark-address) while web3 is the configured instance of the Web3js client.
 
 #### The *submitTransaction* function
 The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type `[ConnectorInterface](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/common/core/connector-interface.js)`. Its `getType()` function returns the `fabric` string value.
@@ -277,7 +277,7 @@ The `sendRequests` method of the connector API allows the workload module to sub
 
 The settings object has the following structure:
 
-- `contract`: string. Required. The ID of the contract (that is the key specified [here](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/ethereum-config/#contract-configuration)).
+- `contract`: string. Required. The ID of the contract (that is the key specified [here](../connectors/ethereum-config.md/#contract-configuration)).
 - `readOnly`: boolean. Optional. Indicates whether the request is a TX or a query. Defaults to `false`.
 - `verb`: string. Required. The name of the function to call on the contract.
 - `value`: number. Optional. The value parameter in Wei to be passed to the payable function of the contract.
@@ -320,4 +320,4 @@ The standard information provided by the type are the following:
 
 ## License
 
-The Caliper codebase is released under the [Apache 2.0 license](https://hyperledger.github.io/caliper/v0.6.0/general/license/). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).

@@ -135,10 +135,10 @@ The project is maintained as a Node.js monorepository. Accordingly, it can seem 
 
 The workflow of modifying the Caliper code-base usually consists of the following steps:
 
-1. [Bootstrapping the repository](https://hyperledger.github.io/caliper/v0.6.0/getting-started/contributing/#bootstrapping-the-caliper-repository)
-2. [Modifying and testing the code](https://hyperledger.github.io/caliper/v0.6.0/getting-started/contributing/#testing-the-code)
-3. [Publishing package changes locally](https://hyperledger.github.io/caliper/v0.6.0/getting-started/contributing/#publishing-to-local-npm-repository)
-4. [Building the Docker image](https://hyperledger.github.io/caliper/v0.6.0/getting-started/contributing/#building-the-docker-image)
+1. [Bootstrapping the repository](#bootstrapping-the-caliper-repository)
+2. [Modifying and testing the code](#testing-the-code)
+3. [Publishing package changes locally](#publishing-to-local-npm-repository)
+4. [Building the Docker image](#building-the-docker-image)
 
 ### Bootstrapping the Caliper repository
 
@@ -253,7 +253,7 @@ user@ubuntu:~/caliper$ node ./packages/caliper-cli/caliper.js launch manager \
 
 Connectors are relatively heavy components in Caliper. Before you attempt to create a new connector for a new SUT type, consult with the Caliper maintainers (on Discord, or in the form of a feature request).
 
-> More importantly, make sure that you are overly familiar with the documentation page about [implementing new connectors](https://hyperledger.github.io/caliper/v0.6.0/connectors/writing-connectors/).
+> More importantly, make sure that you are overly familiar with the documentation page about [implementing new connectors](../connectors/writing-connectors.md).
 
 ### Publishing to local NPM repository
 

@@ -1,7 +1,7 @@
 # Benchmark Configuration
 
 ## Overview
-The `benchmark configuration file` is one of the [required configuration](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/) files necessary to run a Caliper benchmark. In contrast to the runtime configurations, used for tweaking the internal behavior of Caliper, the benchmark configuration pertains only to the execution of the benchmark workload and collection of the results.
+The `benchmark configuration file` is one of the [required configuration](runtime-config.md) files necessary to run a Caliper benchmark. In contrast to the runtime configurations, used for tweaking the internal behavior of Caliper, the benchmark configuration pertains only to the execution of the benchmark workload and collection of the results.
 
 !!! note
 
@@ -9,14 +9,13 @@ The `benchmark configuration file` is one of the [required configuration](https:
 
 The benchmark configuration consists of three main parts:
 
-- [Table of contents](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/#table-of-contents)
-- [Overview](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/#overview)
-- [Benchmark test settings](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/#benchmark-test-settings)
-- [Monitoring settings](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/#monitoring-settings)
-- [Example](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/#example)
-- [License](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/#license)
+- [Overview](#overview)
+- [Benchmark test settings](#benchmark-test-settings)
+- [Monitoring settings](#monitoring-settings)
+- [Example](#example)
+- [License](#license)
 
-For a complete benchmark configuration example, refer to the [last section](https://hyperledger.github.io/caliper/v0.6.0/overview/bench-config/#example).
+For a complete benchmark configuration example, refer to the [last section](#example).
 
 !!! note
 
@@ -36,16 +35,16 @@ The settings related to the benchmark workload all reside under the root `test` 
 | test.rounds[i].label                     | A short name of the rounds, usually corresponding to the types of submitted TXs.                |
 | test.rounds[i].txNumber                  | The number of TXs Caliper should submit during the round.                                       |
 | test.rounds[i].txDuration                | The length of the round in seconds during which Caliper will submit TXs.                        |
-| test.rounds[i].rateControl               | The object describing the [rate controller](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/) to use for the round.                                 |
-| test.rounds[i].workload                  | The object describing the [workload module](https://hyperledger.github.io/caliper/v0.6.0/overview/workload-module/) used for the round.                                   |
+| test.rounds[i].rateControl               | The object describing the [rate controller](rate-controllers.md) to use for the round.                                 |
+| test.rounds[i].workload                  | The object describing the [workload module](workload-module.md) used for the round.                                   |
 | test.rounds[i].workload.module           | The path to the benchmark workload module implementation that will construct the TXs to submit. |
 | test.rounds[i].workload.arguments        | Arbitrary object that will be passed to the workload module as configuration.                   |
 
-A benchmark configuration with the above structure will define a benchmark run that consists of multiple rounds. Each round is associated with a [rate controller](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/) that is responsible for the scheduling of TXs, and a [workload module](https://hyperledger.github.io/caliper/v0.6.0/overview/workload-module/) that will generate the actual content of the scheduled TXs.
+A benchmark configuration with the above structure will define a benchmark run that consists of multiple rounds. Each round is associated with a [rate controller](rate-controllers.md) that is responsible for the scheduling of TXs, and a [workload module](workload-module.md) that will generate the actual content of the scheduled TXs.
 
 ## Monitoring settings
 
-The monitoring configuration determines what kind of metrics the manager process can gather and from where. The configuration resides under the `monitors` attribute. Refer to the [monitors configuration page](https://hyperledger.github.io/caliper/v0.6.0/reference/caliper-monitors/) for the details.
+The monitoring configuration determines what kind of metrics the manager process can gather and from where. The configuration resides under the `monitors` attribute. Refer to the [monitors configuration page](caliper-monitors.md) for the details.
 
 ## Example
 
@@ -105,4 +104,4 @@ monitors:
 
 ## License
 
-The Caliper codebase is released under the [Apache 2.0 license](https://hyperledger.github.io/caliper/v0.6.0/general/license/). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
