@@ -6,7 +6,7 @@ Caliper builds on the [winston](https://github.com/winstonjs/winston) logger mod
 2. Configuring logging targets
 3. Creating your own loggers
 
-The first two points can be achieved through the [runtime configuration](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/) mechanism of Caliper. So make sure that you are familiar with the different way of overriding runtime settings before reading on. The examples below only set the different options through the command line. Naturally, any other setting source could be used.
+The first two points can be achieved through the [runtime configuration](runtime-config.md) mechanism of Caliper. So make sure that you are familiar with the different way of overriding runtime settings before reading on. The examples below only set the different options through the command line. Naturally, any other setting source could be used.
 
 The runtime configuration settings corresponding to logging reside under the `caliper-logging` key hierarchy. See the `caliper.logging` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/config/default.yaml) bundled with Caliper for the general structure of the settings.
 
@@ -54,7 +54,7 @@ You can override this template by changing the caliper-logging-template setting 
     This template if applied after every format has been applied!
     </li>
     <li>
-    Adding spaces and different brackets this way is fine for simple coloring scenarios (or when coloring is disabled). However, when coloring the entire log message (or just parts that should be surrounded with additional characters), the result looks inconsistent when formatted this way. See the <a href="https://hyperledger.github.io/caliper/v0.6.0/reference/logging/#tips--tricks">Tips & Tricks</a> section for advanced message formatting scenarios.
+    Adding spaces and different brackets this way is fine for simple coloring scenarios (or when coloring is disabled). However, when coloring the entire log message (or just parts that should be surrounded with additional characters), the result looks inconsistent when formatted this way. See the <a href="#tips-tricks">Tips & Tricks</a> section for advanced message formatting scenarios.
     </li>
   </ol>
 </div>
@@ -71,7 +71,7 @@ The following formats and their options (sub-properties) are supported.
 
 !!! note
 
-    *the different formats are applied in the order they are presented, which is important (see the [Tips & Tricks](https://hyperledger.github.io/caliper/v0.6.0/reference/logging/#tips--tricks) section for the reason).*
+    *the different formats are applied in the order they are presented, which is important (see the [Tips & Tricks](#tips-tricks) section for the reason).*
 
 #### Timestamp
 
@@ -103,7 +103,7 @@ For example: `--caliper-logging-formats-json="{space:0}"`
   <strong>Note:</strong>
   <ol>
     <li>
-    Enabling this format is easier from a configuration file. See the <a href="https://hyperledger.github.io/caliper/v0.6.0/reference/logging/#tips--tricks">Tips & Tricks</a> section.
+    Enabling this format is easier from a configuration file. See the <a href="#tips-tricks">Tips & Tricks</a> section.
     </li>
     <li>
     Setting <code>space</code> to a non-zero number will effectively format the JSON output with indentations on multiple lines. This could “spam” the console a bit (not a problem for log files, unless you care about the extra newlines).
@@ -227,7 +227,7 @@ For example, to disable the `mylogger1` target, the following approaches are ava
 
 ### Overriding logger target settings
 
-But what if you would like to modify one of the options of a transport? You can use a [configuration file](https://hyperledger.github.io/caliper/v0.6.0/reference/untime-config/#configuration-files) for that!
+But what if you would like to modify one of the options of a transport? You can use a [configuration file](runtime-config.md/#configuration-files) for that!
 
 For the next example, we will disable the default file logger, modify the logging level of the console target, and also add a new daily rotating file logger. We can do all of this with a single configuration file.
 
@@ -270,7 +270,7 @@ If you save the above content as `caliper.yaml` in your workspace directory, the
 
     1. We only set the properties we wanted to override. The default configuration file will be merged with the above configuration file, the values in the latter taking precedence.
     2. The provided options for a transport are not verified by Caliper. It is simple passed to the specific transport. It is your responsibility to configure the transport the right way.
-    3. We could have disabled the file logger also from the command line, or from an environment variable. The reason we did it from a config file is explained in the [Tips & tricks](https://hyperledger.github.io/caliper/v0.6.0/reference/logging/#tips--tricks) section.
+    3. We could have disabled the file logger also from the command line, or from an environment variable. The reason we did it from a config file is explained in the [Tips & tricks](#tips-tricks) section.
 
 ## Creating your own loggers
 
@@ -477,7 +477,7 @@ To this end, the ability to override the logging style settings from the command
 The easiest way to do that is with a project-level configuration file. If you name the following file `caliper.yaml` and place it in your workspace root, then Caliper will automatically apply the settings.
 
 !!! note
-    there are other ways to load a configuration file, as discussed in the [runtime configuration page](https://hyperledger.github.io/caliper/v0.6.0/runtime-config/#configuration-files).
+    there are other ways to load a configuration file, as discussed in the [runtime configuration page](runtime-config.md/#configuration-files).
 
 ```sh
 caliper:
@@ -511,4 +511,4 @@ caliper:
 
 ## License
 
-The Caliper codebase is released under the [Apache 2.0 license](https://hyperledger.github.io/caliper/v0.6.0/general/license/). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).

@@ -3,7 +3,7 @@
 ## **I. Environment, Platform & Version**
 
 **Q:** How do I run Caliper to test a blockchain system?
-**A:** Details for setting up Caliper to run benchmark tests on a blockchain system are provided in the [Getting Started](https://hyperledger.github.io/caliper/v0.6.0/overview/getting-started/) page of the site. When you run Caliper to test a blockchain network, you may encounter some errors. If so, first you should check the version of tools, SDKs and modules to make sure it is right.
+**A:** Details for setting up Caliper to run benchmark tests on a blockchain system are provided in the [Getting Started](../index.md) page of the site. When you run Caliper to test a blockchain network, you may encounter some errors. If so, first you should check the version of tools, SDKs and modules to make sure it is right.
 
 ## **II. Configuration Files of Caliper**
 
@@ -18,7 +18,7 @@ There is another configuration file, namely `./config/default.yaml`, containing 
 **A:** Now you can use Caliper to test Besu, Ethereum and Fabric.
 
 **Q:** How can I test a blockchain system that Caliper does not support currently？
-**A:** If you want to test the blockchain system that Caliper does not support now, you must write your own blockchain adapter that Caliper can use to inferface with the backend network. For details, you can refer to the [Writing Adapters](https://hyperledger.github.io/caliper/v0.6.0/caliper-faq/reference/writing-connectors/) page. The Caliper-specific configurations remain unchanged. Take a look at the provided adapter implementations and example networks to gather some best-practices.
+**A:** If you want to test the blockchain system that Caliper does not support now, you must write your own blockchain adapter that Caliper can use to inferface with the backend network. For details, you can refer to the [Writing Adapters](../connectors/writing-connectors.md) page. The Caliper-specific configurations remain unchanged. Take a look at the provided adapter implementations and example networks to gather some best-practices.
 
 ## **IV. Other Questions Related to Caliper**
 

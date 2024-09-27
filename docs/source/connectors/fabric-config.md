@@ -20,7 +20,7 @@ The adapter exposes many SDK features directly to the user callback modules, mak
     - option to select the identity for submitting a TX/query
 
 ## Installing dependencies
-You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](https://hyperledger.github.io/caliper/v0.6.0/overview/installing-caliper/#the-bind-command) for details. When you bind to an SUT, you are in fact selecting a specific Fabric SDK to use which could be used with different versions of Fabric SUTs.
+You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](../getting-started/installing-caliper.md#the-bind-command) for details. When you bind to an SUT, you are in fact selecting a specific Fabric SDK to use which could be used with different versions of Fabric SUTs.
 
 !!! note
 
@@ -94,7 +94,7 @@ peers:
 ## Runtime settings
 
 ### Common settings
-Some runtime properties of the adapter can be set through Caliper’s [runtime configuration mechanism](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
+Some runtime properties of the adapter can be set through Caliper’s [runtime configuration mechanism](../concepts/runtime-config.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
 
 The above settings are processed when starting Caliper. Modifying them during testing will have no effect. However, you can override the default values *before Caliper* starts from the usual configuration sources. In the following example the `localhost` property applies only when binding with Fabric 2.2 or Fabric 1.4 (and only if the `gateway` option is enabled)
 
@@ -107,7 +107,7 @@ The above settings are processed when starting Caliper. Modifying them during te
             gateway:
               localhost: false
     ```
-    *After naming the [project settings](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/#project-level) file `caliper.yaml` and placing it in the root of your workspace directory, it will override the following two setting keys with the following values:*
+    *After naming the [project settings](../concepts/runtime-config.md#project-level) file `caliper.yaml` and placing it in the root of your workspace directory, it will override the following two setting keys with the following values:*
 
     - *Setting `caliper-fabric-gateway-localhost` is set to false*
 
@@ -119,11 +119,11 @@ The above settings are processed when starting Caliper. Modifying them during te
 
 ## The connector API
 
-The [workload modules](https://hyperledger.github.io/caliper/v0.6.0/overview/workload-module/) interact with the adapter at three phases of the tests: during the initialization of the user module (in the `initializeWorkloadModule` callback), when submitting invoke or query transactions (in the `submitTransaction` callback), and at the optional cleanup of the user module (in the `cleanupWorkloadModule` callback).
+The [workload modules](../concepts/workload-module.md) interact with the adapter at three phases of the tests: during the initialization of the user module (in the `initializeWorkloadModule` callback), when submitting invoke or query transactions (in the `submitTransaction` callback), and at the optional cleanup of the user module (in the `cleanupWorkloadModule` callback).
 
 ### The `initializeWorkloadModule` function
 
-See the [corresponding documentation](https://hyperledger.github.io/caliper/v0.6.0/overview/workload-module/#initializeworkloadmodule) of the function for the description of its parameters.
+See the [corresponding documentation](../concepts/workload-module.md/#initializeworkloadmodule) of the function for the description of its parameters.
 
 The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain’s connector. The context object provided by this connector is a `FabricConnectorContext` instance but this doesn’t provide anything of use at this time.
 
@@ -200,7 +200,7 @@ The adapter-specific data keys that only the v1.4 SUT when not enabling the gate
 | `proposal_error`                   | string       | The error message in case an error occurred during sending/waiting for the proposal responses from the endorsers.                                                  |
 | `proposal_response_error_<P>`      | string       | The error message in case the endorser peer `<P>` returned an error as endorsement result.                                                                        |
 | `endorsement_result_<P>`           | Buffer       | The encoded contract invocation result returned by the endorser peer `<P>`. It is the user callback’s responsibility to decode the result.                        |
-| `endorsement_verify_error_<P>`     | string       | Has the value of 'INVALID' if the signature and identity of the endorser peer `<P>` couldn’t be verified. This verification step can be switched on/off through the [runtime configuration options](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/fabric-config/#runtime-settings). |
+| `endorsement_verify_error_<P>`     | string       | Has the value of 'INVALID' if the signature and identity of the endorser peer `<P>` couldn’t be verified. This verification step can be switched on/off through the [runtime configuration options](#runtime-settings). |
 | `endorsement_result_error<P>`      | string       | If the transaction proposal or query execution at the endorser peer `<P>` results in an error, this field contains the error message.                             |
 | `read_write_set_error`             | string       | Has the value of 'MISMATCH' if the sent transaction proposals resulted in different read/write sets.                                                              |
 | `time_orderer_ack`                 | number       | The Unix epoch when the adapter received the confirmation from the orderer that it successfully received the transaction. Note, that this isn’t the actual ordering time of the transaction.                      |
@@ -239,7 +239,7 @@ The `cleanupWorkloadModule` function is called at the end of the round, and can 
 ## Network configuration file reference
 The YAML network configuration file of the adapter mainly describes the organizations and the identities associated with those organizations, It also provides explicit information about the channels in your Fabric network and the chaincode (containing 1 or more smart contracts) deployed to those channels. It can reference Common Connection Profiles for each organization (as common connection profiles are specific to a single organization). These are the same connection profiles that would be consumed by the node-sdk. Whoever creates the Fabric network and channels would be able to provide appropriate profiles for each organization.
 
-The following sections detail each part separately. For a complete example, please refer to the [example section](https://hyperledger.github.io/caliper/v0.6.0/connector-configuration/fabric-config/#network-configuration-example) or one of the files in the [Caliper repositor](https://github.com/hyperledger/caliper), such as the caliper-fabric test folder.
+The following sections detail each part separately. For a complete example, please refer to the [example section](#network-configuration-example) or one of the files in the [Caliper repositor](https://github.com/hyperledger/caliper), such as the caliper-fabric test folder.
 
 <details>
   <summary><b>name</b></summary>
@@ -1057,4 +1057,4 @@ organizations:
 
 ## License
 
-The Caliper codebase is released under the [Apache 2.0 license](https://hyperledger.github.io/caliper/v0.6.0/general/license/). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).

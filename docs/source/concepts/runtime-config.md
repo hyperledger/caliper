@@ -14,19 +14,19 @@ Every setting used by Caliper is prefixed with the `caliper-` string. The prefix
 
 !!! note
         
-    *For every available runtime setting, refer to the [last section](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/#available-settings).*
+    *For every available runtime setting, refer to the [last section](#available-settings).*
 
 ## Setting sources
 
 Caliper supports the following sources/locations where runtime settings can be set/overridden, in priority order, starting with the highest priority:
 
-1. [Memory](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/#in-memory-settings)
-2. [Command line arguments](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/#interface-reference)
-3. [Environment variables](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/#environment-variables)
-4. [Project-level configuration file](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/#project-level)
-5. [User-level configuration file](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/#user-level)
-6. [Machine-level configuration file](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/#machine-level)
-7. [Fallback/default configuration file](https://hyperledger.github.io/caliper/v0.6.0/reference/runtime-config/#default-configuration)
+1. [Memory](#in-memory-settings)
+2. [Command line arguments](#command-line-arguments)
+3. [Environment variables](#environment-variables)
+4. [Project-level configuration file](#project-level)
+5. [User-level configuration file](#user-level)
+6. [Machine-level configuration file](#machine-level)
+7. [Fallback/default configuration file](#default-configuration)
 
 For simplicity, you can think of the above order as the following: the “closer” the setting is set to its point of use, the higher the priority of the set value.
 
@@ -65,7 +65,7 @@ The above code also shows how a plugin module can easily leverage Caliper’s co
 
 If we wish to influence the behavior of a third-party code (e.g., Caliper or a user callback module), we usually can’t (or don’t want to) overwrite the setting in the source code. A standard way of modifying the behavior of third-party/pre-packaged applications is to provide the settings as commandline arguments.
 
-Starting Caliper through the [CLI](https://hyperledger.github.io/caliper/v0.6.0/overview/installing-caliper/#the-caliper-cli), you can override runtime settings the following way:
+Starting Caliper through the [CLI](../getting-started/installing-caliper.md/#the-caliper-cli), you can override runtime settings the following way:
 
 ```sh
 caliper launch manager \
@@ -380,4 +380,4 @@ The default is `msp_round_robin`
 
 ## License
 
-The Caliper codebase is released under the [Apache 2.0 license](https://hyperledger.github.io/caliper/v0.6.0/general/license/). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).

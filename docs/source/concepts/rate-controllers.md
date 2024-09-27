@@ -1,16 +1,16 @@
 The rate at which transactions are input to the blockchain system is a key factor within performance tests. It may be desired to send transactions at a specified rate or follow a specified profile. Caliper permits the specification of custom rate controllers to enable a user to perform testing under a custom loading mechanism. A user may specify their own rate controller or use one of the default options:
 
-- [Fixed rate](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#fixed-rate)
-- [Fixed feedback rate](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#fixed-feedback-rate)
-- [Fixed load](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#fixed-load)
-- [Maximum rate](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#maximum-rate)
-- [Linear rate](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#linear-rate)
-- [Composite rate](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#composite-rate)
-- [Zero rate](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#zero-rate)
-- [Record rate](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#record-rate)
-- [Replay rate](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#replay-rate)
+- [Fixed rate](#fixed-rate)
+- [Fixed feedback rate](#fixed-feedback-rate)
+- [Fixed load](#fixed-load)
+- [Maximum rate](#maximum-rate)
+- [Linear rate](#linear-rate)
+- [Composite rate](#composite-rate)
+- [Zero rate](#zero-rate)
+- [Record rate](#record-rate)
+- [Replay rate](#replay-rate)
 
-For implementing your own rate controller, refer to the [Adding Custom Controllers](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#adding-custom-controllers) section.
+For implementing your own rate controller, refer to the [Adding Custom Controllers](#adding-custom-controllers) section.
 
 ## Fixed rate
 The fixed rate controller is the most basic controller, and also the default option if no controller is specified. It will send input transactions at a fixed interval that is specified as TPS (transactions per second).
@@ -135,7 +135,7 @@ The following example specifies a rate controller that gradually changes the tra
 ```
 
 !!!note
-    similarly to the [fixed rate controller](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#fixed-rate), this controller also divides the workload between the available client, so the specified rates in the configuration are cumulative rates, and not the rates of individual clients. Using the above configuration with 5 clients results in clients that start at 5 TPS and finish at 15 TPS. Together they generate a [25-75] TPS load.
+    similarly to the [fixed rate controller](#fixed-rate), this controller also divides the workload between the available client, so the specified rates in the configuration are cumulative rates, and not the rates of individual clients. Using the above configuration with 5 clients results in clients that start at 5 TPS and finish at 15 TPS. Together they generate a [25-75] TPS load.
 
 ## Composite rate
 A benchmark round in Caliper is associated with a single rate controller. However, a single rate controller is rarely sufficient to model advanced client behaviors. Moreover, implementing new rate controllers for such behaviors can be cumbersome and error-prone. Most of the time a complex client behavior can be split into several, simpler phases.
@@ -162,7 +162,7 @@ Note, that technically, composite rate controllers can be nested to form a hiera
 
 - `logChange`: a `boolean` value indicating whether the switches between the specified rate controllers should be logged or not.
 
-For example, the definition of a square wave function (with varying amplitude) as the transaction submission rate is as easy as switching between [fixed rate](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#fixed-rate) controllers with different TPS settings:
+For example, the definition of a square wave function (with varying amplitude) as the transaction submission rate is as easy as switching between [fixed rate](#fixed-rate) controllers with different TPS settings:
 
 ```sh
 {
@@ -197,7 +197,7 @@ For example, the definition of a square wave function (with varying amplitude) a
 
 The results of recently finished transactions are propagated to the sub-controllers as-is, so for the first few call of a newly activated sub-controller it can receive recent results that don’t belong to its virtualized round.
 
-This virtualization does not affect the memoryless controllers, i.e., the controllers whose control logic does not depend on global round properties or past transaction results. However, other controllers might exhibit some strange (but hopefully transient) behavior due to this “virtualized” round approach. For example, the logic of the [PID controller](https://hyperledger.github.io/caliper/v0.6.0/reference/ate-controllers/#pid-rate) for example depends on the transaction backlog.
+This virtualization does not affect the memoryless controllers, i.e., the controllers whose control logic does not depend on global round properties or past transaction results. However, other controllers might exhibit some strange (but hopefully transient) behavior due to this “virtualized” round approach. For example, the logic of the PID controller for example depends on the transaction backlog.
 
 
 ## Zero rate
@@ -205,7 +205,7 @@ This virtualization does not affect the memoryless controllers, i.e., the contro
 This controller stops the workload generation for the duration of the round. 
 
 ### Options and use
-Using the controller on its own for a round is meaningless. However, it can be used as a building block inside a [composite rate](https://hyperledger.github.io/caliper/v0.6.0/reference/rate-controllers/#composite-rate) controller. **The zero rate controller can be used only in duration-based rounds!**
+Using the controller on its own for a round is meaningless. However, it can be used as a building block inside a [composite rate](#composite-rate) controller. **The zero rate controller can be used only in duration-based rounds!**
 
 ```sh
 {
@@ -242,7 +242,7 @@ The controller is identified by the `zero-rate` string as the value of the `type
 ## Record rate
 This rate controller serves as a decorator around an other (arbitrary) controller. Its purpose is to record the times (relative to the start of the round) when each transaction was submitted, i.e., when the transaction was “enabled” by the “sub-controller.”
 
-The following example records the times when the underlying [fixed rate](https://hyperledger.github.io/caliper/v0.6.0/reference.rate-controllers/#fixed-rate) controller enabled the transactions (for details, see the available options below the example):
+The following example records the times when the underlying [fixed rate](#fixed-rate) controller enabled the transactions (for details, see the available options below the example):
 
 ```sh
 {
@@ -321,11 +321,11 @@ The replay rate controller can be specified by setting the rate controller type 
 
 - `pathTemplate`: the template for the file path where the transaction timings will be replayed from. The path can be either an absolute path or relative to the root Caliper directory.
 
-The template can (**and should**) contain special “variables/placeholders” that can refer to special environment properties (see the remarks at the [record rate controller](https://hyperledger.github.io/caliper/v0.6.0/reference.rate-controllers/#record-rate)). The available placeholders are the following:
+The template can (**and should**) contain special “variables/placeholders” that can refer to special environment properties (see the remarks at the [record rate controller](#record-rate)). The available placeholders are the following:
     - `<C>`: placeholder for the 1-based index of the current client that uses this rate controller.
     - `<R>`: placeholder for the 1-based index of the current round that uses this rate controller.
 
-- `inputFormat`: optional. Determines the format in which the transaction timings are stored (see the details at the  [record rate controller](https://hyperledger.github.io/caliper/v0.6.0/reference.rate-controllers/#record-rate)). Defaults to `"TEXT"`. The currently supported formats are the following:
+- `inputFormat`: optional. Determines the format in which the transaction timings are stored (see the details at the  [record rate controller](#record-rate)). Defaults to `"TEXT"`. The currently supported formats are the following:
     - `"TEXT"`: each recorded timing is encoded as text on separate lines.
     - `"BIN_BE"`: binary format with Big Endian encoding.
     - `"BIN_LE"`: binary format with Little Endian encoding.
@@ -340,7 +340,7 @@ The recommended approach is to use transaction number-based round configurations
 
 ## Adding Custom Controllers
 
-It is possible to use rate controllers that are not built-in controllers of Caliper. When you specify the rate controller in the test configuration file (see the [architecture documentation](https://hyperledger.github.io/caliper/v0.6.0/overview/architecture/)), you must set the `type` and `opts` attributes.
+It is possible to use rate controllers that are not built-in controllers of Caliper. When you specify the rate controller in the test configuration file (see the [architecture documentation](../getting-started/architecture.md)), you must set the `type` and `opts` attributes.
 
 You can set the `type` attribute so that it points to your custom JS file that satisfies the following criteria:
 
@@ -438,4 +438,4 @@ rateControl:
 ```
 
 ## License
-The Caliper codebase is released under the [Apache 2.0 license](https://hyperledger.github.io/caliper/v0.6.0/general/license/). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).

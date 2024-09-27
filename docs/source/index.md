@@ -30,15 +30,13 @@ Head to the [Install & Usage page](getting-started/installing-caliper.md) if you
 ## Sample Networks
 Sample benchmarks that may be used by Caliper are hosted on a companion [GitHub repository](https://github.com/hyperledger/caliper-benchmarks).
 
-Performance reports for the provided samples are hosted on the [documentation pages of the repository](https://hyperledger.github.io/caliper-benchmarks/).
-
 !!! note "Important"
 
     *make sure that the version/tag of the benchmark repository matches the version of Caliper you are using! For example, if you are using Caliper v0.6.0, then `checkout` the `v0.6.0` tag after cloning the benchmark repository. The `main` branch of the benchmark repository corresponds to the latest `unstable` Caliper version.*
 
 ## How to Contribute
-Every contribution is welcome! See the [Contributing](https://hyperledger.github.io/caliper/v0.6.0/contributing/) page for details.
+Every contribution is welcome! See the [Contributing](getting-started/contributing.md) page for details.
 
 
 ## License
-The Caliper codebase is released under the [Apache 2.0 license](https://hyperledger.github.io/caliper/v0.6.0/license/). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
