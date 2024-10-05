@@ -51,7 +51,7 @@ It is confirmed that a 2.2 Fabric SDK is compatible with 2.2 and later Fabric SU
 
 ### Binding with Fabric Gateway Client SDK
 
-To bind with this client sdk, use `fabric:fabric-gateway`. This is now the preferred SDK to use given that Fabric 2.2 and earlier is now not in LTS and as such the Fabric 1.4 and 2.2 SDKs are now deprecated.
+To bind with this client sdk, use `fabric:gateway`. This is now the preferred SDK to use given that Fabric 2.2 and earlier is now not in LTS and as such the Fabric 1.4 and 2.2 SDKs are now deprecated.
 
 Only Fabric 2.4 and later with the Peer Gateway capability enabled (which is the default setting for a Fabric peer) can be used so for older versions of Hyperledger Fabric you cannot bind with this client SDK.
 
@@ -73,7 +73,7 @@ Network builders and providers should generate connection profiles (for example 
 
 Unfortunately the documentation provided by Hyperledger Fabric is more focused on static connection profiles rather than dynamic connection profiles and your aim should be to create the simpler and smaller dynamic connection profile.
 
-With the introduction of using the Peer Gateway rather than the traditional node sdks (1.4 and 2.2) caliper has introduced the concept of declaring peers in an organization within the network configuration file as an alternative to connection profiles. This provides a simple way to describe either peers to discover from (when binding to Fabric 1.4 or 2.2, for Fabric 1.4 you must enable the gateway option as it won’t work otherwise as discovery is not supported with the Fabric 1.4 binding when the gateway option is not enabled) or the peer to be used as a gateway into the Fabric network (when binding to Fabric 2.4). An example of a peers section in the network configuration is
+With the introduction of using the Peer Gateway rather than the traditional node sdks (1.4 and 2.2) caliper has introduced the concept of declaring peers in an organization within the network configuration file as an alternative to connection profiles. This provides a simple way to describe either peers to discover from (when binding to Fabric 1.4 or 2.2, for Fabric 1.4 you must enable the gateway option as it won’t work otherwise as discovery is not supported with the Fabric 1.4 binding when the gateway option is not enabled) or the peer to be used as a gateway into the Fabric network (when binding to Fabric 2.4/2.5/gateway). An example of a peers section in the network configuration is
 
 ```sh
 peers:
@@ -433,7 +433,7 @@ The following sections detail each part separately. For a complete example, plea
           grpc.http2.max_pings_without_data: 0
           grpc.keepalive_permit_without_calls: 1
   ```
-  
+
   Each organization must have <code>mspid</code>, <code>identities</code> and either <code>connectionProfile</code> or <code>peers</code> provided and at least 1 certificate or wallet definition in the identities section so that at least 1 identity is defined
   <ul>
     <li>
@@ -510,7 +510,7 @@ The following sections detail each part separately. For a complete example, plea
         <ul>
         <li>a peer to discover the network from when bound to Fabric 2.2 or Fabric 1.4 in conjunction with using the gateway enabled option
         </li>
-        <li>a gateway peer when bound to Fabric 2.4</li>
+        <li>a gateway peer when bound to Fabric gateway</li>
         </ul>
 
         This option removes the need for connection profiles but the Fabric network must be set up correctly to allow the network to be discovered. These entries are the equivalent of a dynamic connection profile but in a more compact and easier form.
@@ -607,7 +607,7 @@ The following sections detail each part separately. For a complete example, plea
         ```
         </details>
         </li>
-        
+
       </details>
     </li>
     <li>
@@ -1053,7 +1053,7 @@ organizations:
             -----BEGIN CERTIFICATE-----
             ...
             -----END CERTIFICATE-----
-```            
+```
 
 ## License
 
