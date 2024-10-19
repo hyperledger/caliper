@@ -1,0 +1,21 @@
+{
+    "name": "Caliper Development",
+    "context": "..",
+    "dockerFile": "Dockerfile",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "python.defaultInterpreterPath": "/usr/local/bin/python"
+            },
+            "extensions": [
+                "ms-python.python",
+                "esbenp.prettier-vscode",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+    "postCreateCommand": "cd docs && pip install -r pip-requirements.txt && mkdocs build",
+    "remoteUser": "vscode",
+    "forwardPorts": [8000] 
+}
