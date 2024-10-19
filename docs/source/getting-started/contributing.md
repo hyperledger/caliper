@@ -159,7 +159,7 @@ user@ubuntu:~/caliper$ ./.build/check-prerequisites.sh && npm ci
 
 ### Public/published packages
 
-The [https://github.com/hyperledger/caliper/tree/main/packages/](packages/) directory contains the following public/published packages:
+The [https://github.com/hyperledger/caliper/tree/main/packages/](packages) directory contains the following public/published packages:
 
 * [caliper-cli](https://github.com/hyperledger/caliper/tree/main/packages/caliper-cli/): The command line interface (CLI) of Caliper.
 * [caliper-core](https://github.com/hyperledger/caliper/tree/main/packages/caliper-core/): The core and common codebase of Caliper, used by the other packages.
@@ -169,7 +169,7 @@ The [https://github.com/hyperledger/caliper/tree/main/packages/](packages/) dire
 
 ### Internal packages
 
-The [https://github.com/hyperledger/caliper/tree/main/packages/](packages/) directory contains the following internal packages:
+The [https://github.com/hyperledger/caliper/tree/main/packages/](packages) directory contains the following internal packages:
 
 * [caliper-publish](https://github.com/hyperledger/caliper/tree/main/packages/caliper-publish/): Utility CLI for publishing Caliper to NPM and DockerHub.
 * [caliper-tests-integration](https://github.com/hyperledger/caliper/tree/main/packages/caliper-tests-integration/): Collection of CI integration tests.
