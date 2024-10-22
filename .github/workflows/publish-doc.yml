@@ -1,0 +1,82 @@
+name: ci
+
+on:
+  push:
+    tags:
+      - v*
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+          
+      - uses: actions/cache@v2
+        with:
+          key: ${{ github.ref }}
+          path: .cache
+          
+      - name: Install Python dependencies
+        run: pip install -r ./docs/pip-requirements.txt
+        
+      - name: Configure git user
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Deploy docs
+        run: |
+          VERSION=${{ github.ref }}
+          VERSION=${VERSION#refs/tags/}
+          BASE_VERSION=${VERSION#v}
+          
+          echo "Deploying documentation for version: $BASE_VERSION"
+
+          cd docs
+          mike deploy --update-aliases $BASE_VERSION latest
+
+      - name: Create PR for gh-pages
+        id: create_pr
+        run: |
+          VERSION=${{ github.ref }}
+          VERSION=${VERSION#refs/tags/}
+          BASE_VERSION=${VERSION#v}
+
+          echo "Documentation for version: $BASE_VERSION"
+
+          git fetch origin gh-pages
+
+          BRANCH_NAME="update-docs-${{ github.run_id }}"
+          git checkout -b $BRANCH_NAME origin/gh-pages
+
+          # Ensure the local branch is up to date
+          git pull origin gh-pages
+
+          mkdir -p "./$BASE_VERSION" && cp -r /home/runner/work/caliper/caliper/docs/build/* "./$BASE_VERSION"
+
+          git add .
+          git commit -m "Update documentation for version $BASE_VERSION"
+
+          git push origin $BRANCH_NAME --force  # Use force to avoid non-fast-forward issues
+
+          echo "Creating pull request..."
+          PR_URL=$(gh pr create --base gh-pages --head $BRANCH_NAME --title "Update documentation for version $BASE_VERSION" --body "This PR updates the documentation for version $BASE_VERSION.")
+          echo "::set-output name=pr_url::$PR_URL"
+
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify about PR
+        run: echo "Pull request created ${{ steps.create_pr.outputs.pr_url }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
