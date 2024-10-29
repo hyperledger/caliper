@@ -7,4 +7,4 @@ A [Yeoman](http://yeoman.io) generator for scaffolding Hyperledger Caliper resou
 * Install: npm install -g @hyperledger/generator-caliper
 * Run: yo @hyperledger/caliper
 
-See the [documentation](https://hyperledger.github.io/caliper/vNext/benchmark-generator) for more information.
+See the [documentation](https://hyperledger-caliper.github.io/caliper/vNext/benchmark-generator) for more information.
