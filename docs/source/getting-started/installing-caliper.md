@@ -65,7 +65,7 @@ Examples:
   caliper launch manager
   caliper launch worker
 
-For more information on Hyperledger Caliper: https://hyperledger.github.io/caliper/
+For more information on Hyperledger Caliper: https://hyperledger-caliper.github.io/caliper/
 ```
 You can also request the help page of a specific command, as demonstrated by the next subsections.
 
