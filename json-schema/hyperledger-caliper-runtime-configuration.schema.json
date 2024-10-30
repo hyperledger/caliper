@@ -129,17 +129,17 @@
                         },
                         "projectconfig": {
                             "title": "Project Configuration",
-                            "description": "projectconfig:If you have a group of settings that are always overridden in your Caliper benchmark project, then it is recommended to define them as a project-level configuration file. This file will usually consist of a subset of settings defined in the default configuration file (and probably your custom settings associated with your custom user module). More information: https://hyperledger-caliper.github.io/caliper/v0.5.0/runtime-config/#project-level",
+                            "description": "projectconfig:If you have a group of settings that are always overridden in your Caliper benchmark project, then it is recommended to define them as a project-level configuration file. This file will usually consist of a subset of settings defined in the default configuration file (and probably your custom settings associated with your custom user module). More information: https://hyperledger-caliper.github.io/caliper/v0.6.0/runtime-config/#project-level",
                             "type": "null"
                         },
                         "userconfig": {
                             "title": "User Configuration",
-                            "description": "userconfig: If you find yourself overriding the same settings for multiple Caliper benchmark projects, then it is recommended to extract the common settings into a user-level configuration file. More information: https://hyperledger-caliper.github.io/caliper/v0.5.0/runtime-config/#user-level",
+                            "description": "userconfig: If you find yourself overriding the same settings for multiple Caliper benchmark projects, then it is recommended to extract the common settings into a user-level configuration file. More information: https://hyperledger-caliper.github.io/caliper/v0.6.0/runtime-config/#user-level",
                             "type": "null"
                         },
                         "machineconfig": {
                             "title": "Machine Configuration",
-                            "description": "machineconfig: If multiple users use the same workstation and want to share common settings across Caliper projects and users, then a machine-level configuration file can be included into the hierarchy by specifying its path through the caliper-machineconfig settings key using one of the higher priority locations above. More information: https://hyperledger-caliper.github.io/caliper/v0.5.0/runtime-config/#machine-level",
+                            "description": "machineconfig: If multiple users use the same workstation and want to share common settings across Caliper projects and users, then a machine-level configuration file can be included into the hierarchy by specifying its path through the caliper-machineconfig settings key using one of the higher priority locations above. More information: https://hyperledger-caliper.github.io/caliper/v0.6.0/runtime-config/#machine-level",
                             "type": "null"
                         },
                         "benchconfig": {
