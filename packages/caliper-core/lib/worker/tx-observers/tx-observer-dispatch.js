@@ -102,6 +102,16 @@ class TxObserverDispatch extends TxObserverInterface {
             return;
         }
 
+        if (Array.isArray(results)) {
+            for (let result of results) {
+                result.workerIndex = this.workerIndex;
+                result.roundIndex = this.currentRound;
+            }
+        }else {
+            results.workerIndex = this.workerIndex;
+            results.roundIndex = this.currentRound;
+        }
+
         for (let observer of this.txObservers) {
             observer.txFinished(results);
         }
@@ -109,26 +119,3 @@ class TxObserverDispatch extends TxObserverInterface {
 }
 
 module.exports = TxObserverDispatch;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
