@@ -1,7 +1,12 @@
 {
     "name": "Caliper Development",
-    "context": "..",
-    "dockerFile": "Dockerfile",
+    "image": "mcr.microsoft.com/vscode/devcontainers/python:3.11",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
+        }
+    },
     "customizations": {
         "vscode": {
             "settings": {
@@ -9,9 +14,7 @@
                 "python.defaultInterpreterPath": "/usr/local/bin/python"
             },
             "extensions": [
-                "ms-python.python",
                 "esbenp.prettier-vscode",
-                "ms-azuretools.vscode-docker"
             ]
         }
     },
