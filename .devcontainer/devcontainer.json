@@ -1,0 +1,24 @@
+{
+    "name": "Caliper Development",
+    "image": "mcr.microsoft.com/vscode/devcontainers/python:3.11",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "python.defaultInterpreterPath": "/usr/local/bin/python"
+            },
+            "extensions": [
+                "esbenp.prettier-vscode",
+            ]
+        }
+    },
+    "postCreateCommand": "cd docs && pip install -r pip-requirements.txt && mkdocs build",
+    "remoteUser": "vscode",
+    "forwardPorts": [8000] 
+}
