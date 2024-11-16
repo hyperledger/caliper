@@ -271,7 +271,7 @@ The last argument of the function is a `sutContext` object, which is a platform-
 The `fromAddress` property is the [benchmark address](../connectors/ethereum-config.md/#benchmark-address) while web3 is the configured instance of the Web3js client.
 
 #### The *submitTransaction* function
-The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type `[ConnectorInterface](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/common/core/connector-interface.js)`. Its `getType()` function returns the `fabric` string value.
+The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type `[ConnectorInterface](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-core/lib/common/core/connector-interface.js)`. Its `getType()` function returns the `fabric` string value.
 
 The `sendRequests` method of the connector API allows the workload module to submit requests to the SUT. It takes a single parameter: an object or array of objects containing the settings of the requests.
 

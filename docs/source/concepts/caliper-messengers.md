@@ -4,7 +4,7 @@ Caliper uses an orchestrator to control workers that interact with the SUT in or
 
 ## Messengers
 
-The messaging protocol to be used for communications between the orchestrator and worker during a benchmark is declared in the `caliper runtime configuration file`. Unspecified values will default to those specified in the [default configuration file](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/config/default.yaml).
+The messaging protocol to be used for communications between the orchestrator and worker during a benchmark is declared in the `caliper runtime configuration file`. Unspecified values will default to those specified in the [default configuration file](https://github.com/hyperledger-caliper/caliper/blob/main/packages/caliper-core/lib/config/default.yaml).
 
 Permitted messengers are:
 

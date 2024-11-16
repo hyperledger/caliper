@@ -60,7 +60,7 @@ You should treat a connector implementation process as a full-fledged Node.js pr
 
 ### The connector interface
 
-Once you add the `@hyperledger/caliper-core` package (or one of its specific versions) as your project dependency, you will gain access to its exported `ConnectorInterface` class, which declares the following [interface](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/common/core/connector-interface.js):
+Once you add the `@hyperledger/caliper-core` package (or one of its specific versions) as your project dependency, you will gain access to its exported `ConnectorInterface` class, which declares the following [interface](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-core/lib/common/core/connector-interface.js):
 
 ```sh
 class ConnectorInterface extends EventEmitter {
@@ -137,13 +137,13 @@ The interface is detailed in the next subsection, but for now, keep the followin
 
 `sendRequests`
 
-- **Description:** This method is the hot path of the connector, called in the worker processes by the workload modules of the rounds. The method must accept one or multiple settings objects pertaining to the request or requests that must be sent to the SUT. The connector doesn’t have to preserve the order of execution for the requests, unless the target SUT type supports such request batches. The connector must gather at least the start time, finish time, and final status (successful or failed) of every request through [TxStatus](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/common/core/transaction-status.js) instances.
+- **Description:** This method is the hot path of the connector, called in the worker processes by the workload modules of the rounds. The method must accept one or multiple settings objects pertaining to the request or requests that must be sent to the SUT. The connector doesn’t have to preserve the order of execution for the requests, unless the target SUT type supports such request batches. The connector must gather at least the start time, finish time, and final status (successful or failed) of every request through [TxStatus](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-core/lib/common/core/transaction-status.js) instances.
 - **Return type:** *Promise<TxStatus|TxStatus[]>*
 - **Returns:** The promise of one or more request execution results that will resolve upon method completion.
 
 #### Exposed events
 
-The connector must expose the following events with names matching the defined [constants](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/common/utils/constants.js) for them. Without these events the Caliper scheduling mechanism won’t function correctly, and other components might also rely on them (like TX monitors).
+The connector must expose the following events with names matching the defined [constants](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-core/lib/common/utils/constants.js) for them. Without these events the Caliper scheduling mechanism won’t function correctly, and other components might also rely on them (like TX monitors).
 
 `txsSubmitted`
 
@@ -373,13 +373,13 @@ If you would like to expose you connector to a wider user-base, then you should 
 
     *Don’t hesitate to reach out to the project maintainers on Rocket.Chat (`#caliper-contributors` channel) who will help you with the integration.*
 
-The integration consists of the following steps (for an example, see the `[caliper-ethereum](https://github.com/hyperledger/caliper/tree/v0.6.0/packages/caliper-ethereum)` connector):
+The integration consists of the following steps (for an example, see the `[caliper-ethereum](https://github.com/hyperledger-caliper/caliper/tree/v0.6.0/packages/caliper-ethereum)` connector):
 
 1. Create a `caliper-fast-ledger` directory in the `packages` directory of the repository. This will contain your connector implementation.
 2. Update your metadata in your own `package.json` file accordingly. The package name should be scoped: `@hyperledger/caliper-fast-ledger`.
-3. If your connector supports binding, then you should list the dynamic packages in the `devDependencies` section, so they’re not automatically installed with Caliper (since the users will rebind it anyway). Also, add your connector’s binding specifications to the built-in [binding configuration file](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-cli/lib/lib/config.yaml).
+3. If your connector supports binding, then you should list the dynamic packages in the `devDependencies` section, so they’re not automatically installed with Caliper (since the users will rebind it anyway). Also, add your connector’s binding specifications to the built-in [binding configuration file](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-cli/lib/lib/config.yaml).
 4. Add your new directory path to the root `lerna.json` file, under the `packages` section. This will ensure that your package is bootstrapped correctly for other developers (and for testing, publishing, etc.).
-5. Add your new package (by name) to the [Caliper CLI dependencies](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-cli/package.json).
+5. Add your new package (by name) to the [Caliper CLI dependencies](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-cli/package.json).
 6. List your connector as a built-in connector in the `caliper-utils.js` module, under the `BuiltinConnectors` variable:
 ```sh
 const BuiltinConnectors = new Map([
@@ -387,7 +387,7 @@ const BuiltinConnectors = new Map([
  // other connectors...
 ]);
 ```
-7. It is highly recommended to provide [integration tests](https://github.com/hyperledger/caliper/tree/v0.6.0/packages/caliper-tests-integration) for your connector.
+7. It is highly recommended to provide [integration tests](https://github.com/hyperledger-caliper/caliper/tree/v0.6.0/packages/caliper-tests-integration) for your connector.
 8. Make sure that every code-related artifact (mostly `.js`, `.yaml` and `.md` files) contains the appropriate license header!
 9. And you’re done! Now users can refer to the connector as `fast-ledger` in their network configuration files. The connector package will be published automatically upon every merged PR.
 

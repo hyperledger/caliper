@@ -8,7 +8,7 @@
 ## **II. Configuration Files of Caliper**
 
 **Q:** What kind of configuration files are needed to run Caliper?
-**A:** There are two kinds of configuration files in Caliper: the benchmark configuration file, which defines the arguments of the benchmark, like workload and monitoring settings; the blockchain configuration file, which specifies the information needed to interact with the backend blockchain system. For examples of these files please refer to [here](https://github.com/hyperledger/caliper-benchmarks)
+**A:** There are two kinds of configuration files in Caliper: the benchmark configuration file, which defines the arguments of the benchmark, like workload and monitoring settings; the blockchain configuration file, which specifies the information needed to interact with the backend blockchain system. For examples of these files please refer to [here](https://github.com/hyperledger-caliper/caliper-benchmarks)
 
 There is another configuration file, namely `./config/default.yaml`, containing runtime setting for Caliper and the blockchain adapters. These settings can also be specified as command line arguments or environment variables.
 
