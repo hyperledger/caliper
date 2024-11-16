@@ -27,10 +27,10 @@ Currently supported performance indicators:
 
 See the [PSWG white paper](https://www.hyperledger.org/learn/publications/blockchain-performance-metrics) to find out the definitions and corresponding measurement methods.
 
-For more information on using Caliper, please consult the [documentation site](https://hyperledger.github.io/caliper/)
+For more information on using Caliper, please consult the [documentation site](https://hyperledger-caliper.github.io/caliper/)
 
 ## Configuration and usage
-See the [related documentation page](https://hyperledger.github.io/caliper/).
+See the [related documentation page](https://hyperledger-caliper.github.io/caliper/).
 
 ## How to contact us
 

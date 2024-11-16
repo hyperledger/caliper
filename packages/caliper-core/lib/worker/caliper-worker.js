@@ -84,9 +84,10 @@ class CaliperWorker {
      * @param {Object} rateController rate controller object
      * @async
      */
-    async runFixedNumber(workloadModule, number, rateController) {
+    async _runFixedNumber(workloadModule, number, rateController) {
         const stats = this.internalTxObserver.getCurrentStatistics();
         let error = undefined;
+
         while (stats.getTotalSubmittedTx() < number && !error) {
             await rateController.applyRateControl();
 
@@ -107,6 +108,7 @@ class CaliperWorker {
         await CaliperWorker._waitForTxsToFinish(stats);
     }
 
+
     /**
      * Perform test with specified test duration
      * @param {object} workloadModule The user test module.
@@ -114,11 +116,11 @@ class CaliperWorker {
      * @param {Object} rateController rate controller object
      * @async
      */
-    async runDuration(workloadModule, duration, rateController) {
+    async _runDuration(workloadModule, duration, rateController) {
         const stats = this.internalTxObserver.getCurrentStatistics();
         let startTime = stats.getRoundStartTime();
         let error = undefined;
-        while ((Date.now() - startTime) < (duration * 1000) && !error) {
+        while ((Date.now() - startTime) < (duration * 1000)  && !error) {
             await rateController.applyRateControl();
 
             // If this function calls this.workloadModule.submitTransaction() too quickly, micro task queue will be filled with unexecuted promises,
@@ -161,7 +163,7 @@ class CaliperWorker {
             await this.workloadModule.initializeWorkloadModule(this.workerIndex, prepareTestMessage.getWorkersNumber(), roundIndex, prepareTestMessage.getWorkloadSpec().arguments, this.connector, context);
             await CaliperUtils.sleep(this.txUpdateTime);
         } catch (err) {
-            Logger.info(`Worker [${this.workerIndex}] encountered an error during prepare test phase for round ${roundIndex}: ${(err.stack ? err.stack : err)}`);
+            Logger.warn(`Worker [${this.workerIndex}] encountered an error during prepare test phase for round ${roundIndex}: ${(err.stack ? err.stack : err)}`);
             throw err;
         } finally {
             await this.connector.releaseContext(context);
@@ -201,12 +203,11 @@ class CaliperWorker {
 
             if (testMessage.getRoundDuration()) {
                 const duration = testMessage.getRoundDuration(); // duration in seconds
-                await this.runDuration(this.workloadModule, duration, rateController);
+                await this._runDuration(this.workloadModule, duration, rateController);
             } else {
                 const number = testMessage.getNumberOfTxs();
-                await this.runFixedNumber(this.workloadModule, number, rateController);
+                await this._runFixedNumber(this.workloadModule, number, rateController);
             }
-
             Logger.debug(`Worker #${this.workerIndex} finished round #${roundIndex}`, this.internalTxObserver.getCurrentStatistics().getCumulativeTxStatistics());
             return this.internalTxObserver.getCurrentStatistics();
         } catch (err) {

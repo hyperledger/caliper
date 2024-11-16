@@ -29,7 +29,7 @@ let results = yargs
     .demandCommand(1, 1, 'Please specify a command to continue')
     .example('caliper bind\ncaliper unbind\ncaliper launch manager\ncaliper launch worker')
     .wrap(null)
-    .epilogue('For more information on Hyperledger Caliper: https://hyperledger.github.io/caliper/')
+    .epilogue('For more information on Hyperledger Caliper: https://hyperledger-caliper.github.io/caliper/')
     .alias('version', 'v')
     .alias('help', 'h')
     .version(version)

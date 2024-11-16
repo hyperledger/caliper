@@ -65,7 +65,7 @@ Examples:
   caliper launch manager
   caliper launch worker
 
-For more information on Hyperledger Caliper: https://hyperledger.github.io/caliper/
+For more information on Hyperledger Caliper: https://hyperledger-caliper.github.io/caliper/
 ```
 You can also request the help page of a specific command, as demonstrated by the next subsections.
 
@@ -240,7 +240,7 @@ Let’s see the three types of version numbers you will encounter:
 
 ### Pre-requisites
 
-- Node.js v18 LTS or v20 LTS or later LTS version is required to install the Caliper CLI from NPM:
+- Node.js v18 LTS, v20 LTS or v22 LTS version is required to install the Caliper CLI from NPM:
 - Docker version 20.10.11 or later is required for use with the Caliper docker image
 
 The following tools may be required depending on which SUT and version you bind to
@@ -317,7 +317,7 @@ Depending on your NPM settings, your user might need write access to directories
 
 ## Using the Docker image
 
-Caliper is published as the [hyperledger/caliper](https://hub.docker.com/r/hyperledger/caliper) Docker image, providing a single point of usage for every supported adapter. 
+Caliper is published as the [hyperledger/caliper](https://hub.docker.com/r/hyperledger/caliper) Docker image, providing a single point of usage for every supported adapter.
 
 The important properties of the image are the following:
 
@@ -326,7 +326,7 @@ The important properties of the image are the following:
 * The environment variable `CALIPER_WORKSPACE` is set to the `/hyperledger/caliper/workspace` directory
 * The entry point is the **globally** installed `caliper` binary
 * The environment variable `CALIPER_BIND_ARGS` is set to `-g`, so the binding step also occurs globally.
-* The default command is set to `--version`. This must be overridden when using the image. 
+* The default command is set to `--version`. This must be overridden when using the image.
 
 This has the following implications:
 

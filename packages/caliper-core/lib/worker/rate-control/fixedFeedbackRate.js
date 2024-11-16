@@ -64,7 +64,6 @@ class FixedFeedbackRateController extends RateInterface {
         if (this.generalSleepTime === 0 || currentSubmitted < this.unfinishedPerWorker) {
             return;
         }
-
         if (this.stats.getTotalFinishedTx() === 0) {
             return;
         }
@@ -74,7 +73,12 @@ class FixedFeedbackRateController extends RateInterface {
             return;
         }
 
-        let diff = (this.generalSleepTime * currentSubmitted - ((Date.now() - this.totalSleepTime) - this.stats.getRoundStartTime()));
+        const expectedTime = this.generalSleepTime * currentSubmitted;
+        const actualElapsedTime = (Date.now() - this.totalSleepTime) - this.stats.getRoundStartTime();
+        const diff = expectedTime - actualElapsedTime;
+
+        // If we're ahead by more than 5ms, adjust by sleeping for the difference
+        // 5ms is used to avoid negligible adjustments that could cause unnecessary delays
         if (diff > 5) {
             await util.sleep(diff);
             return;

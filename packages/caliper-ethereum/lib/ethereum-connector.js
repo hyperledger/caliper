@@ -66,8 +66,7 @@ class EthereumConnector extends ConnectorBase {
     checkConfig(ethereumConfig) {
         if (!ethereumConfig.url) {
             throw new Error(
-                'No URL given to access the Ethereum SUT. Please check your network configuration. ' +
-                'Please see https://hyperledger.github.io/caliper/v0.3/ethereum-config/ for more info.'
+                'No URL given to access the Ethereum SUT. Please check your network configuration.'
             );
         }
 
