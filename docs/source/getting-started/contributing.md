@@ -11,7 +11,7 @@ If you have further suggestions about improving the guideline, then you can foll
 
 ## Overview
 
-The project uses GitHub to manage [issues](https://github.com/hyperledger/caliper/issues) (bug reports and feature requests) and [contributions](https://github.com/hyperledger/caliper/pulls) (in the form of pull requests).
+The project uses GitHub to manage [issues](https://github.com/hyperledger-caliper/caliper/issues) (bug reports and feature requests) and [contributions](https://github.com/hyperledger-caliper/caliper/pulls) (in the form of pull requests).
 
 > For general queries and discussion, please use the [#caliper](https://discord.com/channels/905194001349627914/941417677778473031) channel on the Hyperledger Discord Server (Discord Id required) or the Caliper [mailing list](https://lists.hyperledger.org/g/caliper) (LFID recommended).
 
@@ -66,7 +66,7 @@ The following workflow should make your contribution process clean and straighfo
     * Using the `HTTPS` method: `git clone https://github.com/<username>/caliper.git`
     * or using the `SSH` method: `git clone git@github.com:<username>/caliper.git`
 3. Add the upstream/original Caliper repository as a remote, using the name `upstream` (ideally done once). This will allow you to easily sync your fork with the original repository.
-    * `git remote add upstream https://github.com/hyperledger/caliper.git`
+    * `git remote add upstream https://github.com/hyperledger-caliper/caliper.git`
 
 > The following steps follow the "feature branch" development practice, and should be performed for each of your contribution:
 
@@ -159,20 +159,20 @@ user@ubuntu:~/caliper$ ./.build/check-prerequisites.sh && npm ci
 
 ### Public/published packages
 
-The [https://github.com/hyperledger/caliper/tree/main/packages/](packages) directory contains the following public/published packages:
+The [https://github.com/hyperledger-caliper/caliper/tree/main/packages/](packages) directory contains the following public/published packages:
 
-* [caliper-cli](https://github.com/hyperledger/caliper/tree/main/packages/caliper-cli/): The command line interface (CLI) of Caliper.
-* [caliper-core](https://github.com/hyperledger/caliper/tree/main/packages/caliper-core/): The core and common codebase of Caliper, used by the other packages.
-* [caliper-ethereum](https://github.com/hyperledger/caliper/tree/main/packages/caliper-ethereum/): The Ethereum and Hyperledger Besu connector implementation.
-* [caliper-fabric](https://github.com/hyperledger/caliper/tree/main/packages/caliper-fabric/): The Hyperledger Fabric connector implementation.
-* [generator-caliper](https://github.com/hyperledger/caliper/tree/main/packages/generator-caliper/): The Yeaoman generator for Caliper configuration files.
+* [caliper-cli](https://github.com/hyperledger-caliper/caliper/tree/main/packages/caliper-cli/): The command line interface (CLI) of Caliper.
+* [caliper-core](https://github.com/hyperledger-caliper/caliper/tree/main/packages/caliper-core/): The core and common codebase of Caliper, used by the other packages.
+* [caliper-ethereum](https://github.com/hyperledger-caliper/caliper/tree/main/packages/caliper-ethereum/): The Ethereum and Hyperledger Besu connector implementation.
+* [caliper-fabric](https://github.com/hyperledger-caliper/caliper/tree/main/packages/caliper-fabric/): The Hyperledger Fabric connector implementation.
+* [generator-caliper](https://github.com/hyperledger-caliper/caliper/tree/main/packages/generator-caliper/): The Yeaoman generator for Caliper configuration files.
 
 ### Internal packages
 
-The [https://github.com/hyperledger/caliper/tree/main/packages/](packages) directory contains the following internal packages:
+The [https://github.com/hyperledger-caliper/caliper/tree/main/packages/](packages) directory contains the following internal packages:
 
-* [caliper-publish](https://github.com/hyperledger/caliper/tree/main/packages/caliper-publish/): Utility CLI for publishing Caliper to NPM and DockerHub.
-* [caliper-tests-integration](https://github.com/hyperledger/caliper/tree/main/packages/caliper-tests-integration/): Collection of CI integration tests.
+* [caliper-publish](https://github.com/hyperledger-caliper/caliper/tree/main/packages/caliper-publish/): Utility CLI for publishing Caliper to NPM and DockerHub.
+* [caliper-tests-integration](https://github.com/hyperledger-caliper/caliper/tree/main/packages/caliper-tests-integration/): Collection of CI integration tests.
 
 ## Testing Methodologies
 
@@ -449,7 +449,7 @@ Please adhere to the inclusive language guidelines that the project has adopted 
 
 1. **Clone the Repository**:
    ```sh
-   git clone https://github.com/hyperledger/caliper.git
+   git clone https://github.com/hyperledger-caliper/caliper.git
    cd caliper
    ```
 

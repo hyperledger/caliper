@@ -1,6 +1,6 @@
 site_name: Hyperledger Caliper
 repo_name: hyperledger/caliper
-repo_url: https://github.com/hyperledger/caliper
+repo_url: https://github.com/hyperledger-caliper/caliper
 docs_dir: source
 site_dir: build
 theme:

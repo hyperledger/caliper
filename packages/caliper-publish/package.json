@@ -5,7 +5,7 @@
     "private": true,
     "repository": {
         "type": "git",
-        "url": "https://github.com/hyperledger/caliper",
+        "url": "https://github.com/hyperledger-caliper/caliper",
         "directory": "packages/caliper-publish"
     },
     "main": "publish.js",

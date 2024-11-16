@@ -110,7 +110,7 @@ The following SUT name and SDK version combinations are supported:
 The `bind` command is useful when you plan to run multiple benchmarks against the same SUT version. Bind once, then run different benchmarks without the need to bind again. As you will see in the next sections, the launcher commands for the manager and worker processes can also perform the binding step if the required parameter is present.
 
 #### Custom bindings
-The built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/main/packages/caliper-cli/lib/lib/config.yaml), documented [here](../connectors/writing-connectors.md#binding-configuration). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. **This also means that we cannot provide help for such SDK versions!**
+The built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger-caliper/caliper/blob/main/packages/caliper-cli/lib/lib/config.yaml), documented [here](../connectors/writing-connectors.md#binding-configuration). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. **This also means that we cannot provide help for such SDK versions!**
 
 
 ### The unbind command

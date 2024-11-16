@@ -94,7 +94,7 @@ peers:
 ## Runtime settings
 
 ### Common settings
-Some runtime properties of the adapter can be set through Caliper’s [runtime configuration mechanism](../concepts/runtime-config.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
+Some runtime properties of the adapter can be set through Caliper’s [runtime configuration mechanism](../concepts/runtime-config.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
 
 The above settings are processed when starting Caliper. Modifying them during testing will have no effect. However, you can override the default values *before Caliper* starts from the usual configuration sources. In the following example the `localhost` property applies only when binding with Fabric 2.2 or Fabric 1.4 (and only if the `gateway` option is enabled)
 
@@ -127,11 +127,11 @@ See the [corresponding documentation](../concepts/workload-module.md/#initialize
 
 The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain’s connector. The context object provided by this connector is a `FabricConnectorContext` instance but this doesn’t provide anything of use at this time.
 
-For the current details/documentation of the API, refer to the [source code](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-fabric/lib/FabricConnectorContext.js).
+For the current details/documentation of the API, refer to the [source code](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-fabric/lib/FabricConnectorContext.js).
 
 ### The `submitTransaction` function
 
-The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type `[ConnectorInterface](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/common/core/connector-interface.js)`. Its `getType()` function returns the `fabric` string value.
+The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type `[ConnectorInterface](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-core/lib/common/core/connector-interface.js)`. Its `getType()` function returns the `fabric` string value.
 
 The `sendRequests` method of the connector API allows the workload module to submit requests to the SUT. It takes a single parameter: an object or array of objects containing the settings of the requests.
 
@@ -170,7 +170,7 @@ await this.sutAdapter.sendRequests(requestSettings);
 
 ## Gathered TX data
 
-The previously discussed `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
+The previously discussed `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
 
 The standard data provided are the following:
 - `GetID():string` returns the transaction ID.
@@ -239,7 +239,7 @@ The `cleanupWorkloadModule` function is called at the end of the round, and can 
 ## Network configuration file reference
 The YAML network configuration file of the adapter mainly describes the organizations and the identities associated with those organizations, It also provides explicit information about the channels in your Fabric network and the chaincode (containing 1 or more smart contracts) deployed to those channels. It can reference Common Connection Profiles for each organization (as common connection profiles are specific to a single organization). These are the same connection profiles that would be consumed by the node-sdk. Whoever creates the Fabric network and channels would be able to provide appropriate profiles for each organization.
 
-The following sections detail each part separately. For a complete example, please refer to the [example section](#network-configuration-example) or one of the files in the [Caliper repositor](https://github.com/hyperledger/caliper), such as the caliper-fabric test folder.
+The following sections detail each part separately. For a complete example, please refer to the [example section](#network-configuration-example) or one of the files in the [Caliper repositor](https://github.com/hyperledger-caliper/caliper), such as the caliper-fabric test folder.
 
 <details>
   <summary><b>name</b></summary>

@@ -1,9 +1,9 @@
 # ![Hyperledger Caliper](https://wiki.hyperledger.org/download/attachments/2392434/Hyperledger_Caliper_Logo_Color.svg?version=1&modificationDate=1548883186000&api=v2)
 
-[![CI](https://github.com/hyperledger/caliper/actions/workflows/main.yml/badge.svg)](https://github.com/hyperledger/caliper/actions/workflows/main.yml)
+[![CI](https://github.com/hyperledger-caliper/caliper/actions/workflows/main.yml/badge.svg)](https://github.com/hyperledger-caliper/caliper/actions/workflows/main.yml)
 [![codecov](https://codecov.io/gh/hyperledger/caliper/branch/main/graph/badge.svg?token=rVFhTNrZBJ)](https://codecov.io/gh/hyperledger/caliper)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2381/badge)](https://bestpractices.coreinfrastructure.org/projects/2381)
-[![license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/hyperledger/caliper/blob/main/LICENSE)
+[![license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/hyperledger-caliper/caliper/blob/main/LICENSE)
 [![node (scoped)](https://img.shields.io/node/v/@hyperledger/caliper-cli)](https://www.npmjs.com/package/@hyperledger/caliper-cli)
 [![npm (scoped)](https://img.shields.io/npm/v/@hyperledger/caliper-cli?label=version)](https://www.npmjs.com/package/@hyperledger/caliper-cli)
 [![npm](https://img.shields.io/npm/dt/@hyperledger/caliper-cli?label=npm%20downloads)](https://www.npmjs.com/package/@hyperledger/caliper-cli)
@@ -36,7 +36,7 @@ See the [related documentation page](https://hyperledger-caliper.github.io/calip
 
 If you have any issues using Caliper that the documentation does not help you solve, please reach out to us through the following methods:
 * [Discord](https://discord.com/channels/905194001349627914/941417677778473031) Please feel free to contact us on Discord (instant messaging). We monitor the Caliper channels as closely as possible, but even if you don't have a problem that needs resolving, why not jump on and say hi ... we'd love to hear from you about your experiences and any new features you think we should work on.
-* [Issues](https://github.com/hyperledger/caliper/issues) Feel free to raise an issue if you are facing a Caliper related problem
+* [Issues](https://github.com/hyperledger-caliper/caliper/issues) Feel free to raise an issue if you are facing a Caliper related problem
 
 Caliper interacts with multiple blockchain technologies and consequently it *might* be an issue with the underlying blockchain technology being interacted with. You can seek specific help on these technologies on the same Discord server such as the Fabric or Besu channels.
 

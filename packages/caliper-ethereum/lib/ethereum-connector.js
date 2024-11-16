@@ -74,7 +74,7 @@ class EthereumConnector extends ConnectorBase {
             throw new Error(
                 'Ethereum benchmarks must not use http(s) RPC connections, as there is no way to guarantee the ' +
                 'order of submitted transactions when using other transports. For more information, please see ' +
-                'https://github.com/hyperledger/caliper/issues/776#issuecomment-624771622'
+                'https://github.com/hyperledger-caliper/caliper/issues/776#issuecomment-624771622'
             );
         }
 
