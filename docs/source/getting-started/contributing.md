@@ -159,7 +159,7 @@ user@ubuntu:~/caliper$ ./.build/check-prerequisites.sh && npm ci
 
 ### Public/published packages
 
-The [https://github.com/hyperledger/caliper/tree/main/packages/](packages) directory contains the following public/published packages:
+The [packages](https://github.com/hyperledger/caliper/tree/main/packages/) directory contains the following public/published packages:
 
 * [caliper-cli](https://github.com/hyperledger/caliper/tree/main/packages/caliper-cli/): The command line interface (CLI) of Caliper.
 * [caliper-core](https://github.com/hyperledger/caliper/tree/main/packages/caliper-core/): The core and common codebase of Caliper, used by the other packages.
@@ -169,7 +169,7 @@ The [https://github.com/hyperledger/caliper/tree/main/packages/](packages) direc
 
 ### Internal packages
 
-The [https://github.com/hyperledger/caliper/tree/main/packages/](packages) directory contains the following internal packages:
+The [packages](https://github.com/hyperledger/caliper/tree/main/packages/) directory contains the following internal packages:
 
 * [caliper-publish](https://github.com/hyperledger/caliper/tree/main/packages/caliper-publish/): Utility CLI for publishing Caliper to NPM and DockerHub.
 * [caliper-tests-integration](https://github.com/hyperledger/caliper/tree/main/packages/caliper-tests-integration/): Collection of CI integration tests.
@@ -187,7 +187,7 @@ Unit testing focuses on testing individual packages in isolation. The tests are 
 The following are the recommended testing modules for this project. While these tools are commonly used in the current codebase, other appropriate tools may be used as long as they facilitate effective testing.
 
 * [mockery](https://www.npmjs.com/package/mockery): Mockery is a simple module for mocking Node.js modules during testing. It allows you to replace real modules with mocks or stubs.
-  
+
 * [mocha](https://mochajs.org/): Mocha is a feature-rich JavaScript test framework that runs on Node.js and in the browser. It facilitates asynchronous testing, making it easy to write simple and flexible tests.
 
 * [chai](https://www.npmjs.com/package/chai): Chai is a BDD/TDD assertion library for Node.js and the browser. It can be paired with any JavaScript testing framework. We use it to create readable and expressive assertions.
@@ -468,7 +468,7 @@ Please adhere to the inclusive language guidelines that the project has adopted 
     ```sh
     mkdocs build
     ```
-    
+
     This command generates static files in the site directory.
 
 5. **Previewing Locally**:
