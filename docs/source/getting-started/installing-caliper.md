@@ -10,7 +10,7 @@ Installing and running Caliper consists of the following steps, thoroughly detai
 2. Execute a *bind* command through the CLI. This step pulls the specified version of SDK packages for the selected platform.
 3. Start the benchmark through the CLI or by starting the Docker container.
 
-The examples in the rest of the documentation use the [caliper-benchmarks](https://github.com/hyperledger/caliper-benchmarks) repository as the Caliper workspace since it contains many sample artifacts for benchmarking.
+The examples in the rest of the documentation use the [caliper-benchmarks](https://github.com/hyperledger-caliper/caliper-benchmarks) repository as the Caliper workspace since it contains many sample artifacts for benchmarking.
 
 !!! note "Important"
 
@@ -19,7 +19,7 @@ The examples in the rest of the documentation use the [caliper-benchmarks](https
 To clone the `caliper-benchmarks` repository, run:
 
 ```sh
-git clone https://github.com/hyperledger/caliper-benchmarks.git
+git clone https://github.com/hyperledger-caliper/caliper-benchmarks.git
 cd caliper-benchmarks
 git checkout <your Caliper version>
 ```
