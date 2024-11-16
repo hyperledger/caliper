@@ -76,6 +76,17 @@ class MyWorkload extends WorkloadModuleInterface {
         this.sutContext = undefined;
     }
 
+    /**
+     * Initialize the workload module with contextual arguments.
+     * This method is called before each round. The context object is passed 
+     * and should be kept valid during the entire round. Ensure that it is 
+     * not prematurely released before `submitTransaction` completes.
+
+     * The `sutAdapter` is a reference to the underlying blockchain connector.
+     * It is used to interact with the blockchain network, such as invoking smart contracts.
+     * Ensure you understand the specific adapter functions (e.g., `invokeSmartContract`) for your network.
+     */
+
     async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
         this.workerIndex = workerIndex;
         this.totalWorkers = totalWorkers;
@@ -85,6 +96,13 @@ class MyWorkload extends WorkloadModuleInterface {
         this.sutContext = sutContext;
     }
 
+    /**
+     * The `submitTransaction` function is the main operation for submitting TXs.
+     * It is called repeatedly at a high frequency, so it must be as efficient as possible.
+     * Time-consuming tasks (like complex computations or data fetching) should be 
+     * handled in `initializeWorkloadModule` to avoid delays in submitting TXs during the round.
+     */
+
     async submitTransaction() {
         let txArgs = {
             // TX arguments for "mycontract"
@@ -92,6 +110,12 @@ class MyWorkload extends WorkloadModuleInterface {
 
         return this.sutAdapter.invokeSmartContract('mycontract', 'v1', txArgs, 30);
     }
+
+    /**
+     * Cleanup function that is called at the end of the round.
+     * Use this to release any resources, such as the sutContext,
+     * which should be released **after** the round execution (after executeRound).
+     */
 
     async cleanupWorkloadModule() {
         // NOOP
