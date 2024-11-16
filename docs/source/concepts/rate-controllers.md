@@ -292,6 +292,26 @@ Offset: |0      |4      |8      |12      |16      |...
 Data:   |length |1st    |2nd    |3rd     |4th     |...      
 ```
 
+- The first entry (length) indicates the number of transactions recorded so far.
+- If no transactions have been submitted yet (e.g., at the start), the first row will have a value of 0, indicating that no timings have been recorded.
+- Each subsequent entry in the array represents the timestamp of a transaction being enabled (submitted) by the rate controller.
+
+For example, if there are 3 transactions enabled, the binary format would look like:
+
+```sh
+Offset: |0      |4      |8      |12      
+Data:   |length |1st    |2nd    |3rd
+        |3      |100    |200    |300
+```
+
+If no transactions are submitted, it would look like:
+
+```sh
+Offset: |0     
+Data:   |length
+        |0
+```
+
 ## Replay rate
 
 One of the most important aspect of a good benchmark is its repeatability, i.e., it can be re-executed in a deterministic way whenever necessary. However, some benchmarks define the workload (e.g., user behavior) as a function of probabilistic distribution(s). This presents two problems from a practical point of view:
