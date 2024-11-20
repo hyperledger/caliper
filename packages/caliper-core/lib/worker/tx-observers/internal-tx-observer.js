@@ -20,6 +20,10 @@ const TxResetMessage = require('../../common/messages/txResetMessage');
 const CaliperUtils = require('../../common/utils/caliper-utils');
 const ConfigUtil = require('../../common/config/config-util');
 
+const logger = CaliperUtils.getLogger('InternalTxObserver');
+const DEFAULT_UPDATE_INTERVAL = 1000; // in milliseconds
+
+
 /**
  * Internal TX observer used by the worker process to driver TX scheduling and report round statistics
  * It is always instantiated.
@@ -34,6 +38,11 @@ class InternalTxObserver extends TxObserverInterface {
     constructor(messenger, managerUuid, workerIndex) {
         super(messenger, workerIndex);
         this.updateInterval = ConfigUtil.get(ConfigUtil.keys.Observer.Internal.Interval);
+        // Check if the updateInterval is not a valid number, and use a default value if needed
+        if (typeof this.updateInterval !== 'number' || isNaN(this.updateInterval) || this.updateInterval < 0) {
+            logger.warn(`Invalid update interval (${this.updateInterval}), using default value of ${DEFAULT_UPDATE_INTERVAL}ms`);
+            this.updateInterval = DEFAULT_UPDATE_INTERVAL;
+        }
         this.intervalObject = undefined;
         this.messengerUUID = messenger.getUUID();
         this.managerUuid = managerUuid;
@@ -62,18 +71,24 @@ class InternalTxObserver extends TxObserverInterface {
      * Deactivates the TX observer interface, and stops the regular update scheduling.
      */
     async deactivate() {
-        await super.deactivate();
+        try {
+            await super.deactivate();
 
-        if (this.intervalObject) {
-            clearInterval(this.intervalObject);
+            if (this.intervalObject) {
+                clearInterval(this.intervalObject);
 
-            await this._sendUpdate();
-            await CaliperUtils.sleep(this.updateInterval);
+                await this._sendUpdate();
+                await CaliperUtils.sleep(this.updateInterval);
+                this.intervalObject = null; // Explicitly set it to null after clearing
 
-            // TODO: the txResult message should be enough
-            // or the round-end message should include the final stats
-            let txResetMessage = new TxResetMessage(this.messengerUUID, [this.managerUuid]);
-            await this.messenger.send(txResetMessage);
+                // TODO: the txResult message should be enough
+                // or the round-end message should include the final stats
+                let txResetMessage = new TxResetMessage(this.messengerUUID, [this.managerUuid]);
+                await this.messenger.send(txResetMessage);
+            }
+        }catch (error) {
+            logger.error(`Error during deactivation: ${error.message}`);
+            throw error;
         }
     }
 }
