@@ -296,23 +296,15 @@ Data:   |length |1st    |2nd    |3rd     |4th     |...
 ```
 
 - The first entry (length) indicates the number of transactions submitted.
-- Each subsequent entry in the array represents the timestamp of a transaction being enabled (submitted) by the rate controller.
+- Each subsequent entry in the array represents a timestamp of when that number of transactions were submitted from the start of the round.
 - The subsequent values (Uint32 values in Big Endian or Little Endian format) represent time in milliseconds from the start of the round. Each entry corresponds to the number of transactions submitted starting from 0
 
 For example, if there are 3 transactions enabled, the binary format would look like:
 
 ```sh
-Offset: |0      |4      |8      |12      
-Data:   |length |1st    |2nd    |3rd
-        |3      |100    |200    |300
-```
-
-If no transactions are submitted, it would look like:
-
-```sh
-Offset: |0     
-Data:   |length
-        |0
+Offset: |0      |4      |8      |12     |16      
+Data:   |length |0 tx   |1 tx   |2 tx   |3 tx 
+        |4      |100    |200    |300    |400
 ```
 
 ## Replay rate
