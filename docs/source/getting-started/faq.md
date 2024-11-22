@@ -23,7 +23,7 @@ There is another configuration file, namely `./config/default.yaml`, containing 
 ## **IV. Other Questions Related to Caliper**
 
 **Q:** How can I calculate the throughput (TPS)?
-**A:** Caliper will record the submitting time and committing time (the time when the Tx is committed on the ledger or when the failure occurred) for each Tx. So the send rate is calculated by `(Succ+Fail) / (last submitting time - first submitting time)`. The throughput is calculated by `Succ+Fail/(last committing time - first submitting time)`, including both successful and failed transactions. This means both successful and failed transactions are included in the throughput and send rate. calculation.
+**A:** Caliper will record the submitting time and committing time (the time when the Tx is committed on the ledger or when the failure occurred) for each Tx. So the send rate and the throughput are calculated by `(Succ+Fail) / (last submitting time - first submitting time)`.  This means both successful and failed transactions are included in the throughput and send rate calculations.
 
 ## V. **Other Questions Related to the Backend Blockchain System**
 
