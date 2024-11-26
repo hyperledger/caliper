@@ -55,29 +55,7 @@ jobs:
           git add .
           git commit -m "Update documentation for version $BASE_VERSION"
           git push origin gh-pages
-
-      - name: Create PR for updating docs folder in main branch
-        id: create_pr
-        run: |
-          VERSION=${{ github.ref }}
-          VERSION=${VERSION#refs/tags/}
-          BASE_VERSION=${VERSION#v}
-
-          BRANCH_NAME="update-docs-${{ BASE_VERSION }}"
-          git checkout -b $BRANCH_NAME
-
-          cp -r docs/* docs/
-
-          git add docs
-          git commit -m "Update docs folder for version $BASE_VERSION"
-          git push origin $BRANCH_NAME
-
-          PR_URL=$(gh pr create --base main --head $BRANCH_NAME --title "Update docs for version $BASE_VERSION" --body "This PR updates the documentation for version $BASE_VERSION.")
-          echo "::set-output name=pr_url::$PR_URL"
-
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          
       - name: Notify about PR
         run: echo "Pull request created ${{ steps.create_pr.outputs.pr_url }}"
         env:
