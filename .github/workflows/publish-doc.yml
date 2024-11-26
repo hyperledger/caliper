@@ -1,0 +1,62 @@
+name: ci
+
+on:
+  push:
+    tags:
+      - v*
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - uses: actions/cache@v2
+        with:
+          key: ${{ github.ref }}
+          path: .cache
+
+      - name: Install Python dependencies
+        run: pip install -r ./docs/pip-requirements.txt
+
+      - name: Configure git user
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Deploy docs to gh-pages
+        run: |
+          VERSION=${{ github.ref }}
+          VERSION=${VERSION#refs/tags/}
+          BASE_VERSION=${VERSION#v}
+
+          echo "Deploying documentation for version: $BASE_VERSION"
+
+          cd docs
+          mike deploy --update-aliases $BASE_VERSION latest
+
+          cd ..
+          git fetch origin gh-pages
+          git checkout gh-pages
+          git pull origin gh-pages
+
+          mkdir -p "./$BASE_VERSION" && cp -r docs/build/* "./$BASE_VERSION"
+
+          git add .
+          git commit -m "Update documentation for version $BASE_VERSION"
+          git push origin gh-pages
+          
+      - name: Notify about PR
+        run: echo "Pull request created ${{ steps.create_pr.outputs.pr_url }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
