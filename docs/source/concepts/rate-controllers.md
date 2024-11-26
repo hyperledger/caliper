@@ -276,7 +276,7 @@ The template can (**and should**) contain special “variables/placeholders” t
 
 **Template placeholders**: since Caliper provides a concise way to define multiple rounds and multiple workers with the same behavior, it is essential to differentiate between the recordings of the workers and rounds. Accordingly, the output file paths can contain placeholders for the round and worker indices that will be resolved automatically at each worker in each round. Otherwise, every worker would write the same file, resulting in a serious conflict between timings and transaction IDs.
 
-**Text format**: the rate controller saves the recordings in the following format (assuming a constant 10 TPS rate and ignoring the noise in the actual timings), row `i` corresponding to the `i`th transaction:
+**Text format**: the rate controller saves the recordings in the following format (assuming a constant 10 TPS rate and ignoring the noise in the actual timings), row `i` corresponding to the `i`th transaction:  
 
 ```sh
 100
@@ -285,11 +285,26 @@ The template can (**and should**) contain special “variables/placeholders” t
 ...
 ```
 
+The value of `i` starts at **0**, so the **first line** represents **0 transactions submitted**.  
+Each value in a line represents **time in milliseconds** from the start of the round. 
+
 **Binary format**: Both binary representations encode the `X` number of recordings as a series of `X+1` UInt32 numbers (1 number for the array length, the rest for the array elements), either in Little Endian or Big Endian encoding:
 
 ```sh
 Offset: |0      |4      |8      |12      |16      |...     
 Data:   |length |1st    |2nd    |3rd     |4th     |...      
+```
+
+- The first entry (length) indicates the number of transactions submitted.
+- Each subsequent entry in the array represents a timestamp of when that number of transactions were submitted from the start of the round.
+- The subsequent values (Uint32 values in Big Endian or Little Endian format) represent time in milliseconds from the start of the round. Each entry corresponds to the number of transactions submitted starting from 0
+
+For example, if there are 3 transactions enabled, the binary format would look like:
+
+```sh
+Offset: |0      |4      |8      |12     |16      
+Data:   |length |0 tx   |1 tx   |2 tx   |3 tx 
+        |4      |100    |200    |300    |400
 ```
 
 ## Replay rate

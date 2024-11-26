@@ -1,6 +1,6 @@
 site_name: Hyperledger Caliper
 repo_name: hyperledger/caliper
-repo_url: https://github.com/hyperledger/caliper
+repo_url: https://github.com/hyperledger-caliper/caliper
 docs_dir: source
 site_dir: build
 theme:
@@ -148,5 +148,5 @@ nav:
     - Ethereum: connectors/ethereum-config.md
     - Writing Connectors: connectors/writing-connectors.md
   - Tutorials:
-    - Fabric Tutorials: tutorial/index.md
-    - Basic Fabric Tutorials: tutorial/fabric.md
+    - Tutorials: tutorial/index.md
+    - Basic Fabric Tutorial: tutorial/fabric.md

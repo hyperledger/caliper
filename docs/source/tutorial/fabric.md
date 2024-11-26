@@ -511,7 +511,7 @@ The resulting report will detail the following items for each benchmark round:
 - Latency (max/min/avg) - statistics relating to the time taken in seconds between issuing a transaction and receiving a response
 - Throughput - the average number of transactions processed per second
 
-You have successfully benchmarked a smart contract. You can repeat the test varying the benchmark parameters, as well as adding resource monitors. For the full set of options, please refer to the [Caliper Documentation](https://hyperledger-caliper.github.io/caliper/)
+You have successfully benchmarked a smart contract. You can repeat the test varying the benchmark parameters, as well as adding resource monitors. For the full set of options, please refer to the [Caliper Documentation](../index.md)
 
 ## License
 

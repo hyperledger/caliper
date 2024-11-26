@@ -21,7 +21,7 @@ function createWorkloadModule() {
 module.exports.createWorkloadModule = createWorkloadModule;
 ```
 
-The factory function must return an instance that implements the `[WorkloadModuleInterface](https://github.com/hyperledger/caliper/blob/main/packages/caliper-core/lib/worker/workload/workloadModuleInterface.js)` class. See the [example](#example) for a complete implementation.
+The factory function must return an instance that implements the `[WorkloadModuleInterface](https://github.com/hyperledger-caliper/caliper/blob/main/packages/caliper-core/lib/worker/workload/workloadModuleInterface.js)` class. See the [example](#example) for a complete implementation.
 
 The interface contains the following three **asynchronous** functions:
 

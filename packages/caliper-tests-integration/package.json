@@ -19,7 +19,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/hyperledger/caliper.git"
+        "url": "git+https://github.com/hyperledger-caliper/caliper.git"
     },
     "keywords": [
         "blockchain",
@@ -28,9 +28,9 @@
     "author": "Hyperledger Caliper",
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/hyperledger/caliper/issues"
+        "url": "https://github.com/hyperledger-caliper/caliper/issues"
     },
-    "homepage": "https://github.com/hyperledger/caliper#readme",
+    "homepage": "https://github.com/hyperledger-caliper/caliper#readme",
     "devDependencies": {
         "license-check-and-add": "2.3.6"
     },

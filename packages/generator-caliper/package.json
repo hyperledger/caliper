@@ -6,7 +6,7 @@
     "homepage": "https://hyperledger-caliper.github.io/caliper/",
     "repository": {
         "type": "git",
-        "url": "https://github.com/hyperledger/caliper"
+        "url": "https://github.com/hyperledger-caliper/caliper"
     },
     "main": "generators/callback/index.js",
     "keywords": [
