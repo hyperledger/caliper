@@ -36,6 +36,7 @@ class CaliperEngine {
         this.networkConfig = networkConfig;
         this.workspace = ConfigUtils.get(ConfigUtils.keys.Workspace);
         this.returnCode = -1;
+        this.roundOrchestrator = null;
 
         this.adapterFactory = adapterFactory;
     }
@@ -149,8 +150,8 @@ class CaliperEngine {
                 connector = connector ? connector : await this.adapterFactory(-1);
                 let workerArguments = await connector.prepareWorkerArguments(numberOfWorkers);
 
-                const roundOrchestrator = new RoundOrchestrator(this.benchmarkConfig, this.networkConfig, workerArguments);
-                await roundOrchestrator.run();
+                this.roundOrchestrator = new RoundOrchestrator(this.benchmarkConfig, this.networkConfig, workerArguments);
+                await this.roundOrchestrator.run();
             }
         } catch (err) {
             // this means that we haven't handled/logged this failure yet
