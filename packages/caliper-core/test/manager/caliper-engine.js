@@ -16,7 +16,36 @@
 
 const sinon = require('sinon');
 const chai = require('chai');
+//const RoundOrchestrator = require('../../lib/manager/orchestrators/round-orchestrator');
+const ConnectorBase = require('../../lib/common/core/connector-base');
+const mockery = require('mockery');
+
+//
+// Simple RoundOrchestrator Stub
+//
+let roundOrchestratorStopCalled = false;
+let roundOrchestratorRunCalled = false;
+class StubRoundOrchestrator {
+
+     run() {roundOrchestratorRunCalled = true}
+     stop() {roundOrchestratorStopCalled = true}
+}
+
+mockery.enable({
+    warnOnReplace: false,
+    warnOnUnregistered: false,
+    useCleanCache: true
+});
+
+mockery.registerMock('./orchestrators/round-orchestrator', StubRoundOrchestrator);
+
+const CaliperEngine = require('../../lib/manager/caliper-engine')
 const expect = chai.expect;
+
+after(() => {
+    mockery.deregisterAll();
+    mockery.disable();
+});
 
 describe('CaliperEngine', function() {
 
@@ -131,13 +160,65 @@ describe('CaliperEngine', function() {
         });
     });
 
-    describe('Benchmark Stop Functionality', function() {
-        it('should stop the benchmark if the benchmark has been started', function() {
-            // TODO: Implement test
+    describe.only('When a Benchmark Stop is requested', function() {
+        let benchmarkConfig, networkConfig, engine;
+        let adaptorFactory = sinon.stub().returns(sinon.createStubInstance(ConnectorBase));
+        beforeEach(() =>{
+            benchmarkConfig = {
+                test: {
+                    workers: {
+                        number: 1,
+                    },
+                    rounds: [
+                        {
+                            label: 'function test',
+                            contractId: 'xContract',
+                            txDuration: 30,
+                            rateControl: {
+                                type: 'fixed-rate',
+                                opts: {
+                                    tps: 10
+                                }
+                            },
+                            workload: {
+                                module: 'benchmarks/workloads/workload.js',
+                                arguments: {
+                                    contractId: 'xContract',
+                                    contractVersion: '1.0.0'
+                                }
+                            }
+                        }
+                    ]
+
+                },
+            };
+            networkConfig = {
+                caliper: {
+                    command: {
+                        start: 'echo "Starting network"',
+                        end: 'echo "Stopping network"',
+                    },
+                },
+            };
+
+            engine = new CaliperEngine(benchmarkConfig, networkConfig, adaptorFactory);
         });
 
-        it('should do nothing if no benchmark run has been started', function() {
-            // TODO: Implement test
+        it('should stop the benchmark if the benchmark has been started', async function() {
+            roundOrchestratorRunCalled = false;
+            roundOrchestratorStopCalled = false;
+            await engine.run();
+            expect(roundOrchestratorRunCalled).to.be.true;
+            await engine.stop();
+            expect(roundOrchestratorStopCalled).to.be.true;
+        });
+
+        it('should do nothing if no benchmark run has been started', async function() {
+            roundOrchestratorRunCalled = false;
+            roundOrchestratorStopCalled = false;
+            expect(roundOrchestratorRunCalled).to.be.false;
+            await engine.stop();
+            expect(roundOrchestratorStopCalled).to.be.false;
         });
     });
 });
