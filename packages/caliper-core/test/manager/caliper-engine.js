@@ -160,7 +160,7 @@ describe('CaliperEngine', function() {
         });
     });
 
-    describe.only('When a Benchmark Stop is requested', function() {
+    describe('When a Benchmark Stop is requested', function() {
         let benchmarkConfig, networkConfig, engine;
         let adaptorFactory = sinon.stub().returns(sinon.createStubInstance(ConnectorBase));
         beforeEach(() =>{
