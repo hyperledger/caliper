@@ -365,7 +365,7 @@ You can set the `type` attribute so that it points to your custom JS file that s
     3. A `workerIndex` parameter of type number that is the 0-based index of the worker process using this rate controller.
   The function must return an object (i.e., your rate controller instance) that satisfies the next criteria.
 
-2. The object returned by `createRateController` must implement the `/packages/caliper-core/lib/rate-control/rateInterface.js` interface, i.e., must provide the following async functions:
+2. The object returned by `createRateController` must implement the `/packages/caliper-core/lib/worker/rate-control/rateInterface.js` interface, i.e., must provide the following async functions:
   1.  applyRateControl  , for performing the actual rate control by “blocking” the execution (in an async manner) for the desired time.
   2. `end`, for disposing any acquired resources at the end of a round.
 
