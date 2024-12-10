@@ -305,7 +305,7 @@ To query a state on a contract state, set the `readOnly` attribute to `true`. Th
 
 ## Transaction Data Gathered by the Adapter
 
-The previously discussed `sendRequests` method returns an array whose elements correspond to the result of the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
+The previously discussed `sendRequests` method returns an array whose elements correspond to the result of the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/v0.6.0/packages/caliper-core/lib/common/core/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
 
 The standard information provided by the type are the following:
 

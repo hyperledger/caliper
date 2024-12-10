@@ -8,7 +8,7 @@ Caliper builds on the [winston](https://github.com/winstonjs/winston) logger mod
 
 The first two points can be achieved through the [runtime configuration](runtime-config.md) mechanism of Caliper. So make sure that you are familiar with the different way of overriding runtime settings before reading on. The examples below only set the different options through the command line. Naturally, any other setting source could be used.
 
-The runtime configuration settings corresponding to logging reside under the `caliper-logging` key hierarchy. See the `caliper.logging` section of the [default configuration file](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-core/lib/config/default.yaml) bundled with Caliper for the general structure of the settings.
+The runtime configuration settings corresponding to logging reside under the `caliper-logging` key hierarchy. See the `caliper.logging` section of the [default configuration file](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-core/lib/common/config/default.yaml) bundled with Caliper for the general structure of the settings.
 
 ## Customizing the logging style
 

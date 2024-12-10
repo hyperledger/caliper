@@ -170,7 +170,7 @@ await this.sutAdapter.sendRequests(requestSettings);
 
 ## Gathered TX data
 
-The previously discussed `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
+The previously discussed `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger-caliper/caliper/blob/v0.6.0/packages/caliper-core/lib/common/core/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
 
 The standard data provided are the following:
 - `GetID():string` returns the transaction ID.
@@ -239,7 +239,7 @@ The `cleanupWorkloadModule` function is called at the end of the round, and can 
 ## Network configuration file reference
 The YAML network configuration file of the adapter mainly describes the organizations and the identities associated with those organizations, It also provides explicit information about the channels in your Fabric network and the chaincode (containing 1 or more smart contracts) deployed to those channels. It can reference Common Connection Profiles for each organization (as common connection profiles are specific to a single organization). These are the same connection profiles that would be consumed by the node-sdk. Whoever creates the Fabric network and channels would be able to provide appropriate profiles for each organization.
 
-The following sections detail each part separately. For a complete example, please refer to the [example section](#network-configuration-example) or one of the files in the [Caliper repositor](https://github.com/hyperledger-caliper/caliper), such as the caliper-fabric test folder.
+The following sections detail each part separately. For a complete example, please refer to the [example section](#network-configuration-example) or one of the files in the [Caliper repository](https://github.com/hyperledger-caliper/caliper), such as the caliper-fabric test folder.
 
 <details>
   <summary><b>name</b></summary>
@@ -1057,4 +1057,4 @@ organizations:
 
 ## License
 
-The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
+The Caliper codebase is released under the [Apache 2.0 license](../getting-started/license.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
