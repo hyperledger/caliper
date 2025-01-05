@@ -12,7 +12,7 @@ Ensure you have the following pre-reqs installed
 
 - docker engine or docker desktop
 - curl
-- jq
+- [jq](https://jqlang.github.io/jq/)
 - a supported node LTS version. a list current supported LTS versions can be found on the [node.js website](https://nodejs.org/) (to install node easily you can use the nvm tool found [here](https://github.com/nvm-sh/nvm)) 
 
 ```sh
@@ -499,7 +499,9 @@ Ensure that you are in the **caliper-workspace** directory.
 
 In the terminal run the following Caliper CLI command:
 
-`npx caliper launch manager --caliper-workspace ./ --caliper-networkconfig networks/networkConfig.yaml --caliper-benchconfig benchmarks/myAssetBenchmark.yaml --caliper-flow-only-test`
+```sh
+npx caliper launch manager --caliper-workspace ./ --caliper-networkconfig networks/networkConfig.yaml --caliper-benchconfig benchmarks/myAssetBenchmark.yaml --caliper-flow-only-test
+```
 
 ### Benchmark Results
 

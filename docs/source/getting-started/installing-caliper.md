@@ -219,7 +219,7 @@ It is possible to skip, or perform only one of the above phases through use of t
 Caliper is published as the [@hyperledger/caliper-cli](https://www.npmjs.com/package/@hyperledger/caliper-cli) NPM package, providing a single point of install for every supported adapter.
 
 ### Versioning semantics
-Before explaining the steps for installing Caliper, let’s take a look at the `Versions` page of the CLI package. You will see a list of tags and versions. If you are new to NPM, think of versions as immutable pointers to a specific version (duh) of the source code, while tags are mutable pointers to a specific version. So tags can change where they point to. Easy, right?
+Before explaining the steps for installing Caliper, let’s take a look at the [versions](https://www.npmjs.com/package/@hyperledger/caliper-cli?activeTab=versions) page of the CLI package. You will see a list of tags and versions. If you are new to NPM, think of versions as immutable pointers to a specific version (duh) of the source code, while tags are mutable pointers to a specific version. So tags can change where they point to. Easy, right?
 
 But why is all this important to you? Because Caliper is still in its pre-release life-cycle (< v1.0.0), meaning that even minor version bumps are allowed to introduce breaking changes. And if you use Caliper in your project, you might run into some surprises depending on how you install Caliper from time to time.
 
