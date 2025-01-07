@@ -13,7 +13,7 @@
     "scripts": {
         "pretest": "npm run licchk",
         "licchk": "license-check-and-add",
-        "test": "npm run lint",
+        "test": "npm run lint && npm run nyc",
         "lint": "npx eslint .",
         "nyc": "nyc --reporter=text --reporter=clover mocha --recursive -t 10000"
     },
@@ -28,9 +28,9 @@
     },
     "devDependencies": {
         "eslint": "^5.16.0",
+        "license-check-and-add": "2.3.6",
         "mocha": "3.4.2",
-        "nyc": "11.1.0",
-        "license-check-and-add": "2.3.6"
+        "nyc": "11.1.0"
     },
     "license-check-and-add-config": {
         "folder": ".",
