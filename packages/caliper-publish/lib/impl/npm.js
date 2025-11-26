@@ -61,6 +61,54 @@ function injectCustomVersion(packageJsonPath, customVersion) {
 }
 
 /**
+ * Utility function for overwriting the common Caliper version in the package.json files.
+ * @param {string} shrinkwrapPath The path of the package.json file.
+ * @param {string} customVersion The new version to use.
+ */
+function injectCustomShrinkwrapVersion(shrinkwrapPath, customVersion) {
+
+    /**
+     * Update dependency references starting with "@hyperledger/caliper-"
+     * @param {object} deps the dependency object
+     * @param {string} newVersion the new version
+     */
+    function updateDependencies(deps, newVersion) {
+        if (!deps) {
+            return;
+        }
+        for (const depName in deps) {
+            if (depName.startsWith('@hyperledger/caliper-')) {
+                deps[depName] = newVersion;
+            }
+        }
+    }
+    if (!fs.existsSync(shrinkwrapPath)) {
+        return;
+    }
+
+    const shrinkwrap = JSON.parse(fs.readFileSync(shrinkwrapPath, 'utf8'));
+    shrinkwrap.version = customVersion;
+
+    // Update packages starting with "packages/caliper-"
+    if (shrinkwrap.packages) {
+        shrinkwrap.packages[''].version = customVersion;
+        for (const pkgName in shrinkwrap.packages) {
+            console.log(pkgName);
+            if (pkgName.startsWith('packages/caliper-')) {
+                if (shrinkwrap.packages[pkgName].version) {
+                    shrinkwrap.packages[pkgName].version = customVersion;
+                    updateDependencies(shrinkwrap.packages[pkgName].dependencies, customVersion);
+                }
+            }
+        }
+    }
+
+    // serialize new content
+    fs.writeFileSync(shrinkwrapPath, JSON.stringify(shrinkwrap, null, 4));
+}
+
+
+/**
  * Implements the docker publish command logic.
  */
 class NPM {
@@ -104,6 +152,7 @@ class NPM {
             if (tag === 'unstable') {
                 injectCustomVersion(path.join(packageDir, 'package.json'), packageVersion);
             }
+            injectCustomShrinkwrapVersion(path.join(packageDir, 'npm-shrinkwrap.json'), packageVersion);
 
             try {
                 let published = false;

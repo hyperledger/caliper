@@ -20,7 +20,7 @@
             ]
         }
     },
-    "postCreateCommand": "cd docs && pip install -r pip-requirements.txt && mkdocs build",
+    "postCreateCommand": "npm install -g npm && cd docs && pip install -r pip-requirements.txt && mkdocs build",
     "remoteUser": "vscode",
-    "forwardPorts": [8000] 
+    "forwardPorts": [8000]
 }
