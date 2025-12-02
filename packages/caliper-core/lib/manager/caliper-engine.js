@@ -82,7 +82,7 @@ class CaliperEngine {
 
     /**
      * Run the benchmark based on passed arguments
-     * @returns {number} the error status of the run
+     * @returns {Promise<number>} the error status code of the run
      */
     async run() {
         // Retrieve flow conditioning options
