@@ -30,16 +30,7 @@ class PrometheusQueryHelper {
      * @returns {String} the string query to use
      */
     static buildStringRangeQuery(query, startTime, endTime, step) {
-        // Anything that is within `{ }` must be URI encoded (including braces)
-
-        const myRegexp = /({.*})/;
-        let match = myRegexp.exec(query);
-        while (match !== null) {
-            query = query.replace(myRegexp, encodeURIComponent(match[0]));
-            match = myRegexp.exec(query);
-        }
-
-        const builtQuery = 'query_range?query=' + query + '&start=' + startTime + '&end=' + endTime + '&step=' + step;
+        const builtQuery = 'query_range?query=' + encodeURIComponent(query) + '&start=' + startTime + '&end=' + endTime + '&step=' + step;
         return builtQuery;
     }
 

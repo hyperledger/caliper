@@ -28,6 +28,18 @@ describe('PrometheusQueryHelper implementation', () => {
         const endTime = 200;
         const step = 45;
 
+        it('should preserve arithmetic operators and quoted URL characters', () => {
+            const query = 'sum(up{job="a&b#50%",name=~".+"}) + 1';
+            const output = PrometheusQueryHelper.buildStringRangeQuery(query, startTime, endTime, step);
+            const params = new URL(output, 'http://localhost/api/v1/').searchParams;
+
+            params.get('query').should.equal(query);
+            params.get('start').should.equal('100');
+            params.get('end').should.equal('200');
+            params.get('step').should.equal('45');
+            Array.from(params.keys()).should.deep.equal(['query', 'start', 'end', 'step']);
+        });
+
         it('should add start, end and step information', () => {
             const demoString = 'test_the_helper';
 
