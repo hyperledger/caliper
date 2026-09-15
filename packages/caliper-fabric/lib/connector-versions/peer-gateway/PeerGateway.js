@@ -102,7 +102,7 @@ class PeerGateway extends ConnectorBase {
             throw Error('Mutual tls is not supported with the Peer Gateway Connector');
         }
         if (!this.context) {
-            this.context = new FabricConnectorContext(this.workerIndex);
+            this.context = new FabricConnectorContext(this.workerIndex, this.connectorConfiguration.getNetworkConfiguration());
             await this._prepareGatewayAndContractMapsForEachIdentity();
         }
 

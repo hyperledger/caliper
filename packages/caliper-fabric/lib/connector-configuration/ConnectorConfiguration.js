@@ -65,6 +65,20 @@ class ConnectorConfiguration {
     }
 
     /**
+     * Return an independent copy of the parsed network configuration for workloads.
+     * @returns {object} A snapshot of the configured network, not discovered topology.
+     */
+    getNetworkConfiguration() {
+        const configuration = global.structuredClone(this.connectorConfiguration);
+        for (const organization of configuration.organizations) {
+            if (organization.connectionProfile) {
+                delete organization.connectionProfile.loadedConnectionProfile;
+            }
+        }
+        return configuration;
+    }
+
+    /**
      * Returns a list of all the channels defined in the configuration
      * @returns {string[]} A list of all channels in the configuration
      */

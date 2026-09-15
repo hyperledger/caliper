@@ -110,7 +110,7 @@ class V2FabricGateway extends ConnectorBase {
      */
     async getContext(roundIndex, args) {
         if (!this.context) {
-            this.context = new FabricConnectorContext(this.workerIndex);
+            this.context = new FabricConnectorContext(this.workerIndex, this.connectorConfiguration.getNetworkConfiguration());
             await this._prepareGatewayAndContractMapsForEachIdentity();
             await this._buildPeerCache(); // TODO: might be able to do this just once
         }

@@ -109,6 +109,21 @@ describe('A Fabric Peer Gateway sdk gateway', () => {
         context.should.be.instanceOf(FabricConnectorContext);
     });
 
+    it('should isolate workload network configuration changes from the connector', async () => {
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWalletNotMutual), walletFacadeFactory);
+        const peerGateway = new PeerGateway(connectorConfiguration, 1, 'fabric');
+        const context = await peerGateway.getContext();
+        chai.expect(context.networkConfiguration).to.be.an('object');
+        context.networkConfiguration.organizations.map(org => org.mspid).should.deep.equal(connectorConfiguration.getOrganizations());
+        context.networkConfiguration.channels.map(channel => channel.channelName).should.deep.equal(connectorConfiguration.getAllChannelNames());
+        const organizations = connectorConfiguration.getOrganizations();
+        const channels = connectorConfiguration.getAllChannelNames();
+        context.networkConfiguration.organizations[0].mspid = 'workload-only';
+        context.networkConfiguration.channels.splice(0);
+        connectorConfiguration.getOrganizations().should.deep.equal(organizations);
+        connectorConfiguration.getAllChannelNames().should.deep.equal(channels);
+    });
+
     it('should return the same context when requested multiple times', async () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, configWith2Orgs1AdminInWalletNotMutual), walletFacadeFactory);
         const peerGateway = new PeerGateway(connectorConfiguration, 1, 'fabric');

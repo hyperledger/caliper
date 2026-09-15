@@ -17,16 +17,18 @@
 // This would be a public api for use by the workloads
 
 /**
- * THIS CLASS AND CONTENTS TO BE DECIDED
+ * Fabric configuration available to workload modules.
  */
 class FabricConnectorContext {
 
     /**
      *
      * @param {number} clientIndex The worker index really
+     * @param {object} networkConfiguration An independent network configuration snapshot
      */
-    constructor(clientIndex) {
+    constructor(clientIndex, networkConfiguration) {
         this.clientIndex = clientIndex;
+        this.networkConfiguration = networkConfiguration;
     }
 }
 

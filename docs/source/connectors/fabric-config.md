@@ -115,7 +115,9 @@ The [workload modules](../concepts/workload-module.md) interact with the adapter
 
 See the [corresponding documentation](../concepts/workload-module.md/#initializeworkloadmodule) of the function for the description of its parameters.
 
-The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain’s connector. The context object provided by this connector is a `FabricConnectorContext` instance but this doesn’t provide anything of use at this time.
+The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain’s connector. The context object provided by this connector is a `FabricConnectorContext` instance. Its `networkConfiguration` property contains an independent copy of the parsed network configuration, including the configured organizations, identities and channels. For example, `sutContext.networkConfiguration.organizations.map(org => org.mspid)` lists the configured MSP IDs.
+
+Changing this copy does not reconfigure the connector. The snapshot describes the supplied configuration, not topology discovered from the network. Referenced files and wallet identities are not expanded into the snapshot. As with the original configuration file, it may contain inline credentials; avoid logging the entire object.
 
 For the current details/documentation of the API, refer to the [source code](https://github.com/hyperledger-caliper/caliper/blob/v0.7.1/packages/caliper-fabric/lib/FabricConnectorContext.js).
 
